@@ -9,14 +9,86 @@
 /* Begin PBXBuildFile section */
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
-		828545872CCCFE520074EBF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545862CCCFE520074EBF9 /* ViewController.swift */; };
-		8285458A2CCCFE520074EBF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828545882CCCFE520074EBF9 /* Main.storyboard */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
 		8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8285458E2CCCFE550074EBF9 /* Assets.xcassets */; };
 		828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */; };
 		8285459D2CCCFE550074EBF9 /* ShootingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285459C2CCCFE550074EBF9 /* ShootingAppTests.swift */; };
 		828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545A62CCCFE550074EBF9 /* ShootingAppUITests.swift */; };
 		828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545A82CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift */; };
+		828545B82CCCFF3C0074EBF9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */; };
+		828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B92CCCFF4F0074EBF9 /* CoordinatorProtocol.swift */; };
+		828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B92CCCFF4F0074EBF9 /* CoordinatorProtocol.swift */; };
+		828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B92CCCFF4F0074EBF9 /* CoordinatorProtocol.swift */; };
+		828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */; };
+		828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */; };
+		828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C02CCD007B0074EBF9 /* HomeViewController.swift */; };
+		828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C02CCD007B0074EBF9 /* HomeViewController.swift */; };
+		828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C02CCD007B0074EBF9 /* HomeViewController.swift */; };
+		828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C42CCD00A10074EBF9 /* HomeViewModel.swift */; };
+		828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C42CCD00A10074EBF9 /* HomeViewModel.swift */; };
+		828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C42CCD00A10074EBF9 /* HomeViewModel.swift */; };
+		828545C92CCD00D60074EBF9 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545C82CCD00D60074EBF9 /* HomeViewModelTests.swift */; };
+		828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545CE2CCD0DA20074EBF9 /* MapViewController.swift */; };
+		828545D02CCD0DA20074EBF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545CE2CCD0DA20074EBF9 /* MapViewController.swift */; };
+		828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545CE2CCD0DA20074EBF9 /* MapViewController.swift */; };
+		828545D52CCD12750074EBF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545D42CCD12750074EBF9 /* Player.swift */; };
+		828545D62CCD12750074EBF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545D42CCD12750074EBF9 /* Player.swift */; };
+		828545D72CCD12750074EBF9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545D42CCD12750074EBF9 /* Player.swift */; };
+		828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DA2CCD12A10074EBF9 /* GameMessage.swift */; };
+		828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DA2CCD12A10074EBF9 /* GameMessage.swift */; };
+		828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DA2CCD12A10074EBF9 /* GameMessage.swift */; };
+		828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DE2CCD12CF0074EBF9 /* WebSocketService.swift */; };
+		828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DE2CCD12CF0074EBF9 /* WebSocketService.swift */; };
+		828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545DE2CCD12CF0074EBF9 /* WebSocketService.swift */; };
+		828545E52CCD13110074EBF9 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E42CCD13110074EBF9 /* GameManager.swift */; };
+		828545E62CCD13110074EBF9 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E42CCD13110074EBF9 /* GameManager.swift */; };
+		828545E72CCD13110074EBF9 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E42CCD13110074EBF9 /* GameManager.swift */; };
+		828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E92CCD14180074EBF9 /* CoreDataManager.swift */; };
+		828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E92CCD14180074EBF9 /* CoreDataManager.swift */; };
+		828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545E92CCD14180074EBF9 /* CoreDataManager.swift */; };
+		828545EE2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545ED2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift */; };
+		828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545ED2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift */; };
+		828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545ED2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift */; };
+		828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F12CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift */; };
+		828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F12CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift */; };
+		828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F12CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift */; };
+		828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F62CCD16920074EBF9 /* PlayerManager.swift */; };
+		828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F62CCD16920074EBF9 /* PlayerManager.swift */; };
+		828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545F62CCD16920074EBF9 /* PlayerManager.swift */; };
+		828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FA2CCD18680074EBF9 /* MapViewModel.swift */; };
+		828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FA2CCD18680074EBF9 /* MapViewModel.swift */; };
+		828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FA2CCD18680074EBF9 /* MapViewModel.swift */; };
+		828546002CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */; };
+		828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */; };
+		828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */; };
+		828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */; };
+		828546062CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */; };
+		828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */; };
+		828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */; };
+		8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */; };
+		8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */; };
+		8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */; };
+		8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */; };
+		8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */; };
+		828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546112CCE376B0074EBF9 /* Notification+Names.swift */; };
+		828546132CCE376B0074EBF9 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546112CCE376B0074EBF9 /* Notification+Names.swift */; };
+		828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546112CCE376B0074EBF9 /* Notification+Names.swift */; };
+		828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
+		828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
+		828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
+		828546182CCE3A640074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
+		8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546192CCE3E4E0074EBF9 /* StatusBarView.swift */; };
+		8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546192CCE3E4E0074EBF9 /* StatusBarView.swift */; };
+		8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546192CCE3E4E0074EBF9 /* StatusBarView.swift */; };
+		8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */; };
+		828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */; };
+		828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */; };
+		828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */; };
+		828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */; };
+		8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */; };
+		8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
+		8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
+		8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +112,6 @@
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		828545862CCCFE520074EBF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		828545892CCCFE520074EBF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8285458C2CCCFE520074EBF9 /* ShootingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShootingApp.xcdatamodel; sourceTree = "<group>"; };
 		8285458E2CCCFE550074EBF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		828545912CCCFE550074EBF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +121,30 @@
 		828545A22CCCFE550074EBF9 /* ShootingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShootingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545A62CCCFE550074EBF9 /* ShootingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootingAppUITests.swift; sourceTree = "<group>"; };
 		828545A82CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		828545B92CCCFF4F0074EBF9 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		828545C02CCD007B0074EBF9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		828545C42CCD00A10074EBF9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		828545C82CCD00D60074EBF9 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		828545CE2CCD0DA20074EBF9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		828545D42CCD12750074EBF9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		828545DA2CCD12A10074EBF9 /* GameMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMessage.swift; sourceTree = "<group>"; };
+		828545DE2CCD12CF0074EBF9 /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		828545E42CCD13110074EBF9 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		828545E92CCD14180074EBF9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		828545ED2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		828545F12CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		828545F62CCD16920074EBF9 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
+		828545FA2CCD18680074EBF9 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+LocationDelegate.swift"; sourceTree = "<group>"; };
+		828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+LocationDelegate.swift"; sourceTree = "<group>"; };
+		828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Bearing.swift"; sourceTree = "<group>"; };
+		8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+DegreesToRadians.swift"; sourceTree = "<group>"; };
+		828546112CCE376B0074EBF9 /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		828546192CCE3E4E0074EBF9 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
+		8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotation.swift; sourceTree = "<group>"; };
+		828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotationView.swift; sourceTree = "<group>"; };
+		8285462B2CCE4A440074EBF9 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +195,15 @@
 		828545812CCCFE520074EBF9 /* ShootingApp */ = {
 			isa = PBXGroup;
 			children = (
-				828545822CCCFE520074EBF9 /* AppDelegate.swift */,
-				828545842CCCFE520074EBF9 /* SceneDelegate.swift */,
-				828545862CCCFE520074EBF9 /* ViewController.swift */,
-				828545882CCCFE520074EBF9 /* Main.storyboard */,
-				8285458E2CCCFE550074EBF9 /* Assets.xcassets */,
-				828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */,
-				828545932CCCFE550074EBF9 /* Info.plist */,
 				8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */,
+				828545932CCCFE550074EBF9 /* Info.plist */,
+				828546102CCE35BB0074EBF9 /* Extensions */,
+				828545B52CCCFECC0074EBF9 /* Application */,
+				828545BF2CCD006B0074EBF9 /* Coordinators */,
+				828545CA2CCD00ED0074EBF9 /* Features */,
+				828545E22CCD12DA0074EBF9 /* Services */,
+				828545D82CCD12800074EBF9 /* Models */,
+				828545B62CCCFEE20074EBF9 /* Resources */,
 			);
 			path = ShootingApp;
 			sourceTree = "<group>";
@@ -117,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				8285459C2CCCFE550074EBF9 /* ShootingAppTests.swift */,
+				828545C82CCD00D60074EBF9 /* HomeViewModelTests.swift */,
 			);
 			path = ShootingAppTests;
 			sourceTree = "<group>";
@@ -128,6 +224,186 @@
 				828545A82CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift */,
 			);
 			path = ShootingAppUITests;
+			sourceTree = "<group>";
+		};
+		828545B52CCCFECC0074EBF9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				828545822CCCFE520074EBF9 /* AppDelegate.swift */,
+				828545842CCCFE520074EBF9 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		828545B62CCCFEE20074EBF9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8285458E2CCCFE550074EBF9 /* Assets.xcassets */,
+				828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		828545BF2CCD006B0074EBF9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */,
+				828545B92CCCFF4F0074EBF9 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		828545CA2CCD00ED0074EBF9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				828545CB2CCD00F70074EBF9 /* Home */,
+				828545D22CCD0DA80074EBF9 /* Map */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		828545CB2CCD00F70074EBF9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				828545CC2CCD00FF0074EBF9 /* ViewControllers */,
+				828545CD2CCD01080074EBF9 /* ViewModels */,
+				8285461D2CCE3E820074EBF9 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		828545CC2CCD00FF0074EBF9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				828545C02CCD007B0074EBF9 /* HomeViewController.swift */,
+				828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		828545CD2CCD01080074EBF9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				828545C42CCD00A10074EBF9 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		828545D22CCD0DA80074EBF9 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				828545D32CCD0DAE0074EBF9 /* ViewControllers */,
+				828545FE2CCD18720074EBF9 /* ViewModels */,
+				828546222CCE46AE0074EBF9 /* Views */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		828545D32CCD0DAE0074EBF9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				828545CE2CCD0DA20074EBF9 /* MapViewController.swift */,
+				828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		828545D82CCD12800074EBF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				828545D92CCD12870074EBF9 /* Domain */,
+				828545F52CCD156E0074EBF9 /* CoreData */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		828545D92CCD12870074EBF9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				828545D42CCD12750074EBF9 /* Player.swift */,
+				828545DA2CCD12A10074EBF9 /* GameMessage.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		828545E22CCD12DA0074EBF9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				828545E82CCD13280074EBF9 /* GameManager */,
+				828545E32CCD12E10074EBF9 /* WebSocket */,
+				828546032CCD1F3E0074EBF9 /* CoreData */,
+				8285462B2CCE4A440074EBF9 /* QueueManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		828545E32CCD12E10074EBF9 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				828545DE2CCD12CF0074EBF9 /* WebSocketService.swift */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		828545E82CCD13280074EBF9 /* GameManager */ = {
+			isa = PBXGroup;
+			children = (
+				828545E42CCD13110074EBF9 /* GameManager.swift */,
+				828545F62CCD16920074EBF9 /* PlayerManager.swift */,
+			);
+			path = GameManager;
+			sourceTree = "<group>";
+		};
+		828545F52CCD156E0074EBF9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				828545ED2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift */,
+				828545F12CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		828545FE2CCD18720074EBF9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				828545FA2CCD18680074EBF9 /* MapViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		828546032CCD1F3E0074EBF9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				828545E92CCD14180074EBF9 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		828546102CCE35BB0074EBF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
+				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
+				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8285461D2CCE3E820074EBF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		828546222CCE46AE0074EBF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */,
+				828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +512,6 @@
 			files = (
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
-				8285458A2CCCFE520074EBF9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +536,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828545B82CCCFF3C0074EBF9 /* AppCoordinator.swift in Sources */,
+				828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				828546002CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
+				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
+				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
-				828545872CCCFE520074EBF9 /* ViewController.swift in Sources */,
+				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */,
+				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
+				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
+				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
+				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
+				828545EE2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
+				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
+				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
+				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
+				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +569,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */,
+				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
+				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8285459D2CCCFE550074EBF9 /* ShootingAppTests.swift in Sources */,
+				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
+				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
+				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
+				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
+				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				828546132CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
+				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
+				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
+				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
+				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
+				828545C92CCD00D60074EBF9 /* HomeViewModelTests.swift in Sources */,
+				828546062CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
+				828545D02CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +603,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */,
+				828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
+				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
+				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
+				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				828545E72CCD13110074EBF9 /* GameManager.swift in Sources */,
+				828546182CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
+				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
+				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
+				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
+				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
+				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
+				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
+				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
+				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +649,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		828545882CCCFE520074EBF9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				828545892CCCFE520074EBF9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,9 +791,9 @@
 				INFOPLIST_FILE = ShootingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,9 +819,9 @@
 				INFOPLIST_FILE = ShootingApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

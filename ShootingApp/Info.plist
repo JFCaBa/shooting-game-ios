@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+            <key>NSExceptionDomains</key>
+            <dict>
+                <key>onedayvpn.com</key>
+                <dict>
+                    <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                    <true/>
+                    <key>NSIncludesSubdomains</key>
+                    <true/>
+                </dict>
+            </dict>
+        </dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.app.location.refresh</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -15,11 +34,52 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>processing</string>
+	</array>
+    <!-- Location Permissions -->
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>We need your location to provide accurate services</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>We need your location in background to provide continuous services</string>
+        <key>NSLocationAlwaysUsageDescription</key>
+        <string>We need your location in background to provide continuous services</string>
+
+        <!-- Camera Permissions -->
+        <key>NSCameraUsageDescription</key>
+        <string>We need access to your camera to take photos</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>We need access to your photo library to save photos</string>
+        <key>NSPhotoLibraryAddUsageDescription</key>
+        <string>We need permission to save photos to your library</string>
+
+        <!-- Motion & Fitness -->
+        <key>NSMotionUsageDescription</key>
+        <string>We need access to motion data to track your activity</string>
+        <key>NSHealthUpdateUsageDescription</key>
+        <string>We need permission to update your health data</string>
+        <key>NSHealthShareUsageDescription</key>
+        <string>We need permission to access your health data</string>
+
+        <!-- Bluetooth -->
+        <key>NSBluetoothAlwaysUsageDescription</key>
+        <string>We need bluetooth access to connect to nearby devices</string>
+        <key>NSBluetoothPeripheralUsageDescription</key>
+        <string>We need bluetooth access to connect to nearby devices</string>
+
+        <!-- Face ID -->
+        <key>NSFaceIDUsageDescription</key>
+        <string>We need Face ID for secure authentication</string>
+
+        <!-- Microphone -->
+        <key>NSMicrophoneUsageDescription</key>
+        <string>We need access to your microphone for voice recording</string>
 </dict>
 </plist>
