@@ -32,17 +32,6 @@ npm install
 npm start
 ```
 
-3. Install iOS dependencies
-```bash
-cd ShootingApp
-pod install
-```
-
-4. Open the workspace
-```bash
-open ShootingApp.xcworkspace
-```
-
 ## Architecture
 The app follows MVVM-C (Model-View-ViewModel-Coordinator) architecture pattern with the following components:
 - **Models**: Data structures and business logic
