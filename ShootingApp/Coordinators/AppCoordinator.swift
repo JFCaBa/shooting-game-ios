@@ -23,6 +23,19 @@ final class AppCoordinator: CoordinatorProtocol {
     private func showHome() {
         let viewModel = HomeViewModel()
         let viewController = HomeViewController(viewModel: viewModel)
+        viewController.coordinator = self
         navigationController.setViewControllers([viewController], animated: false)
+    }
+    
+    func showWallet() {
+        let walletVC = WalletViewController()
+        walletVC.modalPresentationStyle = .pageSheet
+        
+        if let sheet = walletVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        navigationController.present(walletVC, animated: true)
     }
 }

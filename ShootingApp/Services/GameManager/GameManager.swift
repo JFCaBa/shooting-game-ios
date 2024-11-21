@@ -23,10 +23,59 @@ final class GameManager {
         webSocketService.delegate = self
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
+        setupWalletObserver()
+    }
+    
+    deinit {
+         NotificationCenter.default.removeObserver(self)
+     }
+    
+    private func setupWalletObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updatePlayerId),
+            name: NSNotification.Name("MetaMaskDidConnect"),
+            object: nil
+        )
+    }
+    
+    @objc private func updatePlayerId() {
+        if let walletAddress = Web3Service.shared.account {
+            playerId = walletAddress
+            reconnectWithNewId()
+        }
+    }
+    
+    private func reconnectWithNewId() {
+        webSocketService.disconnect()
+        webSocketService.connect()
+        
+        if let playerId = playerId {
+            let player = Player(
+                id: playerId,
+                location: LocationData(
+                    latitude: locationManager.location?.coordinate.latitude ?? 0,
+                    longitude: locationManager.location?.coordinate.longitude ?? 0,
+                    altitude: locationManager.location?.altitude ?? 0,
+                    accuracy: locationManager.location?.horizontalAccuracy ?? 0
+                ),
+                heading: locationManager.heading?.trueHeading ?? 0,
+                timestamp: Date()
+            )
+            
+            let message = GameMessage(
+                type: .join,
+                playerId: playerId,
+                data: MessageData(player: player, shotId: nil, hitPlayerId: nil),
+                timestamp: Date()
+            )
+            
+            webSocketService.send(message: message)
+        }
     }
     
     func startGame() {
-        playerId = UUID().uuidString
+        playerId = Web3Service.shared.account ?? UUID().uuidString
         webSocketService.connect()
         playerManager.startHeartbeat()
     }

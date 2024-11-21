@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
+		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
+		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
+		8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263386D2CEFB322009C2CED /* WalletViewModel.swift */; };
+		8263386F2CEFB322009C2CED /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263386D2CEFB322009C2CED /* WalletViewModel.swift */; };
+		826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263386D2CEFB322009C2CED /* WalletViewModel.swift */; };
+		826338712CEFB32E009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
+		826338722CEFB32E009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
+		826338732CEFB331009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
+		826338742CEFB332009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
+		826338772CEFB355009C2CED /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338762CEFB355009C2CED /* WalletViewController.swift */; };
+		826338782CEFB355009C2CED /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338762CEFB355009C2CED /* WalletViewController.swift */; };
+		826338792CEFB355009C2CED /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338762CEFB355009C2CED /* WalletViewController.swift */; };
+		8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263387A2CEFB380009C2CED /* WalletViewModelTest.swift */; };
+		8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263387C2CEFB3A6009C2CED /* Web3ServiceTest.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -109,6 +124,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		826338672CEFB2DC009C2CED /* Web3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
+		826338692CEFB2F5009C2CED /* Web3Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Error.swift; sourceTree = "<group>"; };
+		8263386D2CEFB322009C2CED /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		826338762CEFB355009C2CED /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		8263387A2CEFB380009C2CED /* WalletViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTest.swift; sourceTree = "<group>"; };
+		8263387C2CEFB3A6009C2CED /* Web3ServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3ServiceTest.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +194,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		826338662CEFB2C9009C2CED /* Web3 */ = {
+			isa = PBXGroup;
+			children = (
+				826338672CEFB2DC009C2CED /* Web3Service.swift */,
+				826338692CEFB2F5009C2CED /* Web3Error.swift */,
+			);
+			path = Web3;
+			sourceTree = "<group>";
+		};
+		8263386B2CEFB30F009C2CED /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				826338752CEFB34A009C2CED /* ViewControllers */,
+				8263386C2CEFB316009C2CED /* ViewModels */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		8263386C2CEFB316009C2CED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8263386D2CEFB322009C2CED /* WalletViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		826338752CEFB34A009C2CED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				826338762CEFB355009C2CED /* WalletViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -197,8 +253,8 @@
 			children = (
 				8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */,
 				828545932CCCFE550074EBF9 /* Info.plist */,
-				828546102CCE35BB0074EBF9 /* Extensions */,
 				828545B52CCCFECC0074EBF9 /* Application */,
+				828546102CCE35BB0074EBF9 /* Extensions */,
 				828545BF2CCD006B0074EBF9 /* Coordinators */,
 				828545CA2CCD00ED0074EBF9 /* Features */,
 				828545E22CCD12DA0074EBF9 /* Services */,
@@ -213,6 +269,8 @@
 			children = (
 				8285459C2CCCFE550074EBF9 /* ShootingAppTests.swift */,
 				828545C82CCD00D60074EBF9 /* HomeViewModelTests.swift */,
+				8263387A2CEFB380009C2CED /* WalletViewModelTest.swift */,
+				8263387C2CEFB3A6009C2CED /* Web3ServiceTest.swift */,
 			);
 			path = ShootingAppTests;
 			sourceTree = "<group>";
@@ -256,6 +314,7 @@
 		828545CA2CCD00ED0074EBF9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8263386B2CEFB30F009C2CED /* Wallet */,
 				828545CB2CCD00F70074EBF9 /* Home */,
 				828545D22CCD0DA80074EBF9 /* Map */,
 			);
@@ -329,6 +388,7 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E82CCD13280074EBF9 /* GameManager */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
 				828546032CCD1F3E0074EBF9 /* CoreData */,
@@ -422,6 +482,9 @@
 			dependencies = (
 			);
 			name = ShootingApp;
+			packageProductDependencies = (
+				826338642CEFB159009C2CED /* metamask-ios-sdk */,
+			);
 			productName = ShootingApp;
 			productReference = 8285457F2CCCFE520074EBF9 /* ShootingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -494,6 +557,9 @@
 				Base,
 			);
 			mainGroup = 828545762CCCFE520074EBF9;
+			packageReferences = (
+				826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
+			);
 			productRefGroup = 828545802CCCFE520074EBF9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -539,7 +605,9 @@
 				828545B82CCCFF3C0074EBF9 /* AppCoordinator.swift in Sources */,
 				828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */,
 				828546002CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
+				8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */,
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
@@ -562,6 +630,8 @@
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
+				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
+				826338772CEFB355009C2CED /* WalletViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +641,7 @@
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */,
+				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
@@ -578,12 +649,17 @@
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
 				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
+				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
 				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				826338732CEFB331009C2CED /* Web3Error.swift in Sources */,
+				826338712CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				8263386F2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828546132CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				826338782CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
@@ -614,10 +690,14 @@
 				828546182CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
+				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
+				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
@@ -951,6 +1031,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		826338642CEFB159009C2CED /* metamask-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */;
+			productName = "metamask-ios-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */ = {
