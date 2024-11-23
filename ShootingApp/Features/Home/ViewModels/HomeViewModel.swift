@@ -9,13 +9,14 @@ import Foundation
 import CoreLocation
 
 final class HomeViewModel {
+    weak var coordinator: AppCoordinator?
+
     private let gameManager = GameManager.shared
     private let web3Service = Web3Service.shared
     private var locationManager: CLLocationManager?
     
     func start() {
         setupLocation()
-        let playerId = web3Service.account ?? UUID().uuidString
         gameManager.startGame()
     }
     

@@ -21,8 +21,6 @@ final class HomeViewController: UIViewController {
     private var currentLives = 10
     private var isReloading = false
     
-    weak var coordinator: AppCoordinator?
-
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
         layer.videoGravity = .resizeAspectFill
@@ -151,6 +149,7 @@ final class HomeViewController: UIViewController {
         setupCamera()
         setupUI()
         setupObservers()
+        setupWalletObserver()
         shootButton.isExclusiveTouch = true
         viewModel.start()
     }
@@ -273,7 +272,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func walletButtonTapped() {
-        coordinator?.showWallet()
+        viewModel.coordinator?.showWallet()
     }
     
     // MARK: - Player hit
@@ -465,3 +464,23 @@ final class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController {
+    private func updateWalletButtonState() {
+        let web3Service = Web3Service.shared
+        walletButton.backgroundColor = web3Service.isConnected ? .systemGreen : .systemBlue
+    }
+    
+    private func setupWalletObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleWalletConnection),
+            name: .walletConnectionChanged,
+            object: nil
+        )
+        updateWalletButtonState()
+    }
+    
+    @objc private func handleWalletConnection() {
+        updateWalletButtonState()
+    }
+}
