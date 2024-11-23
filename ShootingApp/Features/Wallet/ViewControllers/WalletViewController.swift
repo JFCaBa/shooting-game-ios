@@ -82,6 +82,15 @@ final class WalletViewController: UIViewController {
                 self?.updateAccountLabel(address: address)
             }
             .store(in: &cancellables)
+        
+        viewModel.$showMetaMaskNotInstalledError
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] show in
+                if show {
+                    self?.showMetaMaskNotInstalledAlert()
+                }
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - setupNotifications()
@@ -104,6 +113,22 @@ final class WalletViewController: UIViewController {
         if let address = address {
             accountLabel.text = "Connected to:\n\(address)"
         }
+    }
+    
+    private func showMetaMaskNotInstalledAlert() {
+        let alert = UIAlertController(
+            title: "MetaMask Not Installed",
+            message: "MetaMask is not required, but connecting your wallet you'll get your achivements rewards. Would you like to install it?",
+            preferredStyle: .actionSheet
+        )
+        
+        alert.addAction(UIAlertAction(title: "Install", style: .default) { [weak self] _ in
+            self?.viewModel.openAppStore()
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true)
     }
     
     // MARK: - Actions

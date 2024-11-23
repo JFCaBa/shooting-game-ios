@@ -10,6 +10,8 @@ import Foundation
 final class WalletViewModel {
     @Published private(set) var isConnected = false
     @Published private(set) var accountAddress: String?
+    @Published private(set) var showMetaMaskNotInstalledError = false
+    
     private let web3Service = Web3Service.shared
     
     init() {
@@ -29,6 +31,11 @@ final class WalletViewModel {
     }
     
     func connect() async {
+        guard web3Service.isMetaMaskInstalled() else {
+            showMetaMaskNotInstalledError = true
+            return
+        }
+        
         do {
             let account = try await web3Service.connect()
             isConnected = true
@@ -43,5 +50,9 @@ final class WalletViewModel {
         web3Service.disconnect()
         isConnected = false
         accountAddress = nil
+    }
+    
+    func openAppStore() {
+        web3Service.openAppStore()
     }
 }

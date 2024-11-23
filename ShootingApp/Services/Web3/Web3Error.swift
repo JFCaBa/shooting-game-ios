@@ -9,4 +9,5 @@ import Foundation
 
 enum Web3Error: Error {
     case connectionFailed
+    case metamaskNotInstalled
 }
