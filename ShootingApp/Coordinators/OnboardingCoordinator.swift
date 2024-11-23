@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class OnboardingCoordinator: CoordinatorProtocol {
+class OnboardingCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController
     var parentCoordinator: CoordinatorProtocol?
     var childCoordinators: [CoordinatorProtocol] = []
