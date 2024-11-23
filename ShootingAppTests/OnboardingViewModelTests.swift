@@ -16,7 +16,8 @@ final class OnboardingViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mockCoordinator = MockOnboardingCoordinator()
+        let navigationController = mockCoordinator.navigationController
+        mockCoordinator = MockOnboardingCoordinator(navigationController: navigationController)
         sut = OnboardingViewModel()
         sut.coordinator = mockCoordinator
         cancellables = []
