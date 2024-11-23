@@ -16,7 +16,29 @@ final class Web3ServiceTests: XCTestCase {
         sut = Web3Service.shared
     }
     
-    func testInitialState() {
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
+    }
+    
+    func testIsMetaMaskInstalled_ReturnsFalseForInvalidURL() {
+        let result = sut.isMetaMaskInstalled()
+        XCTAssertFalse(result)
+    }
+    
+    func testConnect_ThrowsErrorWhenMetaMaskNotInstalled() async {
+        do {
+            _ = try await sut.connect()
+            XCTFail("Should throw error when MetaMask is not installed")
+        } catch {
+            XCTAssertTrue(error is Web3Error)
+            XCTAssertEqual(error as? Web3Error, .metamaskNotInstalled)
+        }
+    }
+    
+    func testDisconnect_ClearsConnectedAccount() {
+        sut.disconnect()
+        XCTAssertNil(sut.account)
         XCTAssertFalse(sut.isConnected)
     }
 }
