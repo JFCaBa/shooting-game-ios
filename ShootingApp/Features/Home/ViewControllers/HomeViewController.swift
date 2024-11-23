@@ -9,8 +9,8 @@ import UIKit
 import AVFoundation
 
 final class HomeViewController: UIViewController {
-    // MARK: - Constants
-    
+    // MARK: - Properties
+
     private let viewModel: HomeViewModel
     private var captureSession: AVCaptureSession?
     private var initialCrosshairPosition: CGPoint = .zero
@@ -20,8 +20,6 @@ final class HomeViewController: UIViewController {
     private let maxLives = 10
     private var currentLives = 10
     private var isReloading = false
-    
-    // MARK: - Properties
     
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
@@ -62,6 +60,16 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var walletButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "creditcard"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(walletButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var reloadTimerLabel: UILabel = {
         let label = UILabel()
@@ -141,6 +149,7 @@ final class HomeViewController: UIViewController {
         setupCamera()
         setupUI()
         setupObservers()
+        setupWalletObserver()
         shootButton.isExclusiveTouch = true
         viewModel.start()
     }
@@ -178,6 +187,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(lifeBar)
         view.addSubview(reloadTimerLabel)
         view.addSubview(mapButton)
+        view.addSubview(walletButton)
         
         NSLayoutConstraint.activate([
             // Cross hair view
@@ -208,6 +218,11 @@ final class HomeViewController: UIViewController {
             mapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mapButton.widthAnchor.constraint(equalToConstant: 50),
             mapButton.heightAnchor.constraint(equalToConstant: 50),
+            // Wallet
+            walletButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
+            walletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            walletButton.widthAnchor.constraint(equalToConstant: 50),
+            walletButton.heightAnchor.constraint(equalToConstant: 50),
         ])
         
         reloadTimerLabel.isHidden = true
@@ -254,6 +269,10 @@ final class HomeViewController: UIViewController {
         }
         
         present(mapVC, animated: true)
+    }
+    
+    @objc private func walletButtonTapped() {
+        viewModel.coordinator?.showWallet()
     }
     
     // MARK: - Player hit
@@ -445,3 +464,23 @@ final class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController {
+    private func updateWalletButtonState() {
+        let web3Service = Web3Service.shared
+        walletButton.backgroundColor = web3Service.isConnected ? .systemGreen : .systemBlue
+    }
+    
+    private func setupWalletObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleWalletConnection),
+            name: .walletConnectionChanged,
+            object: nil
+        )
+        updateWalletButtonState()
+    }
+    
+    @objc private func handleWalletConnection() {
+        updateWalletButtonState()
+    }
+}

@@ -17,12 +17,29 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        showHome()
+        let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController)
+        onboardingCoordinator.parentCoordinator = self
+        addChildCoordinator(onboardingCoordinator)
+        onboardingCoordinator.start()
     }
     
-    private func showHome() {
-        let viewModel = HomeViewModel()
-        let viewController = HomeViewController(viewModel: viewModel)
-        navigationController.setViewControllers([viewController], animated: false)
+    func showHome() {
+        let homeViewModel = HomeViewModel()
+        homeViewModel.coordinator = self
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        navigationController.setViewControllers([homeViewController], animated: true)
+        print("Navigated to Home from AppCoordinator")
+    }
+    
+    func showWallet() {
+        let walletVC = WalletViewController()
+        walletVC.modalPresentationStyle = .pageSheet
+        
+        if let sheet = walletVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersGrabberVisible = true
+        }
+        
+        navigationController.present(walletVC, animated: true)
     }
 }
