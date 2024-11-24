@@ -9,9 +9,12 @@ import Foundation
 import CoreLocation
 
 final class GameManager: GameManagerProtocol {
+    // MARK: - Singleton
+    
     static let shared = GameManager()
     
     // MARK: - Exposed for testing
+    
     private(set) var currentLives = 10
     private(set) var isAlive = true
     private(set) var playerId: String?
@@ -23,8 +26,11 @@ final class GameManager: GameManagerProtocol {
     var locationManager: CLLocationManager
     
     // MARK: - Private properties
+    
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
+    
+    // MARK: - convenience init()
     
     convenience init() {
         self.init(
@@ -33,6 +39,8 @@ final class GameManager: GameManagerProtocol {
             locationManager: CLLocationManager()
         )
     }
+    
+    // MARK: - init()
     
     init(
         webSocketService: WebSocketService,
@@ -76,10 +84,6 @@ final class GameManager: GameManagerProtocol {
               let currentLocation = locationManager.location,
               currentLives > 0,
               isAlive else { return }
-        
-        guard message.playerId != playerId,
-              let currentLocation = locationManager.location,
-              currentLives > 0 else { return }
         
         let shooterLocation = CLLocation(
             latitude: message.data.player.location.latitude,
@@ -221,6 +225,9 @@ final class GameManager: GameManagerProtocol {
 // MARK: - WebSocketServiceDelegate
 
 extension GameManager: WebSocketServiceDelegate {
+    
+    // MARK: DidConnect
+    
     func webSocketDidConnect() {
         guard let playerId = playerId else { return }
         let message = GameMessage(
@@ -238,9 +245,13 @@ extension GameManager: WebSocketServiceDelegate {
         webSocketService.send(message: message)
     }
     
+    // MARK: - DidDisconnect
+    
     func webSocketDidDisconnect(error: Error?) {
         NotificationCenter.default.post(name: .connectionLost, object: error)
     }
+    
+    // MARK: - DidReceiveMessage
     
     func webSocketDidReceiveMessage(_ message: GameMessage) {
         switch message.type {
