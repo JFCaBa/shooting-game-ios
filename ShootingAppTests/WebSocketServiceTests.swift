@@ -44,7 +44,7 @@ final class WebSocketServiceTests: XCTestCase {
 class MockWebSocketDelegate: WebSocketServiceDelegate {
     var connectCallback: (() -> Void)?
     var disconnectCallback: ((Error?) -> Void)?
-    var messageCallback: ((ShootingApp.GameMessage) -> Void)?
+    var messageCallback: ((GameMessage) -> Void)?
     
     func webSocketDidConnect() {
         connectCallback?()
@@ -54,7 +54,7 @@ class MockWebSocketDelegate: WebSocketServiceDelegate {
         disconnectCallback?(error)
     }
     
-    func webSocketDidReceiveMessage(_ message: ShootingApp.GameMessage) {
+    func webSocketDidReceiveMessage(_ message: GameMessage) {
         messageCallback?(message)
     }
 }

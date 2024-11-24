@@ -21,7 +21,16 @@
 		820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611202CF33685003FB6BB /* GameManagerProtocol.swift */; };
 		820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611202CF33685003FB6BB /* GameManagerProtocol.swift */; };
 		820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */; };
-		820611282CF33D22003FB6BB /* WebSocketServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611272CF33D22003FB6BB /* WebSocketServiceTest.swift */; };
+		820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611272CF33D22003FB6BB /* WebSocketServiceTests.swift */; };
+		8206112A2CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */; };
+		8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */; };
+		8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */; };
+		8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */; };
+		820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */; };
+		820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */; };
+		820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */; };
+		820611342CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */; };
+		820611352CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */; };
 		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
 		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
 		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
@@ -157,7 +166,10 @@
 		8206111D2CF334A5003FB6BB /* GameManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagerTests.swift; sourceTree = "<group>"; };
 		820611202CF33685003FB6BB /* GameManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManagerProtocol.swift; sourceTree = "<group>"; };
 		820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServiceDelegate.swift; sourceTree = "<group>"; };
-		820611272CF33D22003FB6BB /* WebSocketServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServiceTest.swift; sourceTree = "<group>"; };
+		820611272CF33D22003FB6BB /* WebSocketServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketServiceTests.swift; sourceTree = "<group>"; };
+		820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingServiceTests.swift; sourceTree = "<group>"; };
+		8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+ErrorHandling.swift"; sourceTree = "<group>"; };
+		820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingService.swift; sourceTree = "<group>"; };
 		826338672CEFB2DC009C2CED /* Web3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
 		826338692CEFB2F5009C2CED /* Web3Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Error.swift; sourceTree = "<group>"; };
 		8263386D2CEFB322009C2CED /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
@@ -254,6 +266,14 @@
 				820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8206112F2CF37EE2003FB6BB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		826338662CEFB2C9009C2CED /* Web3 */ = {
@@ -368,7 +388,8 @@
 				8206110F2CF1F437003FB6BB /* OnboardingViewModelTests.swift */,
 				820611172CF1F493003FB6BB /* TestHelpers.swift */,
 				8206111D2CF334A5003FB6BB /* GameManagerTests.swift */,
-				820611272CF33D22003FB6BB /* WebSocketServiceTest.swift */,
+				820611272CF33D22003FB6BB /* WebSocketServiceTests.swift */,
+				820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */,
 			);
 			path = ShootingAppTests;
 			sourceTree = "<group>";
@@ -490,6 +511,7 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8206112F2CF37EE2003FB6BB /* Error */,
 				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E82CCD13280074EBF9 /* GameManager */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
@@ -539,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				828545E92CCD14180074EBF9 /* CoreDataManager.swift */,
+				8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -731,12 +754,14 @@
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
+				8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				828545EE2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
+				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
@@ -760,7 +785,7 @@
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
-				820611282CF33D22003FB6BB /* WebSocketServiceTest.swift in Sources */,
+				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
@@ -775,15 +800,19 @@
 				826338712CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8263386F2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828546132CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				820611342CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
+				8206112A2CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift in Sources */,
 				826338782CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
@@ -809,11 +838,13 @@
 				828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
+				820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8206110E2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
 				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				828545E72CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111C2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
+				820611352CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				828546182CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
@@ -825,6 +856,7 @@
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,

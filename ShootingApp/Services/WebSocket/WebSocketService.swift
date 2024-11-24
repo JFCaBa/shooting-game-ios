@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class WebSocketService {
+class WebSocketService {
     // MARK: - Constants
     
     private let serverURL = URL(string: "ws://onedayvpn.com:8182")!

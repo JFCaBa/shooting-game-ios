@@ -10,7 +10,7 @@ import UIKit
 
 final class CoreDataManager {
     static let shared = CoreDataManager()
-    public let persistentContainer: NSPersistentContainer
+    public var persistentContainer: NSPersistentContainer
 
     
     // Default initializer using AppDelegate's persistentContainer
