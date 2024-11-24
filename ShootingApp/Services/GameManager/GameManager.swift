@@ -85,23 +85,62 @@ final class GameManager: GameManagerProtocol {
               currentLives > 0,
               isAlive else { return }
         
-        let shooterLocation = CLLocation(
-            latitude: message.data.player.location.latitude,
-            longitude: message.data.player.location.longitude
-        )
+        let shooterLat = message.data.player.location.latitude
+        let shooterLon = message.data.player.location.longitude
+        let targetLat = currentLocation.coordinate.latitude
+        let targetLon = currentLocation.coordinate.longitude
         
-        let distance = currentLocation.distance(from: shooterLocation)
-        guard distance <= maxShootingDistance else { return }
+        // Calculate differences and real distance
+        let shooterLocation = CLLocation(latitude: shooterLat, longitude: shooterLon)
+        let latDiff = calculateDistance(from: shooterLat, shooterLon, to: targetLat, shooterLon)
+        let lonDiff = calculateDistance(from: shooterLat, shooterLon, to: shooterLat, targetLon)
+        let realDistance = currentLocation.distance(from: shooterLocation)
         
-        let bearing = shooterLocation.bearing(to: currentLocation)
-        let angleDifference = abs(bearing - message.data.player.heading)
+        // Calculate orientation and azimuth
+        let orientation = atan2(lonDiff, latDiff) * 180 / .pi
+        var azimuth: Double = 0
+        
+        // Calculate azimuth based on quadrant
+        if targetLat < shooterLat && targetLon < shooterLon {
+            azimuth = orientation
+        } else if targetLat > shooterLat && targetLon < shooterLon {
+            azimuth = 180 - orientation
+        } else if targetLat > shooterLat && targetLon > shooterLon {
+            azimuth = 180 + orientation
+        } else if targetLat < shooterLat && targetLon > shooterLon {
+            azimuth = 360 - orientation
+        }
+        
+        // Calculate angle difference accounting for 360° wrap
+        let shooterHeading = message.data.player.heading
+        let degreeDiff: Double
+        if shooterHeading < 90 && azimuth > 270 {
+            degreeDiff = (360 - azimuth) + shooterHeading
+        } else if shooterHeading > 270 && azimuth < 90 {
+            degreeDiff = (360 - shooterHeading) + azimuth
+        } else {
+            degreeDiff = abs(shooterHeading - azimuth)
+        }
+        
+        // Calculate shot deviation in meters
+        let alpha = degreeDiff * .pi / 180
+        let deviation = realDistance * tan(alpha)
+        
+        // Define precision based on accuracy
         let accuracy = message.data.player.location.accuracy
-        let allowedError = maximumAngleError * (accuracy / 100)
+        let precision = accuracy / 2
         
-        if angleDifference <= allowedError {
+        // Check if hit
+        if abs(deviation) <= precision {
             NotificationCenter.default.post(name: .playerWasHit, object: nil)
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
         }
+    }
+
+    private func calculateDistance(from lat1: Double, _ lon1: Double, to lat2: Double, _ lon2: Double) -> Double {
+        let location1 = CLLocation(latitude: lat1, longitude: lon1)
+        let location2 = CLLocation(latitude: lat2, longitude: lon2)
+        return location1.distance(from: location2)
     }
     
     // MARK: - sendHitConfirmation(shotId:, shooterId:)
