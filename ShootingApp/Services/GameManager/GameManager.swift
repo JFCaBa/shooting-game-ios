@@ -8,24 +8,48 @@
 import Foundation
 import CoreLocation
 
-final class GameManager {
+final class GameManager: GameManagerProtocol {
     static let shared = GameManager()
-    private let webSocketService = WebSocketService()
-    private let playerManager = PlayerManagerService.shared
-    private let locationManager = CLLocationManager()
-    private var playerId: String?
-    private let maxShootingDistance: CLLocationDistance = 500
-    private let maximumAngleError: Double = 30
-    private var currentLives = 10
-    private var isAlive = true
+    
+    // MARK: - Exposed for testing
+    private(set) var currentLives = 10
+    private(set) var isAlive = true
+    private(set) var playerId: String?
     public var gameScore = GameScore(hits: 0, kills: 0)
     
-    private init() {
+    // Dependencies that can be injected
+    var webSocketService: WebSocketService
+    var playerManager: PlayerManagerService
+    var locationManager: CLLocationManager
+    
+    // MARK: - Private properties
+    private let maxShootingDistance: CLLocationDistance = 500
+    private let maximumAngleError: Double = 30
+    
+    convenience init() {
+        self.init(
+            webSocketService: WebSocketService(),
+            playerManager: PlayerManagerService.shared,
+            locationManager: CLLocationManager()
+        )
+    }
+    
+    init(
+        webSocketService: WebSocketService,
+        playerManager: PlayerManagerService,
+        locationManager: CLLocationManager
+    ) {
+        self.webSocketService = webSocketService
+        self.playerManager = playerManager
+        self.locationManager = locationManager
+        
         webSocketService.delegate = self
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
         setupWalletObserver()
     }
+    
+    // MARK: - setupWalletObserver()
     
     private func setupWalletObserver() {
         NotificationCenter.default.addObserver(
@@ -36,12 +60,16 @@ final class GameManager {
         )
     }
     
+    // MARK: - updatePlayerId()
+    
     @objc private func updatePlayerId() {
         if let walletAddress = Web3Service.shared.account {
             playerId = walletAddress
             reconnectWithNewId()
         }
     }
+    
+    // MARK: - handleShot(_:)
     
     func handleShot(_ message: GameMessage) {
         guard message.playerId != playerId,
@@ -71,6 +99,8 @@ final class GameManager {
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
         }
     }
+    
+    // MARK: - sendHitConfirmation(shotId:, shooterId:)
     
     private func sendHitConfirmation(shotId: String, shooterId: String) {
         guard let playerId = playerId else { return }
@@ -102,7 +132,10 @@ final class GameManager {
         }
     }
     
-    private func respawnPlayer() {
+    // MARK: - respawnPlayer()
+    
+    // Public to be tested
+    public func respawnPlayer() {
         isAlive = false
         DispatchQueue.main.asyncAfter(deadline: .now() + 60) { [weak self] in
             self?.currentLives = 10
@@ -110,6 +143,8 @@ final class GameManager {
             NotificationCenter.default.post(name: .playerRespawned, object: nil)
         }
     }
+    
+    // MARK: - createPlayerData()
     
     private func createPlayerData() -> Player {
         Player(
@@ -125,10 +160,14 @@ final class GameManager {
         )
     }
     
+    // MARK: - reconnectWithNewId()
+    
     private func reconnectWithNewId() {
         webSocketService.disconnect()
         webSocketService.connect()
     }
+    
+    // MARK: - startGame()
     
     func startGame() {
         playerId = Web3Service.shared.account ?? UUID().uuidString
@@ -138,6 +177,19 @@ final class GameManager {
         webSocketService.connect()
         playerManager.startHeartbeat()
     }
+    
+    // MARK: - endGame()
+    
+    func endGame() {
+        webSocketService.disconnect()
+        playerManager.stopHeartbeat()
+        playerId = nil
+        currentLives = 10
+        isAlive = true
+        gameScore = GameScore(hits: 0, kills: 0)
+    }
+    
+    // MARK: - shoot(location:, heading:)
     
     func shoot(location: LocationData, heading: Double) {
         guard let playerId = playerId, currentLives > 0 else { return }
@@ -164,16 +216,9 @@ final class GameManager {
         
         webSocketService.send(message: message)
     }
-    
-    func endGame() {
-        webSocketService.disconnect()
-        playerManager.stopHeartbeat()
-        playerId = nil
-        currentLives = 10
-        isAlive = true
-        gameScore = GameScore(hits: 0, kills: 0)
-    }
 }
+
+// MARK: - WebSocketServiceDelegate
 
 extension GameManager: WebSocketServiceDelegate {
     func webSocketDidConnect() {
@@ -240,3 +285,4 @@ extension GameManager: WebSocketServiceDelegate {
         }
     }
 }
+
