@@ -5,14 +5,21 @@
 //  Created by Jose on 26/10/2024.
 //
 
+import CoreLocation
 import Foundation
 import MapKit
-import CoreLocation
 
 final class MapViewModel {
+    // MARK: Constants
+    
     private let coreDataManager = CoreDataManager.shared
     private let queueManager = DispatchQueueManager.shared
+    
+    // MARK: - Properties
+    
     var playersUpdated: (([Player]) -> Void)?
+    
+    // MARK: - Initialisers
     
     init() {
         setupObservers()
@@ -21,6 +28,8 @@ final class MapViewModel {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    // MARK: - setupObservers()
     
     private func setupObservers() {
         NotificationCenter.default.addObserver(
@@ -31,9 +40,13 @@ final class MapViewModel {
         )
     }
     
+    // MARK: - handlePlayersUpdate()
+    
     @objc private func handlePlayersUpdate() {
         refreshPlayers()
     }
+    
+    // MARK: - refreshPlayers()
     
     func refreshPlayers() {
         queueManager.performCoreDataOperation { [weak self] in
@@ -43,6 +56,8 @@ final class MapViewModel {
             }
         }
     }
+    
+    // MARK: - createAnnotations(from:)
     
     func createAnnotations(from players: [Player]) -> [MKPointAnnotation] {
         return players.map { player -> MKPointAnnotation in

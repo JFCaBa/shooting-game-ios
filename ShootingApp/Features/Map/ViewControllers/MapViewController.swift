@@ -6,12 +6,16 @@
 //
 
 import CoreLocation
-import UIKit
 import MapKit
+import UIKit
 
 final class MapViewController: UIViewController {
+    // MARK: - Constants
+    
     private let viewModel: MapViewModel
     let locationManager = CLLocationManager()
+    
+    // MARK: - Properties
 
     lazy var mapView: MKMapView = {
         let map = MKMapView()
@@ -29,14 +33,19 @@ final class MapViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Initialisers
+    
     init(viewModel: MapViewModel = MapViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +60,8 @@ final class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         viewModel.refreshPlayers()
     }
+    
+    // MARK: - setupUI()
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
@@ -73,11 +84,15 @@ final class MapViewController: UIViewController {
         ])
     }
     
+    // MARK: - setupBindings()
+    
     private func setupBindings() {
         viewModel.playersUpdated = { [weak self] players in
             self?.updateMapAnnotations(with: players)
         }
     }
+    
+    // MARK: - setupLocation()
     
     private func setupLocation() {
         locationManager.delegate = self
@@ -93,6 +108,8 @@ final class MapViewController: UIViewController {
         }
     }
     
+    // MARK: - updateMapAnnotations(with:)
+    
     private func updateMapAnnotations(with players: [Player]) {
         let oldAnnotations = mapView.annotations.filter { !($0 is MKUserLocation) }
         mapView.removeAnnotations(oldAnnotations)
@@ -100,10 +117,14 @@ final class MapViewController: UIViewController {
         mapView.addAnnotations(annotations)
     }
     
+    // MARK: - addPanGesture()
+    
     private func addPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         view.addGestureRecognizer(panGesture)
     }
+    
+    // MARK: - handlePanGesture(_:)
     
     @objc private func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
@@ -128,6 +149,8 @@ final class MapViewController: UIViewController {
         }
     }
 }
+
+// MARK: - MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

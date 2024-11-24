@@ -39,6 +39,8 @@ final class StatusBarView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 12, weight: .bold)
         label.textColor = tintColor
+        label.textAlignment = .right
+        label.minimumScaleFactor = 0.5
         label.text = "\(Int(currentValue))/\(Int(maxValue))"
         return label
     }()
@@ -78,7 +80,7 @@ final class StatusBarView: UIView {
             
             label.trailingAnchor.constraint(equalTo: trailingAnchor),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.widthAnchor.constraint(equalToConstant: 50)
+            label.widthAnchor.constraint(equalToConstant: 38)
         ])
     }
     
