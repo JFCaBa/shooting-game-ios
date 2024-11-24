@@ -49,6 +49,12 @@ final class HomeViewController: UIViewController {
         return bar
     }()
     
+    private lazy var scoreView: ScoreView = {
+        let view = ScoreView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var mapButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -173,6 +179,20 @@ final class HomeViewController: UIViewController {
             name: .playerWasHit,
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleScoreUpdate),
+            name: .playerHitTarget,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleScoreUpdate),
+            name: .playerKilledTarget,
+            object: nil
+        )
     }
     
     // MARK: - SetupUI
@@ -185,6 +205,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(shootButton)
         view.addSubview(ammoBar)
         view.addSubview(lifeBar)
+        view.addSubview(scoreView)
         view.addSubview(reloadTimerLabel)
         view.addSubview(mapButton)
         view.addSubview(walletButton)
@@ -210,6 +231,11 @@ final class HomeViewController: UIViewController {
             lifeBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             lifeBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             lifeBar.heightAnchor.constraint(equalToConstant: 20),
+            // Score
+            scoreView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 8),
+            scoreView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            scoreView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            scoreView.heightAnchor.constraint(equalToConstant: 50),
             // Reload timer label
             reloadTimerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadTimerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -273,6 +299,13 @@ final class HomeViewController: UIViewController {
     
     @objc private func walletButtonTapped() {
         viewModel.coordinator?.showWallet()
+    }
+    
+    @objc private func handleScoreUpdate() {
+        DispatchQueue.main.async {
+            let gameScore = GameManager.shared.gameScore
+            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+        }
     }
     
     // MARK: - Player hit

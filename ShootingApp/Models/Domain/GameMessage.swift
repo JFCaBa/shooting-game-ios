@@ -12,6 +12,8 @@ struct GameMessage: Codable {
         case join
         case shoot
         case hit
+        case kill
+        case hitConfirmed
         case leave
     }
     
@@ -19,10 +21,17 @@ struct GameMessage: Codable {
     let playerId: String
     let data: MessageData
     let timestamp: Date
+    let targetPlayerId: String?
 }
 
 struct MessageData: Codable {
     let player: Player
     let shotId: String?
     let hitPlayerId: String?
+    let damage: Int?
+}
+
+struct GameScore: Codable {
+    var hits: Int
+    var kills: Int
 }
