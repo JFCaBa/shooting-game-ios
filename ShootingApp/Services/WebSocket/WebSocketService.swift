@@ -13,7 +13,7 @@ protocol WebSocketServiceDelegate: AnyObject {
     func webSocketDidReceiveMessage(_ message: GameMessage)
 }
 
-final class WebSocketService {
+class WebSocketService {
     private var webSocket: URLSessionWebSocketTask?
     private let serverURL = URL(string: "ws://onedayvpn.com:8182")!
     private var isConnected = false
