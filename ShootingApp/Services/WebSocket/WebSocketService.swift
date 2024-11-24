@@ -35,6 +35,7 @@ final class WebSocketService {
         webSocket?.resume()
         receiveMessage()
         startPingTimer()
+        isConnected = true
     }
     
     // MARK: - disconnect()
