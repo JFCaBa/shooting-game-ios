@@ -5,12 +5,16 @@
 //  Created by Jose on 21/11/2024.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 final class WalletViewController: UIViewController {
-    // MARK: - Properties
+    // MARK: - Constants
+    
     private let viewModel = WalletViewModel()
+    
+    // MARK: - Properties
+    
     private var cancellables = Set<AnyCancellable>()
     
     private lazy var accountLabel: UILabel = {
@@ -34,6 +38,12 @@ final class WalletViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Initialisers
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -41,10 +51,6 @@ final class WalletViewController: UIViewController {
         setupUI()
         setupBindings()
         setupNotifications()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - setupUI()
