@@ -1,6 +1,11 @@
 # ShootingApp
 An iOS augmented reality shooting game that uses location services and device orientation to create an interactive multiplayer experience with blockchain integration.
 
+# Screenshots
+![IMG_3263 Medium](https://github.com/user-attachments/assets/2d360c1d-b3fd-488b-94c4-5174c9d74fa1)
+![IMG_3265 Medium](https://github.com/user-attachments/assets/1e091050-9f04-4293-abd6-44c6d85c4190)
+![IMG_3267 Medium](https://github.com/user-attachments/assets/e89624fb-1ff9-4e3f-afd3-bd887998dc5d)
+
 ## Features
 - Real-time player tracking
 - Location-based shooting mechanics
