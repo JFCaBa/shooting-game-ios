@@ -16,4 +16,6 @@ extension Notification.Name {
     static let playerRespawned = Notification.Name("playerRespawned")
     static let connectionLost = Notification.Name("connectionLost")
     static let coreDataErrorOccurred = Notification.Name("CoreDataErrorOccurred")
+    static let achievementUnlocked = Notification.Name("achievementUnlocked")
+
 }
