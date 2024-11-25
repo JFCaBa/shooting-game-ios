@@ -31,6 +31,29 @@
 		820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */; };
 		820611342CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */; };
 		820611352CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611252CF339DB003FB6BB /* WebSocketServiceDelegate.swift */; };
+		820611422CF48217003FB6BB /* AchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611412CF48217003FB6BB /* AchievementType.swift */; };
+		820611432CF48217003FB6BB /* AchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611412CF48217003FB6BB /* AchievementType.swift */; };
+		820611442CF48217003FB6BB /* AchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611412CF48217003FB6BB /* AchievementType.swift */; };
+		820611462CF4824D003FB6BB /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611452CF4824D003FB6BB /* AchievementService.swift */; };
+		820611472CF4824D003FB6BB /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611452CF4824D003FB6BB /* AchievementService.swift */; };
+		820611482CF4824D003FB6BB /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611452CF4824D003FB6BB /* AchievementService.swift */; };
+		8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611492CF4826F003FB6BB /* AchievementServiceProtocol.swift */; };
+		8206114B2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611492CF4826F003FB6BB /* AchievementServiceProtocol.swift */; };
+		8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611492CF4826F003FB6BB /* AchievementServiceProtocol.swift */; };
+		820611502CF48299003FB6BB /* web3swift in Frameworks */ = {isa = PBXBuildFile; productRef = 8206114F2CF48299003FB6BB /* web3swift */; };
+		820611522CF482F0003FB6BB /* AchievementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611512CF482F0003FB6BB /* AchievementTests.swift */; };
+		820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611542CF4841C003FB6BB /* Web3ServiceProtocol.swift */; };
+		820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611542CF4841C003FB6BB /* Web3ServiceProtocol.swift */; };
+		820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611542CF4841C003FB6BB /* Web3ServiceProtocol.swift */; };
+		8206115C2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115B2CF48657003FB6BB /* AchievementsViewModel.swift */; };
+		8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115B2CF48657003FB6BB /* AchievementsViewModel.swift */; };
+		8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115B2CF48657003FB6BB /* AchievementsViewModel.swift */; };
+		820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115F2CF48673003FB6BB /* AchievementsViewController.swift */; };
+		820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115F2CF48673003FB6BB /* AchievementsViewController.swift */; };
+		820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8206115F2CF48673003FB6BB /* AchievementsViewController.swift */; };
+		820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611642CF4868F003FB6BB /* AchievementCell.swift */; };
+		820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611642CF4868F003FB6BB /* AchievementCell.swift */; };
+		820611672CF4868F003FB6BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611642CF4868F003FB6BB /* AchievementCell.swift */; };
 		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
 		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
 		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
@@ -170,6 +193,14 @@
 		820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingServiceTests.swift; sourceTree = "<group>"; };
 		8206112B2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+ErrorHandling.swift"; sourceTree = "<group>"; };
 		820611302CF37EEE003FB6BB /* ErrorHandlingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingService.swift; sourceTree = "<group>"; };
+		820611412CF48217003FB6BB /* AchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementType.swift; sourceTree = "<group>"; };
+		820611452CF4824D003FB6BB /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
+		820611492CF4826F003FB6BB /* AchievementServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementServiceProtocol.swift; sourceTree = "<group>"; };
+		820611512CF482F0003FB6BB /* AchievementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTests.swift; sourceTree = "<group>"; };
+		820611542CF4841C003FB6BB /* Web3ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3ServiceProtocol.swift; sourceTree = "<group>"; };
+		8206115B2CF48657003FB6BB /* AchievementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewModel.swift; sourceTree = "<group>"; };
+		8206115F2CF48673003FB6BB /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		820611642CF4868F003FB6BB /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		826338672CEFB2DC009C2CED /* Web3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
 		826338692CEFB2F5009C2CED /* Web3Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Error.swift; sourceTree = "<group>"; };
 		8263386D2CEFB322009C2CED /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
@@ -224,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */,
+				820611502CF48299003FB6BB /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +308,134 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		820611372CF4816F003FB6BB /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				820611412CF48217003FB6BB /* AchievementType.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		820611382CF48178003FB6BB /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				820611452CF4824D003FB6BB /* AchievementService.swift */,
+				8206114D2CF4827B003FB6BB /* Protocols */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		820611392CF48182003FB6BB /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				820611512CF482F0003FB6BB /* AchievementTests.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		8206113A2CF4819B003FB6BB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8206110F2CF1F437003FB6BB /* OnboardingViewModelTests.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8206113B2CF481A2003FB6BB /* Web3Service */ = {
+			isa = PBXGroup;
+			children = (
+				8263387C2CEFB3A6009C2CED /* Web3ServiceTest.swift */,
+				820611272CF33D22003FB6BB /* WebSocketServiceTests.swift */,
+			);
+			path = Web3Service;
+			sourceTree = "<group>";
+		};
+		8206113C2CF481AD003FB6BB /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				8263387A2CEFB380009C2CED /* WalletViewModelTest.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		8206113D2CF481B9003FB6BB /* GameManager */ = {
+			isa = PBXGroup;
+			children = (
+				8206111D2CF334A5003FB6BB /* GameManagerTests.swift */,
+			);
+			path = GameManager;
+			sourceTree = "<group>";
+		};
+		8206113E2CF481C4003FB6BB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		8206113F2CF481CD003FB6BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				820611172CF1F493003FB6BB /* TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8206114D2CF4827B003FB6BB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				820611492CF4826F003FB6BB /* AchievementServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		820611532CF48404003FB6BB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				820611542CF4841C003FB6BB /* Web3ServiceProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		820611582CF48630003FB6BB /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				820611592CF48637003FB6BB /* ViewControllers */,
+				8206115A2CF4863F003FB6BB /* ViewModels */,
+				820611632CF4867C003FB6BB /* Views */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
+		820611592CF48637003FB6BB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8206115F2CF48673003FB6BB /* AchievementsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8206115A2CF4863F003FB6BB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8206115B2CF48657003FB6BB /* AchievementsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		820611632CF4867C003FB6BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				820611642CF4868F003FB6BB /* AchievementCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		826338662CEFB2C9009C2CED /* Web3 */ = {
 			isa = PBXGroup;
 			children = (
+				820611532CF48404003FB6BB /* Protocols */,
 				826338672CEFB2DC009C2CED /* Web3Service.swift */,
 				826338692CEFB2F5009C2CED /* Web3Error.swift */,
 			);
@@ -382,14 +539,14 @@
 		8285459B2CCCFE550074EBF9 /* ShootingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				820611392CF48182003FB6BB /* Achievement */,
+				8206113E2CF481C4003FB6BB /* Error */,
+				8206113D2CF481B9003FB6BB /* GameManager */,
+				8206113F2CF481CD003FB6BB /* Helpers */,
 				828545C82CCD00D60074EBF9 /* HomeViewModelTests.swift */,
-				8263387A2CEFB380009C2CED /* WalletViewModelTest.swift */,
-				8263387C2CEFB3A6009C2CED /* Web3ServiceTest.swift */,
-				8206110F2CF1F437003FB6BB /* OnboardingViewModelTests.swift */,
-				820611172CF1F493003FB6BB /* TestHelpers.swift */,
-				8206111D2CF334A5003FB6BB /* GameManagerTests.swift */,
-				820611272CF33D22003FB6BB /* WebSocketServiceTests.swift */,
-				820611292CF37E4D003FB6BB /* ErrorHandlingServiceTests.swift */,
+				8206113A2CF4819B003FB6BB /* Onboarding */,
+				8206113C2CF481AD003FB6BB /* Wallet */,
+				8206113B2CF481A2003FB6BB /* Web3Service */,
 			);
 			path = ShootingAppTests;
 			sourceTree = "<group>";
@@ -435,10 +592,11 @@
 		828545CA2CCD00ED0074EBF9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				826338CE2CF0A6E1009C2CED /* Onboarding */,
-				8263386B2CEFB30F009C2CED /* Wallet */,
+				820611582CF48630003FB6BB /* Achievements */,
 				828545CB2CCD00F70074EBF9 /* Home */,
 				828545D22CCD0DA80074EBF9 /* Map */,
+				826338CE2CF0A6E1009C2CED /* Onboarding */,
+				8263386B2CEFB30F009C2CED /* Wallet */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -492,6 +650,7 @@
 		828545D82CCD12800074EBF9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				820611372CF4816F003FB6BB /* Achievement */,
 				826338C92CF0A531009C2CED /* Web3 */,
 				828545D92CCD12870074EBF9 /* Domain */,
 				828545F52CCD156E0074EBF9 /* CoreData */,
@@ -511,6 +670,7 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				820611382CF48178003FB6BB /* Achievement */,
 				8206112F2CF37EE2003FB6BB /* Error */,
 				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E82CCD13280074EBF9 /* GameManager */,
@@ -614,6 +774,7 @@
 			name = ShootingApp;
 			packageProductDependencies = (
 				826338642CEFB159009C2CED /* metamask-ios-sdk */,
+				8206114F2CF48299003FB6BB /* web3swift */,
 			);
 			productName = ShootingApp;
 			productReference = 8285457F2CCCFE520074EBF9 /* ShootingApp.app */;
@@ -689,6 +850,7 @@
 			mainGroup = 828545762CCCFE520074EBF9;
 			packageReferences = (
 				826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
+				8206114E2CF48299003FB6BB /* XCRemoteSwiftPackageReference "web3swift" */,
 			);
 			productRefGroup = 828545802CCCFE520074EBF9 /* Products */;
 			projectDirPath = "";
@@ -747,6 +909,7 @@
 				828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */,
@@ -754,7 +917,11 @@
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
+				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
+				820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */,
+				820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
@@ -764,8 +931,10 @@
 				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
+				8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
+				8206115C2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				826338CD2CF0A55F009C2CED /* URL+QueryParameters.swift in Sources */,
 				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				8206110C2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
@@ -781,10 +950,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				820611472CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
@@ -818,13 +989,19 @@
 				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				820611102CF1F437003FB6BB /* OnboardingViewModelTests.swift in Sources */,
+				820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				828545C92CCD00D60074EBF9 /* HomeViewModelTests.swift in Sources */,
 				828546062CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				820611522CF482F0003FB6BB /* AchievementTests.swift in Sources */,
 				8206110D2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				826338D22CF0A700009C2CED /* OnboardingViewController.swift in Sources */,
+				8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
+				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				828545D02CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
+				8206114B2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826338D62CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,6 +1025,7 @@
 				828546182CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
@@ -855,7 +1033,11 @@
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
+				820611672CF4868F003FB6BB /* AchievementCell.swift in Sources */,
+				820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				820611442CF48217003FB6BB /* AchievementType.swift in Sources */,
 				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
@@ -865,8 +1047,10 @@
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
+				8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
 				826338D32CF0A700009C2CED /* OnboardingViewController.swift in Sources */,
@@ -1033,6 +1217,19 @@
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need bluetooth access to connect to nearby devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need bluetooth access to connect to nearby devices";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need Face ID for secure authentication";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need permission to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need permission to update your health data";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location in background to provide continuous services";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location in background to provide continuous services";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate services";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone for voice recording";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We need access to motion data to track your activity";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need permission to save photos to your library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -1061,6 +1258,19 @@
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need bluetooth access to connect to nearby devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need bluetooth access to connect to nearby devices";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need Face ID for secure authentication";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We need permission to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "We need permission to update your health data";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location in background to provide continuous services";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location in background to provide continuous services";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide accurate services";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone for voice recording";
+				INFOPLIST_KEY_NSMotionUsageDescription = "We need access to motion data to track your activity";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "We need permission to save photos to your library";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to save photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
@@ -1197,6 +1407,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8206114E2CF48299003FB6BB /* XCRemoteSwiftPackageReference "web3swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/web3swift-team/web3swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.2;
+			};
+		};
 		826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
@@ -1208,6 +1426,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8206114F2CF48299003FB6BB /* web3swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8206114E2CF48299003FB6BB /* XCRemoteSwiftPackageReference "web3swift" */;
+			productName = web3swift;
+		};
 		826338642CEFB159009C2CED /* metamask-ios-sdk */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */;

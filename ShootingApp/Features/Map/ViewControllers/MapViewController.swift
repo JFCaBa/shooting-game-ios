@@ -15,7 +15,7 @@ final class MapViewController: UIViewController {
     private let viewModel: MapViewModel
     let locationManager = CLLocationManager()
     
-    // MARK: - Properties
+    // MARK: - UI Components
 
     lazy var mapView: MKMapView = {
         let map = MKMapView()

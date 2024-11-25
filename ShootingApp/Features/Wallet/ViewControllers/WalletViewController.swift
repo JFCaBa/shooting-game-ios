@@ -17,6 +17,8 @@ final class WalletViewController: UIViewController {
     
     private var cancellables = Set<AnyCancellable>()
     
+    // MARK: - UI Components
+    
     private lazy var accountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

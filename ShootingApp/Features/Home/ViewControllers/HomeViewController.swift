@@ -24,6 +24,8 @@ final class HomeViewController: UIViewController {
     private var currentLives = 10
     private var isReloading = false
     
+    // MARK: - UI Components
+    
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
         layer.videoGravity = .resizeAspectFill
@@ -63,6 +65,17 @@ final class HomeViewController: UIViewController {
         let view = ScoreView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    private lazy var achievementsButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "trophy"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(achievementsButtonTapped), for: .touchUpInside)
+        return button
     }()
     
     private lazy var mapButton: UIButton = {
@@ -237,6 +250,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(shootButton)
         view.addSubview(reloadTimerLabel)
         view.addSubview(mapButton)
+        view.addSubview(achievementsButton)
         view.addSubview(walletButton)
         
         topContainerView.addSubview(ammoBar)
@@ -244,47 +258,50 @@ final class HomeViewController: UIViewController {
         topContainerView.addSubview(scoreView)
         
         NSLayoutConstraint.activate([
+            // Top container
             topContainerView.topAnchor.constraint(equalTo: view.topAnchor),
             topContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topContainerView.heightAnchor.constraint(equalToConstant: 150),
-            
-            // Adjust ammoBar to be inside safe area and properly positioned
+            // Ammo bar
             ammoBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 44),
             ammoBar.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             ammoBar.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             ammoBar.heightAnchor.constraint(equalToConstant: 20),
-            
-            // Adjust lifeBar spacing
+            // Life bar
             lifeBar.topAnchor.constraint(equalTo: ammoBar.bottomAnchor, constant: 8),
             lifeBar.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             lifeBar.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             lifeBar.heightAnchor.constraint(equalToConstant: 20),
-            
-            // Adjust scoreView spacing
+            // Score view
             scoreView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 8),
             scoreView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             scoreView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             scoreView.heightAnchor.constraint(equalToConstant: 50),
-            
+            // Crosshair
             crosshairView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             crosshairView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             crosshairView.widthAnchor.constraint(equalToConstant: 50),
             crosshairView.heightAnchor.constraint(equalToConstant: 50),
-            
+            // Shoot
             shootButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shootButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             shootButton.widthAnchor.constraint(equalToConstant: 70),
             shootButton.heightAnchor.constraint(equalToConstant: 70),
-            
+            // Reload timer
             reloadTimerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadTimerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
+            // Map
             mapButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
             mapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mapButton.widthAnchor.constraint(equalToConstant: 50),
             mapButton.heightAnchor.constraint(equalToConstant: 50),
-            
+            // Achievements
+            achievementsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
+            achievementsButton.bottomAnchor.constraint(equalTo: mapButton.topAnchor, constant: -16),
+            achievementsButton.widthAnchor.constraint(equalToConstant: 50),
+            achievementsButton.heightAnchor.constraint(equalToConstant: 50),
+            // Wallet
             walletButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
             walletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             walletButton.widthAnchor.constraint(equalToConstant: 50),
@@ -338,6 +355,10 @@ final class HomeViewController: UIViewController {
     
     @objc private func walletButtonTapped() {
         viewModel.coordinator?.showWallet()
+    }
+    
+    @objc private func achievementsButtonTapped() {
+        viewModel.coordinator?.showAchievements()
     }
     
     @objc private func handleScoreUpdate() {

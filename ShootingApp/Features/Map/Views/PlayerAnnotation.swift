@@ -8,9 +8,13 @@
 import MapKit
 
 final class PlayerAnnotation: MKPointAnnotation {
+    // MARK: - constants
+    
     let playerId: String
     let heading: Double
     let timestamp: Date
+    
+    // MARK: - init(playerId:, heading:, timestamp:)
     
     init(playerId: String, heading: Double, timestamp: Date) {
         self.playerId = playerId

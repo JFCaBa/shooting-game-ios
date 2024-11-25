@@ -9,6 +9,8 @@ import Combine
 import UIKit
 
 final class OnboardingViewController: UIViewController {
+    // MARK: - UI Components
+    
     private lazy var containerView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical

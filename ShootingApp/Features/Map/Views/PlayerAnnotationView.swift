@@ -8,13 +8,18 @@
 import MapKit
 
 final class PlayerAnnotationView: MKAnnotationView {
+    // MARK: - Constants
     static let reuseIdentifier = "PlayerAnnotationView"
+    
+    // MARK: - UI Components
     
     private lazy var directionImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "arrow.up.circle.fill"))
         imageView.tintColor = .systemRed
         return imageView
     }()
+    
+    // MARK: - Overrides
     
     override var annotation: MKAnnotation? {
         didSet {
@@ -28,9 +33,13 @@ final class PlayerAnnotationView: MKAnnotationView {
         setupUI()
     }
     
+    // MARK: - init?(coder:)
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - setupUI()
     
     private func setupUI() {
         frame = CGRect(x: 0, y: 0, width: 40, height: 40)
