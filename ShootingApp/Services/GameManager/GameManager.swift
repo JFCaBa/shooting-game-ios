@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import CoreVideo
 
 final class GameManager: GameManagerProtocol {
     // MARK: - Singleton
@@ -335,4 +336,3 @@ extension GameManager: WebSocketServiceDelegate {
         }
     }
 }
-
