@@ -20,7 +20,7 @@ final class HomeViewModel {
         gameManager.startGame()
     }
     
-    func shoot() {
+    func shoot(isValid: Bool = true) {
         guard let location = locationManager?.location else { return }
         
         let locationData = LocationData(

@@ -6,7 +6,10 @@
 //
 
 import AVFoundation
+import CoreML
 import UIKit
+import Vision
+import CoreLocation
 
 final class HomeViewController: UIViewController {
     // MARK: - Constants
@@ -15,15 +18,17 @@ final class HomeViewController: UIViewController {
     private let maxAmmo = 30
     private let maxLives = 10
     private let viewModel: HomeViewModel
-
+    
     // MARK: - Properties
-
+    
     private var captureSession: AVCaptureSession?
     private var initialCrosshairPosition: CGPoint = .zero
     private var currentAmmo = 30
     private var currentLives = 10
     private var isReloading = false
-    
+    private let hitValidator = HitValidationService()
+    private var currentPreviewBuffer: CVPixelBuffer?
+
     // MARK: - UI Components
     
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
@@ -318,11 +323,19 @@ final class HomeViewController: UIViewController {
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
               let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
-              let captureSession = captureSession
-        else { return }
+              let captureSession = captureSession else {
+            return
+        }
         
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
+        }
+        
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
+        
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
         }
         
         previewLayer.session = captureSession
@@ -332,14 +345,60 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
+    // MARK: - shootButtonTapped()
     
     @objc private func shootButtonTapped() {
-        guard !isReloading && currentAmmo > 0 else { return }
-        viewModel.shoot()
+        guard !isReloading && currentAmmo > 0,
+              let pixelBuffer = currentPreviewBuffer else { return }
+        
+        // Convert the tap location to normalized coordinates
+        let crosshairCenter = crosshairView.center
+        let layerPoint = previewLayer.convert(crosshairCenter, from: view.layer)
+        let normalizedLocation = previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
+        
+        Task {
+            do {
+                let validation = try await hitValidator.validateHit(
+                    pixelBuffer: pixelBuffer,
+                    tapLocation: normalizedLocation
+                )
+                                
+                await MainActor.run {
+                    viewModel.shoot(isValid: validation.isValid)
+                }
+                
+            } catch {
+                await MainActor.run {
+                    handleShootingError(error)
+                }
+            }
+        }
         performShootEffects()
         updateAmmo()
     }
+    
+    // MARK: - handleShootingError(_:)
+    
+    private func handleShootingError(_ error: Error) {
+        switch error {
+        case AntiCheatError.shotTooFast:
+            // TODO: show a cooldown indicator
+            break
+        case AntiCheatError.noPersonDetected:
+            // TODO: show "No target detected" message
+            break
+        case HitValidationError.invalidDistance:
+            // TODO: show "Target too far" message
+            break
+        case AntiCheatError.noObservations:
+            // TODO: show "No boservations" message
+            break
+        default:
+            break
+        }
+    }
+    
+    // MARK: - mapButtonTapped()
     
     @objc private func mapButtonTapped() {
         let mapVC = MapViewController()
@@ -353,13 +412,19 @@ final class HomeViewController: UIViewController {
         present(mapVC, animated: true)
     }
     
+    // MARK: - walletButtonTapped()
+    
     @objc private func walletButtonTapped() {
         viewModel.coordinator?.showWallet()
     }
     
+    // MARK: - achievementsButtonTapped()
+    
     @objc private func achievementsButtonTapped() {
         viewModel.coordinator?.showAchievements()
     }
+    
+    // MARK: - handleScoreUpdate()
     
     @objc private func handleScoreUpdate() {
         DispatchQueue.main.async {
@@ -576,5 +641,14 @@ extension HomeViewController {
     
     @objc private func handleWalletConnection() {
         updateWalletButtonState()
+    }
+}
+
+// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+
+extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        currentPreviewBuffer = pixelBuffer
     }
 }
