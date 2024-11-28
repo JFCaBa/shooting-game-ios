@@ -652,3 +652,5 @@ extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
         currentPreviewBuffer = pixelBuffer
     }
 }
+
+
