@@ -17,6 +17,8 @@ class AntiCheatSystem {
     private var lastValidatedTimestamp: Date = .distantPast
     private let minimumTimeBetweenShots: TimeInterval = 1.0
     
+    weak var debugDelegate: AntiCheatDebugDelegate?
+    
     private init() {
         setupVisionRequest()
     }
@@ -46,7 +48,6 @@ class AntiCheatSystem {
             throw AntiCheatError.noObservations
         }
         
-        // Normalize tap location to Vision coordinates (0,0 is bottom left)
         let normalizedLocation = CGPoint(
             x: location.x,
             y: 1 - location.y
@@ -55,6 +56,9 @@ class AntiCheatSystem {
         for observation in observations {
             if observation.boundingBox.contains(normalizedLocation) {
                 lastValidatedTimestamp = Date()
+#if DEBUG
+                debugDelegate?.showDebugRect(observation.boundingBox)
+#endif
                 return ShotValidation(
                     isValid: true,
                     confidence: observation.confidence,

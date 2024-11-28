@@ -1,13 +1,14 @@
 //
-//  DebugView.swift
+//  VisionDebugView.swift
 //  ShootingApp
 //
 //  Created by Jose on 28/11/2024.
 //
 
 import UIKit
+import Vision
 
-final class DebugView: UIView {
+final class VisionDebugView: UIView {
     private let borderWidth: CGFloat = 2.0
     private let displayDuration: TimeInterval = 2.0
     private var hideTimer: Timer?
@@ -28,7 +29,8 @@ final class DebugView: UIView {
         isHidden = true
     }
     
-    func showFor(seconds: TimeInterval = 2.0) {
+    func showAt(rect: CGRect, seconds: TimeInterval = 2.0) {
+        frame = rect
         hideTimer?.invalidate()
         isHidden = false
         hideTimer = Timer.scheduledTimer(withTimeInterval: seconds, repeats: false) { [weak self] _ in

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol AntiCheatDebugDelegate: AnyObject {
+    func showDebugRect(_ rect: CGRect)
+}

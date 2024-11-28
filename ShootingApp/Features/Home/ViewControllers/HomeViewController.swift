@@ -19,6 +19,7 @@ final class HomeViewController: UIViewController {
     private let maxAmmo = 30
     private let maxLives = 10
     private let viewModel: HomeViewModel
+    private let hitValidator = HitValidationService()
     
     // MARK: - Properties
     
@@ -27,13 +28,15 @@ final class HomeViewController: UIViewController {
     private var currentAmmo = 30
     private var currentLives = 10
     private var isReloading = false
-    private let hitValidator = HitValidationService()
     private var currentPreviewBuffer: CVPixelBuffer?
     private var rewardedAd: GADRewardedAd?
+    
 
     // MARK: - UI Components
+    var visionDebugView: VisionDebugView!
+
     
-    private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
+    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
         layer.videoGravity = .resizeAspectFill
         return layer
@@ -117,7 +120,7 @@ final class HomeViewController: UIViewController {
         return label
     }()
     
-    private lazy var crosshairView: UIView = {
+    lazy var crosshairView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -192,6 +195,7 @@ final class HomeViewController: UIViewController {
         setupTopContainer()
         setupObservers()
         setupWalletObserver()
+        setupDebugViews()
         shootButton.isExclusiveTouch = true
         viewModel.start()
     }
@@ -366,7 +370,7 @@ final class HomeViewController: UIViewController {
                     pixelBuffer: pixelBuffer,
                     tapLocation: normalizedLocation
                 )
-                                
+                
                 await MainActor.run {
                     viewModel.shoot(isValid: validation.isValid)
                 }
@@ -685,7 +689,7 @@ extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 extension HomeViewController: GADFullScreenContentDelegate {
     func loadRewardedAd() async {
         let testAdUnit = "ca-app-pub-3940256099942544/1712485313"
-//        let realAdUnit = "ca-app-pub-7775310069169651/7326907431"
+        //        let realAdUnit = "ca-app-pub-7775310069169651/7326907431"
         do {
             rewardedAd = try await GADRewardedAd.load(
                 withAdUnitID: testAdUnit, request: GADRequest()
@@ -712,18 +716,18 @@ extension HomeViewController: GADFullScreenContentDelegate {
             finishReloading()
         }
     }
-
+    
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("Ad did fail to present full screen content.")
         adReward()
     }
-
+    
     /// Tells the delegate that the ad will present full screen content.
     func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad will present full screen content.")
     }
-
+    
     /// Tells the delegate that the ad dismissed full screen content.
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad did dismiss full screen content.")
