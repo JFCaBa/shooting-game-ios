@@ -6,10 +6,11 @@
 //
 
 import AVFoundation
+import CoreLocation
+import GoogleMobileAds
 import CoreML
 import UIKit
 import Vision
-import CoreLocation
 
 final class HomeViewController: UIViewController {
     // MARK: - Constants
@@ -28,6 +29,7 @@ final class HomeViewController: UIViewController {
     private var isReloading = false
     private let hitValidator = HitValidationService()
     private var currentPreviewBuffer: CVPixelBuffer?
+    private var rewardedAd: GADRewardedAd?
 
     // MARK: - UI Components
     
@@ -535,23 +537,7 @@ final class HomeViewController: UIViewController {
         guard !isReloading else { return }
         isReloading = true
         
-        var timeLeft = 60
-        reloadTimerLabel.isHidden = false
-        
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
-            }
-            
-            self.reloadTimerLabel.text = "\(timeLeft)"
-            
-            if timeLeft <= 0 {
-                timer.invalidate()
-                self.finishReloading()
-            }
-            timeLeft -= 1
-        }
+        askTimerOrAd()
     }
     
     // MARK: - finishReloading()
@@ -589,6 +575,12 @@ final class HomeViewController: UIViewController {
         guard !isReloading else { return }
         isReloading = true
         
+        askTimerOrAd()
+    }
+    
+    // MARK: - handleTimer()
+    
+    private func loadTimer() {
         var timeLeft = 60
         reloadTimerLabel.isHidden = false
         reloadTimerLabel.text = "\(timeLeft)"
@@ -607,6 +599,28 @@ final class HomeViewController: UIViewController {
             }
             timeLeft -= 1
         }
+    }
+    
+    // MARK: - askTimerOrAd()
+    
+    private func askTimerOrAd() {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let timer = UIAlertAction(title: "Timer", style: .default) { [weak self] _ in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                self.loadTimer()
+            }
+        }
+        let ad = UIAlertAction(title: "Ad", style: .default) { [weak self] _ in
+            guard let self else { return }
+            Task {
+                await self.loadRewardedAd()
+            }
+        }
+        
+        alert.addAction(timer)
+        alert.addAction(ad)
+        present(alert, animated: true)
     }
     
     // MARK: - finishRecovering()
@@ -653,4 +667,30 @@ extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
+// MARK: - Google Ads
 
+extension HomeViewController: GADFullScreenContentDelegate {
+    func loadRewardedAd() async {
+        do {
+            rewardedAd = try await GADRewardedAd.load(
+                withAdUnitID: "ca-app-pub-7775310069169651/7326907431", request: GADRequest())
+        } catch {
+            print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+        }
+    }
+
+    /// Tells the delegate that the ad failed to present full screen content.
+      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content.")
+      }
+
+      /// Tells the delegate that the ad will present full screen content.
+      func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad will present full screen content.")
+      }
+
+      /// Tells the delegate that the ad dismissed full screen content.
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+      }
+}
