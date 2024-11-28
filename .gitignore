@@ -60,3 +60,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+ShootingApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+ShootingApp.xcodeproj/xcuserdata/jose.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
