@@ -126,6 +126,15 @@
 		826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
 		826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
 		826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
+		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
+		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
+		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
+		826937F72CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */; };
+		826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */; };
+		826937F92CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */; };
+		826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */; };
+		826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */; };
+		826937FD2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -273,6 +282,9 @@
 		826338D02CF0A700009C2CED /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		826338D42CF0A71E009C2CED /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
+		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
+		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -580,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				8206119D2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift */,
+				826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -774,6 +787,7 @@
 			children = (
 				828545C02CCD007B0074EBF9 /* HomeViewController.swift */,
 				828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */,
+				826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -904,6 +918,7 @@
 			children = (
 				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
+				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1070,7 +1085,9 @@
 				820611992CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */,
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
+				826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
+				826937F72CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
@@ -1102,6 +1119,7 @@
 				8206117E2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
+				826937FD2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				828545EE2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				820611762CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
@@ -1149,6 +1167,7 @@
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111E2CF334A5003FB6BB /* GameManagerTests.swift in Sources */,
+				826937F92CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				820611732CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
@@ -1195,7 +1214,9 @@
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				8206117F2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
+				826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				820611AD2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
+				826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545D02CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				8206114B2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826338D62CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
@@ -1214,7 +1235,9 @@
 				8206119B2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8206110E2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
+				826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
+				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				828545E72CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111C2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
@@ -1246,6 +1269,7 @@
 				820611802CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,
+				826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
@@ -1422,7 +1446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
@@ -1463,7 +1487,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
