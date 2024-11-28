@@ -7,8 +7,8 @@
 
 import AVFoundation
 import CoreLocation
-import GoogleMobileAds
 import CoreML
+import GoogleMobileAds
 import UIKit
 import Vision
 
@@ -174,6 +174,7 @@ final class HomeViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -325,7 +326,8 @@ final class HomeViewController: UIViewController {
         
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
               let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
-              let captureSession = captureSession else {
+              let captureSession = captureSession
+        else {
             return
         }
         
@@ -537,7 +539,12 @@ final class HomeViewController: UIViewController {
         guard !isReloading else { return }
         isReloading = true
         
-        askTimerOrAd()
+        askTimerOrAd(title: "You run out of ammo!",
+                     message: "Do you prefer a timer or a rewarded ad?")
+        { [weak self] in
+            guard let self else { return }
+            finishReloading()
+        }
     }
     
     // MARK: - finishReloading()
@@ -575,52 +582,58 @@ final class HomeViewController: UIViewController {
         guard !isReloading else { return }
         isReloading = true
         
-        askTimerOrAd()
-    }
-    
-    // MARK: - handleTimer()
-    
-    private func loadTimer() {
-        var timeLeft = 60
-        reloadTimerLabel.isHidden = false
-        reloadTimerLabel.text = "\(timeLeft)"
-        
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
-            }
+        askTimerOrAd(title: "You have been Killed!",
+                     message: "Do you prefer a timer or a rewarded ad?")
+        { [weak self] in
+            guard let self else { return }
             
-            self.reloadTimerLabel.text = "\(timeLeft)"
-            
-            if timeLeft <= 0 {
-                timer.invalidate()
-                self.finishRecovering()
-            }
-            timeLeft -= 1
+            finishRecovering()
         }
     }
     
     // MARK: - askTimerOrAd()
     
-    private func askTimerOrAd() {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+    private func askTimerOrAd(title: String, message: String, completion: (()->())? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let timer = UIAlertAction(title: "Timer", style: .default) { [weak self] _ in
             guard let self else { return }
             DispatchQueue.main.async {
-                self.loadTimer()
+                self.loadTimer {
+                    completion?()
+                }
             }
         }
         let ad = UIAlertAction(title: "Ad", style: .default) { [weak self] _ in
             guard let self else { return }
             Task {
                 await self.loadRewardedAd()
+                completion?()
             }
         }
         
         alert.addAction(timer)
         alert.addAction(ad)
         present(alert, animated: true)
+    }
+    
+    // MARK: - loadTimer()
+    
+    private func loadTimer(completion: (()->())? = nil) {
+        var timeLeft = 60
+        reloadTimerLabel.isHidden = false
+        reloadTimerLabel.text = "\(timeLeft)"
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            
+            self.reloadTimerLabel.text = "\(timeLeft)"
+            
+            if timeLeft <= 0 {
+                timer.invalidate()
+                completion?()
+            }
+            timeLeft -= 1
+        }
     }
     
     // MARK: - finishRecovering()
@@ -671,26 +684,49 @@ extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 extension HomeViewController: GADFullScreenContentDelegate {
     func loadRewardedAd() async {
+        let testAdUnit = "ca-app-pub-3940256099942544/1712485313"
+//        let realAdUnit = "ca-app-pub-7775310069169651/7326907431"
         do {
             rewardedAd = try await GADRewardedAd.load(
-                withAdUnitID: "ca-app-pub-7775310069169651/7326907431", request: GADRequest())
+                withAdUnitID: testAdUnit, request: GADRequest()
+            )
+            rewardedAd?.present(fromRootViewController: self) { [weak self] in
+                guard let self else { return }
+                
+                // Reward user
+                let reward = rewardedAd?.adReward
+                print("User earned reward: \(reward?.amount ?? 0) \(reward?.type ?? "")")
+            }
+            
         } catch {
             print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+            loadTimer()
+        }
+    }
+    
+    func adReward() {
+        if currentLives == 0 {
+            finishRecovering()
+        }
+        if currentAmmo < maxAmmo {
+            finishReloading()
         }
     }
 
     /// Tells the delegate that the ad failed to present full screen content.
-      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("Ad did fail to present full screen content.")
-      }
+        adReward()
+    }
 
-      /// Tells the delegate that the ad will present full screen content.
-      func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad will present full screen content.")
-      }
+    }
 
-      /// Tells the delegate that the ad dismissed full screen content.
-      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad did dismiss full screen content.")
-      }
+        adReward()
+    }
 }
