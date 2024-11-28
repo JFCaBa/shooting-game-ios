@@ -95,6 +95,11 @@
 		820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611AB2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift */; };
 		820611AD2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611AB2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift */; };
 		820611AE2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820611AB2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift */; };
+		820611BA2CF872AB003FB6BB /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 820611B92CF872AB003FB6BB /* GoogleMobileAds */; };
+		820611BD2CF87779003FB6BB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 820611BC2CF87779003FB6BB /* FirebaseAnalytics */; };
+		820611BF2CF87779003FB6BB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 820611BE2CF87779003FB6BB /* FirebaseCore */; };
+		820611C12CF87779003FB6BB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C02CF87779003FB6BB /* FirebaseCrashlytics */; };
+		820611C32CF87779003FB6BB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C22CF87779003FB6BB /* FirebaseMessaging */; };
 		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
 		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
 		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
@@ -310,7 +315,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820611BA2CF872AB003FB6BB /* GoogleMobileAds in Frameworks */,
+				820611BF2CF87779003FB6BB /* FirebaseCore in Frameworks */,
+				820611C32CF87779003FB6BB /* FirebaseMessaging in Frameworks */,
 				826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */,
+				820611C12CF87779003FB6BB /* FirebaseCrashlytics in Frameworks */,
+				820611BD2CF87779003FB6BB /* FirebaseAnalytics in Frameworks */,
 				820611502CF48299003FB6BB /* web3swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -926,6 +936,11 @@
 			packageProductDependencies = (
 				826338642CEFB159009C2CED /* metamask-ios-sdk */,
 				8206114F2CF48299003FB6BB /* web3swift */,
+				820611B92CF872AB003FB6BB /* GoogleMobileAds */,
+				820611BC2CF87779003FB6BB /* FirebaseAnalytics */,
+				820611BE2CF87779003FB6BB /* FirebaseCore */,
+				820611C02CF87779003FB6BB /* FirebaseCrashlytics */,
+				820611C22CF87779003FB6BB /* FirebaseMessaging */,
 			);
 			productName = ShootingApp;
 			productReference = 8285457F2CCCFE520074EBF9 /* ShootingApp.app */;
@@ -1002,6 +1017,8 @@
 			packageReferences = (
 				826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
 				8206114E2CF48299003FB6BB /* XCRemoteSwiftPackageReference "web3swift" */,
+				820611B82CF872AB003FB6BB /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 828545802CCCFE520074EBF9 /* Products */;
 			projectDirPath = "";
@@ -1607,6 +1624,22 @@
 				minimumVersion = 3.2.2;
 			};
 		};
+		820611B82CF872AB003FB6BB /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.12.0;
+			};
+		};
+		820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
+			};
+		};
 		826338632CEFB159009C2CED /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
@@ -1622,6 +1655,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8206114E2CF48299003FB6BB /* XCRemoteSwiftPackageReference "web3swift" */;
 			productName = web3swift;
+		};
+		820611B92CF872AB003FB6BB /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820611B82CF872AB003FB6BB /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		820611BC2CF87779003FB6BB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		820611BE2CF87779003FB6BB /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		820611C02CF87779003FB6BB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		820611C22CF87779003FB6BB /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 820611BB2CF87778003FB6BB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		826338642CEFB159009C2CED /* metamask-ios-sdk */ = {
 			isa = XCSwiftPackageProductDependency;
