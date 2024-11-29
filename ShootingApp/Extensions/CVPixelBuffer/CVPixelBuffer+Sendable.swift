@@ -10,4 +10,4 @@
 
 import CoreML
 
-extension CVPixelBuffer: @unchecked Sendable { }
+extension CVPixelBuffer: @unchecked @retroactive Sendable { }

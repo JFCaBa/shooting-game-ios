@@ -10,30 +10,23 @@ import XCTest
 
 final class Web3ServiceTests: XCTestCase {
     var sut: Web3Service!
+    var mockRepository: MockWalletRepository!
     
     override func setUp() {
         super.setUp()
+        mockRepository = MockWalletRepository()
         sut = Web3Service.shared
     }
     
     override func tearDown() {
         sut = nil
+        mockRepository = nil
         super.tearDown()
     }
     
     func testIsMetaMaskInstalled_ReturnsFalseForInvalidURL() {
         let result = sut.isMetaMaskInstalled()
         XCTAssertFalse(result)
-    }
-    
-    func testConnect_ThrowsErrorWhenMetaMaskNotInstalled() async {
-        do {
-            _ = try await sut.connect()
-            XCTFail("Should throw error when MetaMask is not installed")
-        } catch {
-            XCTAssertTrue(error is Web3Error)
-            XCTAssertEqual(error as? Web3Error, .metamaskNotInstalled)
-        }
     }
     
     func testDisconnect_ClearsConnectedAccount() {

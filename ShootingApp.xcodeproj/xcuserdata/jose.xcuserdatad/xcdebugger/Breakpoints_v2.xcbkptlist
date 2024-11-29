@@ -47,36 +47,6 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
-            <Locations>
-               <Location
-                  uuid = "9DED1D97-ADF2-435B-951E-D73BC1CC4591 - 21aaaa1d1b875523"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShootingApp.GameManager.handleShot(ShootingApp.GameMessage) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/GameManager/GameManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141">
-               </Location>
-               <Location
-                  uuid = "9DED1D97-ADF2-435B-951E-D73BC1CC4591 - 21aaaa1d1b875523"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShootingApp.GameManager.handleShot(ShootingApp.GameMessage) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/GameManager/GameManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
