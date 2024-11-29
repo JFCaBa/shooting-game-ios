@@ -21,7 +21,7 @@ final class LocationPermissionViewModel: NSObject, OnboardingViewModelProtocol {
     }
     
     func requestPermission() {
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func skip() {
@@ -32,9 +32,11 @@ final class LocationPermissionViewModel: NSObject, OnboardingViewModelProtocol {
 extension LocationPermissionViewModel: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .authorizedAlways, .authorizedWhenInUse:
+        case .authorizedAlways:
             permissionGranted.send(true)
             coordinator?.showPermissionsPage(.notifications)
+        case .authorizedWhenInUse:
+            locationManager.requestAlwaysAuthorization()
         case .denied, .restricted:
             permissionGranted.send(false)
         case .notDetermined:
