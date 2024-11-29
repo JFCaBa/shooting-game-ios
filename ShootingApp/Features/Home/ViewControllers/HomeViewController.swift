@@ -30,7 +30,8 @@ final class HomeViewController: UIViewController {
     private var isReloading = false
     private var currentPreviewBuffer: CVPixelBuffer?
     private var rewardedAd: GADRewardedAd?
-    
+    private let previewZoom = CATransform3DMakeScale(1, 1, 1)
+    private var videoCaptureDevice: AVCaptureDevice?
     
     // MARK: - UI Components
     var visionDebugView: VisionDebugView!
@@ -152,6 +153,15 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var zoomSlider: ZoomSliderControlView = {
+        let control = ZoomSliderControlView()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.zoomChanged = { [weak self] zoom in
+            self?.updateZoom(scale: zoom)
+        }
+        return control
+    }()
+    
     private lazy var shootButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -259,6 +269,7 @@ final class HomeViewController: UIViewController {
         
         view.addSubview(topContainerView)
         view.addSubview(crosshairView)
+        view.addSubview(zoomSlider)
         view.addSubview(shootButton)
         view.addSubview(reloadTimerLabel)
         view.addSubview(mapButton)
@@ -295,6 +306,11 @@ final class HomeViewController: UIViewController {
             crosshairView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             crosshairView.widthAnchor.constraint(equalToConstant: 50),
             crosshairView.heightAnchor.constraint(equalToConstant: 50),
+            // Zoom
+            zoomSlider.centerXAnchor.constraint(equalTo: shootButton.centerXAnchor),
+            zoomSlider.bottomAnchor.constraint(equalTo: shootButton.topAnchor, constant: -10),
+            zoomSlider.heightAnchor.constraint(equalToConstant: 44),
+            zoomSlider.widthAnchor.constraint(equalToConstant: 140),
             // Shoot
             shootButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shootButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
@@ -335,6 +351,8 @@ final class HomeViewController: UIViewController {
             return
         }
         
+        self.videoCaptureDevice = videoCaptureDevice
+        
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
         }
@@ -350,6 +368,20 @@ final class HomeViewController: UIViewController {
         
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.captureSession?.startRunning()
+        }
+    }
+    
+    // MARK: - updateZoom()
+    
+    private func updateZoom(scale: CGFloat) {
+        guard let device = videoCaptureDevice else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            device.videoZoomFactor = scale
+            device.unlockForConfiguration()
+        } catch {
+            print("Error setting zoom: \(error)")
         }
     }
     
