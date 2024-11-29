@@ -28,33 +28,55 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "69B8C3FA-3FE5-4A51-A5F4-2AA51D5591C0"
+            uuid = "9DED1D97-ADF2-435B-951E-D73BC1CC4591"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShootingApp/Features/Home/ViewControllers/HomeViewController.swift"
+            continueAfterRunningActions = "Yes"
+            filePath = "ShootingApp/Services/GameManager/GameManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725"
-            landmarkName = "HomeViewController"
-            landmarkType = "21">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AF27E66A-FEFF-4657-BBCB-6B52ADB5656B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShootingApp/Features/Home/ViewControllers/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "725"
-            endingLineNumber = "725"
-            landmarkName = "HomeViewController"
-            landmarkType = "21">
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "handleShot(_:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
+                  <ActionContent
+                     consoleCommand = "p deviation">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "9DED1D97-ADF2-435B-951E-D73BC1CC4591 - 21aaaa1d1b875523"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.handleShot(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141">
+               </Location>
+               <Location
+                  uuid = "9DED1D97-ADF2-435B-951E-D73BC1CC4591 - 21aaaa1d1b875523"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.handleShot(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "141"
+                  endingLineNumber = "141">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

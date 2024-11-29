@@ -31,10 +31,10 @@ final class HomeViewController: UIViewController {
     private var currentPreviewBuffer: CVPixelBuffer?
     private var rewardedAd: GADRewardedAd?
     
-
+    
     // MARK: - UI Components
     var visionDebugView: VisionDebugView!
-
+    
     
     lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
@@ -356,8 +356,14 @@ final class HomeViewController: UIViewController {
     // MARK: - shootButtonTapped()
     
     @objc private func shootButtonTapped() {
-        guard !isReloading && currentAmmo > 0,
-              let pixelBuffer = currentPreviewBuffer else { return }
+        guard !isReloading && currentAmmo > 0 else { return }
+        
+#if targetEnvironment(simulator)
+        viewModel.shoot(isValid: false)
+        performShootEffects()
+        updateAmmo()
+#else
+        guard let pixelBuffer = currentPreviewBuffer else { return }
         
         // Convert the tap location to normalized coordinates
         let crosshairCenter = crosshairView.center
@@ -384,6 +390,8 @@ final class HomeViewController: UIViewController {
         }
         performShootEffects()
         updateAmmo()
+        
+#endif
     }
     
     // MARK: - handleShootingError(_:)
