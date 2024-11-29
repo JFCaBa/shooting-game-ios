@@ -182,6 +182,9 @@
 		826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938442CFA119400E03DAA /* MockWalletRepository.swift */; };
 		826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938442CFA119400E03DAA /* MockWalletRepository.swift */; };
 		826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938442CFA119400E03DAA /* MockWalletRepository.swift */; };
+		826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
+		8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
+		8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -348,6 +351,7 @@
 		8269383A2CFA112F00E03DAA /* WalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepository.swift; sourceTree = "<group>"; };
 		8269383F2CFA114500E03DAA /* WalletRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepositoryProtocol.swift; sourceTree = "<group>"; };
 		826938442CFA119400E03DAA /* MockWalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWalletRepository.swift; sourceTree = "<group>"; };
+		826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomSliderControlView.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -831,14 +835,14 @@
 			children = (
 				8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */,
 				828545932CCCFE550074EBF9 /* Info.plist */,
-				826938382CFA110600E03DAA /* Repositories */,
 				828545B52CCCFECC0074EBF9 /* Application */,
-				828546102CCE35BB0074EBF9 /* Extensions */,
 				828545BF2CCD006B0074EBF9 /* Coordinators */,
+				828546102CCE35BB0074EBF9 /* Extensions */,
 				828545CA2CCD00ED0074EBF9 /* Features */,
-				828545E22CCD12DA0074EBF9 /* Services */,
 				828545D82CCD12800074EBF9 /* Models */,
+				826938382CFA110600E03DAA /* Repositories */,
 				828545B62CCCFEE20074EBF9 /* Resources */,
+				828545E22CCD12DA0074EBF9 /* Services */,
 			);
 			path = ShootingApp;
 			sourceTree = "<group>";
@@ -1051,9 +1055,10 @@
 		8285461D2CCE3E820074EBF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
+				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
 				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
+				826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1223,6 +1228,7 @@
 				820611992CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */,
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
+				8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				826938152CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
@@ -1300,6 +1306,7 @@
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
+				8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */,
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
@@ -1421,6 +1428,7 @@
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
+				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				820611AE2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
