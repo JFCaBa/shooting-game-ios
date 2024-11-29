@@ -24,7 +24,7 @@ final class GameManager: GameManagerProtocol {
     // Dependencies that can be injected
     var webSocketService: WebSocketService
     var playerManager: PlayerManagerService
-    var locationManager: CLLocationManager
+    private let locationManager = LocationManager.shared
     
     // MARK: - Private properties
     
@@ -36,8 +36,7 @@ final class GameManager: GameManagerProtocol {
     convenience init() {
         self.init(
             webSocketService: WebSocketService(),
-            playerManager: PlayerManagerService.shared,
-            locationManager: CLLocationManager()
+            playerManager: PlayerManagerService.shared
         )
     }
     
@@ -45,17 +44,24 @@ final class GameManager: GameManagerProtocol {
     
     init(
         webSocketService: WebSocketService,
-        playerManager: PlayerManagerService,
-        locationManager: CLLocationManager
+        playerManager: PlayerManagerService
     ) {
         self.webSocketService = webSocketService
         self.playerManager = playerManager
-        self.locationManager = locationManager
         
         webSocketService.delegate = self
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        setupLocation()
         setupWalletObserver()
+    }
+    
+    deinit {
+        locationManager.stopLocationUpdates()
+    }
+    
+    // MARK: - setupLocationUpdates()
+    
+    private func setupLocation() {
+        locationManager.startLocationUpdates()
     }
     
     // MARK: - setupWalletObserver()
@@ -137,7 +143,7 @@ final class GameManager: GameManagerProtocol {
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
         }
     }
-
+    
     private func calculateDistance(from lat1: Double, _ lon1: Double, to lat2: Double, _ lon2: Double) -> Double {
         let location1 = CLLocation(latitude: lat1, longitude: lon1)
         let location2 = CLLocation(latitude: lat2, longitude: lon2)
