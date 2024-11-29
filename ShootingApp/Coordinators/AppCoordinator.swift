@@ -5,41 +5,43 @@
 //  Created by Jose on 26/10/2024.
 //
 
+// AppCoordinator.swift
 import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
-    // MARK: - Properties
-    
     var navigationController: UINavigationController
     var parentCoordinator: CoordinatorProtocol?
     var childCoordinators: [CoordinatorProtocol] = []
-    
-    // MARK: - init(navigationController:)
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    // MARK: - start()
-    
     func start() {
+        #if targetEnvironment(simulator)
+        showOnboarding()
+        #else
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hasSeenOnboarding) {
+            showOnboarding()
+        } else {
+            showHome()
+        }
+        #endif
+    }
+    
+    private func showOnboarding() {
         let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController)
         onboardingCoordinator.parentCoordinator = self
         addChildCoordinator(onboardingCoordinator)
         onboardingCoordinator.start()
     }
     
-    // MARK: - showHome()
-    
     func showHome() {
         let homeViewModel = HomeViewModel()
         homeViewModel.coordinator = self
         let homeViewController = HomeViewController(viewModel: homeViewModel)
         navigationController.setViewControllers([homeViewController], animated: true)
-        print("Navigated to Home from AppCoordinator")
     }
-    
-    // MARK: - showWallet()
     
     func showWallet() {
         let walletVC = WalletViewController()
@@ -52,8 +54,6 @@ final class AppCoordinator: CoordinatorProtocol {
         
         navigationController.present(walletVC, animated: true)
     }
-    
-    // MARK: - showAchievements()
     
     func showAchievements() {
         let viewModel = AchievementsViewModel()
