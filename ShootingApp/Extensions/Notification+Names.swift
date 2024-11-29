@@ -17,5 +17,6 @@ extension Notification.Name {
     static let connectionLost = Notification.Name("connectionLost")
     static let coreDataErrorOccurred = Notification.Name("CoreDataErrorOccurred")
     static let achievementUnlocked = Notification.Name("achievementUnlocked")
-
+    static let locationDidUpdate = Notification.Name("locationDidUpdate")
+    static let headingDidUpdate = Notification.Name("headingDidUpdate")
 }

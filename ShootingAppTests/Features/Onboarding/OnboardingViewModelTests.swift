@@ -10,52 +10,79 @@ import Combine
 @testable import ShootingApp
 
 final class OnboardingViewModelTests: XCTestCase {
-    var sut: OnboardingViewModel!
-    var mockCoordinator: MockOnboardingCoordinator!
-    var cancellables: Set<AnyCancellable>!
-    
-    override func setUp() {
-        super.setUp()
-        let navigationController = mockCoordinator.navigationController
-        mockCoordinator = MockOnboardingCoordinator(navigationController: navigationController)
-        sut = OnboardingViewModel()
-        sut.coordinator = mockCoordinator
-        cancellables = []
-    }
-    
-    override func tearDown() {
-        sut = nil
-        mockCoordinator = nil
-        cancellables = nil
-        super.tearDown()
-    }
-    
-    func testCheckMetaMaskAndProceed_ShowsErrorWhenNotInstalled() {
-        let expectation = expectation(description: "Shows MetaMask not installed error")
+    func testCameraPermissionRequestFlow() {
+        let sut = CameraPermissionViewModel()
+        var results: [Bool] = []
         
-        sut.$showMetaMaskNotInstalledError
-            .dropFirst()
-            .sink { value in
-                XCTAssertTrue(value)
+        let expectation = self.expectation(description: "Camera permission")
+        
+        sut.permissionGranted
+            .sink { granted in
+                results.append(granted)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-        
-        sut.checkMetaMaskAndProceed()
+            
+        sut.requestPermission()
         
         wait(for: [expectation], timeout: 1.0)
+        XCTAssertFalse(results.isEmpty)
     }
     
-    func testSkip_CallsFinishOnboarding() {
-        sut.skip()
-        XCTAssertTrue(mockCoordinator.finishOnboardingCalled)
+    func testLocationPermissionRequestFlow() {
+        let sut = LocationPermissionViewModel()
+        var results: [Bool] = []
+        
+        let expectation = self.expectation(description: "Location permission")
+        
+        sut.permissionGranted
+            .sink { granted in
+                results.append(granted)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+            
+        sut.requestPermission()
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertFalse(results.isEmpty)
     }
-}
-
-class MockOnboardingCoordinator: OnboardingCoordinator {
-    var finishOnboardingCalled = false
     
-    override func finishOnboarding() {
-        finishOnboardingCalled = true
+    func testNotificationsPermissionRequestFlow() {
+        let sut = NotificationsPermissionViewModel()
+        var results: [Bool] = []
+        
+        let expectation = self.expectation(description: "Notifications permission")
+        
+        sut.permissionGranted
+            .sink { granted in
+                results.append(granted)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+            
+        sut.requestPermission()
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertFalse(results.isEmpty)
+    }
+    
+    func testWalletConnectionRequestFlow() {
+        let sut = WalletConnectionViewModel()
+        var results: [Bool] = []
+        
+        let expectation = self.expectation(description: "Wallet connection")
+        
+        sut.permissionGranted
+            .sink { granted in
+                results.append(granted)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+            
+        sut.requestPermission()
+        
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertFalse(results.isEmpty)
     }
 }

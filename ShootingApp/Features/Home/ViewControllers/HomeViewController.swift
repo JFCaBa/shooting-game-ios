@@ -378,6 +378,7 @@ final class HomeViewController: UIViewController {
             } catch {
                 await MainActor.run {
                     handleShootingError(error)
+                    viewModel.shoot(isValid: false)
                 }
             }
         }
