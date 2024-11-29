@@ -198,7 +198,7 @@ final class GameManager: GameManagerProtocol {
     
     private func createPlayerData() -> Player {
         Player(
-            id: playerId ?? "",
+            id: playerId ?? uuid(),
             location: LocationData(
                 latitude: locationManager.location?.coordinate.latitude ?? 0,
                 longitude: locationManager.location?.coordinate.longitude ?? 0,
@@ -220,12 +220,30 @@ final class GameManager: GameManagerProtocol {
     // MARK: - startGame()
     
     func startGame() {
-        playerId = Web3Service.shared.account ?? UUID().uuidString
+        playerId = Web3Service.shared.account ?? uuid()
         currentLives = 10
         isAlive = true
         gameScore = GameScore(hits: 0, kills: 0)
         webSocketService.connect()
         playerManager.startHeartbeat()
+    }
+    
+    // MARK: - uuid()
+    
+    /// Retrieves a UUID from the keychain if available.
+    /// If no UUID is stored, generates a new one, saves it to the keychain, and returns it.
+    /// This ensures a consistent identifier is maintained across app launches.
+    ///
+    /// - Returns: A `String` representation of the UUID.
+    func uuid() -> String {
+        if let storedUUID = try? KeychainManager.shared.readUUID() {
+            return storedUUID
+        } else {
+            // Generate a new UUID
+            let newUUID = UUID().uuidString
+            try? KeychainManager.shared.saveUUID(newUUID)
+            return newUUID
+        }
     }
     
     // MARK: - endGame()

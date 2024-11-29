@@ -19,6 +19,19 @@ final class KeychainManager {
     
     private init() {}
     
+    func saveUUID(_ uuid: String) throws {
+        try save(uuid.data(using: .utf8)!, service: "ShootingApp", account: "userUUID")
+    }
+    
+    func readUUID() throws -> String? {
+        let data = try read(service: "ShootingApp", account: "userUUID")
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func deleteUUID() throws {
+        try delete(service: "ShootingApp", account: "userUUID")
+    }
+    
     func save(_ data: Data, service: String, account: String) throws {
         let query: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
