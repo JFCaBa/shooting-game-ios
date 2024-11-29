@@ -8,11 +8,11 @@
 import Foundation
 
 protocol Web3ServiceProtocol {
-    var account: String? { get }
     var isConnected: Bool { get }
+    var account: String? { get }
     func isMetaMaskInstalled() -> Bool
+    func openAppStore()
     func connect() async throws -> String
     func disconnect()
+    func handleDeeplink(_ url: URL)
 }
-
-extension Web3Service: Web3ServiceProtocol {}
