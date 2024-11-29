@@ -975,15 +975,15 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				820611382CF48178003FB6BB /* Achievement */,
+				820611692CF6A214003FB6BB /* Anticheat */,
+				828546032CCD1F3E0074EBF9 /* CoreData */,
+				8206112F2CF37EE2003FB6BB /* Error */,
+				828545E82CCD13280074EBF9 /* GameManager */,
 				826938332CFA106000E03DAA /* KeychainManager */,
 				8269382E2CFA018900E03DAA /* Location */,
-				820611692CF6A214003FB6BB /* Anticheat */,
-				820611382CF48178003FB6BB /* Achievement */,
-				8206112F2CF37EE2003FB6BB /* Error */,
 				826338662CEFB2C9009C2CED /* Web3 */,
-				828545E82CCD13280074EBF9 /* GameManager */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
-				828546032CCD1F3E0074EBF9 /* CoreData */,
 			);
 			path = Services;
 			sourceTree = "<group>";

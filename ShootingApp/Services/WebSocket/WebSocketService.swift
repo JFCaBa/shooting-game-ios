@@ -10,11 +10,11 @@ import Foundation
 class WebSocketService {
     // MARK: - Constants
     
-//    #if targetEnvironment(simulator)
-//    private let serverURL = URL(string: "ws://localhost:8182")!
-//    #else
+    #if targetEnvironment(simulator)
+    private let serverURL = URL(string: "ws://localhost:8182")!
+    #else
     private let serverURL = URL(string: "ws://onedayvpn.com:8182")!
-//    #endif
+    #endif
     private let reconnectDelay: TimeInterval = 3.0
     private let maxReconnectAttempts = 5
 
@@ -40,6 +40,7 @@ class WebSocketService {
         receiveMessage()
         startPingTimer()
         isConnected = true
+        delegate?.webSocketDidConnect()
     }
     
     // MARK: - disconnect()
