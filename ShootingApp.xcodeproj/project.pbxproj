@@ -185,6 +185,31 @@
 		826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
 		8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
 		8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */; };
+		826938512CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */; };
+		826938522CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */; };
+		826938532CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */; };
+		826938552CFAF20E00E03DAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938542CFAF20E00E03DAA /* NetworkError.swift */; };
+		826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938542CFAF20E00E03DAA /* NetworkError.swift */; };
+		826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938542CFAF20E00E03DAA /* NetworkError.swift */; };
+		826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938582CFAF21800E03DAA /* NetworkRequest.swift */; };
+		8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938582CFAF21800E03DAA /* NetworkRequest.swift */; };
+		8269385B2CFAF21800E03DAA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938582CFAF21800E03DAA /* NetworkRequest.swift */; };
+		8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269385C2CFAF21F00E03DAA /* NetworkClient.swift */; };
+		8269385E2CFAF21F00E03DAA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269385C2CFAF21F00E03DAA /* NetworkClient.swift */; };
+		8269385F2CFAF21F00E03DAA /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269385C2CFAF21F00E03DAA /* NetworkClient.swift */; };
+		826938622CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */; };
+		826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */; };
+		826938642CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */; };
+		826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */; };
+		826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */; };
+		826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */; };
+		8269386A2CFAF3D500E03DAA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938692CFAF3D500E03DAA /* TokenService.swift */; };
+		8269386B2CFAF3D500E03DAA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938692CFAF3D500E03DAA /* TokenService.swift */; };
+		8269386C2CFAF3D500E03DAA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938692CFAF3D500E03DAA /* TokenService.swift */; };
+		826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269386F2CFAF43C00E03DAA /* TokenResponse.swift */; };
+		826938712CFAF43C00E03DAA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269386F2CFAF43C00E03DAA /* TokenResponse.swift */; };
+		826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269386F2CFAF43C00E03DAA /* TokenResponse.swift */; };
+		826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938742CFAF49C00E03DAA /* TokenServiceTests.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -352,6 +377,15 @@
 		8269383F2CFA114500E03DAA /* WalletRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRepositoryProtocol.swift; sourceTree = "<group>"; };
 		826938442CFA119400E03DAA /* MockWalletRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWalletRepository.swift; sourceTree = "<group>"; };
 		826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomSliderControlView.swift; sourceTree = "<group>"; };
+		826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenBalanceRequest.swift; sourceTree = "<group>"; };
+		826938542CFAF20E00E03DAA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		826938582CFAF21800E03DAA /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8269385C2CFAF21F00E03DAA /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
+		826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceProtocol.swift; sourceTree = "<group>"; };
+		826938692CFAF3D500E03DAA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		8269386F2CFAF43C00E03DAA /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		826938742CFAF49C00E03DAA /* TokenServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceTests.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -810,6 +844,67 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8269384C2CFAF1CD00E03DAA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8269384D2CFAF1D600E03DAA /* Core */,
+				826938602CFAF27D00E03DAA /* Protocols */,
+				8269384E2CFAF1DC00E03DAA /* Requests */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8269384D2CFAF1D600E03DAA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8269385C2CFAF21F00E03DAA /* NetworkClient.swift */,
+				826938542CFAF20E00E03DAA /* NetworkError.swift */,
+				826938582CFAF21800E03DAA /* NetworkRequest.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8269384E2CFAF1DC00E03DAA /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		826938602CFAF27D00E03DAA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */,
+				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8269386D2CFAF3E500E03DAA /* TokenService */ = {
+			isa = PBXGroup;
+			children = (
+				826938692CFAF3D500E03DAA /* TokenService.swift */,
+			);
+			path = TokenService;
+			sourceTree = "<group>";
+		};
+		8269386E2CFAF42B00E03DAA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8269386F2CFAF43C00E03DAA /* TokenResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		826938732CFAF47B00E03DAA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				826938742CFAF49C00E03DAA /* TokenServiceTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -842,6 +937,7 @@
 				828545D82CCD12800074EBF9 /* Models */,
 				826938382CFA110600E03DAA /* Repositories */,
 				828545B62CCCFEE20074EBF9 /* Resources */,
+				8269384C2CFAF1CD00E03DAA /* Network */,
 				828545E22CCD12DA0074EBF9 /* Services */,
 			);
 			path = ShootingApp;
@@ -850,6 +946,7 @@
 		8285459B2CCCFE550074EBF9 /* ShootingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				826938732CFAF47B00E03DAA /* Network */,
 				8206113E2CF481C4003FB6BB /* Error */,
 				820611A12CF6A768003FB6BB /* Features */,
 				8206113F2CF481CD003FB6BB /* Helpers */,
@@ -960,9 +1057,10 @@
 			isa = PBXGroup;
 			children = (
 				820611372CF4816F003FB6BB /* Achievement */,
-				826338C92CF0A531009C2CED /* Web3 */,
-				828545D92CCD12870074EBF9 /* Domain */,
 				828545F52CCD156E0074EBF9 /* CoreData */,
+				828545D92CCD12870074EBF9 /* Domain */,
+				8269386E2CFAF42B00E03DAA /* Network */,
+				826338C92CF0A531009C2CED /* Web3 */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -988,6 +1086,7 @@
 				8269382E2CFA018900E03DAA /* Location */,
 				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
+				8269386D2CFAF3E500E03DAA /* TokenService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1228,12 +1327,15 @@
 				820611992CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */,
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
+				8269385F2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				826938152CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826937F72CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				8269386B2CFAF3D500E03DAA /* TokenService.swift in Sources */,
+				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
 				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -1252,6 +1354,7 @@
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
+				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				820611722CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
@@ -1260,11 +1363,13 @@
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				8206117A2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
 				8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
+				826938532CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				8269380C2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826938192CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826938032CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
+				826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
@@ -1283,10 +1388,12 @@
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
+				8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				826938232CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				826938002CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				8206115C2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
+				826938622CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				826338CD2CF0A55F009C2CED /* URL+QueryParameters.swift in Sources */,
 				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				820611822CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
@@ -1321,9 +1428,11 @@
 				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
+				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				8269383B2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
@@ -1340,7 +1449,9 @@
 				826938132CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826338732CEFB331009C2CED /* Web3Error.swift in Sources */,
 				820611772CF6A269003FB6BB /* LocationValidation.swift in Sources */,
+				826938552CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				826338712CEFB32E009C2CED /* Web3Service.swift in Sources */,
+				8269385B2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
@@ -1356,12 +1467,15 @@
 				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
+				826938522CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				826938012CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
+				8269386A2CFAF3D500E03DAA /* TokenService.swift in Sources */,
+				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206116F2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
@@ -1379,12 +1493,14 @@
 				826938102CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				820611872CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
+				826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				8206117F2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
+				826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */,
 				826938282CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
 				826938252CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				820611AD2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
@@ -1410,6 +1526,7 @@
 				820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8206110E2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826938142CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
+				826938512CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
 				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
@@ -1450,10 +1567,12 @@
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				820611802CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
+				826938642CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				826938072CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
+				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				8269382C2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
@@ -1467,12 +1586,15 @@
 				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				826938242CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				826937FF2CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
+				826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
+				826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
 				820611842CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				820611A02CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				8206118C2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
+				8269385E2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938272CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
 				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
@@ -1481,6 +1603,8 @@
 				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
 				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				820611882CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
+				8269386C2CFAF3D500E03DAA /* TokenService.swift in Sources */,
+				826938712CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1636,7 +1760,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
@@ -1677,7 +1801,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
