@@ -8,6 +8,8 @@
 import Foundation
 
 struct TokenBalanceRequest: NetworkRequest {
+    var body: Data?
+    
     let walletAddress: String
     
     var path: String {

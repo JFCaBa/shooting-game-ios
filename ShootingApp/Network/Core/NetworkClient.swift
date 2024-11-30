@@ -23,6 +23,11 @@ final class NetworkClient: NetworkClientProtocol {
         urlRequest.httpMethod = request.method
         request.headers.forEach { urlRequest.setValue($0.value, forHTTPHeaderField: $0.key) }
         
+        // Add the request body if it exists
+        if let body = request.body {
+            urlRequest.httpBody = body
+        }
+        
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             // Debug: Print the raw JSON

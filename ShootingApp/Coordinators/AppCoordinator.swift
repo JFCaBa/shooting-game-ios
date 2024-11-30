@@ -18,15 +18,11 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        #if targetEnvironment(simulator)
-        showOnboarding()
-        #else
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.hasSeenOnboarding) {
             showOnboarding()
         } else {
             showHome()
         }
-        #endif
     }
     
     private func showOnboarding() {
@@ -37,9 +33,7 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func showHome() {
-        let homeViewModel = HomeViewModel()
-        homeViewModel.coordinator = self
-        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let homeViewController = HomeViewController(coordinator: self)
         navigationController.setViewControllers([homeViewController], animated: true)
     }
     
