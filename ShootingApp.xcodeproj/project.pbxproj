@@ -210,6 +210,12 @@
 		826938712CFAF43C00E03DAA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269386F2CFAF43C00E03DAA /* TokenResponse.swift */; };
 		826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269386F2CFAF43C00E03DAA /* TokenResponse.swift */; };
 		826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938742CFAF49C00E03DAA /* TokenServiceTests.swift */; };
+		826938772CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */; };
+		826938782CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */; };
+		826938792CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */; };
+		8269387C2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
+		8269387D2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
+		8269387E2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -386,6 +392,8 @@
 		826938692CFAF3D500E03DAA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		8269386F2CFAF43C00E03DAA /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		826938742CFAF49C00E03DAA /* TokenServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceTests.swift; sourceTree = "<group>"; };
+		826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
+		8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootFeedbackView.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -905,6 +913,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		8269387A2CFB36B100E03DAA /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				826938292CF9CEAA00E03DAA /* UIViewController+Child.swift */,
+				826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -946,10 +963,10 @@
 		8285459B2CCCFE550074EBF9 /* ShootingAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				826938732CFAF47B00E03DAA /* Network */,
 				8206113E2CF481C4003FB6BB /* Error */,
 				820611A12CF6A768003FB6BB /* Features */,
 				8206113F2CF481CD003FB6BB /* Helpers */,
+				826938732CFAF47B00E03DAA /* Network */,
 				8206118D2CF6A332003FB6BB /* Services */,
 			);
 			path = ShootingAppTests;
@@ -1084,9 +1101,9 @@
 				828545E82CCD13280074EBF9 /* GameManager */,
 				826938332CFA106000E03DAA /* KeychainManager */,
 				8269382E2CFA018900E03DAA /* Location */,
+				8269386D2CFAF3E500E03DAA /* TokenService */,
 				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
-				8269386D2CFAF3E500E03DAA /* TokenService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1141,12 +1158,12 @@
 			isa = PBXGroup;
 			children = (
 				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
-				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
 				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
 				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
-				826938292CF9CEAA00E03DAA /* UIViewController+Child.swift */,
 				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
 				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
+				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
+				8269387A2CFB36B100E03DAA /* UIViewController */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1155,6 +1172,7 @@
 			isa = PBXGroup;
 			children = (
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
+				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
 				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
 				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
 				826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */,
@@ -1317,6 +1335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828545B82CCCFF3C0074EBF9 /* AppCoordinator.swift in Sources */,
+				8269387E2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				826938302CFA019200E03DAA /* LocationManager.swift in Sources */,
 				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
@@ -1404,6 +1423,7 @@
 				826338772CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				826338D52CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				820611862CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
+				826938772CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1422,6 +1442,7 @@
 				820611832CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				826938042CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				8269387D2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				8206119A2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				820611A42CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
 				820611472CF4824D003FB6BB /* AchievementService.swift in Sources */,
@@ -1446,6 +1467,7 @@
 				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				8206118B2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
+				826938792CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 				826938132CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826338732CEFB331009C2CED /* Web3Error.swift in Sources */,
 				820611772CF6A269003FB6BB /* LocationValidation.swift in Sources */,
@@ -1575,6 +1597,7 @@
 				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				8269382C2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
+				8269387C2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
@@ -1596,6 +1619,7 @@
 				8206118C2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				8269385E2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
+				826938782CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 				826938272CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
 				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				826938352CFA107600E03DAA /* KeychainManager.swift in Sources */,

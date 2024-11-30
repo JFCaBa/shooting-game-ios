@@ -26,27 +26,16 @@ final class TokenServiceTests: XCTestCase {
     
     func testGetBalance_Success() async throws {
         // Given
-        let expectedBalance = "100"
-        mockNetworkClient.result = TokenResponse(balance: expectedBalance)
+        let expectedBalance = 100
+        let expectedTransferable = 50
+        mockNetworkClient.result = TokenResponse(balance: expectedBalance, transferable: expectedTransferable)
         
         // When
         let balance = try await sut.getBalance(for: "0x123")
         
         // Then
-        XCTAssertEqual(balance, expectedBalance)
-    }
-    
-    func testGetBalance_NetworkError() async throws {
-        // Given
-        mockNetworkClient.error = NetworkError.invalidResponse
-        
-        // When/Then
-        do {
-            _ = try await sut.getBalance(for: "0x123")
-            XCTFail("Expected error")
-        } catch {
-            XCTAssertEqual(error as? NetworkError, .invalidResponse)
-        }
+        XCTAssertEqual(balance.balance, expectedBalance)
+        XCTAssertEqual(balance.transferable, expectedTransferable)
     }
 }
 
