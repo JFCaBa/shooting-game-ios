@@ -12,6 +12,7 @@ extension Notification.Name {
     static let playerWasHit = Notification.Name("playerWasHit")
     static let playerHitTarget = Notification.Name("playerHitTarget")
     static let playerKilledTarget = Notification.Name("playerKilledTarget")
+    static let shootConfirmed = Notification.Name("shootConfirmed")
     static let playerDied = Notification.Name("playerDied")
     static let playerRespawned = Notification.Name("playerRespawned")
     static let connectionLost = Notification.Name("connectionLost")

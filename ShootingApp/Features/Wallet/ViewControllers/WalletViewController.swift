@@ -115,25 +115,41 @@ final class WalletViewController: UIViewController {
     // MARK: - setupBindings()
     
     private func setupBindings() {
+        viewModel.$error
+            .receive(on: DispatchQueue.main)
+            .compactMap({$0})
+            .sink { [weak self] error in
+                guard let self else { return }
+                
+                showAlert(title: "Error", message: error.localizedDescription)
+            }
+            .store(in: &cancellables)
+        
         viewModel.$isConnected
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isConnected in
-                self?.updateButtonState(isConnected: isConnected)
+                guard let self else { return }
+                
+                updateButtonState(isConnected: isConnected)
             }
             .store(in: &cancellables)
         
         viewModel.$accountAddress
             .receive(on: DispatchQueue.main)
             .sink { [weak self] address in
-                self?.updateAccountLabel(address: address)
+                guard let self else { return }
+                
+                updateAccountLabel(address: address)
             }
             .store(in: &cancellables)
         
         viewModel.$showMetaMaskNotInstalledError
             .receive(on: DispatchQueue.main)
             .sink { [weak self] show in
+                guard let self else { return }
+                
                 if show {
-                    self?.showMetaMaskNotInstalledAlert()
+                    showMetaMaskNotInstalledAlert()
                 }
             }
             .store(in: &cancellables)

@@ -153,6 +153,12 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var shootFeedbackView: ShootFeedbackView = {
+        let view = ShootFeedbackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var zoomSlider: ZoomSliderControlView = {
         let control = ZoomSliderControlView()
         control.translatesAutoresizingMaskIntoConstraints = false
@@ -239,6 +245,12 @@ final class HomeViewController: UIViewController {
             name: .playerKilledTarget,
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleShootConfirmed),
+            name: .shootConfirmed,
+            object: nil)
     }
     
     // MARK: - SetupTopContainer
@@ -444,6 +456,27 @@ final class HomeViewController: UIViewController {
             break
         default:
             break
+        }
+    }
+    
+    // MARK: - handleShootConfirmed()
+    
+    @objc private func handleShootConfirmed(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let shootInfo = userInfo["shootInfo"] as? MessageData,
+              let deviation = shootInfo.deviation,
+              let distance = shootInfo.distance else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            view.addSubview(shootFeedbackView)
+            NSLayoutConstraint.activate([
+                shootFeedbackView.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
+                shootFeedbackView.topAnchor.constraint(equalTo: crosshairView.bottomAnchor, constant: 8)
+            ])
+            
+            shootFeedbackView.show(distance: distance, deviation: deviation)
         }
     }
     

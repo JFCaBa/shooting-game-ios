@@ -141,6 +141,8 @@ final class GameManager: GameManagerProtocol {
         if abs(deviation) <= precision {
             NotificationCenter.default.post(name: .playerWasHit, object: nil)
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
+        } else {
+            sendShootConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId, distance: realDistance, deviation: deviation)
         }
     }
     
@@ -163,7 +165,39 @@ final class GameManager: GameManagerProtocol {
             player: player,
             shotId: shotId,
             hitPlayerId: playerId,
-            damage: 10
+            damage: 1
+        )
+        
+        let message = GameMessage(
+            type: messageType,
+            playerId: playerId,
+            data: messageData,
+            timestamp: Date(),
+            targetPlayerId: shooterId
+        )
+        
+        webSocketService.send(message: message)
+        
+        if currentLives <= 0 {
+            NotificationCenter.default.post(name: .playerDied, object: nil)
+            respawnPlayer()
+        }
+    }
+    
+    // MARK: - sendShootConfirmation()
+    private func sendShootConfirmation(shotId: String, shooterId: String, distance: Double, deviation: Double) {
+        guard let playerId = playerId else { return }
+        
+        let player = createPlayerData()
+        let messageType: GameMessage.MessageType = .shootConfirmed
+        
+        let messageData = MessageData(
+            player: player,
+            shotId: shotId,
+            hitPlayerId: playerId,
+            damage: 0,
+            distance: distance,
+            deviation: deviation
         )
         
         let message = GameMessage(
@@ -325,6 +359,14 @@ extension GameManager: WebSocketServiceDelegate {
         case .shoot:
             handleShot(message)
             playerManager.updatePlayer(message.data.player)
+        
+        case .shootConfirmed:
+            NotificationCenter.default.post(
+                name: .shootConfirmed,
+                object: nil,
+                userInfo: ["shootInfo": message.data]
+            )
+            break
             
         case .hitConfirmed:
             if message.targetPlayerId == playerId {

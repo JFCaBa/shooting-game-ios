@@ -59,6 +59,7 @@ final class WalletViewModel: ObservableObject  {
         } catch {
             isConnected = false
             accountAddress = nil
+            self.error = error
         }
     }
     

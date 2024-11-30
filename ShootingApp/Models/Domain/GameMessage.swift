@@ -11,6 +11,7 @@ struct GameMessage: Codable {
     enum MessageType: String, Codable {
         case join
         case shoot
+        case shootConfirmed
         case hit
         case kill
         case hitConfirmed
@@ -29,6 +30,8 @@ struct MessageData: Codable {
     let shotId: String?
     let hitPlayerId: String?
     let damage: Int?
+    var distance: Double? = nil
+    var deviation: Double? = nil
 }
 
 struct GameScore: Codable {
