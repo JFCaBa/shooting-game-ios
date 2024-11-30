@@ -234,14 +234,14 @@ final class HomeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleScoreUpdate),
+            selector: #selector(handleHitConfirmation),
             name: .playerHitTarget,
             object: nil
         )
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleScoreUpdate),
+            selector: #selector(handleHitConfirmation),
             name: .playerKilledTarget,
             object: nil
         )
@@ -506,12 +506,27 @@ final class HomeViewController: UIViewController {
         viewModel.coordinator?.showAchievements()
     }
     
-    // MARK: - handleScoreUpdate()
+    // MARK: - handleHitConfirmation()
     
-    @objc private func handleScoreUpdate() {
-        DispatchQueue.main.async {
+    @objc private func handleHitConfirmation() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
             let gameScore = GameManager.shared.gameScore
             self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+            
+            let hitFeedback = HitFeedbackView()
+            hitFeedback.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(hitFeedback)
+            
+            NSLayoutConstraint.activate([
+                hitFeedback.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
+                hitFeedback.bottomAnchor.constraint(equalTo: crosshairView.topAnchor, constant: -10),
+                hitFeedback.widthAnchor.constraint(equalToConstant: 150),
+                hitFeedback.heightAnchor.constraint(equalToConstant: 50)
+            ])
+            
+            hitFeedback.showAnimation()
         }
     }
     
@@ -789,6 +804,8 @@ extension HomeViewController: GADFullScreenContentDelegate {
         if currentAmmo < maxAmmo {
             finishReloading()
         }
+        // TODO: Call API for token rewards
+        
     }
     
     /// Tells the delegate that the ad failed to present full screen content.

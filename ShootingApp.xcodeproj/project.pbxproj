@@ -216,6 +216,9 @@
 		8269387C2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
 		8269387D2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
 		8269387E2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */; };
+		826938802CFB462000E03DAA /* HitFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387F2CFB462000E03DAA /* HitFeedbackView.swift */; };
+		826938812CFB462000E03DAA /* HitFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387F2CFB462000E03DAA /* HitFeedbackView.swift */; };
+		826938822CFB462000E03DAA /* HitFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8269387F2CFB462000E03DAA /* HitFeedbackView.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -394,6 +397,7 @@
 		826938742CFAF49C00E03DAA /* TokenServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenServiceTests.swift; sourceTree = "<group>"; };
 		826938762CFB366600E03DAA /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
 		8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShootFeedbackView.swift; sourceTree = "<group>"; };
+		8269387F2CFB462000E03DAA /* HitFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitFeedbackView.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1171,6 +1175,7 @@
 		8285461D2CCE3E820074EBF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8269387F2CFB462000E03DAA /* HitFeedbackView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
 				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
 				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
@@ -1376,6 +1381,7 @@
 				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				820611722CF6A260003FB6BB /* HitValidation.swift in Sources */,
+				826938802CFB462000E03DAA /* HitFeedbackView.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
@@ -1455,6 +1461,7 @@
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
+				826938822CFB462000E03DAA /* HitFeedbackView.swift in Sources */,
 				8269383B2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111E2CF334A5003FB6BB /* GameManagerTests.swift in Sources */,
@@ -1563,6 +1570,7 @@
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
+				826938812CFB462000E03DAA /* HitFeedbackView.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
