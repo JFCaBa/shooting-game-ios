@@ -7,14 +7,43 @@
 
 import UIKit
 
-final class HitFeedbackView: UIView {
+struct FeedbackStyle {
+    let text: String
+    let color: UIColor
+    let font: UIFont
+    
+    static let hit = FeedbackStyle(
+        text: "+1 SHOT",
+        color: .systemRed,
+        font: .systemFont(ofSize: 48, weight: .heavy)
+    )
+    
+    static let kill = FeedbackStyle(
+        text: "+5 SHOT",
+        color: .systemRed,
+        font: .systemFont(ofSize: 48, weight: .heavy)
+    )
+    
+    static let reward = FeedbackStyle(
+        text: "+10 SHOT",
+        color: .systemRed,
+        font: .systemFont(ofSize: 48, weight: .heavy)
+    )
+    
+    static func custom(
+        text: String,
+        color: UIColor = .white,
+        font: UIFont = .systemFont(ofSize: 32, weight: .bold)
+    ) -> FeedbackStyle {
+        FeedbackStyle(text: text, color: color, font: font)
+    }
+}
+
+final class FeedbackView: UIView {
     private lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 48, weight: .heavy)
-        label.textColor = .systemRed
-        label.text = "HIT!"
         return label
     }()
     
@@ -36,7 +65,15 @@ final class HitFeedbackView: UIView {
         ])
     }
     
-    func showAnimation() {
+    func show(style: FeedbackStyle) {
+        label.text = style.text
+        label.textColor = style.color
+        label.font = style.font
+        
+        showAnimation()
+    }
+    
+    private func showAnimation() {
         alpha = 0
         transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         

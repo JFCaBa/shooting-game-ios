@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import Combine
 import CoreLocation
 import CoreML
 import GoogleMobileAds
@@ -16,22 +17,23 @@ final class HomeViewController: UIViewController {
     // MARK: - Constants
     
     private let crosshairRecoilDistance: CGFloat = 20
-    private let maxAmmo = 30
+    private let maxAmmo = 1
     private let maxLives = 10
-    private let viewModel: HomeViewModel
+    private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
     
     // MARK: - Properties
     
     private var captureSession: AVCaptureSession?
     private var initialCrosshairPosition: CGPoint = .zero
-    private var currentAmmo = 30
+    private var currentAmmo = 1
     private var currentLives = 10
     private var isReloading = false
     private var currentPreviewBuffer: CVPixelBuffer?
     private var rewardedAd: GADRewardedAd?
     private let previewZoom = CATransform3DMakeScale(1, 1, 1)
     private var videoCaptureDevice: AVCaptureDevice?
+    private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - UI Components
     var visionDebugView: VisionDebugView!
@@ -188,8 +190,8 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Initialisers
     
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+    init(coordinator: AppCoordinator) {
+        self.viewModel.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -213,13 +215,36 @@ final class HomeViewController: UIViewController {
         setupWalletObserver()
         setupDebugViews()
         shootButton.isExclusiveTouch = true
-        viewModel.start()
+        setupBindings()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         previewLayer.frame = view.bounds
         initialCrosshairPosition = crosshairView.center
+    }
+    
+    // MARK: - setupBindings()
+    private func setupBindings() {
+        viewModel.$error
+            .compactMap({$0})
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] error in
+                guard let self else { return }
+                
+                showAlert(title: "Error", message: error.localizedDescription)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$reward
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] reward in
+                guard let self else { return }
+                guard let amount = reward?.amount else { return }
+                
+                showFeedback(.reward)
+            }
+            .store(in: &cancellables)
     }
     
     // MARK: - setupObservers()
@@ -515,19 +540,38 @@ final class HomeViewController: UIViewController {
             let gameScore = GameManager.shared.gameScore
             self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
             
-            let hitFeedback = HitFeedbackView()
-            hitFeedback.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(hitFeedback)
-            
-            NSLayoutConstraint.activate([
-                hitFeedback.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
-                hitFeedback.bottomAnchor.constraint(equalTo: crosshairView.topAnchor, constant: -10),
-                hitFeedback.widthAnchor.constraint(equalToConstant: 150),
-                hitFeedback.heightAnchor.constraint(equalToConstant: 50)
-            ])
-            
-            hitFeedback.showAnimation()
+            showFeedback(.hit)
         }
+    }
+    
+    // MARK: - HandleKillConfirmation()
+    
+    @objc private func HandleKillConfirmation() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            let gameScore = GameManager.shared.gameScore
+            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+            
+            showFeedback(.kill)
+        }
+    }
+    
+    // MARK: - showFeedback(_:)
+    
+    private func showFeedback(_ style: FeedbackStyle) {
+        let hitFeedback = FeedbackView()
+        hitFeedback.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hitFeedback)
+        
+        NSLayoutConstraint.activate([
+            hitFeedback.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
+            hitFeedback.bottomAnchor.constraint(equalTo: crosshairView.topAnchor, constant: -10),
+            hitFeedback.widthAnchor.constraint(equalToConstant: 150),
+            hitFeedback.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        hitFeedback.show(style: style)
     }
     
     // MARK: - Player hit
@@ -783,6 +827,7 @@ extension HomeViewController: GADFullScreenContentDelegate {
             rewardedAd = try await GADRewardedAd.load(
                 withAdUnitID: testAdUnit, request: GADRequest()
             )
+            rewardedAd?.fullScreenContentDelegate = self
             rewardedAd?.present(fromRootViewController: self) { [weak self] in
                 guard let self else { return }
                 
@@ -797,26 +842,29 @@ extension HomeViewController: GADFullScreenContentDelegate {
         }
     }
     
-    func adReward() {
+    private func refreshAmmoAndLives() {
         if currentLives == 0 {
             finishRecovering()
         }
         if currentAmmo < maxAmmo {
             finishReloading()
         }
-        // TODO: Call API for token rewards
-        
+    }
+    
+    private func adReward() {
+        viewModel.adReward()
     }
     
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("Ad did fail to present full screen content.")
-        adReward()
+        refreshAmmoAndLives()
     }
     
     /// Tells the delegate that the ad will present full screen content.
     func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad will present full screen content.")
+        refreshAmmoAndLives()
     }
     
     /// Tells the delegate that the ad dismissed full screen content.

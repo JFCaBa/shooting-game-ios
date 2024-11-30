@@ -28,9 +28,9 @@ extension CoordinatorProtocol {
     }
     
     func showHome() {
-        let viewModel = HomeViewModel()
-        let viewController = HomeViewController(viewModel: viewModel)
-        navigationController.setViewControllers([viewController], animated: true)
+//        let viewModel = HomeViewModel()
+//        let viewController = HomeViewController(viewModel: viewModel)
+//        navigationController.setViewControllers([viewController], animated: true)
     }
     
     func showWallet() {
