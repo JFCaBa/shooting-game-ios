@@ -10,11 +10,13 @@ import Foundation
 class WebSocketService {
     // MARK: - Constants
     
-    #if targetEnvironment(simulator)
-    private let serverURL = URL(string: "ws://localhost:8182")!
-    #else
+//#if targetEnvironment(simulator)
+//    private let serverURL = URL(string: "ws://localhost:8182")!
+//#elseif DEBUG
+//    private let serverURL = URL(string: "ws://192.168.0.102:8182")!
+//#else
     private let serverURL = URL(string: "ws://onedayvpn.com:8182")!
-    #endif
+//#endif
     private let reconnectDelay: TimeInterval = 3.0
     private let maxReconnectAttempts = 5
 

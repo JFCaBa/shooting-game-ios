@@ -30,6 +30,24 @@ final class WalletViewController: UIViewController {
         return label
     }()
     
+    private lazy var balanceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.text = "Balance: __ SHOT"
+        return label
+    }()
+    
+    private lazy var transferableBalanceLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.text = "Transferable: __ SHOT"
+        return label
+    }()
+    
     private lazy var connectButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +71,15 @@ final class WalletViewController: UIViewController {
         setupUI()
         setupBindings()
         setupNotifications()
+#if targetEnvironment(simulator)
+        if let playerId = GameManager.shared.playerId {
+            viewModel.fetchBalance(for: playerId)
+        }
+#else
+        if let accountAddress = viewModel.accountAddress {
+            viewModel.fetchBalance(for: accountAddress)
+        }
+#endif
     }
     
     // MARK: - setupUI()
@@ -61,16 +88,27 @@ final class WalletViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(connectButton)
         view.addSubview(accountLabel)
+        view.addSubview(balanceLabel)
+        view.addSubview(transferableBalanceLabel)
         
         NSLayoutConstraint.activate([
+            // Button
             connectButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             connectButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             connectButton.widthAnchor.constraint(equalToConstant: 200),
             connectButton.heightAnchor.constraint(equalToConstant: 50),
-            
+            // Account
             accountLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             accountLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            accountLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            accountLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            // Balance
+            balanceLabel.topAnchor.constraint(equalTo: accountLabel.bottomAnchor, constant: 20),
+            balanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            balanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            // Transferable
+            transferableBalanceLabel.topAnchor.constraint(equalTo: balanceLabel.bottomAnchor, constant: 8),
+            transferableBalanceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            transferableBalanceLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
     
@@ -97,6 +135,17 @@ final class WalletViewController: UIViewController {
                 if show {
                     self?.showMetaMaskNotInstalledAlert()
                 }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$balance
+            .compactMap({$0})
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] balance in
+                guard let self else { return }
+                
+                balanceLabel.text = "Balance: \(balance.balance) SHOT"
+                transferableBalanceLabel.text = "Transferable: \(balance.transferable) SHOT"
             }
             .store(in: &cancellables)
     }
@@ -154,6 +203,9 @@ final class WalletViewController: UIViewController {
     @objc private func handleMetaMaskConnection() {
         Task {
             await viewModel.checkConnection()
+            if let address = viewModel.accountAddress {
+                viewModel.fetchBalance(for: address)
+            }
         }
     }
 }

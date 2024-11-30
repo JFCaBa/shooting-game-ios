@@ -11,38 +11,78 @@ import Combine
 
 final class WalletViewModelTests: XCTestCase {
     var sut: WalletViewModel!
+    var mockTokenService: MockTokenService!
     var cancellables: Set<AnyCancellable>!
     
-    override func setUp() {
-        super.setUp()
-        sut = WalletViewModel()
-        cancellables = []
+    override func setUp() async throws {
+        await MainActor.run {
+            mockTokenService = MockTokenService()
+            sut = WalletViewModel(tokenService: mockTokenService)
+            cancellables = []
+        }
     }
     
     override func tearDown() {
         sut = nil
+        mockTokenService = nil
         cancellables = nil
         super.tearDown()
     }
     
-    func testConnect_ShowsMetaMaskErrorWhenNotInstalled() async {
-        let expectation = expectation(description: "Shows MetaMask not installed error")
+    func testFetchBalance_Success() async {
+        // Given
+        let expectation = expectation(description: "Balance updated")
+        let expectedBalance = "100"
+        mockTokenService.balance = expectedBalance
         
-        sut.$showMetaMaskNotInstalledError
-            .dropFirst()
-            .sink { value in
-                XCTAssertTrue(value)
-                expectation.fulfill()
-            }
-            .store(in: &cancellables)
+        await MainActor.run {
+            sut.$balance
+                .dropFirst()
+                .sink { balance in
+                    XCTAssertEqual(balance, expectedBalance)
+                    expectation.fulfill()
+                }
+                .store(in: &cancellables)
+            
+            // When
+            sut.fetchBalance(for: "0x123")
+        }
         
-        await sut.connect()
-        
+        // Then
         await fulfillment(of: [expectation], timeout: 1.0)
     }
     
-    func testDisconnect_UpdatesConnectionState() {
-        sut.disconnect()
-        XCTAssertFalse(sut.isConnected)
+    func testFetchBalance_Error() async {
+        // Given
+        let expectation = expectation(description: "Error occurred")
+        mockTokenService.error = NetworkError.invalidResponse
+        
+        await MainActor.run {
+            sut.$error
+                .dropFirst()
+                .sink { error in
+                    XCTAssertNotNil(error)
+                    expectation.fulfill()
+                }
+                .store(in: &cancellables)
+            
+            // When
+            sut.fetchBalance(for: "0x123")
+        }
+        
+        // Then
+        await fulfillment(of: [expectation], timeout: 1.0)
+    }
+}
+
+final class MockTokenService: TokenServiceProtocol {
+    var balance: String?
+    var error: Error?
+    
+    func getBalance(for address: String) async throws -> String {
+        if let error = error {
+            throw error
+        }
+        return balance ?? ""
     }
 }
