@@ -1,5 +1,5 @@
 //
-//  HitFeedbackView.swift
+//  FeedbackView.swift
 //  ShootingApp
 //
 //  Created by Jose on 30/11/2024.

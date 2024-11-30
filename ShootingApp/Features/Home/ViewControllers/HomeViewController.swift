@@ -17,7 +17,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Constants
     
     private let crosshairRecoilDistance: CGFloat = 20
-    private let maxAmmo = 1
+    private let maxAmmo = 30
     private let maxLives = 10
     private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
@@ -26,7 +26,7 @@ final class HomeViewController: UIViewController {
     
     private var captureSession: AVCaptureSession?
     private var initialCrosshairPosition: CGPoint = .zero
-    private var currentAmmo = 1
+    private var currentAmmo = 30
     private var currentLives = 10
     private var isReloading = false
     private var currentPreviewBuffer: CVPixelBuffer?
