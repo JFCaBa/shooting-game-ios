@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 import CoreVideo
+import FirebaseMessaging
 
 final class GameManager: GameManagerProtocol {
     // MARK: - Singleton
@@ -146,6 +147,8 @@ final class GameManager: GameManagerProtocol {
         }
     }
     
+    // MARK: - calculateDistance(from: lat1, lon1:, lat2:, lon2:)
+    
     private func calculateDistance(from lat1: Double, _ lon1: Double, to lat2: Double, _ lon2: Double) -> Double {
         let location1 = CLLocation(latitude: lat1, longitude: lon1)
         let location2 = CLLocation(latitude: lat2, longitude: lon2)
@@ -239,8 +242,8 @@ final class GameManager: GameManagerProtocol {
                 altitude: locationManager.location?.altitude ?? 0,
                 accuracy: locationManager.location?.horizontalAccuracy ?? 0
             ),
-            heading: locationManager.heading?.trueHeading ?? 0,
-            timestamp: Date()
+            heading: locationManager.heading?.trueHeading ?? 0
+//            timestamp: Date()
         )
     }
     
@@ -300,8 +303,8 @@ final class GameManager: GameManagerProtocol {
             player: Player(
                 id: playerId,
                 location: location,
-                heading: heading,
-                timestamp: Date()
+                heading: heading
+//                timestamp: Date()
             ),
             shotId: UUID().uuidString,
             hitPlayerId: nil,
@@ -328,19 +331,22 @@ extension GameManager: WebSocketServiceDelegate {
     
     func webSocketDidConnect() {
         guard let playerId = playerId else { return }
+        
         let message = GameMessage(
             type: .join,
             playerId: playerId,
             data: MessageData(
-                player: createPlayerData(),
+                player: self.createPlayerData(),
                 shotId: nil,
                 hitPlayerId: nil,
                 damage: nil
             ),
             timestamp: Date(),
-            targetPlayerId: nil
+            targetPlayerId: nil,
+            pushToken: Messaging.messaging().fcmToken
         )
-        webSocketService.send(message: message)
+        
+        self.webSocketService.send(message: message)
     }
     
     // MARK: - DidDisconnect
@@ -359,7 +365,7 @@ extension GameManager: WebSocketServiceDelegate {
         case .shoot:
             handleShot(message)
             playerManager.updatePlayer(message.data.player)
-        
+            
         case .shootConfirmed:
             NotificationCenter.default.post(
                 name: .shootConfirmed,
@@ -399,6 +405,10 @@ extension GameManager: WebSocketServiceDelegate {
                     respawnPlayer()
                 }
             }
+            
+        case .announced:
+            CoreDataManager.shared.createOrUpdatePlayer(from: message.data.player)
+            break
         }
     }
 }

@@ -93,6 +93,13 @@ final class LocationManager: NSObject {
             backgroundTask = .invalid
         }
     }
+    
+    func distanceFrom(latitude: Double, longitude: Double) -> Double {
+        guard let location else { return Double(MAXFLOAT) }
+        
+        let fromLocation = CLLocation(latitude: latitude, longitude: longitude)
+        return location.distance(from: fromLocation)
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
