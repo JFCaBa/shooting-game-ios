@@ -238,9 +238,9 @@ final class HomeViewController: UIViewController {
         
         viewModel.$reward
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] reward in
+            .sink { [weak self] _ in
                 guard let self else { return }
-                guard let amount = reward?.amount else { return }
+//                guard let amount = reward?.amount else { return }
                 
                 showFeedback(.reward)
             }

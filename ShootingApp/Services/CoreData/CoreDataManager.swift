@@ -44,7 +44,7 @@ final class CoreDataManager {
             playerEntity.altitude = player.location.altitude
             playerEntity.accuracy = player.location.accuracy
             playerEntity.heading = player.heading
-            playerEntity.lastUpdate = player.timestamp
+            playerEntity.lastUpdate = .now
             
             saveContext()
         } catch {
@@ -66,8 +66,8 @@ final class CoreDataManager {
                         altitude: entity.altitude,
                         accuracy: entity.accuracy
                     ),
-                    heading: entity.heading,
-                    timestamp: entity.lastUpdate ?? Date()
+                    heading: entity.heading
+//                    timestamp: entity.lastUpdate ?? Date()
                 )
             }
         } catch {

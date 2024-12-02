@@ -55,7 +55,7 @@ final class AchievementService: AchievementServiceProtocol {
         NotificationCenter.default.post(
             name: .achievementUnlocked,
             object: nil,
-            userInfo: ["achievement": achievement]
+            userInfo: ["achievement": metadata]
         )
     }
     

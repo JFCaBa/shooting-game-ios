@@ -16,13 +16,24 @@ struct GameMessage: Codable {
         case kill
         case hitConfirmed
         case leave
+        case announced
     }
     
     let type: MessageType
     let playerId: String
     let data: MessageData
-    let timestamp: Date
+//    let timestamp: Date
     let targetPlayerId: String?
+    let pushToken: String?
+    
+    init(type: MessageType, playerId: String, data: MessageData, timestamp: Date, targetPlayerId: String? = nil, pushToken: String? = nil) {
+        self.type = type
+        self.playerId = playerId
+        self.data = data
+//        self.timestamp = timestamp
+        self.targetPlayerId = targetPlayerId
+        self.pushToken = pushToken
+    }
 }
 
 struct MessageData: Codable {

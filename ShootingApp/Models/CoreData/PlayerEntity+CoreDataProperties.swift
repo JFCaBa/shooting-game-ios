@@ -31,8 +31,8 @@ extension PlayerEntity {
                 altitude: altitude,
                 accuracy: accuracy
             ),
-            heading: heading,
-            timestamp: lastUpdate ?? Date()
+            heading: heading
+//            timestamp: lastUpdate ?? Date()
         )
     }
 }
