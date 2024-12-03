@@ -41,51 +41,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E0050EE4-1A7A-4B31-BFB9-1878B85D40EB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShootingApp/Services/NotificationManager/NotificationManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E0050EE4-1A7A-4B31-BFB9-1878B85D40EB - 2756687210af70fd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShootingApp.NotificationManager.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/NotificationManager/NotificationManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157">
-               </Location>
-               <Location
-                  uuid = "E0050EE4-1A7A-4B31-BFB9-1878B85D40EB - 2096478f4d5f0827"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIBackgroundFetchResult) -&gt; () in ShootingApp.NotificationManager.userNotificationCenter(_: __C.UNUserNotificationCenter, didReceive: __C.UNNotificationResponse, withCompletionHandler: () -&gt; ()) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/ShootingApp/ShootingApp/Services/NotificationManager/NotificationManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

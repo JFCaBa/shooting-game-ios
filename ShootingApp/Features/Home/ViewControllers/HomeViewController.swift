@@ -80,6 +80,17 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var achievementsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -312,6 +323,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(mapButton)
         view.addSubview(achievementsButton)
         view.addSubview(walletButton)
+        view.addSubview(settingsButton)
         
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
@@ -370,7 +382,12 @@ final class HomeViewController: UIViewController {
             walletButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
             walletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             walletButton.widthAnchor.constraint(equalToConstant: 50),
-            walletButton.heightAnchor.constraint(equalToConstant: 50)
+            walletButton.heightAnchor.constraint(equalToConstant: 50),
+            // Settings
+            settingsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
+            settingsButton.bottomAnchor.constraint(equalTo: achievementsButton.topAnchor, constant: -16),
+            settingsButton.widthAnchor.constraint(equalToConstant: 50),
+            settingsButton.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         reloadTimerLabel.isHidden = true
@@ -523,6 +540,12 @@ final class HomeViewController: UIViewController {
     
     @objc private func walletButtonTapped() {
         viewModel.coordinator?.showWallet()
+    }
+    
+    // MARK: - settingsButtonTapped()
+    
+    @objc private func settingsButtonTapped() {
+        viewModel.coordinator?.showSettings()
     }
     
     // MARK: - achievementsButtonTapped()

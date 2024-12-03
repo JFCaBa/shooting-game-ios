@@ -244,6 +244,12 @@
 		826FA9D72CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
 		826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
 		826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
+		826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */; };
+		826FA9DE2CFF1A770029CF9C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */; };
+		826FA9DF2CFF1A770029CF9C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */; };
+		826FA9E22CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
+		826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
+		826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -433,6 +439,8 @@
 		826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		826938B22CFDB00400E03DAA /* ShootingAppDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShootingAppDebug.entitlements; sourceTree = "<group>"; };
 		826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MessagingDelegate.swift"; sourceTree = "<group>"; };
+		826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -998,6 +1006,31 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		826FA9DA2CFF1A5D0029CF9C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				826FA9DB2CFF1A660029CF9C /* ViewControllers */,
+				826FA9E02CFF1A8E0029CF9C /* ViewModels */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		826FA9DB2CFF1A660029CF9C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		826FA9E02CFF1A8E0029CF9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1131,7 @@
 				828545CB2CCD00F70074EBF9 /* Home */,
 				828545D22CCD0DA80074EBF9 /* Map */,
 				826338CE2CF0A6E1009C2CED /* Onboarding */,
+				826FA9DA2CFF1A5D0029CF9C /* Settings */,
 				8263386B2CEFB30F009C2CED /* Wallet */,
 			);
 			path = Features;
@@ -1454,6 +1488,8 @@
 				820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
+				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				8206116E2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */,
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
@@ -1537,6 +1573,7 @@
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				826938852CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				820611832CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
+				826FA9DF2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				826938042CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				8269387D2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
@@ -1573,6 +1610,7 @@
 				826938552CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				826338712CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				8269385B2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
+				826FA9E22CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
@@ -1701,6 +1739,7 @@
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				826938072CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
+				826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				826938A32CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				8269388A2CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
@@ -1723,6 +1762,7 @@
 				826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
+				826FA9DE2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
 				820611842CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,

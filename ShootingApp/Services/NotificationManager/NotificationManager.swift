@@ -82,33 +82,42 @@ final class NotificationManager: NSObject {
     // MARK: - handlePlayerJoined(_:)
     
     private func handlePlayerJoined(_ userInfo: [AnyHashable: Any]) {
-        guard   let id = userInfo["playerId"] as? String,
-                let lat = userInfo["latitude"] as? String,
-                let lon = userInfo["longitude"] as? String,
-                let latitude = Double(lat),
-                let longitude = Double(lon)
+        guard let id = userInfo["playerId"] as? String,
+              let lat = userInfo["latitude"] as? String,
+              let lon = userInfo["longitude"] as? String,
+              let latitude = Double(lat),
+              let longitude = Double(lon)
         else { return }
         
+        let player = Player(
+            id: id,
+            location: LocationData(
+                latitude: latitude,
+                longitude: longitude,
+                altitude: 0,
+                accuracy: 0
+            ),
+            heading: 0
+//            timestamp: Date()
+        )
+        
         let distance = LocationManager.shared.distanceFrom(latitude: latitude, longitude: longitude)
+        let notificationDistance = UserDefaults.standard.double(forKey: UserDefaults.Keys.notificationDistance)
         
-        guard distance < 1000 && distance > 10 else { return }
-        
-        print("playerId: \(id)")
+        guard distance < notificationDistance && distance > 1 else { return }
         
         NotificationCenter.default.post(
             name: .playerJoined,
             object: nil,
             userInfo: [
-                "playerId": id,
-                "latitude": latitude,
-                "longitude": longitude,
+                "player": player,
                 "distance": Int(distance)
             ]
         )
         
         let content = UNMutableNotificationContent()
         content.title = "Player Nearby!"
-        content.body = "New player is \(Int(distance))m away"
+        content.body = "\(Int(distance))m away"
         content.sound = .default
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
