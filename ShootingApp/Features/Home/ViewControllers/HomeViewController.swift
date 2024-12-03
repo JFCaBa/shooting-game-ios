@@ -19,6 +19,9 @@ final class HomeViewController: UIViewController {
     private let crosshairRecoilDistance: CGFloat = 20
     private let maxAmmo = 30
     private let maxLives = 10
+    private let amountHitReward = 1
+    private let amountKillReward = 5
+    private let amountAdReward = 10
     private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
     
@@ -250,11 +253,10 @@ final class HomeViewController: UIViewController {
         viewModel.$reward
             .compactMap({$0})
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
+            .sink { [weak self] reward in
                 guard let self else { return }
-//                guard let amount = reward?.amount else { return }
                 
-                showFeedback(.reward)
+                showFeedback(.reward, amount: reward.amount ?? amountAdReward)
             }
             .store(in: &cancellables)
     }
@@ -278,7 +280,7 @@ final class HomeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleHitConfirmation),
+            selector: #selector(handleKillConfirmation),
             name: .playerKilledTarget,
             object: nil
         )
@@ -564,26 +566,26 @@ final class HomeViewController: UIViewController {
             let gameScore = GameManager.shared.gameScore
             self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
             
-            showFeedback(.hit)
+            showFeedback(.hit, amount: amountHitReward)
         }
     }
     
-    // MARK: - HandleKillConfirmation()
+    // MARK: - handleKillConfirmation()
     
-    @objc private func HandleKillConfirmation() {
+    @objc private func handleKillConfirmation() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
             let gameScore = GameManager.shared.gameScore
             self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
             
-            showFeedback(.kill)
+            showFeedback(.kill, amount: amountKillReward)
         }
     }
     
     // MARK: - showFeedback(_:)
     
-    private func showFeedback(_ style: FeedbackStyle) {
+    private func showFeedback(_ style: FeedbackStyle, amount: Int) {
         let hitFeedback = FeedbackView()
         hitFeedback.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hitFeedback)
@@ -595,7 +597,7 @@ final class HomeViewController: UIViewController {
             hitFeedback.heightAnchor.constraint(equalToConstant: 50)
         ])
         
-        hitFeedback.show(style: style)
+        hitFeedback.show(style: style, amount: amount)
     }
     
     // MARK: - Player hit

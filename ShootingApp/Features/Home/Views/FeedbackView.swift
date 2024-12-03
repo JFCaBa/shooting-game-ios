@@ -7,35 +7,41 @@
 
 import UIKit
 
-struct FeedbackStyle {
-    let text: String
-    let color: UIColor
-    let font: UIFont
+enum FeedbackStyle {
+    case hit
+    case kill
+    case reward
+    case custom(text: String, color: UIColor = .white, font: UIFont = .systemFont(ofSize: 32, weight: .bold))
     
-    static let hit = FeedbackStyle(
-        text: "+1 SHOT",
-        color: .systemRed,
-        font: .systemFont(ofSize: 48, weight: .heavy)
-    )
+    var color: UIColor {
+        switch self {
+        case .hit, .kill, .reward:
+            return .systemRed
+        case .custom(_, let color, _):
+            return color
+        }
+    }
     
-    static let kill = FeedbackStyle(
-        text: "+5 SHOT",
-        color: .systemRed,
-        font: .systemFont(ofSize: 48, weight: .heavy)
-    )
+    var font: UIFont {
+        switch self {
+        case .hit, .kill, .reward:
+            return .systemFont(ofSize: 48, weight: .heavy)
+        case .custom(_, _, let font):
+            return font
+        }
+    }
     
-    static let reward = FeedbackStyle(
-        text: "+10 SHOT",
-        color: .systemRed,
-        font: .systemFont(ofSize: 48, weight: .heavy)
-    )
-    
-    static func custom(
-        text: String,
-        color: UIColor = .white,
-        font: UIFont = .systemFont(ofSize: 32, weight: .bold)
-    ) -> FeedbackStyle {
-        FeedbackStyle(text: text, color: color, font: font)
+    func text(withAmount amount: Int? = nil) -> String {
+        if let amount = amount {
+            return "+\(amount) SHOT"
+        }
+        
+        switch self {
+        case .hit, .kill, .reward:
+            return "SHOT"
+        case .custom(let text, _, _):
+            return text
+        }
     }
 }
 
@@ -65,8 +71,8 @@ final class FeedbackView: UIView {
         ])
     }
     
-    func show(style: FeedbackStyle) {
-        label.text = style.text
+    func show(style: FeedbackStyle, amount: Int? = nil) {
+        label.text = style.text(withAmount: amount)
         label.textColor = style.color
         label.font = style.font
         
