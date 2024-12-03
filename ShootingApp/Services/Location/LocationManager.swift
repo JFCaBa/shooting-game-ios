@@ -31,6 +31,7 @@ final class LocationManager: NSObject {
         locationManager = CLLocationManager()
         super.init()
         setupLocationManager()
+        startLocationUpdates()
         setupNotifications()
     }
     
@@ -58,10 +59,6 @@ final class LocationManager: NSObject {
     }
     
     @objc private func handleBackground() {
-        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-            self?.stopLocationUpdates()
-        }
-        
         backgroundTimer = Timer.scheduledTimer(withTimeInterval: maxBackgroundTime, repeats: false) { [weak self] _ in
             self?.stopLocationUpdates()
         }

@@ -25,12 +25,12 @@ final class GameManager: GameManagerProtocol {
     // Dependencies that can be injected
     var webSocketService: WebSocketService
     var playerManager: PlayerManagerService
-    private let locationManager = LocationManager.shared
     
     // MARK: - Private properties
     
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
+    private let locationManager = LocationManager.shared
     
     // MARK: - convenience init()
     
@@ -255,8 +255,24 @@ final class GameManager: GameManagerProtocol {
     }
     
     // MARK: - startGame()
-    
     func startGame() {
+        startGame(retryCount: 5, retryDelay: 3.0)
+    }
+    
+    func startGame(retryCount: Int = 3, retryDelay: TimeInterval = 2.0) {
+        guard let location = locationManager.location,
+              CLLocationCoordinate2DIsValid(location.coordinate) else {
+            if retryCount > 0 {
+                DispatchQueue.global().asyncAfter(deadline: .now() + retryDelay) { [weak self] in
+                    self?.startGame(retryCount: retryCount - 1, retryDelay: retryDelay)
+                }
+                print("Retrying startGame in \(retryDelay) seconds. Remaining attempts: \(retryCount - 1)")
+            } else {
+                print("Failed to start game: No valid coordinates after \(3 - retryCount) attempts.")
+            }
+            return
+        }
+        
         playerId = Web3Service.shared.account ?? uuid()
         currentLives = 10
         isAlive = true

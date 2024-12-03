@@ -57,7 +57,7 @@ final class NotificationManager: NSObject {
     // MARK: - handleSilentNotificatoin(_:, completion:)
     
     func handleSilentNotification(_ userInfo: [AnyHashable: Any], completion: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let type = userInfo["notificationType"] as? String else {
+        guard let type = userInfo["type"] as? String else {
             completion(.noData)
             return
         }
@@ -82,44 +82,33 @@ final class NotificationManager: NSObject {
     // MARK: - handlePlayerJoined(_:)
     
     private func handlePlayerJoined(_ userInfo: [AnyHashable: Any]) {
-        let playerId: String
-        let latitude: Double
-        let longitude: Double
-        
-        if let playerDataString = userInfo["player"] as? String,
-           let data = playerDataString.data(using: .utf8),
-           let playerData = try? JSONDecoder().decode(Player.self, from: data) {
-            playerId = playerData.id
-            latitude = playerData.location.latitude
-            longitude = playerData.location.longitude
-        } else if let id = userInfo["playerId"],
-                  let lat = userInfo["latitude"] as? Double,
-                  let lon = userInfo["longitude"] as? Double {
-            playerId = String(describing: id)
-            latitude = lat
-            longitude = lon
-        } else {
-            return
-        }
+        guard   let id = userInfo["playerId"] as? String,
+                let lat = userInfo["latitude"] as? String,
+                let lon = userInfo["longitude"] as? String,
+                let latitude = Double(lat),
+                let longitude = Double(lon)
+        else { return }
         
         let distance = LocationManager.shared.distanceFrom(latitude: latitude, longitude: longitude)
         
-        guard distance < 1000 else { return }
+        guard distance < 1000 && distance > 10 else { return }
+        
+        print("playerId: \(id)")
         
         NotificationCenter.default.post(
             name: .playerJoined,
             object: nil,
             userInfo: [
-                "playerId": playerId,
+                "playerId": id,
                 "latitude": latitude,
                 "longitude": longitude,
-                "distance": distance
+                "distance": Int(distance)
             ]
         )
         
         let content = UNMutableNotificationContent()
         content.title = "Player Nearby!"
-        content.body = "New player is \(distance)m away"
+        content.body = "New player is \(Int(distance))m away"
         content.sound = .default
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
@@ -160,7 +149,13 @@ final class NotificationManager: NSObject {
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound])
+        completionHandler([.banner, .sound]) 
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        handleSilentNotification(userInfo) { _ in }
+        completionHandler()
     }
 }
 
@@ -168,7 +163,10 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 
 extension NotificationManager: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        guard let token = fcmToken else { return }
-        tokenUpdateHandler?(token)
+        tokenUpdateHandler?(fcmToken)
+        
+        if let token = fcmToken {
+            print("Firebase token: \(token)")
+        }
     }
 }

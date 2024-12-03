@@ -241,6 +241,9 @@
 		826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */; };
 		826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */; };
 		826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */; };
+		826FA9D72CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
+		826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
+		826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -429,6 +432,7 @@
 		826938AC2CFD9A3700E03DAA /* NotificationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManagerTests.swift; sourceTree = "<group>"; };
 		826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		826938B22CFDB00400E03DAA /* ShootingAppDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShootingAppDebug.entitlements; sourceTree = "<group>"; };
+		826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MessagingDelegate.swift"; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1063,6 +1067,7 @@
 				828545822CCCFE520074EBF9 /* AppDelegate.swift */,
 				826938A72CFD99A600E03DAA /* AppDelegate+Notifications.swift */,
 				828545842CCCFE520074EBF9 /* SceneDelegate.swift */,
+				826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1464,6 +1469,7 @@
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				8206117A2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
 				8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
+				826FA9D72CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				826938532CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				8269380C2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */,
@@ -1519,6 +1525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826938AD2CFD9A3700E03DAA /* NotificationManagerTests.swift in Sources */,
 				8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
@@ -1671,6 +1678,7 @@
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				8269381C2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
+				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				826938402CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,

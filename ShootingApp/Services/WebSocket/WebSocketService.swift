@@ -146,6 +146,9 @@ class WebSocketService {
             delegate?.webSocketDidReceiveMessage(message)
         } catch {
             print("Failed to decode message: \(error)")
+            if let dataString = String(data: data, encoding: .utf8) {
+                print(dataString)
+            }
         }
     }
     
