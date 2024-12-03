@@ -248,6 +248,7 @@ final class HomeViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.$reward
+            .compactMap({$0})
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self else { return }
