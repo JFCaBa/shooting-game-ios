@@ -5,7 +5,6 @@
 //  Created by Jose on 26/10/2024.
 //
 
-// AppCoordinator.swift
 import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
@@ -34,6 +33,7 @@ final class AppCoordinator: CoordinatorProtocol {
     
     func showHome() {
         let homeViewController = HomeViewController(coordinator: self)
+        
         navigationController.setViewControllers([homeViewController], animated: true)
     }
     
@@ -47,6 +47,14 @@ final class AppCoordinator: CoordinatorProtocol {
         }
         
         navigationController.present(walletVC, animated: true)
+    }
+    
+    func showSettings() {
+        let viewModel = SettingsViewModel()
+        viewModel.coordinator = self
+        let settingsVC = SettingsViewController(viewModel: viewModel)
+        
+        navigationController.present(UINavigationController(rootViewController: settingsVC), animated: true)
     }
     
     func showAchievements() {

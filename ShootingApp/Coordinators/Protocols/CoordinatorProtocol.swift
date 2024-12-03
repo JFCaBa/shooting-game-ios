@@ -14,6 +14,7 @@ protocol CoordinatorProtocol: AnyObject {
     
     func start()
     func showHome()
+    func showSettings()
     func showWallet()
     func showAchievements()
 }
@@ -28,9 +29,11 @@ extension CoordinatorProtocol {
     }
     
     func showHome() {
-//        let viewModel = HomeViewModel()
-//        let viewController = HomeViewController(viewModel: viewModel)
-//        navigationController.setViewControllers([viewController], animated: true)
+        // Default empty implementation
+    }
+    
+    func showSettings() {
+        // Default empty implementation
     }
     
     func showWallet() {

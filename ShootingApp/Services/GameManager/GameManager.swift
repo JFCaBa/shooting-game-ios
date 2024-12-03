@@ -52,7 +52,7 @@ final class GameManager: GameManagerProtocol {
         
         webSocketService.delegate = self
         setupLocation()
-        setupWalletObserver()
+        setupObserver()
     }
     
     deinit {
@@ -67,13 +67,30 @@ final class GameManager: GameManagerProtocol {
     
     // MARK: - setupWalletObserver()
     
-    private func setupWalletObserver() {
+    private func setupObserver() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updatePlayerId),
-            name: NSNotification.Name("MetaMaskDidConnect"),
+            name: .metamaskDidConnect,
             object: nil
         )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(playerJoined(_:)),
+            name: .playerJoined,
+            object: nil
+        )
+    }
+    
+    // MARK: - playerJoined(_:)
+    
+    @objc private func playerJoined(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let player = userInfo["player"] as? Player
+        else { return }
+                
+        playerManager.updatePlayer(player)
     }
     
     // MARK: - updatePlayerId()
@@ -188,6 +205,7 @@ final class GameManager: GameManagerProtocol {
     }
     
     // MARK: - sendShootConfirmation()
+    
     private func sendShootConfirmation(shotId: String, shooterId: String, distance: Double, deviation: Double) {
         guard let playerId = playerId else { return }
         
@@ -255,6 +273,7 @@ final class GameManager: GameManagerProtocol {
     }
     
     // MARK: - startGame()
+    
     func startGame() {
         startGame(retryCount: 5, retryDelay: 3.0)
     }

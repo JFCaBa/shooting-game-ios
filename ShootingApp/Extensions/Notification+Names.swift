@@ -9,6 +9,7 @@ import Foundation
 
 extension Notification.Name {
     static let walletConnectionChanged = Notification.Name("WalletConnectionChanged")
+    static let metamaskDidConnect = Notification.Name("MetamaskDidConnect")
     static let playerWasHit = Notification.Name("playerWasHit")
     static let playerHitTarget = Notification.Name("playerHitTarget")
     static let playerKilledTarget = Notification.Name("playerKilledTarget")
@@ -21,4 +22,5 @@ extension Notification.Name {
     static let locationDidUpdate = Notification.Name("locationDidUpdate")
     static let headingDidUpdate = Notification.Name("headingDidUpdate")
     static let playerJoined = Notification.Name("playerJoined")
+    static let notificationDistanceChanged = Notification.Name("notificationDistanceChanged")
 }

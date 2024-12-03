@@ -10,5 +10,6 @@ import Foundation
 extension UserDefaults {
     enum Keys {
         static let hasSeenOnboarding = "hasSeenOnboarding"
+        static let notificationDistance = "notificationDistance"
     }
 }
