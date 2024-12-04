@@ -12,11 +12,13 @@ final class AchievementService: AchievementServiceProtocol {
     static let shared = AchievementService()
     private let web3Service: Web3ServiceProtocol
     private let coreDataManager: CoreDataManager
+    private let networkClient: NetworkClientProtocol
     
     init(web3Service: Web3ServiceProtocol = Web3Service.shared,
-                coreDataManager: CoreDataManager = .shared) {
+         coreDataManager: CoreDataManager = .shared, networkClient: NetworkClientProtocol = NetworkClient()) {
         self.web3Service = web3Service
         self.coreDataManager = coreDataManager
+        self.networkClient = networkClient
     }
     
     func trackProgress(type: AchievementType, progress: Int) {
@@ -59,8 +61,9 @@ final class AchievementService: AchievementServiceProtocol {
         )
     }
     
-    func getAchievements(for wallet: String) async throws -> [Achievement] {
-        // Fetch from local storage or API
-        return []
+    func getAchievements(for wallet: String) async throws -> AchievementResponse {
+        let request = AchievementRequest(walletAddress: wallet)
+        let response: AchievementResponse = try await networkClient.perform(request)
+        return response
     }
 }

@@ -5,12 +5,13 @@
 //  Created by Jose on 25/11/2024.
 //
 
-import UIKit
 import Combine
+import UIKit
 
 final class AchievementsViewController: UIViewController {
     // MARK: - Properties
     
+    weak var coordinator: AchievementsCoordinator?
     private let viewModel: AchievementsViewModel
     private var cancellables = Set<AnyCancellable>()
     
@@ -52,9 +53,20 @@ final class AchievementsViewController: UIViewController {
         setupUI()
         setupBindings()
         displayPlaceholders()
+        setupNavigationBar()
     }
     
     // MARK: - Setup
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Achievements"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Hall of Fame",
+            style: .plain,
+            target: self,
+            action: #selector(hallOfFameTapped)
+        )
+    }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
@@ -74,14 +86,36 @@ final class AchievementsViewController: UIViewController {
         ])
     }
     
+    // MARK: - setupBindings()
+    
     private func setupBindings() {
         viewModel.$achievements
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.collectionView.reloadData()
+            .sink { [weak self] response in
+                let unlockedAchievements = response.map { $0.toDomain() }
+                self?.updateDisplayAchievements(with: unlockedAchievements)
             }
             .store(in: &cancellables)
     }
+    
+    // MARK: - updateDisplayAchievements(with:)
+    
+    private func updateDisplayAchievements(with unlockedAchievements: [Achievement]) {
+        let updatedAchievements = viewModel.displayAchievements.map { placeholder -> Achievement in
+            if let unlockedAchievement = unlockedAchievements.first(where: {
+                $0.type == placeholder.type &&
+                $0.milestone == placeholder.milestone
+            }) {
+                return unlockedAchievement
+            }
+            return placeholder
+        }
+        
+        viewModel.updateDisplayAchievements(updatedAchievements)
+        collectionView.reloadData()
+    }
+    
+    // MARK: - displayPlaceholders()
     
     private func displayPlaceholders() {
         // Load all possible achievements as placeholders
@@ -114,6 +148,8 @@ final class AchievementsViewController: UIViewController {
         viewModel.setPlaceholders(placeholders)
     }
     
+    // MARK: - createLayout()
+    
     private func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
@@ -133,6 +169,12 @@ final class AchievementsViewController: UIViewController {
         
         return UICollectionViewCompositionalLayout(section: section)
     }
+    
+    // MARK: - hallOfFameTapped()
+    
+    @objc private func hallOfFameTapped() {
+           coordinator?.showHallOfFame()
+       }
 }
 
 // MARK: - UICollectionViewDataSource

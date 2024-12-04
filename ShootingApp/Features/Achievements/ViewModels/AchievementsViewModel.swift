@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 final class AchievementsViewModel {
-    @Published private(set) var achievements: [Achievement] = []
+    @Published private(set) var achievements: AchievementResponse = []
     @Published private(set) var displayAchievements: [Achievement] = []
     
     private let web3Service: Web3ServiceProtocol
@@ -46,7 +46,7 @@ final class AchievementsViewModel {
     // MARK: - loadAchievements()
     
     func loadAchievements() {
-        guard let wallet = web3Service.account else { return }
+        guard let wallet = GameManager.shared.playerId else { return }
         
         Task {
             do {
@@ -58,5 +58,11 @@ final class AchievementsViewModel {
                 print("Error loading achievements: \(error)")
             }
         }
+    }
+    
+    // MARK: - updateDisplayAchievements(_:)
+    
+    func updateDisplayAchievements(_ achievements: [Achievement]) {
+        self.displayAchievements = achievements
     }
 }

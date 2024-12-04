@@ -250,6 +250,39 @@
 		826FA9E22CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
 		826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
 		826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */; };
+		826FA9EC2D0055A10029CF9C /* AchievementRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */; };
+		826FA9ED2D0055A10029CF9C /* AchievementRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */; };
+		826FA9EE2D0055A10029CF9C /* AchievementRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */; };
+		826FA9F02D00564A0029CF9C /* AchievementsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EF2D00564A0029CF9C /* AchievementsResponse.swift */; };
+		826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EF2D00564A0029CF9C /* AchievementsResponse.swift */; };
+		826FA9F22D00564A0029CF9C /* AchievementsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9EF2D00564A0029CF9C /* AchievementsResponse.swift */; };
+		826FA9F42D007D450029CF9C /* HallOfFameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F32D007D450029CF9C /* HallOfFameResponse.swift */; };
+		826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F32D007D450029CF9C /* HallOfFameResponse.swift */; };
+		826FA9F62D007D450029CF9C /* HallOfFameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F32D007D450029CF9C /* HallOfFameResponse.swift */; };
+		826FA9F82D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */; };
+		826FA9F92D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */; };
+		826FA9FA2D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */; };
+		826FA9FC2D007DE60029CF9C /* HallOfFameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9FB2D007DE60029CF9C /* HallOfFameService.swift */; };
+		826FA9FD2D007DE60029CF9C /* HallOfFameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9FB2D007DE60029CF9C /* HallOfFameService.swift */; };
+		826FA9FE2D007DE60029CF9C /* HallOfFameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FA9FB2D007DE60029CF9C /* HallOfFameService.swift */; };
+		826FAA012D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */; };
+		826FAA022D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */; };
+		826FAA032D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */; };
+		826FAA052D007FF80029CF9C /* HallOfFameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA042D007FF80029CF9C /* HallOfFameViewController.swift */; };
+		826FAA062D007FF80029CF9C /* HallOfFameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA042D007FF80029CF9C /* HallOfFameViewController.swift */; };
+		826FAA072D007FF80029CF9C /* HallOfFameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA042D007FF80029CF9C /* HallOfFameViewController.swift */; };
+		826FAA0C2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0B2D0080220029CF9C /* HallOfFameViewModel.swift */; };
+		826FAA0D2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0B2D0080220029CF9C /* HallOfFameViewModel.swift */; };
+		826FAA0E2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0B2D0080220029CF9C /* HallOfFameViewModel.swift */; };
+		826FAA102D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */; };
+		826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */; };
+		826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */; };
+		826FAA142D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */; };
+		826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */; };
+		826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */; };
+		826FAA192D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
+		826FAA1A2D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
+		826FAA1B2D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -441,6 +474,17 @@
 		826FA9D62CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MessagingDelegate.swift"; sourceTree = "<group>"; };
 		826FA9DC2CFF1A770029CF9C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		826FA9E12CFF1A9D0029CF9C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRequest.swift; sourceTree = "<group>"; };
+		826FA9EF2D00564A0029CF9C /* AchievementsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsResponse.swift; sourceTree = "<group>"; };
+		826FA9F32D007D450029CF9C /* HallOfFameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameResponse.swift; sourceTree = "<group>"; };
+		826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameRequest.swift; sourceTree = "<group>"; };
+		826FA9FB2D007DE60029CF9C /* HallOfFameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameService.swift; sourceTree = "<group>"; };
+		826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameServiceProtocol.swift; sourceTree = "<group>"; };
+		826FAA042D007FF80029CF9C /* HallOfFameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameViewController.swift; sourceTree = "<group>"; };
+		826FAA0B2D0080220029CF9C /* HallOfFameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameViewModel.swift; sourceTree = "<group>"; };
+		826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCoordinator.swift; sourceTree = "<group>"; };
+		826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		826FAA182D0088FB0029CF9C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -547,14 +591,6 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		820611372CF4816F003FB6BB /* Achievement */ = {
-			isa = PBXGroup;
-			children = (
-				820611412CF48217003FB6BB /* AchievementType.swift */,
-			);
-			path = Achievement;
-			sourceTree = "<group>";
-		};
 		820611382CF48178003FB6BB /* Achievement */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,6 +677,7 @@
 		820611582CF48630003FB6BB /* Achievements */ = {
 			isa = PBXGroup;
 			children = (
+				826FA9E52D003E250029CF9C /* Models */,
 				820611592CF48637003FB6BB /* ViewControllers */,
 				8206115A2CF4863F003FB6BB /* ViewModels */,
 				820611632CF4867C003FB6BB /* Views */,
@@ -923,8 +960,10 @@
 		8269384E2CFAF1DC00E03DAA /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
+				826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */,
 				8269388F2CFB5FDA00E03DAA /* RewardRequest.swift */,
+				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
+				826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -935,6 +974,7 @@
 				826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */,
 				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
 				826938832CFB5E0400E03DAA /* RewardServiceProtocol.swift */,
+				826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -944,6 +984,8 @@
 			children = (
 				8269386F2CFAF43C00E03DAA /* TokenResponse.swift */,
 				826938872CFB5E3700E03DAA /* RewardResponse.swift */,
+				826FA9EF2D00564A0029CF9C /* AchievementsResponse.swift */,
+				826FA9F32D007D450029CF9C /* HallOfFameResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -984,8 +1026,9 @@
 		826938A12CFB60B800E03DAA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8269389F2CFB609B00E03DAA /* TokenService */,
+				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
+				8269389F2CFB609B00E03DAA /* TokenService */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1031,6 +1074,55 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		826FA9E52D003E250029CF9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				820611412CF48217003FB6BB /* AchievementType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		826FA9FF2D007DEA0029CF9C /* HallOfFameService */ = {
+			isa = PBXGroup;
+			children = (
+				826FA9FB2D007DE60029CF9C /* HallOfFameService.swift */,
+			);
+			path = HallOfFameService;
+			sourceTree = "<group>";
+		};
+		826FAA082D0080010029CF9C /* HallOfFame */ = {
+			isa = PBXGroup;
+			children = (
+				826FAA092D00800D0029CF9C /* ViewControllers */,
+				826FAA0A2D0080150029CF9C /* ViewModels */,
+			);
+			path = HallOfFame;
+			sourceTree = "<group>";
+		};
+		826FAA092D00800D0029CF9C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				826FAA042D007FF80029CF9C /* HallOfFameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		826FAA0A2D0080150029CF9C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				826FAA0B2D0080220029CF9C /* HallOfFameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		826FAA172D0088C90029CF9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				826FAA182D0088FB0029CF9C /* EmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -1063,10 +1155,11 @@
 				828546102CCE35BB0074EBF9 /* Extensions */,
 				828545CA2CCD00ED0074EBF9 /* Features */,
 				828545D82CCD12800074EBF9 /* Models */,
+				8269384C2CFAF1CD00E03DAA /* Network */,
 				826938382CFA110600E03DAA /* Repositories */,
 				828545B62CCCFEE20074EBF9 /* Resources */,
-				8269384C2CFAF1CD00E03DAA /* Network */,
 				828545E22CCD12DA0074EBF9 /* Services */,
+				826FAA172D0088C90029CF9C /* Views */,
 			);
 			path = ShootingApp;
 			sourceTree = "<group>";
@@ -1117,8 +1210,10 @@
 		828545BF2CCD006B0074EBF9 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */,
 				828545B72CCCFF3C0074EBF9 /* AppCoordinator.swift */,
 				826338D42CF0A71E009C2CED /* OnboardingCoordinator.swift */,
+				826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */,
 				826338D82CF0A7F0009C2CED /* Protocols */,
 			);
 			path = Coordinators;
@@ -1133,6 +1228,7 @@
 				826338CE2CF0A6E1009C2CED /* Onboarding */,
 				826FA9DA2CFF1A5D0029CF9C /* Settings */,
 				8263386B2CEFB30F009C2CED /* Wallet */,
+				826FAA082D0080010029CF9C /* HallOfFame */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1187,7 +1283,6 @@
 		828545D82CCD12800074EBF9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				820611372CF4816F003FB6BB /* Achievement */,
 				828545F52CCD156E0074EBF9 /* CoreData */,
 				828545D92CCD12870074EBF9 /* Domain */,
 				8269386E2CFAF42B00E03DAA /* Network */,
@@ -1475,6 +1570,7 @@
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
+				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
 				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
@@ -1486,12 +1582,15 @@
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				826938362CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
+				826FAA062D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
+				826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				8206116E2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */,
+				826FAA102D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
@@ -1499,6 +1598,7 @@
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				820611722CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826938802CFB462000E03DAA /* FeedbackView.swift in Sources */,
+				826FAA032D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
@@ -1509,6 +1609,7 @@
 				826938532CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				8269380C2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */,
+				826FA9FA2D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938192CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826938032CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
@@ -1525,6 +1626,7 @@
 				826938092CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				8269389A2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				820611762CF6A269003FB6BB /* LocationValidation.swift in Sources */,
+				826FAA1A2D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				826938202CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
@@ -1532,6 +1634,7 @@
 				8269380F2CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				826938A42CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
+				826FAA142D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
 				8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
@@ -1543,10 +1646,13 @@
 				826338CD2CF0A55F009C2CED /* URL+QueryParameters.swift in Sources */,
 				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				820611822CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
+				826FAA0C2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				8206110C2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
+				826FA9FE2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				8206119E2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				8206118A2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				826938892CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
+				826FA9ED2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				826938A82CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				826338CB2CF0A53B009C2CED /* MetaMaskResponse.swift in Sources */,
 				826338772CEFB355009C2CED /* WalletViewController.swift in Sources */,
@@ -1574,23 +1680,30 @@
 				826938852CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				820611832CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				826FA9DF2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
+				826FAA012D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
 				826938042CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				828545BB2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				8269387D2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				826938922CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
+				826FA9FD2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				8206119A2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				820611A42CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
 				820611472CF4824D003FB6BB /* AchievementService.swift in Sources */,
+				826FA9EC2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
+				826FAA072D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
+				826FA9F92D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938822CFB462000E03DAA /* FeedbackView.swift in Sources */,
+				826FA9F22D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8269383B2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111E2CF334A5003FB6BB /* GameManagerTests.swift in Sources */,
@@ -1600,6 +1713,7 @@
 				8269382A2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
 				8206111B2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
+				826FAA0D2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				8206118B2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
@@ -1618,6 +1732,7 @@
 				826938882CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				820611902CF6A35D003FB6BB /* HitValidationServiceTests.swift in Sources */,
 				8263386F2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
+				826FAA192D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				828546132CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				820611342CF3806B003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
@@ -1626,6 +1741,7 @@
 				8206119F2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
 				826938522CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
@@ -1657,6 +1773,7 @@
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
+				826FA9F42D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				8206117F2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				8269389B2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
@@ -1678,6 +1795,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826FAA0E2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */,
 				8269383C2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
@@ -1702,6 +1820,7 @@
 				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
+				826FA9FC2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
 				826938812CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
@@ -1718,7 +1837,9 @@
 				8269381C2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
+				826FA9F82D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938402CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				8206117C2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
@@ -1731,12 +1852,14 @@
 				820611442CF48217003FB6BB /* AchievementType.swift in Sources */,
 				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
+				826FAA052D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611802CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826938642CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
+				826FA9EE2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				826938072CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
@@ -1754,6 +1877,7 @@
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
+				826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				8269389E2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
@@ -1761,9 +1885,11 @@
 				826937FF2CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
+				826FAA1B2D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				826FA9DE2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
+				826FA9F02D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
 				820611842CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				820611A02CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
@@ -1773,8 +1899,10 @@
 				826938782CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 				826938272CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
 				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				826FA9F62D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				826938352CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				826FAA022D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
 				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
 				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				820611882CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,

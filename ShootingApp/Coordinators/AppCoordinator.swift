@@ -50,23 +50,16 @@ final class AppCoordinator: CoordinatorProtocol {
     }
     
     func showSettings() {
-        let viewModel = SettingsViewModel()
-        viewModel.coordinator = self
-        let settingsVC = SettingsViewController(viewModel: viewModel)
-        
-        navigationController.present(UINavigationController(rootViewController: settingsVC), animated: true)
+        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController)
+        settingsCoordinator.parentCoordinator = self
+        addChildCoordinator(settingsCoordinator)
+        settingsCoordinator.start()
     }
     
     func showAchievements() {
-        let viewModel = AchievementsViewModel()
-        let achievementsVC = AchievementsViewController(viewModel: viewModel)
-        achievementsVC.modalPresentationStyle = .pageSheet
-        
-        if let sheet = achievementsVC.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.prefersGrabberVisible = true
-        }
-        
-        navigationController.present(achievementsVC, animated: true)
+        let achievementCoordinator = AchievementsCoordinator(navigationController: navigationController)
+        achievementCoordinator.parentCoordinator = self
+        addChildCoordinator(achievementCoordinator)
+        achievementCoordinator.start()
     }
 }

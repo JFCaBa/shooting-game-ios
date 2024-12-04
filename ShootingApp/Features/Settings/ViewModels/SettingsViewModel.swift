@@ -11,7 +11,7 @@ final class SettingsViewModel {
     // MARK: - Properties
     
     @Published private(set) var notificationDistance: Double
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: SettingsCoordinator?
     
     // MARK: - Initialization
     

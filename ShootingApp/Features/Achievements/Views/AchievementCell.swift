@@ -8,27 +8,21 @@
 import UIKit
 
 final class AchievementCell: UICollectionViewCell {
+    // MARK: - Constants
+    
     static let reuseIdentifier = "AchievementCell"
     
     // MARK: - UI Components
     
-    private lazy var containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondarySystemBackground
-        view.layer.cornerRadius = 12
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    private lazy var iconImageView: UIImageView = {
+    private let iconView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .gray
         return imageView
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .bold)
@@ -36,7 +30,7 @@ final class AchievementCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var progressLabel: UILabel = {
+    private let progressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 14)
@@ -44,73 +38,71 @@ final class AchievementCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Init
+    // MARK: - init(frame:)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
+    // MARK: - init?(coder:)
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup
+    // MARK: - setupUI()
     
     private func setupUI() {
-        contentView.addSubview(containerView)
-        containerView.addSubview(iconImageView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(progressLabel)
+        contentView.backgroundColor = .secondarySystemBackground
+        contentView.layer.cornerRadius = 12
+        contentView.clipsToBounds = true
+        
+        contentView.addSubview(iconView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(progressLabel)
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            iconView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            iconView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            iconView.widthAnchor.constraint(equalToConstant: 60),
+            iconView.heightAnchor.constraint(equalToConstant: 60),
             
-            iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
-            iconImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            iconImageView.widthAnchor.constraint(equalToConstant: 50),
-            iconImageView.heightAnchor.constraint(equalToConstant: 50),
-            
-            titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            titleLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
             progressLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
-            progressLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            progressLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            progressLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -16)
+            progressLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            progressLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
         ])
     }
     
-    // MARK: - Configuration
+    // MARK: - configure(with:,earned:)
     
     func configure(with achievement: Achievement, earned: Bool) {
         let iconName: String
         switch achievement.type {
         case .kills: iconName = "target"
         case .hits: iconName = "scope"
-        case .survivalTime: iconName = "clock"
-        case .accuracy: iconName = "camera.metering.spot"
+        case .survivalTime: iconName = "timer"
+        case .accuracy: iconName = "bullseye"
         }
         
-        iconImageView.image = UIImage(systemName: iconName)
-        titleLabel.text = "\(achievement.type.description) \(achievement.milestone)"
+        iconView.image = UIImage(systemName: iconName)
+        titleLabel.text = achievement.type.description
+        progressLabel.text = "\(achievement.milestone)"
         
         if earned {
-            iconImageView.tintColor = .systemGreen
-            titleLabel.textColor = .label
-            progressLabel.textColor = .systemGreen
-            progressLabel.text = "Achievement Unlocked! 🏆"
-            containerView.alpha = 1.0
+            iconView.tintColor = .systemBlue
+            titleLabel.textColor = .systemBlue
+            contentView.backgroundColor = .systemBlue.withAlphaComponent(0.1)
+            progressLabel.textColor = .systemBlue
         } else {
-            iconImageView.tintColor = .systemGray
-            titleLabel.textColor = .secondaryLabel
+            iconView.tintColor = .gray
+            titleLabel.textColor = .label
+            contentView.backgroundColor = .secondarySystemBackground
             progressLabel.textColor = .secondaryLabel
-            progressLabel.text = "Progress: \(achievement.progress)/\(achievement.milestone)"
-            containerView.alpha = 0.7
         }
     }
 }

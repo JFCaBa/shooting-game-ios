@@ -10,5 +10,5 @@ import Foundation
 protocol AchievementServiceProtocol {
     func trackProgress(type: AchievementType, progress: Int)
     func unlockAchievement(_ achievement: Achievement) async throws
-    func getAchievements(for wallet: String) async throws -> [Achievement]
+    func getAchievements(for wallet: String) async throws -> AchievementResponse
 }
