@@ -39,11 +39,15 @@ final class WalletViewModel: ObservableObject  {
             isConnected = true
             accountAddress = web3Service.account
         }
+        else {
+            isConnected = false
+            accountAddress = GameManager.shared.playerId
+        }
     }
     
     private func checkExistingConnection() {
         isConnected = web3Service.isConnected
-        accountAddress = web3Service.account
+        accountAddress = web3Service.account ?? GameManager.shared.playerId
     }
     
     func connect() async {
@@ -58,7 +62,7 @@ final class WalletViewModel: ObservableObject  {
             accountAddress = account
         } catch {
             isConnected = false
-            accountAddress = nil
+            accountAddress = GameManager.shared.playerId
             self.error = error
         }
     }
@@ -66,7 +70,7 @@ final class WalletViewModel: ObservableObject  {
     func disconnect() {
         web3Service.disconnect()
         isConnected = false
-        accountAddress = nil
+        accountAddress = GameManager.shared.playerId
     }
     
     func openAppStore() {

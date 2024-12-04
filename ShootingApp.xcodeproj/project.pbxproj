@@ -283,6 +283,12 @@
 		826FAA192D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
 		826FAA1A2D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
 		826FAA1B2D0088FB0029CF9C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA182D0088FB0029CF9C /* EmptyStateView.swift */; };
+		826FAA1E2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */; };
+		826FAA1F2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */; };
+		826FAA202D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */; };
+		826FAA222D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */; };
+		826FAA232D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */; };
+		826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */; };
 		828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545822CCCFE520074EBF9 /* AppDelegate.swift */; };
 		828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828545842CCCFE520074EBF9 /* SceneDelegate.swift */; };
 		8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */; };
@@ -485,6 +491,8 @@
 		826FAA0F2D00809F0029CF9C /* AchievementsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCoordinator.swift; sourceTree = "<group>"; };
 		826FAA132D0084FE0029CF9C /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		826FAA182D0088FB0029CF9C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandlerProtocol.swift; sourceTree = "<group>"; };
+		826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AlertHandler.swift"; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -1123,6 +1131,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		826FAA1C2D0094BE0029CF9C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		828545762CCCFE520074EBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1252,7 @@
 		828545CB2CCD00F70074EBF9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				826FAA1C2D0094BE0029CF9C /* Protocols */,
 				828545CC2CCD00FF0074EBF9 /* ViewControllers */,
 				828545CD2CCD01080074EBF9 /* ViewModels */,
 				8285461D2CCE3E820074EBF9 /* Views */,
@@ -1249,6 +1266,7 @@
 				828545C02CCD007B0074EBF9 /* HomeViewController.swift */,
 				828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */,
 				826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */,
+				826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1577,6 +1595,7 @@
 				8269383D2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
 				826938902CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				820611A32CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
+				826FAA1F2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
 				820611952CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
@@ -1590,6 +1609,7 @@
 				826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				8206116E2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				828545832CCCFE520074EBF9 /* AppDelegate.swift in Sources */,
+				826FAA232D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826FAA102D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
@@ -1699,6 +1719,7 @@
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
+				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826FA9F92D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
@@ -1770,6 +1791,7 @@
 				820611872CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
 				826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				826FAA1E2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
@@ -1821,6 +1843,7 @@
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				826FA9FC2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
+				826FAA202D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
 				826938812CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
@@ -1835,6 +1858,7 @@
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				8269381C2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
+				826FAA222D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
