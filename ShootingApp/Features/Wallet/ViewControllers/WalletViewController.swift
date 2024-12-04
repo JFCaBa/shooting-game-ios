@@ -26,7 +26,6 @@ final class WalletViewController: UIViewController {
         label.numberOfLines = 2
         label.lineBreakMode = .byTruncatingMiddle
         label.font = .systemFont(ofSize: 20)
-        label.isHidden = true
         return label
     }()
     
@@ -135,6 +134,7 @@ final class WalletViewController: UIViewController {
             .store(in: &cancellables)
         
         viewModel.$accountAddress
+            .compactMap({$0})
             .receive(on: DispatchQueue.main)
             .sink { [weak self] address in
                 guard let self else { return }
@@ -181,11 +181,9 @@ final class WalletViewController: UIViewController {
         connectButton.setTitle(isConnected ? "Disconnect MetaMask" : "Connect MetaMask", for: .normal)
     }
     
-    private func updateAccountLabel(address: String?) {
-        accountLabel.isHidden = address == nil
-        if let address = address {
-            accountLabel.text = "Connected to:\n\(address)"
-        }
+    private func updateAccountLabel(address: String) {
+        let wording = viewModel.isConnected ? "Connected to:" : "Temporary address:"
+        accountLabel.text = "\(wording)\n\(address)"
     }
     
     private func showMetaMaskNotInstalledAlert() {

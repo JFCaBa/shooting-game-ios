@@ -24,6 +24,7 @@ final class HomeViewController: UIViewController {
     private let amountAdReward = 10
     private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
+    private var alertHandler: HomeAlertHandler! = nil
     
     // MARK: - Properties
     
@@ -41,7 +42,7 @@ final class HomeViewController: UIViewController {
     public var visionDebugView: VisionDebugView! // Used in extension HomeViewController+VisionDebug
     
     // MARK: - UI Components
-
+    
     lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
         layer.videoGravity = .resizeAspectFill
@@ -127,7 +128,7 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var reloadTimerLabel: UILabel = {
+    lazy var reloadTimerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 70, weight: .bold)
@@ -222,6 +223,8 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.alertHandler = HomeAlertHandler(viewController: self)
+        
         setupCamera()
         setupUI()
         setupTopContainer()
@@ -757,57 +760,28 @@ final class HomeViewController: UIViewController {
     // MARK: - askTimerOrAd()
     
     private func askTimerOrAd(title: String, message: String, completion: (()->())? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-        let timer = UIAlertAction(title: "Timer", style: .default) { [weak self] _ in
-            guard let self else { return }
-            DispatchQueue.main.async {
-                self.loadTimer {
-                    completion?()
-                }
-            }
-        }
-        let ad = UIAlertAction(title: "Ad", style: .default) { [weak self] _ in
-            guard let self else { return }
-            Task {
-                await self.loadRewardedAd()
-                completion?()
-            }
-        }
-        
-        alert.addAction(timer)
-        alert.addAction(ad)
-        present(alert, animated: true)
+        alertHandler.showTimerOrAdAlert(title: title, message: message, completion: completion)
     }
     
     // MARK: - loadTimer()
     
     private func loadTimer(completion: (()->())? = nil) {
-        var timeLeft = 60
-        reloadTimerLabel.isHidden = false
-        reloadTimerLabel.text = "\(timeLeft)"
-        
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self else { return }
-            
-            self.reloadTimerLabel.text = "\(timeLeft)"
-            
-            if timeLeft <= 0 {
-                timer.invalidate()
-                completion?()
-            }
-            timeLeft -= 1
-        }
+        alertHandler.startTimer(duration: 60, completion: completion)
     }
     
     // MARK: - finishRecovering()
     
     private func finishRecovering() {
-        currentLives = maxLives
-        lifeBar.updateValue(Float(maxLives))
-        reloadTimerLabel.isHidden = true
-        shootButton.isEnabled = true
-        shootButton.alpha = 1.0
-        isReloading = false
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            currentLives = maxLives
+            lifeBar.updateValue(Float(maxLives))
+            reloadTimerLabel.isHidden = true
+            shootButton.isEnabled = true
+            shootButton.alpha = 1.0
+            isReloading = false
+        }
     }
 }
 

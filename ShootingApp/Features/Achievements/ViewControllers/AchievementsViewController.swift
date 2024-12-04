@@ -52,7 +52,7 @@ final class AchievementsViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = "Achievements"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Hall of Fame",
+            title: "HallOfFame",
             style: .plain,
             target: self,
             action: #selector(hallOfFameTapped)
