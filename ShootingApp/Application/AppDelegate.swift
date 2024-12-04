@@ -1,7 +1,6 @@
 import UIKit
 import CoreData
 import GoogleMobileAds
-import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

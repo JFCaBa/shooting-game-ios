@@ -38,10 +38,10 @@ final class HomeViewController: UIViewController {
     private var videoCaptureDevice: AVCaptureDevice?
     private var cancellables: Set<AnyCancellable> = []
     
+    public var visionDebugView: VisionDebugView! // Used in extension HomeViewController+VisionDebug
+    
     // MARK: - UI Components
-    var visionDebugView: VisionDebugView!
-    
-    
+
     lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let layer = AVCaptureVideoPreviewLayer()
         layer.videoGravity = .resizeAspectFill
@@ -864,7 +864,7 @@ extension HomeViewController: GADFullScreenContentDelegate {
             
         } catch {
             print("Rewarded ad failed to load with error: \(error.localizedDescription)")
-            loadTimer()
+            finishRecovering()
         }
     }
     

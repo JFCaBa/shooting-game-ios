@@ -13,7 +13,7 @@ final class SettingsViewController: UIViewController {
     
     private let viewModel: SettingsViewModel
     private var cancellables = Set<AnyCancellable>()
-    
+        
     // MARK: - UI Components
     
     private lazy var tableView: UITableView = {

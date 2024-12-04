@@ -21,7 +21,7 @@ final class ZoomSliderControlView: UIView {
     private var currentZoom: CGFloat = 1.0
     var zoomChanged: ((CGFloat) -> Void)?
     
-    // MARK: - UI
+    // MARK: - UI Components
     
     private lazy var sliderView: UIView = {
         let view = UIView()

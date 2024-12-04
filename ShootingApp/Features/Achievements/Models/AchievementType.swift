@@ -15,8 +15,8 @@ enum AchievementType: String, Codable {
     
     var description: String {
         switch self {
-        case .kills: return "Total Kills"
-        case .hits: return "Total Hits"
+        case .kills: return "Kills"
+        case .hits: return "Hits"
         case .survivalTime: return "Survival Time"
         case .accuracy: return "Accuracy"
         }
