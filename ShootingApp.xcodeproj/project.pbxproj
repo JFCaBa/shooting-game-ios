@@ -2064,10 +2064,12 @@
 				CODE_SIGN_ENTITLEMENTS = ShootingApp/ShootingAppDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShootingDApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need bluetooth access to connect to nearby devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need bluetooth access to connect to nearby devices";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
@@ -2107,10 +2109,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShootingDApp;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "We need bluetooth access to connect to nearby devices";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "We need bluetooth access to connect to nearby devices";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to take photos";
