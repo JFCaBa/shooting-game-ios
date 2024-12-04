@@ -87,8 +87,12 @@ final class StatusBarView: UIView {
     // MARK: - Public Methods
     
     func updateValue(_ value: Float) {
-        currentValue = value
-        progressView.progress = value / maxValue
-        label.text = "\(Int(value))/\(Int(maxValue))"
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            currentValue = value
+            progressView.progress = value / maxValue
+            label.text = "\(Int(value))/\(Int(maxValue))"
+        }
     }
 }

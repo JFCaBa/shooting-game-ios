@@ -30,8 +30,9 @@ extension HomeViewController {
             }
             let ad = UIAlertAction(title: "Ad", style: .default) { [weak self] _ in
                 guard let self else { return }
+                
                 Task {
-                    await viewController.loadRewardedAd()
+                    await self.viewController?.loadRewardedAd()
                     completion?()
                 }
             }
