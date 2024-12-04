@@ -5,6 +5,9 @@ An iOS augmented reality shooting game that uses location services and device or
 ![IMG_3263 Medium](https://github.com/user-attachments/assets/2d360c1d-b3fd-488b-94c4-5174c9d74fa1)
 ![IMG_3265 Medium](https://github.com/user-attachments/assets/1e091050-9f04-4293-abd6-44c6d85c4190)
 ![IMG_3267 Medium](https://github.com/user-attachments/assets/e89624fb-1ff9-4e3f-afd3-bd887998dc5d)
+![Screenshot 2024-12-04 at 17 16 01 Medium](https://github.com/user-attachments/assets/6603c88c-ad09-4364-a0d0-f7e934e6dcd8)
+![Screenshot 2024-12-04 at 17 17 25 Medium](https://github.com/user-attachments/assets/80c54c8a-38a2-461d-8759-3265a6e54669)
+![Screenshot 2024-12-04 at 17 18 23 Medium](https://github.com/user-attachments/assets/c944799b-ba12-4ddf-957c-2aa5525de7e2)
 
 ## Features
 - Real-time player tracking
