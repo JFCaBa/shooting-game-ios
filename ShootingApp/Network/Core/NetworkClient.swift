@@ -10,7 +10,7 @@ import Foundation
 final class NetworkClient: NetworkClientProtocol {
     private let baseURL: String
     
-    init(baseURL: String = "http://localhost:3000") {
+    init(baseURL: String = "http://onedayvpn.com:3000") {
         self.baseURL = baseURL
     }
     
