@@ -370,6 +370,9 @@
 		8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
 		8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
 		8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
+		82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
+		82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
+		82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -493,6 +496,7 @@
 		826FAA182D0088FB0029CF9C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		826FAA1D2D0094DA0029CF9C /* AlertHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandlerProtocol.swift; sourceTree = "<group>"; };
 		826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AlertHandler.swift"; sourceTree = "<group>"; };
+		826FAA262D00A5990029CF9C /* ShootingApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShootingApp.entitlements; sourceTree = "<group>"; };
 		8285457F2CCCFE520074EBF9 /* ShootingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828545822CCCFE520074EBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		828545842CCCFE520074EBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 		8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotation.swift; sourceTree = "<group>"; };
 		828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotationView.swift; sourceTree = "<group>"; };
 		8285462B2CCE4A440074EBF9 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1163,6 +1168,7 @@
 			isa = PBXGroup;
 			children = (
 				826938B22CFDB00400E03DAA /* ShootingAppDebug.entitlements */,
+				826FAA262D00A5990029CF9C /* ShootingApp.entitlements */,
 				8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */,
 				828545932CCCFE550074EBF9 /* Info.plist */,
 				826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */,
@@ -1399,6 +1405,7 @@
 		8285461D2CCE3E820074EBF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				82CE89B72D0399520014E35B /* ConnectionStatusView.swift */,
 				8269387F2CFB462000E03DAA /* FeedbackView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
 				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
@@ -1428,6 +1435,7 @@
 				8285457B2CCCFE520074EBF9 /* Sources */,
 				8285457C2CCCFE520074EBF9 /* Frameworks */,
 				8285457D2CCCFE520074EBF9 /* Resources */,
+				826FAA252D009E340029CF9C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1561,6 +1569,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		826FAA252D009E340029CF9C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8285457B2CCCFE520074EBF9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1636,6 +1669,7 @@
 				826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
+				82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206117E2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826938992CFB607D00E03DAA /* TokenService.swift in Sources */,
@@ -1735,6 +1769,7 @@
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
 				8206111B2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				826FAA0D2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
+				82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				8206118B2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
@@ -1861,6 +1896,7 @@
 				826FAA222D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				826FA9F82D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
@@ -1995,7 +2031,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

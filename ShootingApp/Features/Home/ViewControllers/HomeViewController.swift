@@ -84,6 +84,12 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
+    private lazy var statusView: ConnectionStatusView = {
+        let view = ConnectionStatusView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -334,6 +340,7 @@ final class HomeViewController: UIViewController {
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
         topContainerView.addSubview(scoreView)
+        topContainerView.addSubview(statusView)
         
         NSLayoutConstraint.activate([
             // Top container
@@ -356,6 +363,11 @@ final class HomeViewController: UIViewController {
             scoreView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             scoreView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             scoreView.heightAnchor.constraint(equalToConstant: 50),
+            // Status view
+            statusView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 5),
+            statusView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -25),
+            statusView.widthAnchor.constraint(equalToConstant: 20),
+            statusView.heightAnchor.constraint(equalToConstant: 48),
             // Crosshair
             crosshairView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             crosshairView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
@@ -716,12 +728,16 @@ final class HomeViewController: UIViewController {
     // MARK: - finishReloading()
     
     private func finishReloading() {
-        currentAmmo = maxAmmo
-        ammoBar.updateValue(Float(maxAmmo))
-        reloadTimerLabel.isHidden = true
-        shootButton.isEnabled = true
-        shootButton.alpha = 1.0
-        isReloading = false
+        DispatchQueue.main.async { [weak self] in
+            guard let self else  { return }
+            
+            currentAmmo = maxAmmo
+            ammoBar.updateValue(Float(maxAmmo))
+            reloadTimerLabel.isHidden = true
+            shootButton.isEnabled = true
+            shootButton.alpha = 1.0
+            isReloading = false
+        }
     }
     
     // MARK: - updateLives()

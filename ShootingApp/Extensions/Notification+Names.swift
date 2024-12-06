@@ -23,4 +23,6 @@ extension Notification.Name {
     static let headingDidUpdate = Notification.Name("headingDidUpdate")
     static let playerJoined = Notification.Name("playerJoined")
     static let notificationDistanceChanged = Notification.Name("notificationDistanceChanged")
+    static let websocketStatusChanged = Notification.Name("websocketStatusChanged")
+
 }
