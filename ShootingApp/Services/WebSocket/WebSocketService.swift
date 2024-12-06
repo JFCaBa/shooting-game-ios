@@ -22,7 +22,16 @@ class WebSocketService {
 
     // MARK: - Properties
     
-    private var isConnected = false
+    private var isConnected = false {
+        didSet {
+            // Post notification whenever connection status changes
+            NotificationCenter.default.post(
+                name: .websocketStatusChanged,
+                object: nil,
+                userInfo: ["isConnected": isConnected]
+            )
+        }
+    }
     private var isReconnecting = false
     private var webSocket: URLSessionWebSocketTask?
     private var reconnectAttempts = 0
