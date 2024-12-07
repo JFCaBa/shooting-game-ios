@@ -27,7 +27,7 @@ final class ConnectionStatusView: UIView {
     }()
     
     private lazy var websocketView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "arrow.rectanglepath"))
+        let imageView = UIImageView(image: UIImage(systemName: "lightswitch.on"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemGreen
@@ -110,7 +110,7 @@ final class ConnectionStatusView: UIView {
     private func updateWebsocketStatus(isConnected: Bool) {
         UIView.animate(withDuration: 0.3) {
             self.websocketView.tintColor = isConnected ? .systemGreen : .systemRed
-            self.websocketView.transform = isConnected ? .identity : CGAffineTransform(rotationAngle: .pi)
+            self.websocketView.image = isConnected ? UIImage(systemName: "lightswitch.on") : UIImage(systemName: "lightswitch.on")
         }
     }
 }

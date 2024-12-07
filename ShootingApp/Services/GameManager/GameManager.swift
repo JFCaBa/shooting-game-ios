@@ -160,7 +160,7 @@ final class GameManager: GameManagerProtocol {
             NotificationCenter.default.post(name: .playerWasHit, object: nil)
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
         } else {
-//            sendShootConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId, distance: realDistance, deviation: deviation)
+            sendShootConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId, distance: realDistance, deviation: deviation)
         }
     }
     
