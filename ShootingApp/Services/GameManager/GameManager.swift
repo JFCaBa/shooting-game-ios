@@ -160,7 +160,7 @@ final class GameManager: GameManagerProtocol {
             NotificationCenter.default.post(name: .playerWasHit, object: nil)
             sendHitConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId)
         } else {
-            sendShootConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId, distance: realDistance, deviation: deviation)
+//            sendShootConfirmation(shotId: message.data.shotId ?? "", shooterId: message.playerId, distance: realDistance, deviation: deviation)
         }
     }
     
@@ -193,7 +193,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: messageData,
             timestamp: Date(),
-            targetPlayerId: shooterId
+            senderId: shooterId
         )
         
         webSocketService.send(message: message)
@@ -226,7 +226,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: messageData,
             timestamp: Date(),
-            targetPlayerId: shooterId
+            senderId: shooterId
         )
         
         webSocketService.send(message: message)
@@ -351,7 +351,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: messageData,
             timestamp: Date(),
-            targetPlayerId: nil
+            senderId: nil
         )
         
         webSocketService.send(message: message)
@@ -377,7 +377,7 @@ extension GameManager: WebSocketServiceDelegate {
                 damage: nil
             ),
             timestamp: Date(),
-            targetPlayerId: nil,
+            senderId: nil,
             pushToken: Messaging.messaging().fcmToken
         )
         
@@ -410,7 +410,7 @@ extension GameManager: WebSocketServiceDelegate {
             break
             
         case .hitConfirmed:
-            if message.targetPlayerId == playerId {
+            if message.senderId == playerId {
                 gameScore.hits += 1
                 NotificationCenter.default.post(
                     name: .playerHitTarget,
@@ -420,7 +420,7 @@ extension GameManager: WebSocketServiceDelegate {
             }
             
         case .kill:
-            if message.targetPlayerId == playerId {
+            if message.senderId == playerId {
                 gameScore.kills += 1
                 NotificationCenter.default.post(
                     name: .playerKilledTarget,
