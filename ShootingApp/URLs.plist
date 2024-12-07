@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   URLs.plist
+   ShootingApp
+
+   Created by Jose on 07/12/2024.
+-->
+
+<plist version="1.0">
+    <dict>
+        <key>BaseURL</key>
+        <string>onedayvpn.com</string>
+        <key>APIPort</key>
+        <integer>3000</integer>
+        <key>SocketPort</key>
+        <integer>8182</integer>
+    </dict>
+</plist>

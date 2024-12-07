@@ -88,7 +88,7 @@ final class ShootFeedbackView: UIView {
     
     func show(distance: Double, deviation: Double) {
         distanceLabel.text = String(format: "%.1fm", distance)
-        deviationLabel.text = String(format: "%.1f°", abs(deviation))
+        deviationLabel.text = String(format: "%.1fm", abs(deviation))
         arrowLabel.text = deviation < 0 ? "→" : "←"
         
         alpha = 0

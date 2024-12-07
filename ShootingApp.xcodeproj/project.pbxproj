@@ -100,6 +100,12 @@
 		820611BF2CF87779003FB6BB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 820611BE2CF87779003FB6BB /* FirebaseCore */; };
 		820611C12CF87779003FB6BB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C02CF87779003FB6BB /* FirebaseCrashlytics */; };
 		820611C32CF87779003FB6BB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C22CF87779003FB6BB /* FirebaseMessaging */; };
+		82223F092D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
+		82223F0A2D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
+		82223F0B2D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
+		82223F0D2D0461100095E161 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82223F0C2D0461100095E161 /* Environment.swift */; };
+		82223F0E2D0461100095E161 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82223F0C2D0461100095E161 /* Environment.swift */; };
+		82223F0F2D0461100095E161 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82223F0C2D0461100095E161 /* Environment.swift */; };
 		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
 		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
 		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
@@ -428,6 +434,8 @@
 		8206119D2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatSystemProtocol.swift; sourceTree = "<group>"; };
 		820611A22CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Copy.swift"; sourceTree = "<group>"; };
 		820611AB2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Sendable.swift"; sourceTree = "<group>"; };
+		82223F082D0460610095E161 /* URLs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = URLs.plist; sourceTree = "<group>"; };
+		82223F0C2D0461100095E161 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		826338672CEFB2DC009C2CED /* Web3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
 		826338692CEFB2F5009C2CED /* Web3Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Error.swift; sourceTree = "<group>"; };
 		8263386D2CEFB322009C2CED /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
@@ -820,6 +828,13 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		82223F102D04615D0095E161 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		826338662CEFB2C9009C2CED /* Web3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1054,7 @@
 		826938A12CFB60B800E03DAA /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				82223F0C2D0461100095E161 /* Environment.swift */,
 				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
 				8269389F2CFB609B00E03DAA /* TokenService */,
@@ -1172,6 +1188,7 @@
 				8285458B2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld */,
 				828545932CCCFE550074EBF9 /* Info.plist */,
 				826938AE2CFDA03F00E03DAA /* GoogleService-Info.plist */,
+				82223F082D0460610095E161 /* URLs.plist */,
 				828545B52CCCFECC0074EBF9 /* Application */,
 				828545BF2CCD006B0074EBF9 /* Coordinators */,
 				828546102CCE35BB0074EBF9 /* Extensions */,
@@ -1182,6 +1199,7 @@
 				828545B62CCCFEE20074EBF9 /* Resources */,
 				828545E22CCD12DA0074EBF9 /* Services */,
 				826FAA172D0088C90029CF9C /* Views */,
+				82223F102D04615D0095E161 /* New Group */,
 			);
 			path = ShootingApp;
 			sourceTree = "<group>";
@@ -1547,6 +1565,7 @@
 			files = (
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
+				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
 				826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1555,6 +1574,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1563,6 +1583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82223F092D0460610095E161 /* URLs.plist in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1658,6 +1679,7 @@
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				8206117A2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
 				8206112C2CF37E92003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
+				82223F0F2D0461100095E161 /* Environment.swift in Sources */,
 				826FA9D72CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				826938532CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				8269380C2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
@@ -1751,6 +1773,7 @@
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
+				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
@@ -1941,6 +1964,7 @@
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				8269389E2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
+				82223F0E2D0461100095E161 /* Environment.swift in Sources */,
 				826938242CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				826937FF2CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */,
