@@ -36,10 +36,10 @@ struct Environment {
     }()
     
     static var apiURL: URL {
-        URL(string: "http://\(baseURL):\(apiPort)")!
+        URL(string: "https://\(baseURL)")!
     }
     
     static var socketURL: URL {
-        URL(string: "ws://\(baseURL):\(socketPort)")!
+        URL(string: "wss://\(baseURL):\(socketPort)")!
     }
 }
