@@ -160,7 +160,7 @@ final class AchievementsViewController: UIViewController {
     
     @objc private func hallOfFameTapped() {
            coordinator?.showHallOfFame()
-       }
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -190,17 +190,6 @@ extension AchievementsViewController: UICollectionViewDataSource {
 
 extension AchievementsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let achievement = viewModel.displayAchievements[indexPath.item]
-        let isEarned = viewModel.achievements.contains(where: { $0.id == achievement.id })
         
-        let description = isEarned ? "Earned!" : "Keep playing to earn this achievement"
-        let alert = UIAlertController(
-            title: achievement.type.description,
-            message: "\(description)\nProgress: \(achievement.progress)/\(achievement.milestone)",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
     }
 }

@@ -17,9 +17,13 @@ final class HallOfFameViewController: UIViewController {
     // MARK: - UI Components
     
     private lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .insetGrouped)
+        table.register(HallOfFameCell.self, forCellReuseIdentifier: HallOfFameCell.identifier)
+        table.rowHeight = UITableView.automaticDimension
+        table.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        table.separatorInset = UIEdgeInsets(top: 0, left: 62, bottom: 0, right: 0)
+        table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         table.delegate = self
         table.dataSource = self
         return table
@@ -98,19 +102,21 @@ final class HallOfFameViewController: UIViewController {
 
 extension HallOfFameViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.hallOfFame.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HallOfFameCell", for: indexPath) as? HallOfFameCell else {
+            fatalError("Error: Missing or invalid cell")
+        }
+        
         cell.accessoryType = .none
-        
-        let player = viewModel.hallOfFame[indexPath.row]
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = "\(player.playerID?.suffix(4) ?? "Unknown")"
-        content.secondaryText = "\(player.stats.kills) kills and \(player.stats.hits) hits"
-        cell.contentConfiguration = content
+        let viewModel = HallOfFameCellViewModel(elements: viewModel.hallOfFame, row: indexPath.section)
+        cell.configureWith(viewModel)
         
         return cell
     }
@@ -119,5 +125,23 @@ extension HallOfFameViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension HallOfFameViewController: UITableViewDelegate {
-    // TODO: Show extended info when cell row tapped
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8 
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        return footerView
+    }
 }
