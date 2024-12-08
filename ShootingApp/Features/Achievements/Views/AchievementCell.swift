@@ -18,7 +18,7 @@ final class AchievementCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .gray
+        imageView.tintColor = .label
         return imageView
     }()
     
@@ -94,15 +94,9 @@ final class AchievementCell: UICollectionViewCell {
         progressLabel.text = "\(achievement.milestone)"
         
         if earned {
-            iconView.tintColor = .systemBlue
-            titleLabel.textColor = .systemBlue
-            contentView.backgroundColor = .systemBlue.withAlphaComponent(0.1)
-            progressLabel.textColor = .systemBlue
+            contentView.backgroundColor = .customPlaygroundQuickLook
         } else {
-            iconView.tintColor = .gray
-            titleLabel.textColor = .label
             contentView.backgroundColor = .secondarySystemBackground
-            progressLabel.textColor = .secondaryLabel
         }
     }
 }
