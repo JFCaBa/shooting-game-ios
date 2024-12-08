@@ -1434,11 +1434,11 @@
 				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
 				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
 				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
+				82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */,
 				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
 				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
 				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
 				8269387A2CFB36B100E03DAA /* UIViewController */,
-				82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
