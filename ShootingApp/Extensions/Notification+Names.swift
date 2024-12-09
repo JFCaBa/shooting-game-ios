@@ -12,6 +12,7 @@ extension Notification.Name {
     static let metamaskDidConnect = Notification.Name("MetamaskDidConnect")
     static let playerWasHit = Notification.Name("playerWasHit")
     static let playerHitTarget = Notification.Name("playerHitTarget")
+    static let playerHitDrone = Notification.Name("playerHitDrone")
     static let playerKilledTarget = Notification.Name("playerKilledTarget")
     static let shootConfirmed = Notification.Name("shootConfirmed")
     static let playerDied = Notification.Name("playerDied")
