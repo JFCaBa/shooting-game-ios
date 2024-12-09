@@ -20,6 +20,7 @@ final class HomeViewController: UIViewController {
     private let maxAmmo = 30
     private let maxLives = 10
     private let amountHitReward = 1
+    private let amountHitDroneReward = 2
     private let amountKillReward = 5
     private let amountAdReward = 10
     private let viewModel = HomeViewModel()
@@ -76,6 +77,12 @@ final class HomeViewController: UIViewController {
         bar.translatesAutoresizingMaskIntoConstraints = false
         bar.accessibilityIdentifier = "lifeBar"
         return bar
+    }()
+    
+    private lazy var droneCountView: DroneCountView = {
+        let view = DroneCountView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private lazy var scoreView: ScoreView = {
@@ -223,6 +230,7 @@ final class HomeViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        ARService.shared.cleanup()
     }
     
     // MARK: - Lifecycle
@@ -239,6 +247,7 @@ final class HomeViewController: UIViewController {
         setupDebugViews()
         shootButton.isExclusiveTouch = true
         setupBindings()
+        setupAR()
     }
     
     override func viewDidLayoutSubviews() {
@@ -284,6 +293,13 @@ final class HomeViewController: UIViewController {
             self,
             selector: #selector(handleHitConfirmation),
             name: .playerHitTarget,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleHitDroneConfirmation),
+            name: .playerHitDrone,
             object: nil
         )
         
@@ -340,6 +356,7 @@ final class HomeViewController: UIViewController {
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
         topContainerView.addSubview(scoreView)
+        topContainerView.addSubview(droneCountView)
         topContainerView.addSubview(statusView)
         
         NSLayoutConstraint.activate([
@@ -348,59 +365,77 @@ final class HomeViewController: UIViewController {
             topContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topContainerView.heightAnchor.constraint(equalToConstant: 150),
+            
             // Ammo bar
             ammoBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 44),
             ammoBar.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             ammoBar.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             ammoBar.heightAnchor.constraint(equalToConstant: 20),
+            
             // Life bar
             lifeBar.topAnchor.constraint(equalTo: ammoBar.bottomAnchor, constant: 8),
             lifeBar.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             lifeBar.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             lifeBar.heightAnchor.constraint(equalToConstant: 20),
+            
             // Score view
             scoreView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 8),
             scoreView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             scoreView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             scoreView.heightAnchor.constraint(equalToConstant: 50),
+        
+            // Drones view
+            droneCountView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 8),
+            droneCountView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
+            droneCountView.widthAnchor.constraint(equalToConstant: 60),
+            droneCountView.heightAnchor.constraint(equalToConstant: 50),
+            
             // Status view
             statusView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 5),
             statusView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -25),
             statusView.widthAnchor.constraint(equalToConstant: 20),
             statusView.heightAnchor.constraint(equalToConstant: 48),
+            
             // Crosshair
             crosshairView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             crosshairView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             crosshairView.widthAnchor.constraint(equalToConstant: 50),
             crosshairView.heightAnchor.constraint(equalToConstant: 50),
+            
             // Zoom
             zoomSlider.centerXAnchor.constraint(equalTo: shootButton.centerXAnchor),
             zoomSlider.bottomAnchor.constraint(equalTo: shootButton.topAnchor, constant: -10),
             zoomSlider.heightAnchor.constraint(equalToConstant: 44),
             zoomSlider.widthAnchor.constraint(equalToConstant: 140),
+            
             // Shoot
             shootButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shootButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             shootButton.widthAnchor.constraint(equalToConstant: 70),
             shootButton.heightAnchor.constraint(equalToConstant: 70),
+            
             // Reload timer
             reloadTimerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadTimerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             // Map
             mapButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
             mapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             mapButton.widthAnchor.constraint(equalToConstant: 50),
             mapButton.heightAnchor.constraint(equalToConstant: 50),
+            
             // Achievements
             achievementsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
             achievementsButton.bottomAnchor.constraint(equalTo: mapButton.topAnchor, constant: -16),
             achievementsButton.widthAnchor.constraint(equalToConstant: 50),
             achievementsButton.heightAnchor.constraint(equalToConstant: 50),
+            
             // Wallet
             walletButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
             walletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             walletButton.widthAnchor.constraint(equalToConstant: 50),
             walletButton.heightAnchor.constraint(equalToConstant: 50),
+            
             // Settings
             settingsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
             settingsButton.bottomAnchor.constraint(equalTo: achievementsButton.topAnchor, constant: -16),
@@ -423,6 +458,7 @@ final class HomeViewController: UIViewController {
             return
         }
         
+        configureZoomForDevice(videoCaptureDevice)
         self.videoCaptureDevice = videoCaptureDevice
         
         if captureSession.canAddInput(videoInput) {
@@ -443,6 +479,12 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // MARK: - updateDroneCount(_:)
+    
+    func updateDroneCount(_ count: Int) {
+        droneCountView.updateCount(count)
+    }
+    
     // MARK: - updateZoom()
     
     private func updateZoom(scale: CGFloat) {
@@ -450,10 +492,27 @@ final class HomeViewController: UIViewController {
         
         do {
             try device.lockForConfiguration()
-            device.videoZoomFactor = scale
+            
+            // Ensure zoom is within device limits
+            let minZoom = device.minAvailableVideoZoomFactor
+            let maxZoom = min(device.maxAvailableVideoZoomFactor, 10.0) // Cap at 10x or device max
+            let clampedZoom = min(max(scale, minZoom), maxZoom)
+            
+            device.videoZoomFactor = clampedZoom
+            device.unlockForConfiguration()
+            
+        } catch {
+            print("Error setting zoom: \(error.localizedDescription)")
+        }
+    }
+    
+    private func configureZoomForDevice(_ device: AVCaptureDevice) {
+        do {
+            try device.lockForConfiguration()
+            device.videoZoomFactor = 1.0 // Reset to default
             device.unlockForConfiguration()
         } catch {
-            print("Error setting zoom: \(error)")
+            print("Error configuring device zoom: \(error.localizedDescription)")
         }
     }
     
@@ -462,15 +521,15 @@ final class HomeViewController: UIViewController {
     @objc private func shootButtonTapped() {
         guard !isReloading && currentAmmo > 0 else { return }
         
+        // Convert the tap location to normalized coordinates
+        let crosshairCenter = crosshairView.center
 #if targetEnvironment(simulator)
-        viewModel.shoot(isValid: false)
+        viewModel.shoot(at: crosshairCenter,  atisValid: false)
         performShootEffects()
         updateAmmo()
 #else
         guard let pixelBuffer = currentPreviewBuffer else { return }
         
-        // Convert the tap location to normalized coordinates
-        let crosshairCenter = crosshairView.center
         let layerPoint = previewLayer.convert(crosshairCenter, from: view.layer)
         let normalizedLocation = previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
         
@@ -482,13 +541,13 @@ final class HomeViewController: UIViewController {
                 )
                 
                 await MainActor.run {
-                    viewModel.shoot(isValid: validation.isValid)
+                    viewModel.shoot(at: crosshairCenter, isValid: validation.isValid)
                 }
                 
             } catch {
                 await MainActor.run {
                     handleShootingError(error)
-                    viewModel.shoot(isValid: false)
+                    viewModel.shoot(at: crosshairCenter, isValid: false)
                 }
             }
         }
@@ -574,7 +633,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - handleHitConfirmation()
     
-    @objc private func handleHitConfirmation() {
+    @objc func handleHitConfirmation() {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
@@ -582,6 +641,19 @@ final class HomeViewController: UIViewController {
             self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
             
             showFeedback(.hit, amount: amountHitReward)
+        }
+    }
+    
+    // MARK: - handleHitDroneConfirmation()
+    
+    @objc func handleHitDroneConfirmation() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            let gameScore = GameManager.shared.gameScore
+            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+            
+            showFeedback(.hit, amount: amountHitDroneReward)
         }
     }
     

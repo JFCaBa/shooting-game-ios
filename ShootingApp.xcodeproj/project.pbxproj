@@ -115,6 +115,36 @@
 		82381EAB2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */; };
 		82381EAC2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */; };
 		82381EAD2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */; };
+		82560A692D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A682D06CE8B00DE2210 /* HomeViewController+AR.swift */; };
+		82560A6A2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A682D06CE8B00DE2210 /* HomeViewController+AR.swift */; };
+		82560A6B2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A682D06CE8B00DE2210 /* HomeViewController+AR.swift */; };
+		82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A6C2D06CEB400DE2210 /* ARContainerView.swift */; };
+		82560A6E2D06CEB400DE2210 /* ARContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A6C2D06CEB400DE2210 /* ARContainerView.swift */; };
+		82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A6C2D06CEB400DE2210 /* ARContainerView.swift */; };
+		82560A712D06CEC700DE2210 /* ARSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A702D06CEC700DE2210 /* ARSceneManager.swift */; };
+		82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A702D06CEC700DE2210 /* ARSceneManager.swift */; };
+		82560A732D06CEC700DE2210 /* ARSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A702D06CEC700DE2210 /* ARSceneManager.swift */; };
+		82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A742D06CEDC00DE2210 /* ARDroneNode.swift */; };
+		82560A762D06CEDC00DE2210 /* ARDroneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A742D06CEDC00DE2210 /* ARDroneNode.swift */; };
+		82560A772D06CEDC00DE2210 /* ARDroneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A742D06CEDC00DE2210 /* ARDroneNode.swift */; };
+		82560A7A2D06D45100DE2210 /* ARService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A792D06D45100DE2210 /* ARService.swift */; };
+		82560A7B2D06D45100DE2210 /* ARService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A792D06D45100DE2210 /* ARService.swift */; };
+		82560A7C2D06D45100DE2210 /* ARService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A792D06D45100DE2210 /* ARService.swift */; };
+		82560A7F2D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */; };
+		82560A802D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */; };
+		82560A812D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */; };
+		82560A832D06DFC500DE2210 /* DroneCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A822D06DFC500DE2210 /* DroneCountView.swift */; };
+		82560A842D06DFC500DE2210 /* DroneCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A822D06DFC500DE2210 /* DroneCountView.swift */; };
+		82560A852D06DFC500DE2210 /* DroneCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A822D06DFC500DE2210 /* DroneCountView.swift */; };
+		82560A8B2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8A2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift */; };
+		82560A8C2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8A2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift */; };
+		82560A8D2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8A2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift */; };
+		82560A8F2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8E2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift */; };
+		82560A902D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8E2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift */; };
+		82560A912D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A8E2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift */; };
+		82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A932D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift */; };
+		82560A952D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A932D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift */; };
+		82560A962D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82560A932D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift */; };
 		826338652CEFB159009C2CED /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 826338642CEFB159009C2CED /* metamask-ios-sdk */; };
 		826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338672CEFB2DC009C2CED /* Web3Service.swift */; };
 		8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338692CEFB2F5009C2CED /* Web3Error.swift */; };
@@ -448,6 +478,16 @@
 		82381EA12D05C421008FBD86 /* HallOfFameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameCell.swift; sourceTree = "<group>"; };
 		82381EA62D05CD51008FBD86 /* HallOfFameCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameCellViewModel.swift; sourceTree = "<group>"; };
 		82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
+		82560A682D06CE8B00DE2210 /* HomeViewController+AR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+AR.swift"; sourceTree = "<group>"; };
+		82560A6C2D06CEB400DE2210 /* ARContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARContainerView.swift; sourceTree = "<group>"; };
+		82560A702D06CEC700DE2210 /* ARSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneManager.swift; sourceTree = "<group>"; };
+		82560A742D06CEDC00DE2210 /* ARDroneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDroneNode.swift; sourceTree = "<group>"; };
+		82560A792D06D45100DE2210 /* ARService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARService.swift; sourceTree = "<group>"; };
+		82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneManagerDelegate.swift; sourceTree = "<group>"; };
+		82560A822D06DFC500DE2210 /* DroneCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneCountView.swift; sourceTree = "<group>"; };
+		82560A8A2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CreateGridPattern.swift"; sourceTree = "<group>"; };
+		82560A8E2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CreateCombinedPattern.swift"; sourceTree = "<group>"; };
+		82560A932D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CreateHexagonPattern.swift"; sourceTree = "<group>"; };
 		826338672CEFB2DC009C2CED /* Web3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Service.swift; sourceTree = "<group>"; };
 		826338692CEFB2F5009C2CED /* Web3Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Error.swift; sourceTree = "<group>"; };
 		8263386D2CEFB322009C2CED /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
@@ -853,6 +893,71 @@
 				82381EA12D05C421008FBD86 /* HallOfFameCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		82560A632D06CE3400DE2210 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				82560A7D2D06D99E00DE2210 /* Protocols */,
+				82560A642D06CE3900DE2210 /* Nodes */,
+				82560A652D06CE6400DE2210 /* Services */,
+				82560A662D06CE6C00DE2210 /* Views */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		82560A642D06CE3900DE2210 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				82560A742D06CEDC00DE2210 /* ARDroneNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		82560A652D06CE6400DE2210 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				82560A702D06CEC700DE2210 /* ARSceneManager.swift */,
+				82560A792D06D45100DE2210 /* ARService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		82560A662D06CE6C00DE2210 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82560A6C2D06CEB400DE2210 /* ARContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		82560A782D06CF6600DE2210 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				82560A682D06CE8B00DE2210 /* HomeViewController+AR.swift */,
+				828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */,
+				826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */,
+				826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		82560A7D2D06D99E00DE2210 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		82560A922D06F54600DE2210 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				82560A8A2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift */,
+				82560A932D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift */,
+				82560A8E2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		826338662CEFB2C9009C2CED /* Web3 */ = {
@@ -1285,6 +1390,7 @@
 			isa = PBXGroup;
 			children = (
 				820611582CF48630003FB6BB /* Achievements */,
+				82560A632D06CE3400DE2210 /* AR */,
 				828545CB2CCD00F70074EBF9 /* Home */,
 				828545D22CCD0DA80074EBF9 /* Map */,
 				826338CE2CF0A6E1009C2CED /* Onboarding */,
@@ -1298,6 +1404,7 @@
 		828545CB2CCD00F70074EBF9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				82560A782D06CF6600DE2210 /* Extensions */,
 				826FAA1C2D0094BE0029CF9C /* Protocols */,
 				828545CC2CCD00FF0074EBF9 /* ViewControllers */,
 				828545CD2CCD01080074EBF9 /* ViewModels */,
@@ -1310,9 +1417,6 @@
 			isa = PBXGroup;
 			children = (
 				828545C02CCD007B0074EBF9 /* HomeViewController.swift */,
-				828546042CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift */,
-				826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */,
-				826FAA212D0095010029CF9C /* HomeViewController+AlertHandler.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1432,13 +1536,14 @@
 			isa = PBXGroup;
 			children = (
 				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
+				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
 				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
 				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
 				82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */,
+				82560A922D06F54600DE2210 /* UIImage */,
+				8269387A2CFB36B100E03DAA /* UIViewController */,
 				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
 				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
-				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
-				8269387A2CFB36B100E03DAA /* UIViewController */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1447,6 +1552,7 @@
 			isa = PBXGroup;
 			children = (
 				82CE89B72D0399520014E35B /* ConnectionStatusView.swift */,
+				82560A822D06DFC500DE2210 /* DroneCountView.swift */,
 				8269387F2CFB462000E03DAA /* FeedbackView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
 				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
@@ -1647,12 +1753,15 @@
 				8269387E2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				826938302CFA019200E03DAA /* LocationManager.swift in Sources */,
+				82560A8B2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826938422CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
+				82560A7F2D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */,
 				828546002CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				8269382B2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				820611992CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
+				82560A912D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */,
 				8263386A2CEFB2F5009C2CED /* Web3Error.swift in Sources */,
 				82381EA32D05C421008FBD86 /* HallOfFameCell.swift in Sources */,
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
@@ -1675,6 +1784,7 @@
 				826938902CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				820611A32CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
 				826FAA1F2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
+				82560A832D06DFC500DE2210 /* DroneCountView.swift in Sources */,
 				820611952CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
@@ -1684,6 +1794,8 @@
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
+				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
+				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				8206116E2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
@@ -1694,10 +1806,12 @@
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
+				82560A952D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				820611722CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826938802CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				826FAA032D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
+				82560A762D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
@@ -1732,6 +1846,7 @@
 				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				82560A7C2D06D45100DE2210 /* ARService.swift in Sources */,
 				8269380F2CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				826938A42CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
@@ -1757,6 +1872,7 @@
 				826FA9ED2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				826938A82CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				826338CB2CF0A53B009C2CED /* MetaMaskResponse.swift in Sources */,
+				82560A692D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				826338772CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				826338D52CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				820611862CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
@@ -1770,6 +1886,7 @@
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
+				82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826938AD2CFD9A3700E03DAA /* NotificationManagerTests.swift in Sources */,
 				8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
@@ -1797,6 +1914,7 @@
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
+				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
@@ -1818,11 +1936,13 @@
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
 				82381EA42D05C421008FBD86 /* HallOfFameCell.swift in Sources */,
 				8206111B2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
+				82560A962D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				826FAA0D2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				82381EA72D05CD51008FBD86 /* HallOfFameCellViewModel.swift in Sources */,
 				82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				828545EF2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				8206118B2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
+				82560A8F2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				826938792CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 				826938132CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
@@ -1830,6 +1950,7 @@
 				820611772CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				826938552CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				826338712CEFB32E009C2CED /* Web3Service.swift in Sources */,
+				82560A732D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				8269385B2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				826FA9E22CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				828546012CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
@@ -1838,6 +1959,7 @@
 				8269380B2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				826938882CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				820611902CF6A35D003FB6BB /* HitValidationServiceTests.swift in Sources */,
+				82560A6A2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				8263386F2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				826FAA192D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				828545FC2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
@@ -1848,6 +1970,7 @@
 				8206119F2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				828545D62CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				82560A7B2D06D45100DE2210 /* ARService.swift in Sources */,
 				826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
 				826938522CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
@@ -1855,6 +1978,7 @@
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				82560A8C2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				826938012CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
@@ -1862,6 +1986,7 @@
 				8206116F2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				8269381B2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
+				82560A802D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				820611102CF1F437003FB6BB /* OnboardingViewModelTests.swift in Sources */,
 				820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
@@ -1869,6 +1994,7 @@
 				828546062CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611522CF482F0003FB6BB /* AchievementTests.swift in Sources */,
 				826938082CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
+				82560A842D06DFC500DE2210 /* DroneCountView.swift in Sources */,
 				8206110D2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826938172CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
@@ -1930,6 +2056,7 @@
 				828545F02CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
 				828545F92CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				820611572CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
+				82560A8D2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				826FA9FC2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				826FAA202D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
@@ -1964,6 +2091,7 @@
 				820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826938052CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				820611442CF48217003FB6BB /* AchievementType.swift in Sources */,
+				82560A6B2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826FAA052D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
@@ -1985,21 +2113,26 @@
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				82560A6E2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				826938112CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				82560A852D06DFC500DE2210 /* DroneCountView.swift in Sources */,
 				8269389E2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				8285460F2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				82223F0E2D0461100095E161 /* Environment.swift in Sources */,
 				826938242CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				826937FF2CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				826938572CFAF20E00E03DAA /* NetworkError.swift in Sources */,
+				82560A772D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				8206115E2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
+				82560A902D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */,
 				826FAA1B2D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				82381EA82D05CD51008FBD86 /* HallOfFameCellViewModel.swift in Sources */,
@@ -2007,6 +2140,7 @@
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				826FA9F02D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
+				82560A7A2D06D45100DE2210 /* ARService.swift in Sources */,
 				820611842CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				820611A02CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				8206118C2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
@@ -2014,7 +2148,9 @@
 				826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938782CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
 				826938272CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
+				82560A812D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
+				82560A712D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				826FA9F62D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				826938352CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
@@ -2180,7 +2316,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShootingApp/ShootingAppDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
@@ -2225,7 +2361,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;

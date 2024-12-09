@@ -18,6 +18,7 @@ final class HomeViewModel: ObservableObject {
 
     private let gameManager = GameManager.shared
     private let web3Service = Web3Service.shared
+    private let arService = ARService.shared
     private var locationManager: CLLocationManager?
     let rewardService: RewardServiceProtocol
     
@@ -43,8 +44,14 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func shoot(isValid: Bool = true) {
+    func shoot(at point: CGPoint, isValid: Bool = true) {
         guard let location = locationManager?.location else { return }
+        
+        let hitDrone = arService.checkHit(at: point)
+        if hitDrone {
+            // Handle drone hit
+            NotificationCenter.default.post(name: .playerHitDrone, object: nil)
+        }
         
         let locationData = LocationData(
             latitude: location.coordinate.latitude,
