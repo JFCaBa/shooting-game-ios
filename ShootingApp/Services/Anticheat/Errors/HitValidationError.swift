@@ -8,7 +8,7 @@
 import Foundation
 
 enum HitValidationError: Error {
+    case noFrame
     case invalidDistance
-    case targetNotDetected
-    case invalidAngle
+    case noObservations
 }

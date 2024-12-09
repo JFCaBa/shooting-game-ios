@@ -19,7 +19,8 @@ final class ARSceneManager: NSObject {
     private let maxDrones = 3
     private let spawnInterval: TimeInterval = 10.0
     private var lastSpawnPosition: SCNVector3?
-    private let minimumDroneSpacing: Float = 5  // Minimum distance between drones
+    private let minimumDroneSpacing: Float = 20  // Minimum distance between drones
+    private var currentZoom: Float = 1.0
     
     weak var delegate: ARSceneManagerDelegate?
     
@@ -92,8 +93,8 @@ final class ARSceneManager: NSObject {
         repeat {
             newPosition = SCNVector3(
                 x: Float.random(in: -3...3),
-                y: Float.random(in: 4...6),
-                z: Float.random(in: -5...5)
+                y: Float.random(in: 0...3),
+                z: Float.random(in: -2...(-1))
             )
             attempts += 1
         } while isTooCloseToOtherDrones(position: newPosition) && attempts < 10
@@ -135,7 +136,9 @@ final class ARSceneManager: NSObject {
                 let hit = droneNode.hit()
                 if hit {
                     droneNodes.removeAll { $0 == droneNode }
-                    delegate?.arSceneManager(self, didUpdateDroneCount: droneNodes.count)
+                    DispatchQueue.main.async {
+                        self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
+                    }
                 }
                 return hit
             }
@@ -150,6 +153,21 @@ final class ARSceneManager: NSObject {
         timer?.invalidate()
         timer = nil
         sceneView.session.pause()
+    }
+    
+    // MARK: - updateZoom(scale:)
+    
+    func updateZoom(scale: CGFloat) {
+        currentZoom = Float(scale)
+        if let camera = sceneView.pointOfView?.camera {
+            let fov = 60.0 / Double(scale)
+            camera.fieldOfView = CGFloat(fov)
+            
+            // Update camera position for zoom effect
+            let zoomDirection = SCNVector3(0, 0, -1) // Forward direction
+            let zoomDistance = 1.0 - (1.0 / Double(scale)) // Calculate zoom distance
+            sceneView.pointOfView?.position = SCNVector3(0, 0, Float(zoomDistance))
+        }
     }
 }
 

@@ -14,7 +14,7 @@ protocol ARServiceProtocol {
 
 final class ARService: ARServiceProtocol {
     static let shared = ARService()
-    private var arView: ARContainerView?
+    var arView: ARContainerView?
     
     private init() {}
     

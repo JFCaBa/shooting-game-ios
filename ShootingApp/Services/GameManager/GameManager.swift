@@ -31,6 +31,7 @@ final class GameManager: GameManagerProtocol {
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
     private let locationManager = LocationManager.shared
+    private let arService = ARService.shared
     
     // MARK: - convenience init()
     
@@ -100,6 +101,43 @@ final class GameManager: GameManagerProtocol {
             playerId = walletAddress
             reconnectWithNewId()
         }
+    }
+    
+    // MARK: - shoot(location:, heading:)
+    
+    func shoot(at point: CGPoint?, location: LocationData, heading: Double) {
+        guard let playerId = playerId, currentLives > 0 else { return }
+        
+        var type: GameMessage.MessageType = .shoot
+        
+        if let point {
+            let hitDrone = arService.checkHit(at: point)
+            if hitDrone {
+                NotificationCenter.default.post(name: .playerHitDrone, object: nil)
+                type = .shootDrone
+            }
+        }
+        
+        let messageData = MessageData(
+            player: Player(
+                id: playerId,
+                location: location,
+                heading: heading
+            ),
+            shotId: UUID().uuidString,
+            hitPlayerId: nil,
+            damage: 0
+        )
+        
+        let message = GameMessage(
+            type: type,
+            playerId: playerId,
+            data: messageData,
+            timestamp: Date(),
+            senderId: nil
+        )
+        
+        webSocketService.send(message: message)
     }
     
     // MARK: - handleShot(_:)
@@ -328,34 +366,6 @@ final class GameManager: GameManagerProtocol {
         isAlive = true
         gameScore = GameScore(hits: 0, kills: 0)
     }
-    
-    // MARK: - shoot(location:, heading:)
-    
-    func shoot(location: LocationData, heading: Double) {
-        guard let playerId = playerId, currentLives > 0 else { return }
-        
-        let messageData = MessageData(
-            player: Player(
-                id: playerId,
-                location: location,
-                heading: heading
-//                timestamp: Date()
-            ),
-            shotId: UUID().uuidString,
-            hitPlayerId: nil,
-            damage: 0
-        )
-        
-        let message = GameMessage(
-            type: .shoot,
-            playerId: playerId,
-            data: messageData,
-            timestamp: Date(),
-            senderId: nil
-        )
-        
-        webSocketService.send(message: message)
-    }
 }
 
 // MARK: - WebSocketServiceDelegate
@@ -400,6 +410,9 @@ extension GameManager: WebSocketServiceDelegate {
         case .shoot:
             handleShot(message)
             playerManager.updatePlayer(message.data.player)
+            
+        case .shootDrone:
+            break
             
         case .shootConfirmed:
             NotificationCenter.default.post(
