@@ -11,7 +11,7 @@ import UIKit
 final class ARContainerView: UIView {
     // MARK: - Properties
     
-    private let sceneView: ARSCNView
+    let sceneView: ARSCNView
     let manager: ARSceneManager
     
     // MARK: - Closures
@@ -61,7 +61,14 @@ final class ARContainerView: UIView {
     }
     
     // MARK: - stop()
+    
     func stop() {
         manager.stop()
     }
+    
+    // MARK: - updateZoom(scale:)
+    
+    func updateZoom(scale: CGFloat) {
+         manager.updateZoom(scale: scale)
+     }
 }

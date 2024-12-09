@@ -11,6 +11,7 @@ struct GameMessage: Codable {
     enum MessageType: String, Codable {
         case join
         case shoot
+        case shootDrone
         case shootConfirmed
         case hit
         case kill

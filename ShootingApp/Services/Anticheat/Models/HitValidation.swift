@@ -9,6 +9,5 @@ import CoreLocation
 
 struct HitValidation {
     let isValid: Bool
-    let confidence: Float
-    let timestamp: Date
+    let distance: CGFloat?
 }

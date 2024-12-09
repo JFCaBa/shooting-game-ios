@@ -25,30 +25,22 @@ final class HomeViewController: UIViewController {
     private let amountAdReward = 10
     private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
-    private var alertHandler: HomeAlertHandler! = nil
     
     // MARK: - Properties
     
-    private var captureSession: AVCaptureSession?
     private var initialCrosshairPosition: CGPoint = .zero
     private var currentAmmo = 30
     private var currentLives = 10
     private var isReloading = false
-    private var currentPreviewBuffer: CVPixelBuffer?
     private var rewardedAd: GADRewardedAd?
     private let previewZoom = CATransform3DMakeScale(1, 1, 1)
-    private var videoCaptureDevice: AVCaptureDevice?
     private var cancellables: Set<AnyCancellable> = []
+    private var alertHandler: HomeAlertHandler! = nil
+    private var droneCount: Int = 0
     
     public var visionDebugView: VisionDebugView! // Used in extension HomeViewController+VisionDebug
     
     // MARK: - UI Components
-    
-    lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let layer = AVCaptureVideoPreviewLayer()
-        layer.videoGravity = .resizeAspectFill
-        return layer
-    }()
     
     private lazy var topContainerView: UIView = {
         let view = UIView()
@@ -193,7 +185,8 @@ final class HomeViewController: UIViewController {
         let control = ZoomSliderControlView()
         control.translatesAutoresizingMaskIntoConstraints = false
         control.zoomChanged = { [weak self] zoom in
-            self?.updateZoom(scale: zoom)
+            guard let arView = ARService.shared.arView else { return }
+            arView.updateZoom(scale: zoom)
         }
         return control
     }()
@@ -237,22 +230,20 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.alertHandler = HomeAlertHandler(viewController: self)
         
-        setupCamera()
-        setupUI()
+        self.alertHandler = HomeAlertHandler(viewController: self)
+        setupAR()
         setupTopContainer()
+        setupUI()
         setupObservers()
         setupWalletObserver()
         setupDebugViews()
         shootButton.isExclusiveTouch = true
         setupBindings()
-        setupAR()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        previewLayer.frame = view.bounds
         initialCrosshairPosition = crosshairView.center
     }
     
@@ -341,7 +332,6 @@ final class HomeViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .black
-        view.layer.addSublayer(previewLayer)
         
         view.addSubview(topContainerView)
         view.addSubview(crosshairView)
@@ -383,7 +373,7 @@ final class HomeViewController: UIViewController {
             scoreView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
             scoreView.trailingAnchor.constraint(equalTo: topContainerView.trailingAnchor, constant: -16),
             scoreView.heightAnchor.constraint(equalToConstant: 50),
-        
+            
             // Drones view
             droneCountView.topAnchor.constraint(equalTo: lifeBar.bottomAnchor, constant: 8),
             droneCountView.leadingAnchor.constraint(equalTo: topContainerView.leadingAnchor, constant: 16),
@@ -446,74 +436,11 @@ final class HomeViewController: UIViewController {
         reloadTimerLabel.isHidden = true
     }
     
-    // MARK: - setupCamera()
-    
-    private func setupCamera() {
-        captureSession = AVCaptureSession()
-        
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video),
-              let videoInput = try? AVCaptureDeviceInput(device: videoCaptureDevice),
-              let captureSession = captureSession
-        else {
-            return
-        }
-        
-        configureZoomForDevice(videoCaptureDevice)
-        self.videoCaptureDevice = videoCaptureDevice
-        
-        if captureSession.canAddInput(videoInput) {
-            captureSession.addInput(videoInput)
-        }
-        
-        let videoOutput = AVCaptureVideoDataOutput()
-        videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
-        
-        if captureSession.canAddOutput(videoOutput) {
-            captureSession.addOutput(videoOutput)
-        }
-        
-        previewLayer.session = captureSession
-        
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.captureSession?.startRunning()
-        }
-    }
-    
     // MARK: - updateDroneCount(_:)
     
     func updateDroneCount(_ count: Int) {
+        droneCount = count
         droneCountView.updateCount(count)
-    }
-    
-    // MARK: - updateZoom()
-    
-    private func updateZoom(scale: CGFloat) {
-        guard let device = videoCaptureDevice else { return }
-        
-        do {
-            try device.lockForConfiguration()
-            
-            // Ensure zoom is within device limits
-            let minZoom = device.minAvailableVideoZoomFactor
-            let maxZoom = min(device.maxAvailableVideoZoomFactor, 10.0) // Cap at 10x or device max
-            let clampedZoom = min(max(scale, minZoom), maxZoom)
-            
-            device.videoZoomFactor = clampedZoom
-            device.unlockForConfiguration()
-            
-        } catch {
-            print("Error setting zoom: \(error.localizedDescription)")
-        }
-    }
-    
-    private func configureZoomForDevice(_ device: AVCaptureDevice) {
-        do {
-            try device.lockForConfiguration()
-            device.videoZoomFactor = 1.0 // Reset to default
-            device.unlockForConfiguration()
-        } catch {
-            print("Error configuring device zoom: \(error.localizedDescription)")
-        }
     }
     
     // MARK: - shootButtonTapped()
@@ -521,23 +448,19 @@ final class HomeViewController: UIViewController {
     @objc private func shootButtonTapped() {
         guard !isReloading && currentAmmo > 0 else { return }
         
-        // Convert the tap location to normalized coordinates
         let crosshairCenter = crosshairView.center
+        
 #if targetEnvironment(simulator)
-        viewModel.shoot(at: crosshairCenter,  atisValid: false)
+        viewModel.shoot(at: crosshairCenter, isValid: false)
         performShootEffects()
         updateAmmo()
 #else
-        guard let pixelBuffer = currentPreviewBuffer else { return }
-        
-        let layerPoint = previewLayer.convert(crosshairCenter, from: view.layer)
-        let normalizedLocation = previewLayer.captureDevicePointConverted(fromLayerPoint: layerPoint)
-        
+        // Use AR's scene view to validate hit
         Task {
             do {
                 let validation = try await hitValidator.validateHit(
-                    pixelBuffer: pixelBuffer,
-                    tapLocation: normalizedLocation
+                    sceneView: ARService.shared.arView?.sceneView,
+                    tapLocation: crosshairCenter
                 )
                 
                 await MainActor.run {
@@ -553,7 +476,6 @@ final class HomeViewController: UIViewController {
         }
         performShootEffects()
         updateAmmo()
-        
 #endif
     }
     
@@ -896,14 +818,6 @@ extension HomeViewController {
     }
 }
 
-// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
-
-extension HomeViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        currentPreviewBuffer = pixelBuffer
-    }
-}
 
 // MARK: - Google Ads
 
