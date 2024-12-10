@@ -23,8 +23,8 @@ final class HomeViewController: UIViewController {
     private let amountHitDroneReward = 2
     private let amountKillReward = 5
     private let amountAdReward = 10
-    private let viewModel = HomeViewModel()
     private let hitValidator = HitValidationService()
+    let viewModel = HomeViewModel()
     
     // MARK: - Properties
     
@@ -290,7 +290,7 @@ final class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleHitDroneConfirmation),
-            name: .playerHitDrone,
+            name: .dronShootConfirmed,
             object: nil
         )
         
@@ -577,14 +577,14 @@ final class HomeViewController: UIViewController {
     
     // MARK: - handleHitDroneConfirmation()
     
-    @objc func handleHitDroneConfirmation() {
+    @objc func handleHitDroneConfirmation(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+                  let drone = userInfo["drone"] as? DroneData else { return }
+        
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             
-            let gameScore = GameManager.shared.gameScore
-            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
-            
-            showFeedback(.hit, amount: amountHitDroneReward)
+            showFeedback(.hit, amount: drone.reward ?? 2)
         }
     }
     

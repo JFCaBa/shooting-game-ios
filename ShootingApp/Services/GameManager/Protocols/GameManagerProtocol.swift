@@ -12,7 +12,7 @@ protocol GameManagerProtocol {
     var isAlive: Bool { get }
     var gameScore: GameScore { get }
     var playerId: String? { get }
-    func shoot(at: CGPoint?, location: LocationData, heading: Double)
+    func shoot(at: CGPoint?, drone: DroneData?, location: LocationData, heading: Double)
     func startGame()
     func endGame()
 }
