@@ -31,7 +31,6 @@ final class GameManager: GameManagerProtocol {
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
     private let locationManager = LocationManager.shared
-    private let arService = ARService.shared
     
     // MARK: - convenience init()
     
@@ -106,34 +105,40 @@ final class GameManager: GameManagerProtocol {
     
     // MARK: - shoot(location:, heading:)
     
-    func shoot(at point: CGPoint?, location: LocationData, heading: Double) {
+    func shoot(at point: CGPoint?, drone: DroneData?, location: LocationData, heading: Double) {
         guard let playerId = playerId, currentLives > 0 else { return }
         
-        var type: GameMessage.MessageType = .shoot
+        var message: GameMessage?
         
-        if let point {
-            let hitDrone = arService.checkHit(at: point)
-            if hitDrone {
-                NotificationCenter.default.post(name: .playerHitDrone, object: nil)
-                type = .shootDrone
-            }
+        if let drone {
+            message = GameMessage(
+                type: .shootDrone,
+                playerId: playerId,
+                data: .drone(drone),
+                senderId: nil,
+                pushToken: Messaging.messaging().fcmToken
+            )
+        }
+        else {
+            var shootData = ShootData()
+            shootData.hitPlayerId = playerId
+            shootData.damage = 1
+            shootData.location = location
+            shootData.heading = heading
+            
+            message = GameMessage(
+                type: .shoot,
+                playerId: playerId,
+                data: .shoot(shootData),
+                senderId: nil,
+                pushToken: Messaging.messaging().fcmToken
+            )
         }
         
-        var shootData = ShootData()
-        shootData.hitPlayerId = playerId
-        shootData.damage = 1
-        shootData.location = location
-        shootData.heading = heading
         
-        let message = GameMessage(
-            type: type,
-            playerId: playerId,
-            data: .shoot(shootData),
-            senderId: nil,
-            pushToken: Messaging.messaging().fcmToken
-        )
-        
-        webSocketService.send(message: message)
+        if let message {
+            webSocketService.send(message: message)
+        }
     }
     
     // MARK: - handleShot(_:)

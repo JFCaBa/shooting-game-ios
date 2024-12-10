@@ -83,13 +83,13 @@ enum MessageData: Codable {
     }
 }
 
-struct DroneData: Codable {
-    let droneId: String
-    let position: Position3D
+struct DroneData: Codable, Equatable {
+    var droneId: String
+    var position: Position3D
     let reward: Int?
 }
 
-struct Position3D: Codable {
+struct Position3D: Codable, Equatable {
     let x: Float
     let y: Float
     let z: Float

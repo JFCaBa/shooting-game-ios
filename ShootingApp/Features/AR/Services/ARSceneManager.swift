@@ -15,6 +15,7 @@ final class ARSceneManager: NSObject {
     
     private let sceneView: ARSCNView
     private var droneNodes: [ARDroneNode] = []
+    private var drones: [DroneData] = []
     private var timer: Timer?
     private let maxDrones = 3
     private let spawnInterval: TimeInterval = 10.0
@@ -75,18 +76,21 @@ final class ARSceneManager: NSObject {
     private func spawnDroneIfNeeded(drone: DroneData) {
         guard droneNodes.count < maxDrones else { return }
         
+        drones.append(drone)
+        
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             guard let self = self else { return }
             
             self.droneNodes = self.droneNodes.filter { $0.parent != nil }
             
             let position = self.generateSpawnPosition(drone: drone)
-            let drone = ARDroneNode()
-            drone.position = position
+            let node = ARDroneNode()
+            node.position = position
+            node.nodeId = drone.droneId
             
             DispatchQueue.main.async {
-                self.sceneView.scene.rootNode.addChildNode(drone)
-                self.droneNodes.append(drone)
+                self.sceneView.scene.rootNode.addChildNode(node)
+                self.droneNodes.append(node)
                 self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
                 self.lastSpawnPosition = position
             }
@@ -122,6 +126,10 @@ final class ARSceneManager: NSObject {
                     droneNodes.removeAll { $0 == droneNode }
                     DispatchQueue.main.async {
                         self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
+                        if let drone = self.drones.first(where: {$0.droneId == droneNode.nodeId}) {
+                            self.delegate?.arSceneManager(self, droneHitted: drone)
+                            self.drones.removeAll { $0 == drone }
+                        }
                     }
                 }
                 return hit

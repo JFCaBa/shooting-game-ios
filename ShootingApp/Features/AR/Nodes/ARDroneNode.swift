@@ -15,6 +15,7 @@ final class ARDroneNode: SCNNode {
     private var rotors: [SCNNode]
     private var isDestroyed = false
     private var rotorAnimation: CAAnimation?
+    var nodeId: String?
     
     // MARK: - init()
     
