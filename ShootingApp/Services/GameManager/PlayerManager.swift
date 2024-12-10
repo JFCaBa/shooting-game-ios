@@ -33,7 +33,10 @@ final class PlayerManagerService {
         heartbeatTimer = nil
     }
     
-    func updatePlayer(_ player: Player) {
+    func updatePlayer(_ shoot: ShootData) {
+        guard let id = shoot.hitPlayerId, let location = shoot.location else { return }
+        
+        let player = Player(id: id, location: location, heading: 0)
         coreDataManager.createOrUpdatePlayer(from: player)
         removeStaleUsers()
     }

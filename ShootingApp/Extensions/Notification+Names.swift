@@ -15,6 +15,7 @@ extension Notification.Name {
     static let playerHitDrone = Notification.Name("playerHitDrone")
     static let playerKilledTarget = Notification.Name("playerKilledTarget")
     static let shootConfirmed = Notification.Name("shootConfirmed")
+    static let dronShootConfirmed = Notification.Name("dronShootConfirmed")
     static let playerDied = Notification.Name("playerDied")
     static let playerRespawned = Notification.Name("playerRespawned")
     static let connectionLost = Notification.Name("connectionLost")
@@ -25,5 +26,6 @@ extension Notification.Name {
     static let playerJoined = Notification.Name("playerJoined")
     static let notificationDistanceChanged = Notification.Name("notificationDistanceChanged")
     static let websocketStatusChanged = Notification.Name("websocketStatusChanged")
+    static let newDroneArrived = Notification.Name("newDroneArrived")
 
 }

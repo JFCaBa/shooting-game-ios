@@ -125,8 +125,9 @@ class WebSocketService {
                 switch message {
                 case .data(let data):
                     self.handleMessage(data)
-                case .string(let string):
-                    guard let data = string.data(using: .utf8) else { return }
+                case .string(let text):
+                    print("Raw WebSocket message received: \(text)")
+                    guard let data = text.data(using: .utf8) else { return }
                     self.handleMessage(data)
                 @unknown default:
                     break
