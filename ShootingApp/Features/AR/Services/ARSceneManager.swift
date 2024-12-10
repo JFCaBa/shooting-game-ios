@@ -30,10 +30,10 @@ final class ARSceneManager: NSObject {
         self.sceneView = sceneView
         super.init()
         setupScene()
+        setupObservers()
     }
     
     // MARK: - setupScene()
-    
     private func setupScene() {
         sceneView.delegate = self
         sceneView.session.delegate = self
@@ -45,25 +45,34 @@ final class ARSceneManager: NSObject {
             
             DispatchQueue.main.async {
                 self?.sceneView.session.run(configuration)
-                self?.startSpawningDrones()
             }
         }
     }
     
-    // MARK: - startSpawingDrones()
+    // MARK: - setupObservers()
     
-    private func startSpawningDrones() {
-        // Create timer on main queue
-        DispatchQueue.main.async { [weak self] in
-            self?.timer = Timer.scheduledTimer(withTimeInterval: self?.spawnInterval ?? 10.0, repeats: true) { [weak self] _ in
-                self?.spawnDroneIfNeeded()
-            }
+    func setupObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleNewDroneArrived),
+            name: .newDroneArrived,
+            object: nil)
+    }
+    
+    // MARK: - handleNewDroneArrived(notification:)
+    
+    @objc private func handleNewDroneArrived(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+                  let drone = userInfo["drone"] as? DroneData else { return }
+        
+        DispatchQueue.main.async {
+            self.spawnDroneIfNeeded(drone: drone)
         }
     }
     
     // MARK: - spawnDroneIfNeeded()
     
-    private func spawnDroneIfNeeded() {
+    private func spawnDroneIfNeeded(drone: DroneData) {
         guard droneNodes.count < maxDrones else { return }
         
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
@@ -71,7 +80,7 @@ final class ARSceneManager: NSObject {
             
             self.droneNodes = self.droneNodes.filter { $0.parent != nil }
             
-            let position = self.generateSpawnPosition()
+            let position = self.generateSpawnPosition(drone: drone)
             let drone = ARDroneNode()
             drone.position = position
             
@@ -86,41 +95,16 @@ final class ARSceneManager: NSObject {
     
     // MARK: - generateSpawnPosition()
     
-    private func generateSpawnPosition() -> SCNVector3 {
-        var attempts = 0
+    private func generateSpawnPosition(drone: DroneData) -> SCNVector3 {
         var newPosition: SCNVector3
         
-        repeat {
-            newPosition = SCNVector3(
-                x: Float.random(in: -3...3),
-                y: Float.random(in: 0...3),
-                z: Float.random(in: -2...(-1))
-            )
-            attempts += 1
-        } while isTooCloseToOtherDrones(position: newPosition) && attempts < 10
+        newPosition = SCNVector3(
+            x: drone.position.x,
+            y: drone.position.y,
+            z: drone.position.z
+        )
         
         return newPosition
-    }
-    
-    // MARK: - isTooCloseToOtherDrones(position:)
-    
-    private func isTooCloseToOtherDrones(position: SCNVector3) -> Bool {
-        for drone in droneNodes {
-            let distance = distance(from: position, to: drone.position)
-            if distance < minimumDroneSpacing {
-                return true
-            }
-        }
-        return false
-    }
-    
-    // MARK: - distance(from:, to:)
-    
-    private func distance(from pos1: SCNVector3, to pos2: SCNVector3) -> Float {
-        let dx = pos1.x - pos2.x
-        let dy = pos1.y - pos2.y
-        let dz = pos1.z - pos2.z
-        return sqrt(dx * dx + dy * dy + dz * dz)
     }
     
     // MARK: - checkHit(at:)
@@ -164,7 +148,7 @@ final class ARSceneManager: NSObject {
             camera.fieldOfView = CGFloat(fov)
             
             // Update camera position for zoom effect
-            let zoomDirection = SCNVector3(0, 0, -1) // Forward direction
+//            let zoomDirection = SCNVector3(0, 0, -1) // Forward direction
             let zoomDistance = 1.0 - (1.0 / Double(scale)) // Calculate zoom distance
             sceneView.pointOfView?.position = SCNVector3(0, 0, Float(zoomDistance))
         }

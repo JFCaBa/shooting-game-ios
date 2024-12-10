@@ -12,7 +12,6 @@ struct Player: Codable {
     let id: String
     let location: LocationData
     let heading: Double
-//    let timestamp: Date
 }
 
 struct LocationData: Codable {

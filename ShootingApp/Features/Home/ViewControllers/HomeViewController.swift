@@ -500,13 +500,22 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // MARK: - handleNewDroneArrived()
+    
+    @objc private func handleNewDroneArrived(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+                  let drone = userInfo["drone"] as? DroneData else { return }
+        
+    }
+    
     // MARK: - handleShootConfirmed()
     
     @objc private func handleShootConfirmed(notification: Notification) {
         guard let userInfo = notification.userInfo,
-              let shootInfo = userInfo["shootInfo"] as? MessageData,
-              let deviation = shootInfo.deviation,
-              let distance = shootInfo.distance else { return }
+                  let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
+            
+        // Safely extract deviation and distance from MessageData
+        guard case let .shoot(shootData) = shootInfo else { return }
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -517,7 +526,7 @@ final class HomeViewController: UIViewController {
                 shootFeedbackView.topAnchor.constraint(equalTo: crosshairView.bottomAnchor, constant: 8)
             ])
             
-            shootFeedbackView.show(distance: distance, deviation: deviation)
+            shootFeedbackView.show(distance: shootData.distance, deviation: shootData.deviation)
         }
     }
     
