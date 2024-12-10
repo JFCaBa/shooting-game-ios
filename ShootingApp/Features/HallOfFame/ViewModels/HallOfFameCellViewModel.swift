@@ -24,7 +24,7 @@ struct HallOfFameCellViewModel {
     }
     
     var score: String {
-        "\(element.stats.kills) kills and \(element.stats.hits) hits"
+        "\(element.stats.kills) kills, \(element.stats.hits) players hits, \(element.stats.droneHits ?? 0)drone hits"
     }
     
     var backgroundColor: UIColor {

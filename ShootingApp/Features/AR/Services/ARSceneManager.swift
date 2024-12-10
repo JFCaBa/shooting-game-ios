@@ -18,9 +18,6 @@ final class ARSceneManager: NSObject {
     private var drones: [DroneData] = []
     private var timer: Timer?
     private let maxDrones = 3
-    private let spawnInterval: TimeInterval = 10.0
-    private var lastSpawnPosition: SCNVector3?
-    private let minimumDroneSpacing: Float = 20  // Minimum distance between drones
     private var currentZoom: Float = 1.0
     
     weak var delegate: ARSceneManagerDelegate?
@@ -75,7 +72,7 @@ final class ARSceneManager: NSObject {
     
     private func spawnDroneIfNeeded(drone: DroneData) {
         guard droneNodes.count < maxDrones else { return }
-        
+        print(drone)
         drones.append(drone)
         
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
@@ -83,16 +80,15 @@ final class ARSceneManager: NSObject {
             
             self.droneNodes = self.droneNodes.filter { $0.parent != nil }
             
-            let position = self.generateSpawnPosition(drone: drone)
             let node = ARDroneNode()
-            node.position = position
             node.nodeId = drone.droneId
-            
+            node.position = self.generateSpawnPosition(drone: drone)
+            node.setupDrone()
+
             DispatchQueue.main.async {
                 self.sceneView.scene.rootNode.addChildNode(node)
                 self.droneNodes.append(node)
                 self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
-                self.lastSpawnPosition = position
             }
         }
     }
@@ -100,15 +96,31 @@ final class ARSceneManager: NSObject {
     // MARK: - generateSpawnPosition()
     
     private func generateSpawnPosition(drone: DroneData) -> SCNVector3 {
-        var newPosition: SCNVector3
+        guard let cameraTransform = sceneView.session.currentFrame?.camera.transform else {
+            // If no camera transform is available, fallback to default spawn in front
+            return SCNVector3(0, 1, -3)
+        }
         
-        newPosition = SCNVector3(
-            x: drone.position.x,
-            y: drone.position.y,
-            z: drone.position.z
+        // Player's current position in AR world
+        let playerPosition = SCNVector3(
+            cameraTransform.columns.3.x,
+            cameraTransform.columns.3.y,
+            cameraTransform.columns.3.z
         )
         
-        return newPosition
+        // Generate a random offset for the drone around the player
+        let randomXOffset = Float.random(in: -1.5...1.5) // Random horizontal offset
+        let randomYOffset = Float.random(in: 0.5...2.0)  // Random height
+        let randomZOffset = Float.random(in: -3.0...(-1.0)) // Random depth in front
+
+        // Calculate the spawn position
+        let spawnPosition = SCNVector3(
+            playerPosition.x + randomXOffset,
+            playerPosition.y + randomYOffset,
+            playerPosition.z + randomZOffset
+        )
+        
+        return spawnPosition
     }
     
     // MARK: - checkHit(at:)

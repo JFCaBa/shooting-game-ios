@@ -22,6 +22,7 @@ struct HallOfFameResponseElement: Codable {
 // MARK: - Stats
 struct Stats: Codable {
     let hits, kills: Int
+    let droneHits: Int?
 }
 
 typealias HallOfFameResponse = [HallOfFameResponseElement]

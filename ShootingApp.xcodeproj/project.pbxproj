@@ -1722,7 +1722,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		826FAA252D009E340029CF9C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1738,7 +1738,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
@@ -2316,7 +2316,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShootingApp/ShootingAppDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
@@ -2361,7 +2361,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;

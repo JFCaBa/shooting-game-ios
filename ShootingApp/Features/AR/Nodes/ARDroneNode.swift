@@ -23,8 +23,8 @@ final class ARDroneNode: SCNNode {
         droneBody = SCNNode()
         rotors = [SCNNode(), SCNNode(), SCNNode(), SCNNode()]
         super.init()
-        setupDrone()
-        startRotorAnimation()
+//        setupDrone()
+//        startRotorAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -33,9 +33,9 @@ final class ARDroneNode: SCNNode {
     
     // MARK: - setupDrone()
     
-    private func setupDrone() {
-        let bodyGeometry = SCNBox(width: 0.2, height: 0.05, length: 0.2, chamferRadius: 0.01)
-        
+    func setupDrone() {
+        let bodyGeometry = SCNBox(width: 0.25, height: 0.05, length: 0.25, chamferRadius: 0.01)
+
         // Create grid pattern for top
         guard let topImage = UIImage.createGridPattern(
             size: CGSize(width: 64, height: 64),
@@ -85,9 +85,21 @@ final class ARDroneNode: SCNNode {
         droneBody.geometry = bodyGeometry
         addChildNode(droneBody)
         
+        let bodyShape = SCNPhysicsShape(
+            shapes: [
+                SCNPhysicsShape(geometry: bodyGeometry, options: nil)
+            ],
+            transforms: nil
+        )
+        
+        droneBody.physicsBody = SCNPhysicsBody(type: .dynamic, shape: bodyShape)
+        droneBody.physicsBody?.mass = 0.5
+        droneBody.physicsBody?.isAffectedByGravity = false
+        
         addDetailPanels()
         setupArmsAndRotors()
         setupSensorsAndLights()
+        startRotorAnimation()
     }
     
     // MARK: - Detail Panels
@@ -111,10 +123,10 @@ final class ARDroneNode: SCNNode {
         panelGeometry.materials = [panelMaterial]
         
         let panelPositions = [
-            SCNVector3(0.05, 0.025, 0.05),
-            SCNVector3(-0.05, 0.025, 0.05),
-            SCNVector3(-0.05, 0.025, -0.05),
-            SCNVector3(0.05, 0.025, -0.05)
+            SCNVector3(0.06, 0.025, 0.06),
+            SCNVector3(-0.06, 0.025, 0.06),
+            SCNVector3(-0.06, 0.025, -0.06),
+            SCNVector3(0.06, 0.025, -0.06)
         ]
         
         for position in panelPositions {
@@ -126,10 +138,10 @@ final class ARDroneNode: SCNNode {
     
     private func setupArmsAndRotors() {
         let armPositions = [
-            SCNVector3(0.1, 0.03, 0.1),
-            SCNVector3(-0.1, 0.03, 0.1),
-            SCNVector3(-0.1, 0.03, -0.1),
-            SCNVector3(0.1, 0.03, -0.1)
+            SCNVector3(0.12, 0.03, 0.12),
+            SCNVector3(-0.12, 0.03, 0.12),
+            SCNVector3(-0.12, 0.03, -0.12),
+            SCNVector3(0.12, 0.03, -0.12)
         ]
         
         for (index, position) in armPositions.enumerated() {
@@ -197,13 +209,13 @@ final class ARDroneNode: SCNNode {
         let rotation = CABasicAnimation(keyPath: "rotation")
         rotation.fromValue = NSValue(scnVector4: SCNVector4(0, 1, 0, 0))
         rotation.toValue = NSValue(scnVector4: SCNVector4(0, 1, 0, Float.pi * 2))
-        rotation.duration = 0.5
+        rotation.duration = 0.2
+        rotation.speed = 2.0
         rotation.repeatCount = .infinity
         
         rotors.enumerated().forEach { index, rotor in
             if index % 2 == 0 {
-                rotation.fromValue = NSValue(scnVector4: SCNVector4(0, 1, 0, Float.pi * 2))
-                rotation.toValue = NSValue(scnVector4: SCNVector4(0, 1, 0, 0))
+                rotation.speed = -2.0  // Reverse and double speed for alternating rotors
             }
             rotor.addAnimation(rotation, forKey: "rotorSpin")
         }
@@ -216,7 +228,30 @@ final class ARDroneNode: SCNNode {
         hover.repeatCount = .infinity
         hover.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         
+        // Random sway
+        let swayX = CABasicAnimation(keyPath: "position.x")
+        swayX.fromValue = position.x - 0.1
+        swayX.toValue = position.x + 0.1
+        swayX.duration = Double.random(in: 2.0...3.0)
+        swayX.autoreverses = true
+        swayX.repeatCount = .infinity
+        swayX.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+
+        let swayZ = CABasicAnimation(keyPath: "position.z")
+        swayZ.fromValue = position.z - 0.1
+        swayZ.toValue = position.z + 0.1
+        swayZ.duration = Double.random(in: 2.0...3.0)
+        swayZ.autoreverses = true
+        swayZ.repeatCount = .infinity
+        swayZ.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
         addAnimation(hover, forKey: "hover")
+        addAnimation(swayX, forKey: "swayX")
+        addAnimation(swayZ, forKey: "swayZ")
+    }
+    
+    func setPosition(x: Float, y: Float, z: Float) {
+        position = SCNVector3(x, y, z)
     }
     
     func hit() -> Bool {
