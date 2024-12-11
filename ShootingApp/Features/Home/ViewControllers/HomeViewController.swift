@@ -247,6 +247,12 @@ final class HomeViewController: UIViewController {
         initialCrosshairPosition = crosshairView.center
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showOnboardingIfNeeded()
+    }
+    
     // MARK: - setupBindings()
     private func setupBindings() {
         viewModel.$error
@@ -498,14 +504,6 @@ final class HomeViewController: UIViewController {
         default:
             break
         }
-    }
-    
-    // MARK: - handleNewDroneArrived()
-    
-    @objc private func handleNewDroneArrived(notification: Notification) {
-        guard let userInfo = notification.userInfo,
-                  let drone = userInfo["drone"] as? DroneData else { return }
-        
     }
     
     // MARK: - handleShootConfirmed()
@@ -800,6 +798,16 @@ final class HomeViewController: UIViewController {
             shootButton.isEnabled = true
             shootButton.alpha = 1.0
             isReloading = false
+        }
+    }
+    
+    private func showOnboardingIfNeeded() {
+        if let viewController = OnboardingSheetViewController(configuration: .home) {
+            viewController.additionalSafeAreaInsets.top = 3
+            viewController.sheetPresentationController?.prefersGrabberVisible = false
+            viewController.sheetPresentationController?.detents = [.large()]
+            viewController.isModalInPresentation = true
+            present(viewController, animated: true)
         }
     }
 }

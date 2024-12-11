@@ -9,7 +9,7 @@ import UIKit
 
 final class DroneCountView: UIView {
     private lazy var iconView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "drone"))
+        let imageView = UIImageView(image: UIImage(systemName: "drone"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
         imageView.tintColor = .lightGray

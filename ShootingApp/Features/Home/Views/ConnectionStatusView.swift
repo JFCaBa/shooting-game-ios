@@ -27,7 +27,7 @@ final class ConnectionStatusView: UIView {
     }()
     
     private lazy var websocketView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "lightswitch.on"))
+        let imageView = UIImageView(image: UIImage(systemName: "personalhotspot.slash"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .systemGreen
@@ -97,20 +97,14 @@ final class ConnectionStatusView: UIView {
     /// Check the internet connection and change the icon if lost or reconnected
     private func checkNetworkConnection(path: NWPath) {
         let isConnected = path.status == .satisfied
-        
-        UIView.animate(withDuration: 0.3) {
-            self.networkView.tintColor = isConnected ? .systemGreen : .systemRed
-            self.networkView.image = UIImage(
-                systemName: isConnected ? "wifi" : "wifi.slash"
-            )
-        }
+        networkView.tintColor = isConnected ? .systemGreen : .systemRed
+        networkView.image = UIImage(
+            systemName: isConnected ? "wifi" : "wifi.slash")
     }
     
     /// Check the connection to the websocket server and change the icon if lost or reconnected
     private func updateWebsocketStatus(isConnected: Bool) {
-        UIView.animate(withDuration: 0.3) {
-            self.websocketView.tintColor = isConnected ? .systemGreen : .systemRed
-            self.websocketView.image = isConnected ? UIImage(systemName: "lightswitch.on") : UIImage(systemName: "lightswitch.on")
-        }
+        websocketView.tintColor = isConnected ? .systemGreen : .systemRed
+        websocketView.image = isConnected ? UIImage(systemName: "personalhotspot") : UIImage(systemName: "personalhotspot.slash")
     }
 }

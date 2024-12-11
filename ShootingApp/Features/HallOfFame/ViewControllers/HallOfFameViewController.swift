@@ -56,6 +56,12 @@ final class HallOfFameViewController: UIViewController {
         viewModel.fetchTopPlayers()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showOnboardingIfNeeded()
+    }
+    
     // MARK: - setupUI()
     
     private func setupUI() {
@@ -95,6 +101,16 @@ final class HallOfFameViewController: UIViewController {
                 self?.tableView.isHidden = hallOfFame.isEmpty
             }
             .store(in: &cancellables)
+    }
+    
+    private func showOnboardingIfNeeded() {
+        if let viewController = OnboardingSheetViewController(configuration: .hallOfFame) {
+            viewController.additionalSafeAreaInsets.top = 3
+            viewController.sheetPresentationController?.prefersGrabberVisible = false
+            viewController.sheetPresentationController?.detents = [.large()]
+            viewController.isModalInPresentation = true
+            present(viewController, animated: true)
+        }
     }
 }
 

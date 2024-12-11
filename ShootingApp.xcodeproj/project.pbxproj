@@ -415,6 +415,33 @@
 		8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
 		8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
 		8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8285462B2CCE4A440074EBF9 /* QueueManager.swift */; };
+		829EE9442D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9412D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift */; };
+		829EE9452D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9422D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift */; };
+		829EE9462D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */; };
+		829EE9472D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9402D097D9300EAF8A9 /* OnboardingSheetViewController.swift */; };
+		829EE9482D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9412D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift */; };
+		829EE9492D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9422D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift */; };
+		829EE94A2D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */; };
+		829EE94B2D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9402D097D9300EAF8A9 /* OnboardingSheetViewController.swift */; };
+		829EE94C2D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9412D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift */; };
+		829EE94D2D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9422D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift */; };
+		829EE94E2D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */; };
+		829EE94F2D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9402D097D9300EAF8A9 /* OnboardingSheetViewController.swift */; };
+		829EE9512D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9502D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift */; };
+		829EE9522D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9502D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift */; };
+		829EE9532D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9502D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift */; };
+		829EE9552D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9542D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift */; };
+		829EE9562D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9542D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift */; };
+		829EE9572D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9542D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift */; };
+		829EE9592D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */; };
+		829EE95A2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */; };
+		829EE95B2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */; };
+		829EE95E2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */; };
+		829EE95F2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */; };
+		829EE9602D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */; };
+		829EE9622D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
+		829EE9632D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
+		829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
 		82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
@@ -592,6 +619,15 @@
 		8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotation.swift; sourceTree = "<group>"; };
 		828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnotationView.swift; sourceTree = "<group>"; };
 		8285462B2CCE4A440074EBF9 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		829EE9402D097D9300EAF8A9 /* OnboardingSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSheetViewController.swift; sourceTree = "<group>"; };
+		829EE9412D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingSheetViewController+Configuration.swift"; sourceTree = "<group>"; };
+		829EE9422D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingSheetViewController+TitleLabel.swift"; sourceTree = "<group>"; };
+		829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingSheetViewController+DetailView.swift"; sourceTree = "<group>"; };
+		829EE9502D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OnboardingSheetViewController+ScrollView.swift"; sourceTree = "<group>"; };
+		829EE9542D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+PreferedLabel.swift"; sourceTree = "<group>"; };
+		829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ScaledSystemFont.swift"; sourceTree = "<group>"; };
+		829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStyleController.swift; sourceTree = "<group>"; };
+		829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+BicolorText.swift"; sourceTree = "<group>"; };
 		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -880,13 +916,6 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		82223F102D04615D0095E161 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		82381EA52D05C46C008FBD86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1015,11 +1044,8 @@
 		826338CF2CF0A6EA009C2CED /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				826938222CF9CC6B00E03DAA /* CameraPermissionViewController.swift */,
-				8269380A2CF9CA8700E03DAA /* LocationPermissionViewController.swift */,
-				826938122CF9CAC900E03DAA /* NotificationsPermissionViewController.swift */,
-				826937FE2CF9CA0300E03DAA /* OnboardingPageViewController.swift */,
-				8269381A2CF9CBD900E03DAA /* WalletConnectionViewController.swift */,
+				829EE9672D09828800EAF8A9 /* Introductory */,
+				829EE9662D09827500EAF8A9 /* Permissions */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1325,8 +1351,8 @@
 				826938382CFA110600E03DAA /* Repositories */,
 				828545B62CCCFEE20074EBF9 /* Resources */,
 				828545E22CCD12DA0074EBF9 /* Services */,
+				829EE9652D09823600EAF8A9 /* Subclasses */,
 				826FAA172D0088C90029CF9C /* Views */,
-				82223F102D04615D0095E161 /* New Group */,
 			);
 			path = ShootingApp;
 			sourceTree = "<group>";
@@ -1544,6 +1570,8 @@
 				8269387A2CFB36B100E03DAA /* UIViewController */,
 				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
 				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
+				829EE95C2D097F6900EAF8A9 /* UIFont */,
+				829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1570,6 +1598,47 @@
 				828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		829EE95C2D097F6900EAF8A9 /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				829EE9542D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift */,
+				829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */,
+			);
+			path = UIFont;
+			sourceTree = "<group>";
+		};
+		829EE9652D09823600EAF8A9 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */,
+			);
+			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		829EE9662D09827500EAF8A9 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				826938222CF9CC6B00E03DAA /* CameraPermissionViewController.swift */,
+				8269380A2CF9CA8700E03DAA /* LocationPermissionViewController.swift */,
+				826938122CF9CAC900E03DAA /* NotificationsPermissionViewController.swift */,
+				826937FE2CF9CA0300E03DAA /* OnboardingPageViewController.swift */,
+				8269381A2CF9CBD900E03DAA /* WalletConnectionViewController.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
+		829EE9672D09828800EAF8A9 /* Introductory */ = {
+			isa = PBXGroup;
+			children = (
+				829EE9402D097D9300EAF8A9 /* OnboardingSheetViewController.swift */,
+				829EE9502D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift */,
+				829EE9412D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift */,
+				829EE9422D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift */,
+				829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */,
+			);
+			path = Introductory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1753,6 +1822,10 @@
 				8269387E2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				828546122CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				826938302CFA019200E03DAA /* LocationManager.swift in Sources */,
+				829EE9442D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
+				829EE9452D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
+				829EE9462D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
+				829EE9472D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				82560A8B2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826938422CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
@@ -1789,6 +1862,7 @@
 				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				826938362CFA107600E03DAA /* KeychainManager.swift in Sources */,
+				829EE9572D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				826FAA062D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
@@ -1831,9 +1905,11 @@
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */,
+				829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206117E2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826938992CFB607D00E03DAA /* TokenService.swift in Sources */,
+				829EE9602D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
 				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				826937FD2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
@@ -1843,6 +1919,7 @@
 				820611762CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				826FAA1A2D0088FB0029CF9C /* EmptyStateView.swift in Sources */,
 				826938202CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
+				829EE95B2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				828545DF2CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
@@ -1855,6 +1932,7 @@
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
 				8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
+				829EE9522D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
 				826938232CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				826938002CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				8206115C2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
@@ -1885,6 +1963,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
+				829EE95F2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
 				826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
@@ -1914,6 +1993,7 @@
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
+				829EE9592D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
@@ -1931,6 +2011,7 @@
 				8206111E2CF334A5003FB6BB /* GameManagerTests.swift in Sources */,
 				826937F92CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
+				829EE9512D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
 				820611732CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				8269382A2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
@@ -1973,13 +2054,19 @@
 				82560A7B2D06D45100DE2210 /* ARService.swift in Sources */,
 				826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
+				829EE94C2D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
+				829EE94D2D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
+				829EE94E2D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
+				829EE94F2D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				826938522CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
+				829EE9622D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				82560A8C2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				826938012CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
+				829EE9562D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
@@ -2046,6 +2133,7 @@
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
 				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
+				829EE9552D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				828545E72CCD13110074EBF9 /* GameManager.swift in Sources */,
 				82381EA22D05C421008FBD86 /* HallOfFameCell.swift in Sources */,
 				8206111C2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
@@ -2061,6 +2149,7 @@
 				826FAA202D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
 				820611122CF1F453003FB6BB /* WalletUITest.swift in Sources */,
 				826938812CFB462000E03DAA /* FeedbackView.swift in Sources */,
+				829EE95A2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
@@ -2091,6 +2180,7 @@
 				820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826938052CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				820611442CF48217003FB6BB /* AchievementType.swift in Sources */,
+				829EE9632D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				82560A6B2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
@@ -2109,10 +2199,16 @@
 				826938A32CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				8269388A2CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				8269382C2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
+				829EE9482D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
+				829EE9492D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
+				829EE9532D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
+				829EE94A2D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
+				829EE94B2D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				8269387C2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
+				829EE95E2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
 				82560A6E2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				826938112CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
