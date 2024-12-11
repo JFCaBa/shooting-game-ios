@@ -47,6 +47,12 @@ final class AchievementsViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showOnboardingIfNeeded()
+    }
+    
     // MARK: - Setup
     
     private func setupNavigationBar() {
@@ -160,6 +166,16 @@ final class AchievementsViewController: UIViewController {
     
     @objc private func hallOfFameTapped() {
            coordinator?.showHallOfFame()
+    }
+    
+    private func showOnboardingIfNeeded() {
+        if let viewController = OnboardingSheetViewController(configuration: .achievements) {
+            viewController.additionalSafeAreaInsets.top = 3
+            viewController.sheetPresentationController?.prefersGrabberVisible = false
+            viewController.sheetPresentationController?.detents = [.large()]
+            viewController.isModalInPresentation = true
+            present(viewController, animated: true)
+        }
     }
 }
 
