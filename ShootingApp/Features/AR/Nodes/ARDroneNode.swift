@@ -211,13 +211,13 @@ final class ARDroneNode: SCNNode {
         rotation.fromValue = NSValue(scnVector4: SCNVector4(0, 1, 0, 0))
         rotation.toValue = NSValue(scnVector4: SCNVector4(0, 1, 0, Float.pi * 2))
         rotation.duration = 0.2
-//        rotation.speed = 2.0
+        rotation.speed = 2.0
         rotation.repeatCount = .infinity
         
         rotors.enumerated().forEach { index, rotor in
-//            if index % 2 == 0 {
-//                rotation.speed = -2.0  // Reverse and double speed for alternating rotors
-//            }
+            if index % 2 == 0 {
+                rotation.speed = -2.0  // Reverse and double speed for alternating rotors
+            }
             rotor.addAnimation(rotation, forKey: "rotorSpin")
         }
     }

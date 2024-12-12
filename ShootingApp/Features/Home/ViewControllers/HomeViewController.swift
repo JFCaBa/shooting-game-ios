@@ -531,15 +531,7 @@ final class HomeViewController: UIViewController {
     // MARK: - mapButtonTapped()
     
     @objc private func mapButtonTapped() {
-        let mapVC = MapViewController()
-        mapVC.modalPresentationStyle = .pageSheet
-        
-        if let sheet = mapVC.sheetPresentationController {
-            sheet.detents = [.large()]
-            sheet.prefersGrabberVisible = false
-        }
-        
-        present(mapVC, animated: true)
+        viewModel.coordinator?.showMap()
     }
     
     // MARK: - walletButtonTapped()

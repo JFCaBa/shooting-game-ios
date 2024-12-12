@@ -147,6 +147,12 @@ final class ARSceneManager: NSObject {
         return spawnPosition
     }
     
+    // MARK: - numberOfDrones()
+    
+    func numberOfDrones() -> Int {
+        return droneNodes.count
+    }
+    
     // MARK: - checkHit(at:)
     
     func checkHit(at point: CGPoint) -> Bool {
@@ -159,7 +165,7 @@ final class ARSceneManager: NSObject {
             if let droneNode = result.node.parent as? ARDroneNode {
                 let hit = droneNode.hit()
                 if hit {
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         droneNode.removeFromParentNode()
                         droneNode.geometry = nil
                         self.droneNodes.removeAll { $0 == droneNode }
@@ -170,6 +176,7 @@ final class ARSceneManager: NSObject {
                             self.drones.removeAll { $0 == drone }
                         }
                     }
+                    
                     return hit
                 }
             }
