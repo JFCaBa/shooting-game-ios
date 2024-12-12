@@ -52,6 +52,12 @@ final class ARContainerView: UIView {
         ])
     }
     
+    // MARK: - numberOfDrones()
+    
+    func numberOfDrones() -> Int {
+        return manager.numberOfDrones()
+    }
+    
     // MARK: - checkHit(at:)
     
     func checkHit(at point: CGPoint) -> Bool {

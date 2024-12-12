@@ -14,6 +14,7 @@ protocol CoordinatorProtocol: AnyObject {
     
     func start()
     func showHome()
+    func showMap()
     func showSettings()
     func showWallet()
     func showAchievements()
@@ -29,6 +30,10 @@ extension CoordinatorProtocol {
     }
     
     func showHome() {
+        // Default empty implementation
+    }
+    
+    func showMap() {
         // Default empty implementation
     }
     

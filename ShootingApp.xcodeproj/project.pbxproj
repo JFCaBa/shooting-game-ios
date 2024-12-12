@@ -442,6 +442,12 @@
 		829EE9622D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
 		829EE9632D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
 		829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */; };
+		829EE9692D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */; };
+		829EE96A2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */; };
+		829EE96B2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */; };
+		829EE96D2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */; };
+		829EE96E2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */; };
+		829EE96F2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */; };
 		82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
@@ -628,6 +634,8 @@
 		829EE9582D097F5D00EAF8A9 /* UIFont+ScaledSystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ScaledSystemFont.swift"; sourceTree = "<group>"; };
 		829EE95D2D09800F00EAF8A9 /* BackgroundStyleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundStyleController.swift; sourceTree = "<group>"; };
 		829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+BicolorText.swift"; sourceTree = "<group>"; };
+		829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotationView.swift; sourceTree = "<group>"; };
+		829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotation.swift; sourceTree = "<group>"; };
 		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1458,6 +1466,7 @@
 		828545D22CCD0DA80074EBF9 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				829EE9702D0B0D0D00EAF8A9 /* Annotations */,
 				828545D32CCD0DAE0074EBF9 /* ViewControllers */,
 				828545FE2CCD18720074EBF9 /* ViewModels */,
 				828546222CCE46AE0074EBF9 /* Views */,
@@ -1594,8 +1603,8 @@
 		828546222CCE46AE0074EBF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */,
 				828546272CCE46DB0074EBF9 /* PlayerAnnotationView.swift */,
+				829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1639,6 +1648,15 @@
 				829EE9432D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift */,
 			);
 			path = Introductory;
+			sourceTree = "<group>";
+		};
+		829EE9702D0B0D0D00EAF8A9 /* Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				8285461E2CCE46A00074EBF9 /* PlayerAnnotation.swift */,
+				829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */,
+			);
+			path = Annotations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1868,6 +1886,7 @@
 				820611262CF339DB003FB6BB /* WebSocketServiceDelegate.swift in Sources */,
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
+				829EE96D2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
@@ -1888,6 +1907,7 @@
 				82560A762D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
+				829EE9692D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				8206117A2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
@@ -1973,6 +1993,7 @@
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				8206117B2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
+				829EE96E2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				826938852CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
@@ -2066,6 +2087,7 @@
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				82560A8C2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				826938012CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
+				829EE96A2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				829EE9562D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
@@ -2168,12 +2190,14 @@
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
+				829EE96F2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				826FA9F82D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938402CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				8206117C2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				826938312CFA019200E03DAA /* LocationManager.swift in Sources */,
+				829EE96B2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				8269380D2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				820611672CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826938182CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,

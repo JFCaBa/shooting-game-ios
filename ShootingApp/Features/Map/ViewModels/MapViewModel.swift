@@ -18,6 +18,7 @@ final class MapViewModel {
     // MARK: - Properties
     
     var playersUpdated: (([Player]) -> Void)?
+    var players: [Player] = []
     
     // MARK: - Initialisers
     
@@ -52,6 +53,7 @@ final class MapViewModel {
         queueManager.performCoreDataOperation { [weak self] in
             let players = self?.coreDataManager.getStoredPlayers() ?? []
             self?.queueManager.performOnMainThread {
+                self?.players = players
                 self?.playersUpdated?(players)
             }
         }

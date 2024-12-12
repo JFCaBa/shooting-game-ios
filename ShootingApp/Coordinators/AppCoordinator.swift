@@ -49,6 +49,12 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController.present(walletVC, animated: true)
     }
     
+    func showMap() {
+        let mapVC = MapViewController()
+        mapVC.modalPresentationStyle = .fullScreen
+        navigationController.present(mapVC, animated: true)
+    }
+    
     func showSettings() {
         let settingsCoordinator = SettingsCoordinator(navigationController: navigationController)
         settingsCoordinator.parentCoordinator = self
