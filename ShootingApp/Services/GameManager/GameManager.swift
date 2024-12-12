@@ -28,6 +28,9 @@ final class GameManager: GameManagerProtocol {
     
     // MARK: - Private properties
     
+    private var droneTimer: Timer?
+    private var lastDroneTime: Date?
+    private let droneTimeout: TimeInterval = 60 // 1 minute
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
     private let locationManager = LocationManager.shared
@@ -65,7 +68,7 @@ final class GameManager: GameManagerProtocol {
         locationManager.startLocationUpdates()
     }
     
-    // MARK: - setupWalletObserver()
+    // MARK: - setupObserver()
     
     private func setupObserver() {
         NotificationCenter.default.addObserver(
@@ -81,6 +84,23 @@ final class GameManager: GameManagerProtocol {
             name: .playerJoined,
             object: nil
         )
+    }
+    
+    // MARK: - resetDroneTimer()
+    
+    private func resetDroneTimer() {
+        let now = Date()
+        if let lastTime = lastDroneTime, now.timeIntervalSince(lastTime) < droneTimeout {
+            return
+        }
+        lastDroneTime = now
+        droneTimer?.invalidate()
+        DispatchQueue.main.async {
+            self.droneTimer = Timer.scheduledTimer(withTimeInterval: self.droneTimeout, repeats: true) { [weak self] _ in
+                self?.removeAllDrones()
+                self?.removeDrones()
+            }
+        }
     }
     
     // MARK: - playerJoined(_:)
@@ -233,7 +253,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: .shoot(shoot),
             senderId: shooterId, // Dont change before changing in the Server
-            pushToken: Messaging.messaging().fcmToken
+            pushToken: nil
         )
         
         webSocketService.send(message: message)
@@ -271,6 +291,23 @@ final class GameManager: GameManagerProtocol {
         }
     }
     
+    // MARK: - removeDrones()
+    
+    /// Sends a message to the Server to remove all player drones
+    private func removeDrones() {
+        guard let playerId = playerId else { return }
+        
+        let message = GameMessage(
+            type: .removeDrones,
+            playerId: playerId,
+            data: .empty,
+            senderId: nil,
+            pushToken: nil
+        )
+        
+        webSocketService.send(message: message)
+    }
+    
     // MARK: - respawnPlayer()
     
     // Public to be tested
@@ -295,7 +332,6 @@ final class GameManager: GameManagerProtocol {
                 accuracy: locationManager.location?.horizontalAccuracy ?? 0
             ),
             heading: locationManager.heading?.trueHeading ?? 0
-//            timestamp: Date()
         )
     }
     
@@ -406,10 +442,6 @@ extension GameManager: WebSocketServiceDelegate {
                 playerManager.updatePlayer(shootData)
             }
             
-        case .shootDrone:
-            // Shouldn't arrive any message of this type, it is only to send
-            break
-            
         case .shootConfirmed:
             notifyShootConfirmed(message.data)
             
@@ -444,20 +476,32 @@ extension GameManager: WebSocketServiceDelegate {
             
         case .newDrone:
             if case let .drone(droneData) = message.data, message.playerId == playerId {
+                resetDroneTimer()
                 notifyNewDrone(droneData)
             }
         
         case .droneShootConfirmed:
             if case let .drone(droneData) = message.data, message.playerId == playerId {
+                droneTimer?.invalidate()
                 notifyDroneShootConfirmed(droneData)
             }
             
         case .droneShootRejected:
             break
+        
+        default:
+            break
         }
     }
     
     // MARK: - Send Notifications
+    
+    private func removeAllDrones() {
+        NotificationCenter.default.post(
+            name: .removeAllDrones,
+            object: nil
+        )
+    }
     
     private func notifyDroneShootConfirmed(_ drone: DroneData) {
         NotificationCenter.default.post(

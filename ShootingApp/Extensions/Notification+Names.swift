@@ -26,5 +26,5 @@ extension Notification.Name {
     static let notificationDistanceChanged = Notification.Name("notificationDistanceChanged")
     static let websocketStatusChanged = Notification.Name("websocketStatusChanged")
     static let newDroneArrived = Notification.Name("newDroneArrived")
-
+    static let removeAllDrones = Notification.Name("removeAllDrones")
 }

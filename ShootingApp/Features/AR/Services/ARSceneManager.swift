@@ -32,6 +32,7 @@ final class ARSceneManager: NSObject {
     }
     
     // MARK: - setupScene()
+    
     private func setupScene() {
         sceneView.delegate = self
         sceneView.session.delegate = self
@@ -55,6 +56,12 @@ final class ARSceneManager: NSObject {
             selector: #selector(handleNewDroneArrived),
             name: .newDroneArrived,
             object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleRemoveAllDrones),
+            name: .removeAllDrones,
+            object: nil)
     }
     
     // MARK: - handleNewDroneArrived(notification:)
@@ -65,6 +72,23 @@ final class ARSceneManager: NSObject {
         
         DispatchQueue.main.async {
             self.spawnDroneIfNeeded(drone: drone)
+        }
+    }
+    
+    @objc private func handleRemoveAllDrones() {
+        drones.removeAll()
+        
+        // Remove nodes from scene and array
+        droneNodes.forEach { node in
+            DispatchQueue.main.async {
+                node.removeFromParentNode()
+                node.geometry = nil
+            }
+        }
+        droneNodes.removeAll()
+        
+        DispatchQueue.main.async {
+            self.delegate?.arSceneManager(self, didUpdateDroneCount: 0)
         }
     }
     
@@ -135,16 +159,19 @@ final class ARSceneManager: NSObject {
             if let droneNode = result.node.parent as? ARDroneNode {
                 let hit = droneNode.hit()
                 if hit {
-                    droneNodes.removeAll { $0 == droneNode }
                     DispatchQueue.main.async {
+                        droneNode.removeFromParentNode()
+                        droneNode.geometry = nil
+                        self.droneNodes.removeAll { $0 == droneNode }
                         self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
+                        
                         if let drone = self.drones.first(where: {$0.droneId == droneNode.nodeId}) {
                             self.delegate?.arSceneManager(self, droneHitted: drone)
                             self.drones.removeAll { $0 == drone }
                         }
                     }
+                    return hit
                 }
-                return hit
             }
         }
         
@@ -163,15 +190,8 @@ final class ARSceneManager: NSObject {
     
     func updateZoom(scale: CGFloat) {
         currentZoom = Float(scale)
-        if let camera = sceneView.pointOfView?.camera {
-            let fov = 60.0 / Double(scale)
-            camera.fieldOfView = CGFloat(fov)
-            
-            // Update camera position for zoom effect
-//            let zoomDirection = SCNVector3(0, 0, -1) // Forward direction
-            let zoomDistance = 1.0 - (1.0 / Double(scale)) // Calculate zoom distance
-            sceneView.pointOfView?.position = SCNVector3(0, 0, Float(zoomDistance))
-        }
+        sceneView.transform = .init(a: CGFloat(scale),  b: 0,  c: 0,
+                                     d: CGFloat(scale), tx: 0, ty: 0)
     }
 }
 
