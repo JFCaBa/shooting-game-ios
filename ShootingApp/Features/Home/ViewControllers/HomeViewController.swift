@@ -801,6 +801,8 @@ final class HomeViewController: UIViewController {
         }
     }
     
+    // MARK: - showOnboardingIfNeeded()
+    
     private func showOnboardingIfNeeded() {
         if let viewController = OnboardingSheetViewController(configuration: .home) {
             viewController.additionalSafeAreaInsets.top = 3
@@ -834,7 +836,6 @@ extension HomeViewController {
         updateWalletButtonState()
     }
 }
-
 
 // MARK: - Google Ads
 

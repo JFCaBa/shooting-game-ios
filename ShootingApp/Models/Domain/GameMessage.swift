@@ -21,6 +21,7 @@ struct GameMessage: Codable {
         case announced
         case droneShootConfirmed
         case droneShootRejected
+        case removeDrones
     }
     
     let type: MessageType
