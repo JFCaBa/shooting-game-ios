@@ -47,39 +47,36 @@ class HitValidationService {
     
     // MARK: - calculateDistance(frame:, at:) -> CGFloat
     
-    private func calculateDistance(frame: ARFrame, at point: CGPoint) -> CGFloat? {
-        // Check if the scene depth is available
-        guard let sceneDepth = frame.sceneDepth else {
+    func calculateDistance(frame: ARFrame, at point: CGPoint) -> CGFloat? {
+        // Check if we have depth data
+        guard let depthData = frame.estimatedDepthData else {
             return nil
         }
         
-        // Get the depth map from the ARFrame
-        let depthData = sceneDepth.depthMap
+        // Lock buffer for reading
+        CVPixelBufferLockBaseAddress(depthData, .readOnly)
+        defer {
+            CVPixelBufferUnlockBaseAddress(depthData, .readOnly)
+        }
+        
         let depthWidth = CVPixelBufferGetWidth(depthData)
         let depthHeight = CVPixelBufferGetHeight(depthData)
         
-        // Lock the pixel buffer for reading
-        CVPixelBufferLockBaseAddress(depthData, .readOnly)
-        defer { CVPixelBufferUnlockBaseAddress(depthData, .readOnly) }
+        // Convert tap point to depth map coordinates
+        let x = Int((point.x / frame.camera.imageResolution.width) * CGFloat(depthWidth))
+        let y = Int((point.y / frame.camera.imageResolution.height) * CGFloat(depthHeight))
         
-        // Get the pointer to the pixel buffer
-        let baseAddress = CVPixelBufferGetBaseAddress(depthData)
-        let bytesPerRow = CVPixelBufferGetBytesPerRow(depthData)
-        
-        // Convert the tap location (in screen space) to the depth map coordinates
-        let screenSize = frame.camera.imageResolution
-        let xDepth = Int((point.x / screenSize.width) * CGFloat(depthWidth))
-        let yDepth = Int((point.y / screenSize.height) * CGFloat(depthHeight))
-        
-        // Ensure the coordinates are within bounds
-        guard xDepth >= 0 && xDepth < depthWidth && yDepth >= 0 && yDepth < depthHeight else {
+        // Ensure coordinates are within bounds
+        guard x >= 0, x < depthWidth, y >= 0, y < depthHeight else {
             return nil
         }
         
-        // Extract the depth value at the given coordinates
-        let depthPointer = baseAddress!.advanced(by: yDepth * bytesPerRow + xDepth * MemoryLayout<Float32>.size)
-        let depthValue = depthPointer.assumingMemoryBound(to: Float32.self).pointee
+        // Get depth value for this point
+        let depthBytesPerRow = CVPixelBufferGetBytesPerRow(depthData)
+        let depthDataPtr = CVPixelBufferGetBaseAddress(depthData)!
+        let depthPtr = depthDataPtr.advanced(by: y * depthBytesPerRow + x * MemoryLayout<Float32>.size)
+            .assumingMemoryBound(to: Float32.self)
         
-        return CGFloat(depthValue) // Convert to CGFloat to match the return type
+        return CGFloat(depthPtr.pointee)
     }
 }

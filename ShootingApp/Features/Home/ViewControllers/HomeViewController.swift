@@ -513,7 +513,7 @@ final class HomeViewController: UIViewController {
                   let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
             
         // Safely extract deviation and distance from MessageData
-        guard case let .shoot(shootData) = shootInfo else { return }
+        guard case let .shootDataResponse(shootData) = shootInfo else { return }
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -524,7 +524,7 @@ final class HomeViewController: UIViewController {
                 shootFeedbackView.topAnchor.constraint(equalTo: crosshairView.bottomAnchor, constant: 8)
             ])
             
-            shootFeedbackView.show(distance: shootData.distance, deviation: shootData.deviation)
+            shootFeedbackView.show(distance: shootData.shoot?.distance ?? 0, deviation: shootData.shoot?.deviation ?? 0)
         }
     }
     

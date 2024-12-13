@@ -42,12 +42,13 @@ struct GameMessage: Codable {
 enum MessageData: Codable {
     case player(Player)
     case shoot(ShootData)
+    case shootDataResponse(ShootDataResponse)
     case drone(DroneData)
     case drones([DroneData])
     case empty
 
     private enum CodingKeys: String, CodingKey {
-        case player, shoot, drone, drones
+        case player, shoot, shootDataResponse, drone, drones
     }
 
     init(from decoder: Decoder) throws {
@@ -58,9 +59,11 @@ enum MessageData: Codable {
         } else if let shoot = try? container.decode(ShootData.self) {
             self = .shoot(shoot)
         } else if let drone = try? container.decode(DroneData.self) {
-            self = .drone(drone) 
+            self = .drone(drone)
         } else if let drones = try? container.decode([DroneData].self) {
             self = .drones(drones)
+        } else if let shootDataResponse = try? container.decode(ShootDataResponse.self) {
+            self = .shootDataResponse(shootDataResponse)
         } else {
             self = .empty
         }
@@ -78,6 +81,8 @@ enum MessageData: Codable {
             try container.encode(drone, forKey: .drone)
         case .drones(let drones):
             try container.encode(drones, forKey: .drones)
+        case .shootDataResponse(let shootDataResponse):
+            try container.encode(shootDataResponse, forKey: .shootDataResponse)
         case .empty:
             break
         }
@@ -94,6 +99,10 @@ struct Position3D: Codable, Equatable {
     let x: Float
     let y: Float
     let z: Float
+}
+
+struct ShootDataResponse: Codable {
+    let shoot: ShootData?
 }
 
 struct ShootData: Codable {

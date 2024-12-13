@@ -42,6 +42,14 @@ final class ARSceneManager: NSObject {
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             let configuration = ARWorldTrackingConfiguration()
             
+            if ARWorldTrackingConfiguration.supportsFrameSemantics(.bodyDetection) {
+                configuration.frameSemantics.insert(.personSegmentationWithDepth)
+            }
+            
+            if ARWorldTrackingConfiguration.supportsFrameSemantics(.sceneDepth) {
+                configuration.frameSemantics.insert(.sceneDepth)
+            }
+            
             DispatchQueue.main.async {
                 self?.sceneView.session.run(configuration)
             }
