@@ -451,6 +451,18 @@
 		82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
+		82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
+		82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
+		82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
+		82F3A67E2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */; };
+		82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */; };
+		82F3A6802D0CB3A100EAB48E /* shoot_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */; };
+		82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6812D0CB52300EAB48E /* drone_sound.m4a */; };
+		82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6812D0CB52300EAB48E /* drone_sound.m4a */; };
+		82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6812D0CB52300EAB48E /* drone_sound.m4a */; };
+		82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
+		82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
+		82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -637,6 +649,10 @@
 		829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotationView.swift; sourceTree = "<group>"; };
 		829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotation.swift; sourceTree = "<group>"; };
 		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
+		82F3A6752D0C9D8500EAB48E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
+		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
+		82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_sound.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1402,6 +1418,7 @@
 		828545B62CCCFEE20074EBF9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				82F3A66B2D0C9D3200EAB48E /* sounds */,
 				8285458E2CCCFE550074EBF9 /* Assets.xcassets */,
 				828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */,
 			);
@@ -1506,6 +1523,7 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				82F3A6742D0C9D6700EAB48E /* Sound */,
 				820611382CF48178003FB6BB /* Achievement */,
 				820611692CF6A214003FB6BB /* Anticheat */,
 				828546032CCD1F3E0074EBF9 /* CoreData */,
@@ -1659,6 +1677,24 @@
 			path = Annotations;
 			sourceTree = "<group>";
 		};
+		82F3A66B2D0C9D3200EAB48E /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */,
+				82F3A6812D0CB52300EAB48E /* drone_sound.m4a */,
+				82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		82F3A6742D0C9D6700EAB48E /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				82F3A6752D0C9D8500EAB48E /* SoundManager.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1780,8 +1816,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
+				82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
 				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
+				82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1790,8 +1829,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F3A6802D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
+				82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,8 +1841,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F3A67E2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F092D0460610095E161 /* URLs.plist in Resources */,
+				82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1925,6 +1970,7 @@
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */,
+				82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */,
 				829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206117E2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
@@ -1988,6 +2034,7 @@
 				82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826938AD2CFD9A3700E03DAA /* NotificationManagerTests.swift in Sources */,
+				82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */,
 				8269384A2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				828546152CCE3A5F0074EBF9 /* AppDelegate.swift in Sources */,
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
@@ -2156,6 +2203,7 @@
 				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				829EE9552D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
+				82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */,
 				828545E72CCD13110074EBF9 /* GameManager.swift in Sources */,
 				82381EA22D05C421008FBD86 /* HallOfFameCell.swift in Sources */,
 				8206111C2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,

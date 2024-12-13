@@ -214,6 +214,9 @@ final class HomeViewController: UIViewController {
     init(coordinator: AppCoordinator) {
         self.viewModel.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
+        // Preload the sounds
+        SoundManager.shared.preloadSounds(sounds: [.drone, .shoot, .explosion])
+
     }
     
     @available(*, unavailable)
@@ -445,6 +448,12 @@ final class HomeViewController: UIViewController {
     // MARK: - updateDroneCount(_:)
     
     func updateDroneCount(_ count: Int) {
+        if count > 0 {
+            SoundManager.shared.playSound(type: .drone, loop: true)
+        } else {
+            SoundManager.shared.stopSound(type: .drone)
+        }
+        
         droneCount = count
         droneCountView.updateCount(count)
     }
@@ -639,6 +648,9 @@ final class HomeViewController: UIViewController {
     // MARK: - performShootEffects
     
     private func performShootEffects() {
+        // Reproduce the sound
+        SoundManager.shared.playSound(type: .shoot)
+        
         // Vibrate
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.prepare()
