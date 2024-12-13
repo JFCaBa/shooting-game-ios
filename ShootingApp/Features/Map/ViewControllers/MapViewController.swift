@@ -68,12 +68,16 @@ final class MapViewController: UIViewController {
     }()
     
     private lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(UITableViewCell.self, forCellReuseIdentifier: "PlayerCell")
+        table.isHidden = true
+        table.rowHeight = UITableView.automaticDimension
+        table.layoutMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        table.separatorInset = UIEdgeInsets(top: 0, left: 62, bottom: 0, right: 0)
+        table.backgroundColor = .clear
         table.delegate = self
         table.dataSource = self
-        table.isHidden = true
         return table
     }()
     
@@ -94,6 +98,10 @@ final class MapViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Lifecycle
@@ -327,7 +335,7 @@ extension MapViewController: UITableViewDataSource {
         let player = viewModel.players[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = "Player: \(player.id)"
+        content.text = "Player: \(player.id.suffix(4))"
         
         if let userLocation = locationManager.location {
             let playerLocation = CLLocation(
@@ -364,6 +372,17 @@ extension MapViewController: UITableViewDelegate {
         )
         mapView.setRegion(region, animated: true)
     }
+    
+    func refreshAnnotationPositions() {
+        mapView.layoutIfNeeded()
+        for annotation in mapView.annotations {
+            guard let view = mapView.view(for: annotation) else { continue }
+            view.setNeedsLayout()
+            if let drone = view as? DroneAnnotationView {
+                drone.startAnimating()
+            }
+        }
+    }
 }
 
 // MARK: - MKMapViewDelegate
@@ -385,5 +404,17 @@ extension MapViewController: MKMapViewDelegate {
             withIdentifier: PlayerAnnotationView.reuseIdentifier,
             for: annotation
         )
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        refreshAnnotationPositions()
+    }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        refreshAnnotationPositions()
+    }
+    
+    func mapView(_ mapView: MKMapView, didAdd didAddAnnotationViews: [MKAnnotationView]) {
+        refreshAnnotationPositions()
     }
 }

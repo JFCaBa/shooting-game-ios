@@ -168,7 +168,8 @@ final class GameManager: GameManagerProtocol {
               let currentLocation = locationManager.location,
               currentLives > 0,
               isAlive,
-              case let .shoot(shooterPlayer) = message.data,
+              case let .shootDataResponse(shooterDataResponse) = message.data,
+              let shooterPlayer = shooterDataResponse.shoot,
               let shooterId = shooterPlayer.hitPlayerId,
               shooterId != playerId,
               let location = shooterPlayer.location
@@ -437,24 +438,24 @@ extension GameManager: WebSocketServiceDelegate {
             }
             
         case .shoot:
-            if case let .shoot(shootData) = message.data, message.playerId != playerId {
+            if case let .shootDataResponse(shootDataResponse) = message.data, message.playerId != playerId {
                 handleShot(message)
-                playerManager.updatePlayer(shootData)
+                playerManager.updatePlayer(shootDataResponse.shoot)
             }
             
         case .shootConfirmed:
             notifyShootConfirmed(message.data)
             
         case .hitConfirmed:
-            if message.senderId == playerId, case let .shoot(shootData) = message.data {
+            if message.senderId == playerId, case let .shootDataResponse(shootData) = message.data {
                 gameScore.hits += 1
-                notifyHitConfirmed(shootData.damage)
+                notifyHitConfirmed(shootData.shoot?.damage ?? 1)
             }
             
         case .kill:
-            if message.senderId == playerId, case let .shoot(shootData) = message.data {
+            if message.senderId == playerId, case let .shootDataResponse(shootData) = message.data {
                 gameScore.kills += 1
-                notifyKill(shootData.hitPlayerId ?? "")
+                notifyKill(shootData.shoot?.hitPlayerId ?? "")
             }
             
         case .leave:
