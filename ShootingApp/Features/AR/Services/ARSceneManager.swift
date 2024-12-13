@@ -182,6 +182,8 @@ final class ARSceneManager: NSObject {
                         if let drone = self.drones.first(where: {$0.droneId == droneNode.nodeId}) {
                             self.delegate?.arSceneManager(self, droneHitted: drone)
                             self.drones.removeAll { $0 == drone }
+                            
+                            SoundManager.shared.playSound(type: .explosion)
                         }
                     }
                     
