@@ -463,6 +463,24 @@
 		82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
 		82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
 		82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */; };
+		82F3A6AB2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
+		82F3A6AC2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
+		82F3A6AD2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
+		82F3A6AF2D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
+		82F3A6B02D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
+		82F3A6B12D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
+		82F3A6EC2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
+		82F3A6ED2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
+		82F3A6EE2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
+		82F3A6F02D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */; };
+		82F3A6F12D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */; };
+		82F3A6F22D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */; };
+		82F3A6F52D0E186D00EAB48E /* drones.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6F42D0E186500EAB48E /* drones.txt */; };
+		82F3A6F62D0E186D00EAB48E /* drones.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6F42D0E186500EAB48E /* drones.txt */; };
+		82F3A6F72D0E186D00EAB48E /* drones.txt in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6F42D0E186500EAB48E /* drones.txt */; };
+		82F3A72D2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */; };
+		82F3A72E2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */; };
+		82F3A72F2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,6 +671,12 @@
 		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
 		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
 		82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_sound.m4a; sourceTree = "<group>"; };
+		82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDroneNode+DroneType.swift"; sourceTree = "<group>"; };
+		82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDroneNode+Box.swift"; sourceTree = "<group>"; };
+		82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ai_whitePlastic_tex_baseColor.png; sourceTree = "<group>"; };
+		82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = drone_four_rotor_one.scn; sourceTree = "<group>"; };
+		82F3A6F42D0E186500EAB48E /* drones.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = drones.txt; sourceTree = "<group>"; };
+		82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fabric004_4K_Colorcopie.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -963,6 +987,8 @@
 			isa = PBXGroup;
 			children = (
 				82560A742D06CEDC00DE2210 /* ARDroneNode.swift */,
+				82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */,
+				82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1418,7 +1444,10 @@
 		828545B62CCCFEE20074EBF9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				82F3A66B2D0C9D3200EAB48E /* sounds */,
+				82F3A6F32D0E184100EAB48E /* texts */,
+				82F3A6CE2D0DEE7900EAB48E /* Textures */,
+				82F3A6912D0D6E8B00EAB48E /* Models */,
+				82F3A66B2D0C9D3200EAB48E /* Sounds */,
 				8285458E2CCCFE550074EBF9 /* Assets.xcassets */,
 				828545902CCCFE550074EBF9 /* LaunchScreen.storyboard */,
 			);
@@ -1677,14 +1706,14 @@
 			path = Annotations;
 			sourceTree = "<group>";
 		};
-		82F3A66B2D0C9D3200EAB48E /* sounds */ = {
+		82F3A66B2D0C9D3200EAB48E /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
 				82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */,
 				82F3A6812D0CB52300EAB48E /* drone_sound.m4a */,
 				82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */,
 			);
-			path = sounds;
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		82F3A6742D0C9D6700EAB48E /* Sound */ = {
@@ -1693,6 +1722,31 @@
 				82F3A6752D0C9D8500EAB48E /* SoundManager.swift */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		82F3A6912D0D6E8B00EAB48E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82F3A6CE2D0DEE7900EAB48E /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */,
+				82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		82F3A6F32D0E184100EAB48E /* texts */ = {
+			isa = PBXGroup;
+			children = (
+				82F3A6F42D0E186500EAB48E /* drones.txt */,
+			);
+			path = texts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1815,12 +1869,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F3A6ED2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				82F3A6F52D0E186D00EAB48E /* drones.txt in Resources */,
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
 				82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
+				82F3A72F2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
+				82F3A6F02D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1829,9 +1887,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F3A6EE2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				82F3A6F12D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				82F3A6802D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
+				82F3A6F62D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82F3A72E2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 			);
@@ -1841,9 +1903,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F3A6EC2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				82F3A6F22D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				82F3A67E2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F092D0460610095E161 /* URLs.plist in Resources */,
+				82F3A6F72D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82F3A72D2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 			);
@@ -1903,6 +1969,7 @@
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8269385F2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
+				82F3A6AB2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
 				826938152CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				82381EAD2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */,
@@ -1911,6 +1978,7 @@
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
+				82F3A6B12D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
@@ -2065,6 +2133,7 @@
 				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
+				82F3A6AF2D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
 				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
@@ -2080,6 +2149,7 @@
 				826937F92CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				829EE9512D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
+				82F3A6AD2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
 				820611732CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				8269382A2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				8263387B2CEFB380009C2CED /* WalletViewModelTest.swift in Sources */,
@@ -2190,6 +2260,7 @@
 				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */,
 				8269383C2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
+				82F3A6B02D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
 				828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
@@ -2270,6 +2341,7 @@
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
 				826938A32CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				8269388A2CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
+				82F3A6AC2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
 				8269382C2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
 				829EE9482D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE9492D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,

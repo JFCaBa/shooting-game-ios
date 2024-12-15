@@ -112,11 +112,10 @@ final class ARSceneManager: NSObject {
             
             self.droneNodes = self.droneNodes.filter { $0.parent != nil }
             
-            let node = ARDroneNode()
-            node.nodeId = drone.droneId
-            node.position = self.generateSpawnPosition(drone: drone)
-            node.setupDrone()
-
+            let position = self.generateSpawnPosition(drone: drone)
+            let type: ARDroneNode.DroneType = Bool.random() ? .box : .fourRotorOne
+            let node = ARDroneNode.init(with: drone.droneId, type: .fourRotorOne, position: position)
+            
             DispatchQueue.main.async {
                 self.sceneView.scene.rootNode.addChildNode(node)
                 self.droneNodes.append(node)
@@ -139,17 +138,12 @@ final class ARSceneManager: NSObject {
             cameraTransform.columns.3.y,
             cameraTransform.columns.3.z
         )
-        
-        // Generate a random offset for the drone around the player
-        let randomXOffset = Float.random(in: -1.5...1.5) // Random horizontal offset
-        let randomYOffset = Float.random(in: 0.5...2.0)  // Random height
-        let randomZOffset = Float.random(in: -3.0...(-1.0)) // Random depth in front
 
         // Calculate the spawn position
         let spawnPosition = SCNVector3(
-            playerPosition.x + randomXOffset,
-            playerPosition.y + randomYOffset,
-            playerPosition.z + randomZOffset
+            playerPosition.x + drone.position.x,
+            playerPosition.y + drone.position.y,
+            playerPosition.z + drone.position.z
         )
         
         return spawnPosition
@@ -170,9 +164,9 @@ final class ARSceneManager: NSObject {
         ])
         
         for result in hitResults {
-            if let droneNode = result.node.parent as? ARDroneNode {
-                let hit = droneNode.hit()
-                if hit {
+            if let droneNode = findParentNode(ofType: ARDroneNode.self, for: result.node) {
+                let removed = droneNode.droneWasHit()
+                if removed {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         droneNode.removeFromParentNode()
                         droneNode.geometry = nil
@@ -187,12 +181,23 @@ final class ARSceneManager: NSObject {
                         }
                     }
                     
-                    return hit
+                    return removed
                 }
             }
         }
         
         return false
+    }
+    
+    func findParentNode<T: SCNNode>(ofType type: T.Type, for node: SCNNode?) -> T? {
+        var currentNode = node
+        while let parent = currentNode?.parent {
+            if let matchingNode = parent as? T {
+                return matchingNode
+            }
+            currentNode = parent
+        }
+        return nil
     }
     
     // MARK: - stop()
