@@ -11,6 +11,7 @@ import CoreVideo
 import FirebaseMessaging
 
 final class GameManager: GameManagerProtocol {
+    
     // MARK: - Singleton
     
     static let shared = GameManager()
@@ -130,7 +131,7 @@ final class GameManager: GameManagerProtocol {
     
     // MARK: - shoot(location:, heading:)
     
-    func shoot(at point: CGPoint?, drone: DroneData?, location: LocationData, heading: Double) {
+    func shoot(at point: CGPoint?, drone: DroneData?, geoObject: GeoObject?, location: LocationData, heading: Double) {
         guard let playerId = playerId, currentLives > 0 else { return }
         
         var message: GameMessage?
@@ -140,6 +141,15 @@ final class GameManager: GameManagerProtocol {
                 type: .shootDrone,
                 playerId: playerId,
                 data: .drone(drone),
+                senderId: nil,
+                pushToken: Messaging.messaging().fcmToken
+            )
+        }
+        else if let geoObject {
+            message = GameMessage(
+                type: .shootGeoObject,
+                playerId: playerId,
+                data: .geoObject(geoObject),
                 senderId: nil,
                 pushToken: Messaging.messaging().fcmToken
             )
@@ -487,14 +497,22 @@ extension GameManager: WebSocketServiceDelegate {
             }
             
             // TODO: - Remove after testing
-            if !testGeoObjectSent {
-                let geoObject = GeoObject(id: UUID().uuidString, type: .target, coordinate: GeoCoordinate(latitude:  60.023650, longitude: 30.332677, altitude: 0), metadata: GeoObjectMetadata(reward: 10, expiresAt: Date().addingTimeInterval(3600), spawnedAt: .now))
+//            if !testGeoObjectSent {
+            let latOffset = Double.random(in: 0.0...0.002)
+            let lonOffset = Double.random(in: 0.0...0.002)
+                
+                let randomizedCoordinate = CLLocationCoordinate2D(
+                    latitude: (locationManager.location?.coordinate.latitude ?? 0) + latOffset,
+                    longitude: locationManager.location?.coordinate.longitude ?? 0 + lonOffset
+                )
+            let geoObject = GeoObject(id: UUID().uuidString, type: .target, coordinate: GeoCoordinate(latitude:  randomizedCoordinate.latitude, longitude: randomizedCoordinate.longitude, altitude: 0), metadata: GeoObjectMetadata(reward: 10, expiresAt: Date().addingTimeInterval(3600), spawnedAt: .now))
+            
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                     self.notifyNewGeoObject([geoObject])
                 }
                 
-                testGeoObjectSent = true
-            }
+//                testGeoObjectSent = true
+//            }
             
         
         case .droneShootConfirmed:

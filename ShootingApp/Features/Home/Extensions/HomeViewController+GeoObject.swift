@@ -42,6 +42,8 @@ extension HomeViewController {
             color: .systemPurple,
             font: .systemFont(ofSize: 32, weight: .bold)
         ), amount: geoObject.metadata.reward ?? 1)
+        
+        radarView.removeTarget(id: geoObject.id)
     }
     
     // MARK: - handleNewGeoObjectArrived(_:)
@@ -52,7 +54,7 @@ extension HomeViewController {
         else { return }
         
         geoObjects.forEach { geoObject in
-            indicatorsManager.addIndicator(for: geoObject)
+            radarView.addTarget(geoObject)
         }
         
         // Optional: Play sound for new geo object

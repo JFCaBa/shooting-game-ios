@@ -45,7 +45,7 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func shoot(at point: CGPoint?, drone: DroneData? = nil, isValid: Bool = true) {
+    func shoot(at point: CGPoint?, drone: DroneData? = nil, geoObject: GeoObject? = nil, isValid: Bool = true) {
         guard let location = locationManager?.location else { return }
         
         let locationData = LocationData(
@@ -65,6 +65,7 @@ final class HomeViewModel: ObservableObject {
         gameManager.shoot(
             at: point,
             drone: drone,
+            geoObject: geoObject,
             location: locationData,
             heading: locationManager?.heading?.trueHeading ?? 0
         )

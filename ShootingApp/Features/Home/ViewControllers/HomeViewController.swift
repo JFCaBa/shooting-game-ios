@@ -210,10 +210,14 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    lazy var indicatorsManager: GeoObjectIndicatorsManager = {
-        let manager = GeoObjectIndicatorsManager()
-        manager.translatesAutoresizingMaskIntoConstraints = false
-        return manager
+    lazy var radarView: RadarView = {
+        let radar = RadarView()
+        radar.translatesAutoresizingMaskIntoConstraints = false
+        radar.backgroundColor = .clear
+        radar.layer.cornerRadius = 8
+        radar.clipsToBounds = true
+        radar.isHidden = true
+        return radar
     }()
     
     // MARK: - Initialisers
@@ -319,7 +323,7 @@ final class HomeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleShootConfirmed),
+            selector: #selector(handleShootConfirmed(_:)),
             name: .shootConfirmed,
             object: nil)
         
@@ -331,8 +335,15 @@ final class HomeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleGeoObjectHit),
+            selector: #selector(handleGeoObjectHit(_:)),
             name: .geoObjectHit,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleGeoObjectShootConfirmed(_:)),
+            name: .geoObjectShootConfirmed,
             object: nil
         )
     }
@@ -371,7 +382,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(achievementsButton)
         view.addSubview(walletButton)
         view.addSubview(settingsButton)
-        view.addSubview(indicatorsManager)
+        view.addSubview(radarView)
         
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
@@ -462,12 +473,12 @@ final class HomeViewController: UIViewController {
             settingsButton.widthAnchor.constraint(equalToConstant: 50),
             settingsButton.heightAnchor.constraint(equalToConstant: 50),
             
-            // Indicators Manager
-            indicatorsManager.topAnchor.constraint(equalTo: topContainerView.bottomAnchor),
-            indicatorsManager.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            indicatorsManager.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            indicatorsManager.bottomAnchor.constraint(equalTo: settingsButton.topAnchor)
-        
+            // Radar View
+            radarView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor, constant: 16),
+            radarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            radarView.widthAnchor.constraint(equalToConstant: 120),
+            radarView.heightAnchor.constraint(equalToConstant: 120)
+            
         ])
         
         reloadTimerLabel.isHidden = true
@@ -536,7 +547,7 @@ final class HomeViewController: UIViewController {
     
     // MARK: - handleShootConfirmed()
     
-    @objc private func handleShootConfirmed(notification: Notification) {
+    @objc private func handleShootConfirmed(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
         

@@ -475,18 +475,9 @@
 		82E5725A2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
 		82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
 		82E5725C2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
-		82E5725E2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
-		82E5725F2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
-		82E572602D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
-		82E572622D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
-		82E572632D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
-		82E572642D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
 		82E572672D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
 		82E572682D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
 		82E572692D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
-		82E5726B2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
-		82E5726C2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
-		82E5726D2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
 		82E572702D146476002F7C4B /* HomeViewController+Drones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726F2D146476002F7C4B /* HomeViewController+Drones.swift */; };
 		82E572712D146476002F7C4B /* HomeViewController+Drones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726F2D146476002F7C4B /* HomeViewController+Drones.swift */; };
 		82E572722D146476002F7C4B /* HomeViewController+Drones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726F2D146476002F7C4B /* HomeViewController+Drones.swift */; };
@@ -499,6 +490,9 @@
 		82E5727C2D14695F002F7C4B /* GeoObjectAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5727B2D14695F002F7C4B /* GeoObjectAnnotationView.swift */; };
 		82E5727D2D14695F002F7C4B /* GeoObjectAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5727B2D14695F002F7C4B /* GeoObjectAnnotationView.swift */; };
 		82E5727E2D14695F002F7C4B /* GeoObjectAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5727B2D14695F002F7C4B /* GeoObjectAnnotationView.swift */; };
+		82E572812D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
+		82E572822D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
+		82E572832D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
 		82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
@@ -723,14 +717,12 @@
 		82E572502D14263B002F7C4B /* GeoObjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectService.swift; sourceTree = "<group>"; };
 		82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectsManager.swift; sourceTree = "<group>"; };
 		82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARNodeFactory.swift; sourceTree = "<group>"; };
-		82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectIndicatorView.swift; sourceTree = "<group>"; };
-		82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectIndicatorsManager.swift; sourceTree = "<group>"; };
 		82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectGroupManager.swift; sourceTree = "<group>"; };
-		82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIndicatorView.swift; sourceTree = "<group>"; };
 		82E5726F2D146476002F7C4B /* HomeViewController+Drones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Drones.swift"; sourceTree = "<group>"; };
 		82E572732D146484002F7C4B /* HomeViewController+GeoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+GeoObject.swift"; sourceTree = "<group>"; };
 		82E572772D14690F002F7C4B /* GeoObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectAnnotation.swift; sourceTree = "<group>"; };
 		82E5727B2D14695F002F7C4B /* GeoObjectAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectAnnotationView.swift; sourceTree = "<group>"; };
+		82E572802D14B277002F7C4B /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
 		82F3A6752D0C9D8500EAB48E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
 		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
@@ -1585,6 +1577,7 @@
 		828545D22CCD0DA80074EBF9 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				82E5727F2D147C57002F7C4B /* Extensions */,
 				829EE9702D0B0D0D00EAF8A9 /* Annotations */,
 				828545D32CCD0DAE0074EBF9 /* ViewControllers */,
 				828545FE2CCD18720074EBF9 /* ViewModels */,
@@ -1597,7 +1590,6 @@
 			isa = PBXGroup;
 			children = (
 				828545CE2CCD0DA20074EBF9 /* MapViewController.swift */,
-				828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1713,9 +1705,7 @@
 				82CE89B72D0399520014E35B /* ConnectionStatusView.swift */,
 				82560A822D06DFC500DE2210 /* DroneCountView.swift */,
 				8269387F2CFB462000E03DAA /* FeedbackView.swift */,
-				82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */,
-				82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */,
-				82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */,
+				82E572802D14B277002F7C4B /* RadarView.swift */,
 				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
 				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
 				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
@@ -1824,6 +1814,14 @@
 				82560A792D06D45100DE2210 /* ARService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		82E5727F2D147C57002F7C4B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				828545FF2CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		82F3A66B2D0C9D3200EAB48E /* Sounds */ = {
@@ -2104,6 +2102,7 @@
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				82F3A6B12D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
+				82E572822D14B277002F7C4B /* RadarView.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
@@ -2125,7 +2124,6 @@
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				829EE96D2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
-				82E5726B2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
@@ -2168,7 +2166,6 @@
 				826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
-				82E572622D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */,
 				829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
@@ -2194,7 +2191,6 @@
 				8269380F2CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				826938A42CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
-				82E572602D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				826FAA142D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
@@ -2245,7 +2241,6 @@
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				8206117B2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
-				82E5726C2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				829EE96E2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
@@ -2263,14 +2258,12 @@
 				820611A42CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
 				820611472CF4824D003FB6BB /* AchievementService.swift in Sources */,
 				82E572482D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */,
-				82E572642D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				826FA9EC2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
 				826FAA072D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
-				82E5725E2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				829EE9592D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
@@ -2357,6 +2350,7 @@
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206116F2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				8285461B2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
+				82E572832D14B277002F7C4B /* RadarView.swift in Sources */,
 				8269381B2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				82560A802D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
@@ -2423,6 +2417,7 @@
 				826938142CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				82E5724E2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
 				826938512CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
+				82E572812D14B277002F7C4B /* RadarView.swift in Sources */,
 				826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
 				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
@@ -2449,7 +2444,6 @@
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
-				82E572632D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				820611AE2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
@@ -2522,7 +2516,6 @@
 				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
-				82E5726D2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -2563,7 +2556,6 @@
 				826FAA022D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
 				82E5723F2D142061002F7C4B /* GeoARManager.swift in Sources */,
 				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
-				82E5725F2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				820611882CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
 				826938712CFAF43C00E03DAA /* TokenResponse.swift in Sources */,

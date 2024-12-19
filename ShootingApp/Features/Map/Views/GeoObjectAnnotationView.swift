@@ -8,39 +8,35 @@
 import MapKit
 
 final class GeoObjectAnnotationView: MKAnnotationView {
-    // MARK: - Constants
     static let reuseIdentifier = "GeoObjectAnnotationView"
-    
-    // MARK: - UI Components
-    
-    private lazy var geoObjectImageView: UIImageView = {
-        let image = UIImage(systemName: "fuelpump.fill")
-        let imageView = UIImageView(image: image)
-        imageView.tintColor = .systemGreen
-        return imageView
-    }()
-    
-    // MARK: - Overrides    
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         setupUI()
     }
     
-    // MARK: - init?(coder:)
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - setupUI()
-    
     private func setupUI() {
+        // Make the view more prominent
         frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        centerOffset = CGPoint(x: 0, y: -frame.size.height / 2)
+        backgroundColor = .systemRed // Make background visible for debugging
+        layer.cornerRadius = 20
+        
+        // Add image
+        let imageView = UIImageView(image: UIImage(systemName: "target"))
+        imageView.tintColor = .white
+        imageView.frame = bounds.insetBy(dx: 8, dy: 8)
+        imageView.contentMode = .scaleAspectFit
+        addSubview(imageView)
+        
+        // Enable callout
         canShowCallout = true
-        addSubview(geoObjectImageView)
-        geoObjectImageView.frame = bounds
+        
+        // Make sure it's not hidden
+        isHidden = false
+        alpha = 1.0
     }
 }
-
