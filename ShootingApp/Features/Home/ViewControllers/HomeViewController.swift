@@ -20,9 +20,9 @@ final class HomeViewController: UIViewController {
     private let crosshairRecoilDistance: CGFloat = 20
     private let maxAmmo = 30
     private let maxLives = 10
-    private let amountHitReward = 1
-    private let amountHitDroneReward = 2
-    private let amountKillReward = 5
+    let amountHitReward = 1
+    let amountHitDroneReward = 2
+    let amountKillReward = 5
     private let amountAdReward = 10
     private let hitValidator = HitValidationService()
     let viewModel = HomeViewModel()
@@ -37,7 +37,7 @@ final class HomeViewController: UIViewController {
     private let previewZoom = CATransform3DMakeScale(1, 1, 1)
     private var cancellables: Set<AnyCancellable> = []
     private var alertHandler: HomeAlertHandler! = nil
-    private var droneCount: Int = 0
+    var droneCount: Int = 0
     
     public var visionDebugView: VisionDebugView! // Used in extension HomeViewController+VisionDebug
     
@@ -72,13 +72,13 @@ final class HomeViewController: UIViewController {
         return bar
     }()
     
-    private lazy var droneCountView: DroneCountView = {
+    lazy var droneCountView: DroneCountView = {
         let view = DroneCountView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private lazy var scoreView: ScoreView = {
+    lazy var scoreView: ScoreView = {
         let view = ScoreView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -210,7 +210,7 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var indicatorsManager: GeoObjectIndicatorsManager = {
+    lazy var indicatorsManager: GeoObjectIndicatorsManager = {
         let manager = GeoObjectIndicatorsManager()
         manager.translatesAutoresizingMaskIntoConstraints = false
         return manager
@@ -321,6 +321,12 @@ final class HomeViewController: UIViewController {
             self,
             selector: #selector(handleShootConfirmed),
             name: .shootConfirmed,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleNewGeoObjectArrived(_:)),
+            name: .newGeoObjectArrived,
             object: nil)
         
         NotificationCenter.default.addObserver(
@@ -457,28 +463,19 @@ final class HomeViewController: UIViewController {
             settingsButton.heightAnchor.constraint(equalToConstant: 50),
             
             // Indicators Manager
-            indicatorsManager.topAnchor.constraint(equalTo: view.topAnchor),
+            indicatorsManager.topAnchor.constraint(equalTo: topContainerView.bottomAnchor),
             indicatorsManager.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             indicatorsManager.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            indicatorsManager.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            indicatorsManager.bottomAnchor.constraint(equalTo: settingsButton.topAnchor)
         
         ])
         
         reloadTimerLabel.isHidden = true
     }
     
-    // MARK: - updateDroneCount(_:)
     
-    func updateDroneCount(_ count: Int) {
-        if count > 0 {
-            SoundManager.shared.playSound(type: .drone, loop: true)
-        } else {
-            SoundManager.shared.stopSound(type: .drone)
-        }
-        
-        droneCount = count
-        droneCountView.updateCount(count)
-    }
+    
+    
     
     // MARK: - shootButtonTapped()
     
@@ -559,59 +556,20 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    @objc private func handleGeoObjectHit(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let geoObject = userInfo["geoObject"] as? GeoObject else { return }
-        
-        // Play hit sound effect
-        SoundManager.shared.playSound(type: .hit)
-        
-        // Show visual feedback
-        let hitFeedback = FeedbackView()
-        hitFeedback.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(hitFeedback)
-        
-        NSLayoutConstraint.activate([
-            hitFeedback.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
-            hitFeedback.bottomAnchor.constraint(equalTo: crosshairView.topAnchor, constant: -10),
-            hitFeedback.widthAnchor.constraint(equalToConstant: 150),
-            hitFeedback.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        // Show feedback with reward amount if available
-        if let reward = geoObject.metadata.reward {
-            hitFeedback.show(style: .hit, amount: reward)
-        } else {
-            hitFeedback.show(style: .hit)
+    
+    // MARK: - handleHitConfirmation()
+    
+    @objc func handleHitConfirmation() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            let gameScore = GameManager.shared.gameScore
+            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+            
+            showFeedback(.hit, amount: amountHitReward)
         }
     }
-    
-    @objc private func handleGeoObjectShootConfirmed(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let geoObject = userInfo["geoObject"] as? GeoObject,
-              let reward = userInfo["reward"] as? Int else { return }
-        
-        // Update game score
-        let gameScore = GameManager.shared.gameScore
-        self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
-        
-        // Show reward feedback
-        showFeedback(.custom(
-            text: "GEO REWARD",
-            color: .systemPurple,
-            font: .systemFont(ofSize: 32, weight: .bold)
-        ), amount: geoObject.metadata.reward ?? 1)
-    }
-    
-    @objc private func handleNewGeoObject(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let geoObject = userInfo["geoObject"] as? GeoObject else { return }
-        
-        indicatorsManager.addIndicator(for: geoObject)
-        
-        // Optional: Play sound for new geo object
-        SoundManager.shared.playSound(type: .spawn)
-    }
+
     
     // MARK: - mapButtonTapped()
     
@@ -637,48 +595,10 @@ final class HomeViewController: UIViewController {
         viewModel.coordinator?.showAchievements()
     }
     
-    // MARK: - handleHitConfirmation()
-    
-    @objc func handleHitConfirmation() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            
-            let gameScore = GameManager.shared.gameScore
-            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
-            
-            showFeedback(.hit, amount: amountHitReward)
-        }
-    }
-    
-    // MARK: - handleHitDroneConfirmation()
-    
-    @objc func handleHitDroneConfirmation(notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let drone = userInfo["drone"] as? DroneData else { return }
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            
-            showFeedback(.hit, amount: drone.reward ?? 2)
-        }
-    }
-    
-    // MARK: - handleKillConfirmation()
-    
-    @objc private func handleKillConfirmation() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self else { return }
-            
-            let gameScore = GameManager.shared.gameScore
-            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
-            
-            showFeedback(.kill, amount: amountKillReward)
-        }
-    }
     
     // MARK: - showFeedback(_:)
     
-    private func showFeedback(_ style: FeedbackStyle, amount: Int) {
+    func showFeedback(_ style: FeedbackStyle, amount: Int) {
         let hitFeedback = FeedbackView()
         hitFeedback.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(hitFeedback)

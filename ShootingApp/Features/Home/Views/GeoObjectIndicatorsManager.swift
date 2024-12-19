@@ -206,6 +206,10 @@ final class GeoObjectIndicatorsManager: UIView {
             indicator.centerXAnchor.constraint(equalTo: leadingAnchor, constant: position.x),
             indicator.centerYAnchor.constraint(equalTo: topAnchor, constant: position.y)
         ])
+        
+        UIView.animate(withDuration: 0.5) {
+            self.layoutIfNeeded()
+        }
     }
     
     // MARK: - Helper Methods

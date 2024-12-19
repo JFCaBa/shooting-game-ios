@@ -112,13 +112,20 @@ final class MapViewController: UIViewController {
         setupLocation()
         setupBindings()
         setupDroneObservers()
-        mapView.register(PlayerAnnotationView.self, forAnnotationViewWithReuseIdentifier: PlayerAnnotationView.reuseIdentifier)
-        mapView.register(DroneAnnotationView.self, forAnnotationViewWithReuseIdentifier: DroneAnnotationView.reuseIdentifier)
+        setupAnnotationViews(mapView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refreshPlayers()
+    }
+    
+    // MARK: - setupAnnotationViews()
+    
+    private func setupAnnotationViews(_ mapView: MKMapView) {
+        mapView.register(PlayerAnnotationView.self, forAnnotationViewWithReuseIdentifier: PlayerAnnotationView.reuseIdentifier)
+        mapView.register(DroneAnnotationView.self, forAnnotationViewWithReuseIdentifier: DroneAnnotationView.reuseIdentifier)
+        mapView.register(GeoObjectAnnotationView.self, forAnnotationViewWithReuseIdentifier: GeoObjectAnnotationView.reuseIdentifier)
     }
     
     // MARK: - setupUI()
@@ -179,12 +186,13 @@ final class MapViewController: UIViewController {
         )
     }
     
-    // MARK: - setupDroneObservers()
+    // MARK: - setupObservers()
     
     private func setupDroneObservers() {
         // Get initial drones if any already exist
         if let arView = ARService.shared.arView {
-            showExistingDrones(count: arView.manager.numberOfDrones())
+            showExistingDrones(drones: arView.manager.getDrones())
+            showGeoObjects(arView.manager.getGeoObjects())
         }
 
         NotificationCenter.default.addObserver(
@@ -196,18 +204,29 @@ final class MapViewController: UIViewController {
         
         NotificationCenter.default.addObserver(
             self,
+            selector: #selector(handleNewGeoObjectArrived(_:)),
+            name: .newGeoObjectArrived,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
             selector: #selector(handleRemoveDrones),
             name: .removeAllDrones,
             object: nil
         )
     }
     
-    private func showExistingDrones(count: Int) {
-        guard count > 0,
-              let userLocation = locationManager.location?.coordinate else { return }
+    // MARK: - showExistingDrones(count:)
+    
+    private func showExistingDrones(drones: [DroneData]) {
+        guard drones.count > 0,
+              let userLocation = locationManager.location?.coordinate
+        else { return }
         
-        // Create random positions around user for each existing drone
-        for _ in 0..<count {
+        var annotations: Array<DroneAnnotation> = []
+        
+        drones.forEach { drone in
             let randomLatOffset = Double.random(in: -0.001...0.001)
             let randomLonOffset = Double.random(in: -0.001...0.001)
             
@@ -218,11 +237,35 @@ final class MapViewController: UIViewController {
             
             let annotation = DroneAnnotation(
                 coordinate: droneCoordinate,
-                droneId: UUID().uuidString // Temporary ID since we don't have the original
+                droneId: drone.droneId
             )
             
-            mapView.addAnnotation(annotation)
+            annotations.append(annotation)
         }
+            
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(annotations)
+        }
+    }
+    
+    // MARK: - showExistingGeoObjects(_:)
+    
+    private func showGeoObjects(_ geoObjects: [GeoObject]) {
+        guard geoObjects.count > 0,
+              let userLocation = locationManager.location?.coordinate
+        else { return }
+        
+        var annotations: Array<GeoObjectAnnotation> = []
+        geoObjects.forEach { geoObject in
+            let annotation = GeoObjectAnnotation(coordinate: geoObject.coordinate.toCLLocationCoordinate2D(), geoObjectId: geoObject.id)
+            
+            annotations.append(annotation)
+        }
+        
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(annotations)
+        }
+
     }
     
     // MARK: - setupBindings()
@@ -293,6 +336,8 @@ final class MapViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    // MARK: - handleNewDrone(_:)
+    
     @objc private func handleNewDrone(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let drone = userInfo["drone"] as? DroneData,
@@ -314,6 +359,17 @@ final class MapViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.mapView.addAnnotation(annotation)
+        }
+    }
+    
+    // MARK: - handleNewGeoObjectArrived(_:)
+    
+    @objc private func handleNewGeoObjectArrived(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let objects = userInfo["geoObject"] as? [GeoObject] else { return }
+        
+        DispatchQueue.main.async {
+            self.showGeoObjects(objects)
         }
     }
     
@@ -396,6 +452,12 @@ extension MapViewController: MKMapViewDelegate {
         if annotation is DroneAnnotation {
             return mapView.dequeueReusableAnnotationView(
                 withIdentifier: DroneAnnotationView.reuseIdentifier,
+                for: annotation
+            )
+        }
+        else if annotation is GeoObjectAnnotation {
+            return mapView.dequeueReusableAnnotationView(
+                withIdentifier: GeoObjectAnnotationView.reuseIdentifier,
                 for: annotation
             )
         }

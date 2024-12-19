@@ -35,6 +35,11 @@ final class GameManager: GameManagerProtocol {
     private let maximumAngleError: Double = 30
     private let locationManager = LocationManager.shared
     
+    // TODO: remove after test geo objects
+    
+    private var testGeoObjectSent: Bool = false
+
+    
     // MARK: - convenience init()
     
     convenience init() {
@@ -428,7 +433,7 @@ extension GameManager: WebSocketServiceDelegate {
     }
     
     // MARK: - DidReceiveMessage
-    
+        
     func webSocketDidReceiveMessage(_ message: GameMessage) {
         switch message.type {
         case .join:
@@ -480,6 +485,17 @@ extension GameManager: WebSocketServiceDelegate {
                 resetDroneTimer()
                 notifyNewDrone(droneData)
             }
+            
+            // TODO: - Remove after testing
+            if !testGeoObjectSent {
+                let geoObject = GeoObject(id: UUID().uuidString, type: .target, coordinate: GeoCoordinate(latitude:  60.023650, longitude: 30.332677, altitude: 0), metadata: GeoObjectMetadata(reward: 10, expiresAt: Date().addingTimeInterval(3600), spawnedAt: .now))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    self.notifyNewGeoObject([geoObject])
+                }
+                
+                testGeoObjectSent = true
+            }
+            
         
         case .droneShootConfirmed:
             if case let .drone(droneData) = message.data, message.playerId == playerId {
@@ -492,7 +508,7 @@ extension GameManager: WebSocketServiceDelegate {
         
         case .newGeoObject:
             if case let .geoObject(geoObject) = message.data {
-                notifyNewGeoObject(geoObject)
+                notifyNewGeoObject([geoObject])
             }
             
         case .geoObjectHit:
@@ -611,7 +627,7 @@ extension GameManager: WebSocketServiceDelegate {
         )
     }
     
-    private func notifyNewGeoObject(_ geoObject: GeoObject) {
+    private func notifyNewGeoObject(_ geoObject: [GeoObject]) {
         NotificationCenter.default.post(
             name: .newGeoObjectArrived,
             object: nil,

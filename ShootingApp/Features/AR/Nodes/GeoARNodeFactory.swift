@@ -68,7 +68,7 @@ final class GeoARNodeFactory {
     }
     
     private static func configureTargetNode(_ node: GeoARNode) {
-        let geometry = SCNSphere(radius: 0.3)
+        let geometry = SCNSphere(radius: 3)
         geometry.firstMaterial?.diffuse.contents = UIColor.red
         node.geometry = geometry
         

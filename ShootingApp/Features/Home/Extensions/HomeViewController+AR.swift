@@ -62,4 +62,8 @@ extension HomeViewController: ARSceneManagerDelegate {
     func arSceneManager(_ manager: ARSceneManager, droneHitted drone: DroneData) {
         viewModel.shoot(at: nil, drone: drone)
     }
+    
+    func arSceneManager(_ manager: ARSceneManager, didUpdateGeoObjectCount count: Int) {
+        
+    }
 }

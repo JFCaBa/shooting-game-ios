@@ -64,7 +64,7 @@ final class ARSceneManager: NSObject {
     func setupObservers() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleNewDroneArrived),
+            selector: #selector(handleNewDroneArrived(_:)),
             name: .newDroneArrived,
             object: nil)
         
@@ -76,14 +76,14 @@ final class ARSceneManager: NSObject {
         
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(handleNewGeoObjectArrived),
-            name: .geoObjectsUpdated,
+            selector: #selector(handleNewGeoObjectArrived(_:)),
+            name: .newGeoObjectArrived,
             object: nil)
     }
     
     // MARK: - handleNewDroneArrived(notification:)
     
-    @objc private func handleNewDroneArrived(notification: Notification) {
+    @objc private func handleNewDroneArrived(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
                   let drone = userInfo["drone"] as? DroneData else { return }
         
@@ -91,6 +91,8 @@ final class ARSceneManager: NSObject {
             self.spawnDroneIfNeeded(drone: drone)
         }
     }
+    
+    // MARK: - handleRemoveAllDrones()
     
     @objc private func handleRemoveAllDrones() {
         drones.removeAll()
@@ -159,8 +161,12 @@ final class ARSceneManager: NSObject {
     
     // MARK: - numberOfDrones()
     
-    func numberOfDrones() -> Int {
-        return droneNodes.count
+    func getDrones() -> [DroneData] {
+        return drones
+    }
+    
+    func getGeoObjects() -> [GeoObject] {
+        return geoObjects
     }
     
     // MARK: - checkHit(at:)
@@ -245,9 +251,10 @@ final class ARSceneManager: NSObject {
 }
 
 extension ARSceneManager {
-    @objc private func handleNewGeoObjectArrived(notification: Notification) {
+    // MARK: - handleNewGeoObjectsArrivec(notification:)
+    @objc private func handleNewGeoObjectArrived(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
-              let objects = userInfo["objects"] as? [GeoObject] else { return }
+              let objects = userInfo["geoObject"] as? [GeoObject] else { return }
         
         DispatchQueue.main.async {
             // Remove existing nodes that are no longer in the updated objects list
@@ -262,6 +269,8 @@ extension ARSceneManager {
         }
     }
     
+    // MARK: - removeStaleGeoNodes(newObjects:)
+    
     private func removeStaleGeoNodes(newObjects: [GeoObject]) {
         let newObjectIds = Set(newObjects.map { $0.id })
         geoObjectNodes = geoObjectNodes.filter { node in
@@ -272,6 +281,8 @@ extension ARSceneManager {
             return true
         }
     }
+    
+    // MARK: - spawnGeoObjectIfNeeded(geoObject:)
     
     private func spawnGeoObjectIfNeeded(geoObject: GeoObject) {
         guard geoObjectNodes.count < maxGeoObjects else { return }
@@ -294,6 +305,8 @@ extension ARSceneManager {
         // Notify delegate
         delegate?.arSceneManager(self, didUpdateGeoObjectCount: geoObjectNodes.count)
     }
+    
+    // MARK: - checkGeoObjectHit(at:)->Bool
     
     func checkGeoObjectHit(at point: CGPoint) -> Bool {
         let hitResults = sceneView.hitTest(point, options: [
