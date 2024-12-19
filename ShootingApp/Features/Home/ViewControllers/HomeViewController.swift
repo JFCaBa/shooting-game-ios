@@ -12,6 +12,7 @@ import CoreML
 import GoogleMobileAds
 import UIKit
 import Vision
+import SceneKit
 
 final class HomeViewController: UIViewController {
     // MARK: - Constants
@@ -209,6 +210,12 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var indicatorsManager: GeoObjectIndicatorsManager = {
+        let manager = GeoObjectIndicatorsManager()
+        manager.translatesAutoresizingMaskIntoConstraints = false
+        return manager
+    }()
+    
     // MARK: - Initialisers
     
     init(coordinator: AppCoordinator) {
@@ -216,7 +223,7 @@ final class HomeViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         // Preload the sounds
         SoundManager.shared.preloadSounds(sounds: [.drone, .shoot, .explosion])
-
+        
     }
     
     @available(*, unavailable)
@@ -315,6 +322,13 @@ final class HomeViewController: UIViewController {
             selector: #selector(handleShootConfirmed),
             name: .shootConfirmed,
             object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleGeoObjectHit),
+            name: .geoObjectHit,
+            object: nil
+        )
     }
     
     // MARK: - SetupTopContainer
@@ -351,6 +365,7 @@ final class HomeViewController: UIViewController {
         view.addSubview(achievementsButton)
         view.addSubview(walletButton)
         view.addSubview(settingsButton)
+        view.addSubview(indicatorsManager)
         
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
@@ -439,7 +454,14 @@ final class HomeViewController: UIViewController {
             settingsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
             settingsButton.bottomAnchor.constraint(equalTo: achievementsButton.topAnchor, constant: -16),
             settingsButton.widthAnchor.constraint(equalToConstant: 50),
-            settingsButton.heightAnchor.constraint(equalToConstant: 50)
+            settingsButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            // Indicators Manager
+            indicatorsManager.topAnchor.constraint(equalTo: view.topAnchor),
+            indicatorsManager.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            indicatorsManager.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            indicatorsManager.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        
         ])
         
         reloadTimerLabel.isHidden = true
@@ -519,8 +541,8 @@ final class HomeViewController: UIViewController {
     
     @objc private func handleShootConfirmed(notification: Notification) {
         guard let userInfo = notification.userInfo,
-                  let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
-            
+              let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
+        
         // Safely extract deviation and distance from MessageData
         guard case let .shootDataResponse(shootData) = shootInfo else { return }
         
@@ -535,6 +557,60 @@ final class HomeViewController: UIViewController {
             
             shootFeedbackView.show(distance: shootData.shoot?.distance ?? 0, deviation: shootData.shoot?.deviation ?? 0)
         }
+    }
+    
+    @objc private func handleGeoObjectHit(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let geoObject = userInfo["geoObject"] as? GeoObject else { return }
+        
+        // Play hit sound effect
+        SoundManager.shared.playSound(type: .hit)
+        
+        // Show visual feedback
+        let hitFeedback = FeedbackView()
+        hitFeedback.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hitFeedback)
+        
+        NSLayoutConstraint.activate([
+            hitFeedback.centerXAnchor.constraint(equalTo: crosshairView.centerXAnchor),
+            hitFeedback.bottomAnchor.constraint(equalTo: crosshairView.topAnchor, constant: -10),
+            hitFeedback.widthAnchor.constraint(equalToConstant: 150),
+            hitFeedback.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        // Show feedback with reward amount if available
+        if let reward = geoObject.metadata.reward {
+            hitFeedback.show(style: .hit, amount: reward)
+        } else {
+            hitFeedback.show(style: .hit)
+        }
+    }
+    
+    @objc private func handleGeoObjectShootConfirmed(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let geoObject = userInfo["geoObject"] as? GeoObject,
+              let reward = userInfo["reward"] as? Int else { return }
+        
+        // Update game score
+        let gameScore = GameManager.shared.gameScore
+        self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+        
+        // Show reward feedback
+        showFeedback(.custom(
+            text: "GEO REWARD",
+            color: .systemPurple,
+            font: .systemFont(ofSize: 32, weight: .bold)
+        ), amount: geoObject.metadata.reward ?? 1)
+    }
+    
+    @objc private func handleNewGeoObject(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let geoObject = userInfo["geoObject"] as? GeoObject else { return }
+        
+        indicatorsManager.addIndicator(for: geoObject)
+        
+        // Optional: Play sound for new geo object
+        SoundManager.shared.playSound(type: .spawn)
     }
     
     // MARK: - mapButtonTapped()
@@ -578,7 +654,7 @@ final class HomeViewController: UIViewController {
     
     @objc func handleHitDroneConfirmation(notification: Notification) {
         guard let userInfo = notification.userInfo,
-                  let drone = userInfo["drone"] as? DroneData else { return }
+              let drone = userInfo["drone"] as? DroneData else { return }
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }

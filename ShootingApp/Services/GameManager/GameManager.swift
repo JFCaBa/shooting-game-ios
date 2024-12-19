@@ -490,10 +490,77 @@ extension GameManager: WebSocketServiceDelegate {
         case .droneShootRejected:
             break
         
+        case .newGeoObject:
+            if case let .geoObject(geoObject) = message.data {
+                notifyNewGeoObject(geoObject)
+            }
+            
+        case .geoObjectHit:
+            if case let .geoObject(geoObject) = message.data {
+                handleGeoObjectHit(geoObject)
+            }
+            
+        case .geoObjectShootConfirmed:
+            if case let .geoObject(geoObject) = message.data {
+                handleGeoObjectShootConfirmed(geoObject)
+            }
+        
         default:
             break
         }
     }
+    
+    private func handleGeoObjectHit(_ geoObject: GeoObject) {
+            // Validate hit and send confirmation
+            var shootData = ShootData()
+            shootData.hitPlayerId = playerId
+            shootData.damage = geoObject.metadata.reward ?? 1
+            
+            let message = GameMessage(
+                type: .geoObjectShootConfirmed,
+                playerId: playerId ?? "",
+                data: .geoObject(geoObject),
+                senderId: nil,
+                pushToken: nil
+            )
+            
+            webSocketService.send(message: message)
+            
+            // Notify UI
+            NotificationCenter.default.post(
+                name: .geoObjectHit,
+                object: nil,
+                userInfo: ["geoObject": geoObject]
+            )
+        }
+        
+        private func handleGeoObjectShootConfirmed(_ geoObject: GeoObject) {
+            // Update score and notify
+            gameScore.hits += 1
+            
+            NotificationCenter.default.post(
+                name: .geoObjectShootConfirmed,
+                object: nil,
+                userInfo: [
+                    "geoObject": geoObject
+                ]
+            )
+        }
+        
+        func shootGeoObject(at point: CGPoint, geoObject: GeoObject) {
+            guard let playerId = playerId else { return }
+            
+            let message = GameMessage(
+                type: .geoObjectHit,
+                playerId: playerId,
+                data: .geoObject(geoObject),
+                senderId: nil,
+                pushToken: nil
+            )
+            
+            webSocketService.send(message: message)
+        }
+        
     
     // MARK: - Send Notifications
     
@@ -541,6 +608,14 @@ extension GameManager: WebSocketServiceDelegate {
             name: .playerKilledTarget,
             object: nil,
             userInfo: ["targetId": id]
+        )
+    }
+    
+    private func notifyNewGeoObject(_ geoObject: GeoObject) {
+        NotificationCenter.default.post(
+            name: .newGeoObjectArrived,
+            object: nil,
+            userInfo: ["geoObject": geoObject]
         )
     }
 }
