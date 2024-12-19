@@ -68,22 +68,45 @@ final class GeoARNode: SCNNode {
         guard !isDestroyed else { return false }
         isDestroyed = true
         
-        let particleSystem = SCNParticleSystem()
-        particleSystem.particleColor = .red
-        particleSystem.particleSize = 0.05
-        particleSystem.particleLifeSpan = 2
-        particleSystem.emitterShape = SCNSphere(radius: 0.1)
-        particleSystem.birthRate = 500
-        particleSystem.spreadingAngle = 360
-        
-        let particleNode = SCNNode()
-        particleNode.addParticleSystem(particleSystem)
-        addChildNode(particleNode)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            particleNode.removeFromParentNode()
-        }
+        // Add Debris Effect
+        addDebrisEffect()
+
+        // Shrink and Fade Out the GeoObject
+        let scaleDown = SCNAction.scale(to: 0.0, duration: 0.5)
+        let fadeOut = SCNAction.fadeOut(duration: 0.5)
+        let remove = SCNAction.removeFromParentNode()
+        let cleanupSequence = SCNAction.sequence([SCNAction.group([scaleDown, fadeOut]), remove])
+        runAction(cleanupSequence)
         
         return true
+    }
+
+    private func addDebrisEffect() {
+        let debrisCount = 10 // Adjust the number of debris pieces
+        for _ in 0..<debrisCount {
+            // Create small debris pieces
+            let debrisGeometry = SCNSphere(radius: 0.05) // Adjust size as needed
+            debrisGeometry.firstMaterial?.diffuse.contents = UIColor.darkGray
+            
+            let debrisNode = SCNNode(geometry: debrisGeometry)
+            debrisNode.position = self.position
+            
+            // Randomize debris movement
+            let randomX = Float.random(in: -0.5...0.5)
+            let randomY = Float.random(in: 0.5...1.5)
+            let randomZ = Float.random(in: -0.5...0.5)
+            let randomDirection = SCNVector3(randomX, randomY, randomZ)
+            
+            // Create an action for debris to move outward and fade out
+            let moveAction = SCNAction.move(by: randomDirection, duration: 1.0)
+            let fadeOutAction = SCNAction.fadeOut(duration: 1.0)
+            let removeAction = SCNAction.removeFromParentNode()
+            let debrisSequence = SCNAction.sequence([SCNAction.group([moveAction, fadeOutAction]), removeAction])
+            
+            debrisNode.runAction(debrisSequence)
+            
+            // Add debris to the parent node
+            parent?.addChildNode(debrisNode)
+        }
     }
 }

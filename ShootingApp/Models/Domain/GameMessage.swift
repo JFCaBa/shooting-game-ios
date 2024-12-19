@@ -22,6 +22,7 @@ struct GameMessage: Codable {
         case droneShootConfirmed
         case droneShootRejected
         case removeDrones
+        case shootGeoObject
         case newGeoObject
         case geoObjectHit
         case geoObjectShootConfirmed

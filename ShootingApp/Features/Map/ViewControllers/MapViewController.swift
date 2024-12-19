@@ -251,21 +251,26 @@ final class MapViewController: UIViewController {
     // MARK: - showExistingGeoObjects(_:)
     
     private func showGeoObjects(_ geoObjects: [GeoObject]) {
-        guard geoObjects.count > 0,
-              let userLocation = locationManager.location?.coordinate
-        else { return }
-        
         var annotations: Array<GeoObjectAnnotation> = []
         geoObjects.forEach { geoObject in
             let annotation = GeoObjectAnnotation(coordinate: geoObject.coordinate.toCLLocationCoordinate2D(), geoObjectId: geoObject.id)
-            
+            print("Debug: Adding geo object at: \(annotation.coordinate)") // Add debug print
             annotations.append(annotation)
         }
         
         DispatchQueue.main.async {
             self.mapView.addAnnotations(annotations)
+            
+            // Add this to ensure objects are visible
+            if let firstObject = annotations.first {
+                let region = MKCoordinateRegion(
+                    center: firstObject.coordinate,
+                    latitudinalMeters: 1000,
+                    longitudinalMeters: 1000
+                )
+                self.mapView.setRegion(region, animated: true)
+            }
         }
-
     }
     
     // MARK: - setupBindings()
@@ -366,12 +371,19 @@ final class MapViewController: UIViewController {
     
     @objc private func handleNewGeoObjectArrived(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
-              let objects = userInfo["geoObject"] as? [GeoObject] else { return }
+              let objects = userInfo["geoObject"] as? [GeoObject] else {
+            print("Debug: Invalid notification data") // Add debug print
+            return
+        }
+        
+        print("Debug: Received \(objects.count) geo objects") // Add debug print
         
         DispatchQueue.main.async {
             self.showGeoObjects(objects)
         }
     }
+    
+    // MARK: - handleRemoveDrones()
     
     @objc private func handleRemoveDrones() {
         let droneAnnotations = mapView.annotations.filter { $0 is DroneAnnotation }
@@ -456,10 +468,13 @@ extension MapViewController: MKMapViewDelegate {
             )
         }
         else if annotation is GeoObjectAnnotation {
-            return mapView.dequeueReusableAnnotationView(
+            print("Debug: Creating view for GeoObject") // Add debug print
+            let view = mapView.dequeueReusableAnnotationView(
                 withIdentifier: GeoObjectAnnotationView.reuseIdentifier,
                 for: annotation
             )
+            print("Debug: Created view: \(String(describing: view))") // Add debug print
+            return view
         }
         
         return mapView.dequeueReusableAnnotationView(

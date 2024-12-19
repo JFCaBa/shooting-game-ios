@@ -197,20 +197,19 @@ final class ARSceneManager: NSObject {
                     
                     return removed
                 }
-            } else if let geoNode = findParentNode(ofType: GeoARNode.self, for: result.node)  {
+            } else if let geoNode = result.node as? GeoARNode {
+//                SoundManager.shared.playSound(type: .explosion)
                 let removed = geoNode.geoObjectWasHit()
                 if removed {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         geoNode.removeFromParentNode()
                         geoNode.geometry = nil
                         self.geoObjectNodes.removeAll { $0 == geoNode }
-                        self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
+                        self.delegate?.arSceneManager(self, didUpdateGeoObjectCount: self.geoObjects.count)
                         
                         if let geoObject = self.geoObjects.first(where: {$0.id == geoNode.nodeId}) {
                             self.delegate?.arSceneManager(self, geoObjectHit: geoObject)
                             self.geoObjects.removeAll { $0 == geoObject }
-                            
-                            SoundManager.shared.playSound(type: .explosion)
                         }
                     }
                     
@@ -304,32 +303,6 @@ extension ARSceneManager {
         
         // Notify delegate
         delegate?.arSceneManager(self, didUpdateGeoObjectCount: geoObjectNodes.count)
-    }
-    
-    // MARK: - checkGeoObjectHit(at:)->Bool
-    
-    func checkGeoObjectHit(at point: CGPoint) -> Bool {
-        let hitResults = sceneView.hitTest(point, options: [
-            SCNHitTestOption.searchMode: SCNHitTestSearchMode.all.rawValue,
-            SCNHitTestOption.ignoreChildNodes: false
-        ])
-        
-        for result in hitResults {
-            if let geoNode = findParentNode(ofType: GeoARNode.self, for: result.node) {
-                if let objectId = geoNode.name,
-                   let hitObject = geoObjects.first(where: { $0.id == objectId }) {
-                    // Remove the node
-                    geoNode.removeFromParentNode()
-                    geoObjectNodes.removeAll { $0 == geoNode }
-                    
-                    // Notify delegate
-                    delegate?.arSceneManager(self, geoObjectHit: hitObject)
-                    return true
-                }
-            }
-        }
-        
-        return false
     }
 }
 
