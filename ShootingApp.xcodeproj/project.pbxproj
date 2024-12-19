@@ -451,6 +451,42 @@
 		82CE89B82D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
 		82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CE89B72D0399520014E35B /* ConnectionStatusView.swift */; };
+		82E5723B2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
+		82E5723C2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
+		82E5723D2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
+		82E5723F2D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
+		82E572402D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
+		82E572412D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
+		82E572442D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
+		82E572452D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
+		82E572462D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
+		82E572482D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */; };
+		82E572492D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */; };
+		82E5724A2D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */; };
+		82E5724C2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */; };
+		82E5724D2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */; };
+		82E5724E2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */; };
+		82E572512D14263B002F7C4B /* GeoObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572502D14263B002F7C4B /* GeoObjectService.swift */; };
+		82E572522D14263B002F7C4B /* GeoObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572502D14263B002F7C4B /* GeoObjectService.swift */; };
+		82E572532D14263B002F7C4B /* GeoObjectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572502D14263B002F7C4B /* GeoObjectService.swift */; };
+		82E572562D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */; };
+		82E572572D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */; };
+		82E572582D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */; };
+		82E5725A2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
+		82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
+		82E5725C2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */; };
+		82E5725E2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
+		82E5725F2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
+		82E572602D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */; };
+		82E572622D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
+		82E572632D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
+		82E572642D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */; };
+		82E572672D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
+		82E572682D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
+		82E572692D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */; };
+		82E5726B2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
+		82E5726C2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
+		82E5726D2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */; };
 		82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
@@ -667,6 +703,18 @@
 		829EE9682D0B0C9C00EAF8A9 /* DroneAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotationView.swift; sourceTree = "<group>"; };
 		829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotation.swift; sourceTree = "<group>"; };
 		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
+		82E5723A2D14202E002F7C4B /* GeoARNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARNode.swift; sourceTree = "<group>"; };
+		82E5723E2D142061002F7C4B /* GeoARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARManager.swift; sourceTree = "<group>"; };
+		82E572432D142512002F7C4B /* GeoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObject.swift; sourceTree = "<group>"; };
+		82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectServiceProtocol.swift; sourceTree = "<group>"; };
+		82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectsRequest.swift; sourceTree = "<group>"; };
+		82E572502D14263B002F7C4B /* GeoObjectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectService.swift; sourceTree = "<group>"; };
+		82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectsManager.swift; sourceTree = "<group>"; };
+		82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARNodeFactory.swift; sourceTree = "<group>"; };
+		82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectIndicatorView.swift; sourceTree = "<group>"; };
+		82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectIndicatorsManager.swift; sourceTree = "<group>"; };
+		82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectGroupManager.swift; sourceTree = "<group>"; };
+		82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIndicatorView.swift; sourceTree = "<group>"; };
 		82F3A6752D0C9D8500EAB48E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
 		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
@@ -975,6 +1023,7 @@
 		82560A632D06CE3400DE2210 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				82E572422D1424F4002F7C4B /* Models */,
 				82560A7D2D06D99E00DE2210 /* Protocols */,
 				82560A642D06CE3900DE2210 /* Nodes */,
 				82560A652D06CE6400DE2210 /* Services */,
@@ -986,9 +1035,11 @@
 		82560A642D06CE3900DE2210 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */,
 				82560A742D06CEDC00DE2210 /* ARDroneNode.swift */,
 				82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */,
 				82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */,
+				82E5723A2D14202E002F7C4B /* GeoARNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -997,6 +1048,7 @@
 			isa = PBXGroup;
 			children = (
 				82560A702D06CEC700DE2210 /* ARSceneManager.swift */,
+				82E5723E2D142061002F7C4B /* GeoARManager.swift */,
 				82560A792D06D45100DE2210 /* ARService.swift */,
 			);
 			path = Services;
@@ -1190,9 +1242,10 @@
 			isa = PBXGroup;
 			children = (
 				826FA9EB2D0055A10029CF9C /* AchievementRequest.swift */,
+				82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */,
+				826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */,
 				8269388F2CFB5FDA00E03DAA /* RewardRequest.swift */,
 				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
-				826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -1200,10 +1253,11 @@
 		826938602CFAF27D00E03DAA /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */,
-				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
-				826938832CFB5E0400E03DAA /* RewardServiceProtocol.swift */,
+				82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */,
 				826FAA002D007E5B0029CF9C /* HallOfFameServiceProtocol.swift */,
+				826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */,
+				826938832CFB5E0400E03DAA /* RewardServiceProtocol.swift */,
+				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1256,6 +1310,7 @@
 			isa = PBXGroup;
 			children = (
 				82223F0C2D0461100095E161 /* Environment.swift */,
+				82E5724F2D142636002F7C4B /* GeoObjectService */,
 				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
 				8269389F2CFB609B00E03DAA /* TokenService */,
@@ -1552,16 +1607,18 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				82F3A6742D0C9D6700EAB48E /* Sound */,
+				82E572652D1439C2002F7C4B /* AR */,
 				820611382CF48178003FB6BB /* Achievement */,
 				820611692CF6A214003FB6BB /* Anticheat */,
 				828546032CCD1F3E0074EBF9 /* CoreData */,
 				8206112F2CF37EE2003FB6BB /* Error */,
 				828545E82CCD13280074EBF9 /* GameManager */,
+				82E572542D1428AC002F7C4B /* GeoObjectsManager */,
 				826938332CFA106000E03DAA /* KeychainManager */,
 				8269382E2CFA018900E03DAA /* Location */,
 				826938A12CFB60B800E03DAA /* Network */,
 				826938A62CFD997800E03DAA /* NotificationManager */,
+				82F3A6742D0C9D6700EAB48E /* Sound */,
 				826338662CEFB2C9009C2CED /* Web3 */,
 				828545E32CCD12E10074EBF9 /* WebSocket */,
 			);
@@ -1643,6 +1700,9 @@
 				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
 				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
 				826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */,
+				82E5725D2D1432E9002F7C4B /* GeoObjectIndicatorView.swift */,
+				82E572612D143313002F7C4B /* GeoObjectIndicatorsManager.swift */,
+				82E5726A2D143A53002F7C4B /* GroupIndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1704,6 +1764,38 @@
 				829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */,
 			);
 			path = Annotations;
+			sourceTree = "<group>";
+		};
+		82E572422D1424F4002F7C4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82E572432D142512002F7C4B /* GeoObject.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82E5724F2D142636002F7C4B /* GeoObjectService */ = {
+			isa = PBXGroup;
+			children = (
+				82E572502D14263B002F7C4B /* GeoObjectService.swift */,
+			);
+			path = GeoObjectService;
+			sourceTree = "<group>";
+		};
+		82E572542D1428AC002F7C4B /* GeoObjectsManager */ = {
+			isa = PBXGroup;
+			children = (
+				82E572552D1428E2002F7C4B /* GeoObjectsManager.swift */,
+			);
+			path = GeoObjectsManager;
+			sourceTree = "<group>";
+		};
+		82E572652D1439C2002F7C4B /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				82E572662D1439DB002F7C4B /* GeoObjectGroupManager.swift */,
+			);
+			path = AR;
 			sourceTree = "<group>";
 		};
 		82F3A66B2D0C9D3200EAB48E /* Sounds */ = {
@@ -1953,12 +2045,15 @@
 				826938302CFA019200E03DAA /* LocationManager.swift in Sources */,
 				829EE9442D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE9452D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
+				82E572412D142061002F7C4B /* GeoARManager.swift in Sources */,
 				829EE9462D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
 				829EE9472D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				82560A8B2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
 				828546282CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826938422CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				82560A7F2D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
+				82E572462D142512002F7C4B /* GeoObject.swift in Sources */,
+				82E5724D2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
 				826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */,
 				828546002CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				8269382B2CF9CEAA00E03DAA /* UIViewController+Child.swift in Sources */,
@@ -2000,7 +2095,9 @@
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				829EE96D2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
+				82E5726B2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
+				82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
@@ -2011,8 +2108,10 @@
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
+				82E572572D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				82560A952D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
+				82E5723D2D14202E002F7C4B /* GeoARNode.swift in Sources */,
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				820611722CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826938802CFB462000E03DAA /* FeedbackView.swift in Sources */,
@@ -2020,6 +2119,7 @@
 				82560A762D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
+				82E572692D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
 				829EE9692D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
@@ -2037,12 +2137,14 @@
 				826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611212CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
+				82E572622D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				82CE89BA2D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */,
 				829EE9642D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				8285460D2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206117E2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826938992CFB607D00E03DAA /* TokenService.swift in Sources */,
+				82E572512D14263B002F7C4B /* GeoObjectService.swift in Sources */,
 				829EE9602D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
 				828545EA2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
@@ -2061,6 +2163,7 @@
 				8269380F2CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				826938A42CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
+				82E572602D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				826FAA142D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				8206114A2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
@@ -2086,6 +2189,7 @@
 				826338CB2CF0A53B009C2CED /* MetaMaskResponse.swift in Sources */,
 				82560A692D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				826338772CEFB355009C2CED /* WalletViewController.swift in Sources */,
+				82E5724A2D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */,
 				826338D52CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				820611862CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
 				826938772CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
@@ -2108,6 +2212,7 @@
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				8206117B2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
+				82E5726C2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				829EE96E2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
@@ -2123,12 +2228,15 @@
 				8206119A2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				820611A42CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift in Sources */,
 				820611472CF4824D003FB6BB /* AchievementService.swift in Sources */,
+				82E572482D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */,
+				82E572642D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				826FA9EC2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				820611282CF33D22003FB6BB /* WebSocketServiceTests.swift in Sources */,
 				826FAA072D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611922CF6A36F003FB6BB /* AntiCheatSystemTest.swift in Sources */,
 				8285460A2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269385D2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
+				82E5725E2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				829EE9592D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
@@ -2140,6 +2248,7 @@
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
+				82E572442D142512002F7C4B /* GeoObject.swift in Sources */,
 				826FA9F92D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938822CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				826FA9F22D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
@@ -2206,7 +2315,9 @@
 				826938012CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				829EE96A2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				829EE9562D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
+				82E5723B2D14202E002F7C4B /* GeoARNode.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
+				82E572582D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
 				8206116F2CF6A259003FB6BB /* ShotValidation.swift in Sources */,
@@ -2223,17 +2334,22 @@
 				82560A842D06DFC500DE2210 /* DroneCountView.swift in Sources */,
 				8206110D2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826938172CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
+				82E572682D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
+				82E572532D14263B002F7C4B /* GeoObjectService.swift in Sources */,
 				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				826938102CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				820611872CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
+				82E5725A2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826FAA1E2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
+				82E572402D142061002F7C4B /* GeoARManager.swift in Sources */,
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				826FA9F42D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
+				82E5724C2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
 				8206117F2CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				8269389B2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
@@ -2265,9 +2381,11 @@
 				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8206119B2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
+				82E572672D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
 				820611332CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8206110E2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826938142CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
+				82E5724E2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
 				826938512CFAF1FF00E03DAA /* TokenBalanceRequest.swift in Sources */,
 				826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
@@ -2295,10 +2413,12 @@
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
+				82E572632D143313002F7C4B /* GeoObjectIndicatorsManager.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				820611AE2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				826938A92CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
+				82E5725C2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
@@ -2335,6 +2455,7 @@
 				826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				826FA9EE2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
+				82E572522D14263B002F7C4B /* GeoObjectService.swift in Sources */,
 				826938072CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
@@ -2346,10 +2467,13 @@
 				829EE9482D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE9492D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
 				829EE9532D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
+				82E572452D142512002F7C4B /* GeoObject.swift in Sources */,
 				829EE94A2D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
+				82E572562D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				829EE94B2D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				8269387C2CFB3F1600E03DAA /* ShootFeedbackView.swift in Sources */,
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
+				82E5723C2D14202E002F7C4B /* GeoARNode.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				829EE95E2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
@@ -2360,6 +2484,7 @@
 				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
+				82E5726D2D143A53002F7C4B /* GroupIndicatorView.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -2387,6 +2512,7 @@
 				8269385E2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938782CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
+				82E572492D1425A5002F7C4B /* GeoObjectServiceProtocol.swift in Sources */,
 				826938272CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
 				82560A812D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545BC2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
@@ -2395,7 +2521,9 @@
 				826938352CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				826FAA022D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
+				82E5723F2D142061002F7C4B /* GeoARManager.swift in Sources */,
 				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
+				82E5725F2D1432E9002F7C4B /* GeoObjectIndicatorView.swift in Sources */,
 				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				820611882CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
 				826938712CFAF43C00E03DAA /* TokenResponse.swift in Sources */,

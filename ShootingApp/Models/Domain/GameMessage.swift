@@ -22,6 +22,10 @@ struct GameMessage: Codable {
         case droneShootConfirmed
         case droneShootRejected
         case removeDrones
+        case newGeoObject
+        case geoObjectHit
+        case geoObjectShootConfirmed
+        case geoObjectShootRejected
     }
     
     let type: MessageType
@@ -45,12 +49,14 @@ enum MessageData: Codable {
     case shootDataResponse(ShootDataResponse)
     case drone(DroneData)
     case drones([DroneData])
+    case geoObject(GeoObject)
+    case geoObjects([GeoObject])
     case empty
-
+    
     private enum CodingKeys: String, CodingKey {
-        case player, shoot, shootDataResponse, drone, drones
+        case player, shoot, shootDataResponse, drone, drones, geoObject, geoObjects
     }
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         
@@ -62,13 +68,17 @@ enum MessageData: Codable {
             self = .drone(drone)
         } else if let drones = try? container.decode([DroneData].self) {
             self = .drones(drones)
+        } else if let geoObject = try? container.decode(GeoObject.self) {
+            self = .geoObject(geoObject)
+        } else if let geoObjects = try? container.decode([GeoObject].self) {
+            self = .geoObjects(geoObjects)
         } else if let shootDataResponse = try? container.decode(ShootDataResponse.self) {
             self = .shootDataResponse(shootDataResponse)
         } else {
             self = .empty
         }
     }
-
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
@@ -81,6 +91,10 @@ enum MessageData: Codable {
             try container.encode(drone, forKey: .drone)
         case .drones(let drones):
             try container.encode(drones, forKey: .drones)
+        case .geoObject(let geoObject):
+            try container.encode(geoObject, forKey: .geoObject)
+        case .geoObjects(let geoObjects):
+            try container.encode(geoObjects, forKey: .geoObjects)
         case .shootDataResponse(let shootDataResponse):
             try container.encode(shootDataResponse, forKey: .shootDataResponse)
         case .empty:

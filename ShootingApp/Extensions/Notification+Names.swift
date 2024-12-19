@@ -27,4 +27,8 @@ extension Notification.Name {
     static let websocketStatusChanged = Notification.Name("websocketStatusChanged")
     static let newDroneArrived = Notification.Name("newDroneArrived")
     static let removeAllDrones = Notification.Name("removeAllDrones")
+    static let geoObjectsUpdated = Notification.Name("geoObjectsUpdated")
+    static let newGeoObjectArrived = Notification.Name("newGeoObjectArrived")
+    static let geoObjectHit = Notification.Name("geoObjectHit")
+    static let geoObjectShootConfirmed = Notification.Name("geoObjectShootConfirmed")
 }

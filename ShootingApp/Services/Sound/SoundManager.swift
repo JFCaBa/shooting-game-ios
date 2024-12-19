@@ -11,6 +11,8 @@ enum SoundType: String {
     case drone = "drone_sound"
     case shoot = "shoot_sound"
     case explosion = "explosion_sound"
+    case spawn = "spawn_sound"
+    case hit = "hit_sound"
 }
 
 class SoundManager {

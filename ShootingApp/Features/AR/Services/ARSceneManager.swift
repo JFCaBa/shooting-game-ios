@@ -15,9 +15,12 @@ final class ARSceneManager: NSObject {
     
     private let sceneView: ARSCNView
     private var droneNodes: [ARDroneNode] = []
+    private var geoObjectNodes : [GeoARNode] = []
     private var drones: [DroneData] = []
+    private var geoObjects: [GeoObject] = []
     private var timer: Timer?
     private let maxDrones = 3
+    private let maxGeoObjects = 1
     private var currentZoom: Float = 1.0
     
     weak var delegate: ARSceneManagerDelegate?
@@ -70,6 +73,12 @@ final class ARSceneManager: NSObject {
             selector: #selector(handleRemoveAllDrones),
             name: .removeAllDrones,
             object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleNewGeoObjectArrived),
+            name: .geoObjectsUpdated,
+            object: nil)
     }
     
     // MARK: - handleNewDroneArrived(notification:)
@@ -113,7 +122,6 @@ final class ARSceneManager: NSObject {
             self.droneNodes = self.droneNodes.filter { $0.parent != nil }
             
             let position = self.generateSpawnPosition(drone: drone)
-            let type: ARDroneNode.DroneType = Bool.random() ? .box : .fourRotorOne
             let node = ARDroneNode.init(with: drone.droneId, type: .fourRotorOne, position: position)
             
             DispatchQueue.main.async {
@@ -167,7 +175,7 @@ final class ARSceneManager: NSObject {
             if let droneNode = findParentNode(ofType: ARDroneNode.self, for: result.node) {
                 let removed = droneNode.droneWasHit()
                 if removed {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         droneNode.removeFromParentNode()
                         droneNode.geometry = nil
                         self.droneNodes.removeAll { $0 == droneNode }
@@ -176,6 +184,25 @@ final class ARSceneManager: NSObject {
                         if let drone = self.drones.first(where: {$0.droneId == droneNode.nodeId}) {
                             self.delegate?.arSceneManager(self, droneHitted: drone)
                             self.drones.removeAll { $0 == drone }
+                            
+                            SoundManager.shared.playSound(type: .explosion)
+                        }
+                    }
+                    
+                    return removed
+                }
+            } else if let geoNode = findParentNode(ofType: GeoARNode.self, for: result.node)  {
+                let removed = geoNode.geoObjectWasHit()
+                if removed {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        geoNode.removeFromParentNode()
+                        geoNode.geometry = nil
+                        self.geoObjectNodes.removeAll { $0 == geoNode }
+                        self.delegate?.arSceneManager(self, didUpdateDroneCount: self.droneNodes.count)
+                        
+                        if let geoObject = self.geoObjects.first(where: {$0.id == geoNode.nodeId}) {
+                            self.delegate?.arSceneManager(self, geoObjectHit: geoObject)
+                            self.geoObjects.removeAll { $0 == geoObject }
                             
                             SoundManager.shared.playSound(type: .explosion)
                         }
@@ -214,6 +241,82 @@ final class ARSceneManager: NSObject {
         currentZoom = Float(scale)
         sceneView.transform = .init(a: CGFloat(scale),  b: 0,  c: 0,
                                      d: CGFloat(scale), tx: 0, ty: 0)
+    }
+}
+
+extension ARSceneManager {
+    @objc private func handleNewGeoObjectArrived(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let objects = userInfo["objects"] as? [GeoObject] else { return }
+        
+        DispatchQueue.main.async {
+            // Remove existing nodes that are no longer in the updated objects list
+            self.removeStaleGeoNodes(newObjects: objects)
+            
+            // Add/update nodes for new objects
+            objects.forEach { object in
+                if !self.geoObjectNodes.contains(where: { $0.name == object.id }) {
+                    self.spawnGeoObjectIfNeeded(geoObject: object)
+                }
+            }
+        }
+    }
+    
+    private func removeStaleGeoNodes(newObjects: [GeoObject]) {
+        let newObjectIds = Set(newObjects.map { $0.id })
+        geoObjectNodes = geoObjectNodes.filter { node in
+            if let nodeId = node.name, !newObjectIds.contains(nodeId) {
+                node.removeFromParentNode()
+                return false
+            }
+            return true
+        }
+    }
+    
+    private func spawnGeoObjectIfNeeded(geoObject: GeoObject) {
+        guard geoObjectNodes.count < maxGeoObjects else { return }
+        
+        geoObjects.append(geoObject)
+        let node = GeoARNodeFactory.createNode(for: geoObject)
+        
+        // Add to scene
+        sceneView.scene.rootNode.addChildNode(node)
+        geoObjectNodes.append(node)
+        
+        // Update node position
+        if let location = LocationManager.shared.location {
+            node.updatePosition(
+                relativeTo: location,
+                heading: LocationManager.shared.heading
+            )
+        }
+        
+        // Notify delegate
+        delegate?.arSceneManager(self, didUpdateGeoObjectCount: geoObjectNodes.count)
+    }
+    
+    func checkGeoObjectHit(at point: CGPoint) -> Bool {
+        let hitResults = sceneView.hitTest(point, options: [
+            SCNHitTestOption.searchMode: SCNHitTestSearchMode.all.rawValue,
+            SCNHitTestOption.ignoreChildNodes: false
+        ])
+        
+        for result in hitResults {
+            if let geoNode = findParentNode(ofType: GeoARNode.self, for: result.node) {
+                if let objectId = geoNode.name,
+                   let hitObject = geoObjects.first(where: { $0.id == objectId }) {
+                    // Remove the node
+                    geoNode.removeFromParentNode()
+                    geoObjectNodes.removeAll { $0 == geoNode }
+                    
+                    // Notify delegate
+                    delegate?.arSceneManager(self, geoObjectHit: hitObject)
+                    return true
+                }
+            }
+        }
+        
+        return false
     }
 }
 
