@@ -49,34 +49,36 @@ enum MessageData: Codable {
     case shoot(ShootData)
     case shootDataResponse(ShootDataResponse)
     case drone(DroneData)
-    case drones([DroneData])
-    case geoObject(GeoObject)
-    case geoObjects([GeoObject])
+    case newGeoObject(GeoObject)
     case empty
     
     private enum CodingKeys: String, CodingKey {
-        case player, shoot, shootDataResponse, drone, drones, geoObject, geoObjects
+        case kind // Discriminator field
+    }
+    
+    private enum Kind: String, Codable {
+        case player
+        case shoot
+        case shootDataResponse
+        case drone
+        case geoObject
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let kind = try container.decode(Kind.self, forKey: .kind)
         
-        if let player = try? container.decode(Player.self) {
-            self = .player(player)
-        } else if let shoot = try? container.decode(ShootData.self) {
-            self = .shoot(shoot)
-        } else if let drone = try? container.decode(DroneData.self) {
-            self = .drone(drone)
-        } else if let drones = try? container.decode([DroneData].self) {
-            self = .drones(drones)
-        } else if let geoObject = try? container.decode(GeoObject.self) {
-            self = .geoObject(geoObject)
-        } else if let geoObjects = try? container.decode([GeoObject].self) {
-            self = .geoObjects(geoObjects)
-        } else if let shootDataResponse = try? container.decode(ShootDataResponse.self) {
-            self = .shootDataResponse(shootDataResponse)
-        } else {
-            self = .empty
+        switch kind {
+        case .player:
+            self = .player(try Player(from: decoder))
+        case .shoot:
+            self = .shoot(try ShootData(from: decoder))
+        case .shootDataResponse:
+            self = .shootDataResponse(try ShootDataResponse(from: decoder))
+        case .drone:
+            self = .drone(try DroneData(from: decoder))
+        case .geoObject:
+            self = .newGeoObject(try GeoObject(from: decoder))
         }
     }
     
@@ -85,19 +87,20 @@ enum MessageData: Codable {
         
         switch self {
         case .player(let player):
-            try container.encode(player, forKey: .player)
+            try container.encode("player", forKey: .kind)
+            try player.encode(to: encoder)
         case .shoot(let shoot):
-            try container.encode(shoot, forKey: .shoot)
-        case .drone(let drone):
-            try container.encode(drone, forKey: .drone)
-        case .drones(let drones):
-            try container.encode(drones, forKey: .drones)
-        case .geoObject(let geoObject):
-            try container.encode(geoObject, forKey: .geoObject)
-        case .geoObjects(let geoObjects):
-            try container.encode(geoObjects, forKey: .geoObjects)
+            try container.encode("shoot", forKey: .kind)
+            try shoot.encode(to: encoder)
         case .shootDataResponse(let shootDataResponse):
-            try container.encode(shootDataResponse, forKey: .shootDataResponse)
+            try container.encode("shootDataResponse", forKey: .kind)
+            try shootDataResponse.encode(to: encoder)
+        case .drone(let drone):
+            try container.encode("drone", forKey: .kind)
+            try drone.encode(to: encoder)
+        case .newGeoObject(let newGeoObject):
+            try container.encode("geoObject", forKey: .kind)
+            try newGeoObject.encode(to: encoder)
         case .empty:
             break
         }

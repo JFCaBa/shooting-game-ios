@@ -1,5 +1,5 @@
 //
-//  ARDroneNode+Box.swift
+//  ARDroneNode+BoxDrone.swift
 //  ShootingApp
 //
 //  Created by Jose on 14/12/2024.

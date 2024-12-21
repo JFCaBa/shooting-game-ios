@@ -57,12 +57,14 @@ final class RadarView: UIView {
     
     private func getColorForType(_ type: GeoObjectType) -> UIColor {
         switch type {
-        case .drone:
+        case .weapon:
             return .systemBlue
         case .target:
             return .systemRed
         case .powerup:
             return .systemYellow
+        default:
+            return .systemOrange
         }
     }
     

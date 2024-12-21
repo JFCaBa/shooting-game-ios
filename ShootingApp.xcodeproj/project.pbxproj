@@ -454,9 +454,6 @@
 		82E5723B2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
 		82E5723C2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
 		82E5723D2D14202E002F7C4B /* GeoARNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723A2D14202E002F7C4B /* GeoARNode.swift */; };
-		82E5723F2D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
-		82E572402D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
-		82E572412D142061002F7C4B /* GeoARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E5723E2D142061002F7C4B /* GeoARManager.swift */; };
 		82E572442D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
 		82E572452D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
 		82E572462D142512002F7C4B /* GeoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572432D142512002F7C4B /* GeoObject.swift */; };
@@ -493,6 +490,39 @@
 		82E572812D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
 		82E572822D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
 		82E572832D14B277002F7C4B /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572802D14B277002F7C4B /* RadarView.swift */; };
+		82E572A92D156702002F7C4B /* vil_p_crate06_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E572A82D156702002F7C4B /* vil_p_crate06_d.png */; };
+		82E572AA2D156702002F7C4B /* vil_p_crate06_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E572A82D156702002F7C4B /* vil_p_crate06_d.png */; };
+		82E572AB2D156702002F7C4B /* vil_p_crate06_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 82E572A82D156702002F7C4B /* vil_p_crate06_d.png */; };
+		82E572B52D1567D1002F7C4B /* weapons_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572B42D1567D1002F7C4B /* weapons_crate.scn */; };
+		82E572B62D1567D1002F7C4B /* weapons_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572B42D1567D1002F7C4B /* weapons_crate.scn */; };
+		82E572B72D1567D1002F7C4B /* weapons_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572B42D1567D1002F7C4B /* weapons_crate.scn */; };
+		82E572B92D156DC0002F7C4B /* NodeManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572B82D156DC0002F7C4B /* NodeManageable.swift */; };
+		82E572BA2D156DC0002F7C4B /* NodeManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572B82D156DC0002F7C4B /* NodeManageable.swift */; };
+		82E572BB2D156DC0002F7C4B /* NodeManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572B82D156DC0002F7C4B /* NodeManageable.swift */; };
+		82E572BD2D156DE0002F7C4B /* NodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572BC2D156DE0002F7C4B /* NodeManager.swift */; };
+		82E572BE2D156DE0002F7C4B /* NodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572BC2D156DE0002F7C4B /* NodeManager.swift */; };
+		82E572BF2D156DE0002F7C4B /* NodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572BC2D156DE0002F7C4B /* NodeManager.swift */; };
+		82E572C12D156E08002F7C4B /* BaseNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C02D156E08002F7C4B /* BaseNodeManager.swift */; };
+		82E572C22D156E08002F7C4B /* BaseNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C02D156E08002F7C4B /* BaseNodeManager.swift */; };
+		82E572C32D156E08002F7C4B /* BaseNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C02D156E08002F7C4B /* BaseNodeManager.swift */; };
+		82E572C52D156E2C002F7C4B /* DroneNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C42D156E2C002F7C4B /* DroneNodeManager.swift */; };
+		82E572C62D156E2C002F7C4B /* DroneNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C42D156E2C002F7C4B /* DroneNodeManager.swift */; };
+		82E572C72D156E2C002F7C4B /* DroneNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C42D156E2C002F7C4B /* DroneNodeManager.swift */; };
+		82E572C92D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C82D156E51002F7C4B /* GeoObjectNodeManager.swift */; };
+		82E572CA2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C82D156E51002F7C4B /* GeoObjectNodeManager.swift */; };
+		82E572CB2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572C82D156E51002F7C4B /* GeoObjectNodeManager.swift */; };
+		82E572CD2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572CC2D15704F002F7C4B /* NodeManagerDelegate.swift */; };
+		82E572CE2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572CC2D15704F002F7C4B /* NodeManagerDelegate.swift */; };
+		82E572CF2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E572CC2D15704F002F7C4B /* NodeManagerDelegate.swift */; };
+		82E572D92D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */; };
+		82E572DA2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */; };
+		82E572DB2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */; };
+		82E572DD2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */; };
+		82E572DE2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */; };
+		82E572DF2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */; };
+		82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
+		82E572E22D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
+		82E572E32D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
 		82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
@@ -508,9 +538,9 @@
 		82F3A6AB2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
 		82F3A6AC2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
 		82F3A6AD2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */; };
-		82F3A6AF2D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
-		82F3A6B02D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
-		82F3A6B12D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */; };
+		82F3A6AF2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift */; };
+		82F3A6B02D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift */; };
+		82F3A6B12D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6AE2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift */; };
 		82F3A6EC2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
 		82F3A6ED2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
 		82F3A6EE2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */; };
@@ -710,7 +740,6 @@
 		829EE96C2D0B0CEF00EAF8A9 /* DroneAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneAnnotation.swift; sourceTree = "<group>"; };
 		82CE89B72D0399520014E35B /* ConnectionStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatusView.swift; sourceTree = "<group>"; };
 		82E5723A2D14202E002F7C4B /* GeoARNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARNode.swift; sourceTree = "<group>"; };
-		82E5723E2D142061002F7C4B /* GeoARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoARManager.swift; sourceTree = "<group>"; };
 		82E572432D142512002F7C4B /* GeoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObject.swift; sourceTree = "<group>"; };
 		82E572472D1425A5002F7C4B /* GeoObjectServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectServiceProtocol.swift; sourceTree = "<group>"; };
 		82E5724B2D1425B5002F7C4B /* GeoObjectsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectsRequest.swift; sourceTree = "<group>"; };
@@ -723,12 +752,23 @@
 		82E572772D14690F002F7C4B /* GeoObjectAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectAnnotation.swift; sourceTree = "<group>"; };
 		82E5727B2D14695F002F7C4B /* GeoObjectAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectAnnotationView.swift; sourceTree = "<group>"; };
 		82E572802D14B277002F7C4B /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
+		82E572A82D156702002F7C4B /* vil_p_crate06_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vil_p_crate06_d.png; sourceTree = "<group>"; };
+		82E572B42D1567D1002F7C4B /* weapons_crate.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = weapons_crate.scn; sourceTree = "<group>"; };
+		82E572B82D156DC0002F7C4B /* NodeManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeManageable.swift; sourceTree = "<group>"; };
+		82E572BC2D156DE0002F7C4B /* NodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeManager.swift; sourceTree = "<group>"; };
+		82E572C02D156E08002F7C4B /* BaseNodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNodeManager.swift; sourceTree = "<group>"; };
+		82E572C42D156E2C002F7C4B /* DroneNodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneNodeManager.swift; sourceTree = "<group>"; };
+		82E572C82D156E51002F7C4B /* GeoObjectNodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoObjectNodeManager.swift; sourceTree = "<group>"; };
+		82E572CC2D15704F002F7C4B /* NodeManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeManagerDelegate.swift; sourceTree = "<group>"; };
+		82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sci-fi_Crate_albedo.jpg"; sourceTree = "<group>"; };
+		82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sci-fi_Crate_emissive.jpg"; sourceTree = "<group>"; };
+		82E572E02D15B340002F7C4B /* sci_fi_crate.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sci_fi_crate.scn; sourceTree = "<group>"; };
 		82F3A6752D0C9D8500EAB48E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
 		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
 		82F3A6892D0CBDDE00EAB48E /* explosion_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion_sound.m4a; sourceTree = "<group>"; };
 		82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDroneNode+DroneType.swift"; sourceTree = "<group>"; };
-		82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDroneNode+Box.swift"; sourceTree = "<group>"; };
+		82F3A6AE2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARDroneNode+BoxDrone.swift"; sourceTree = "<group>"; };
 		82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ai_whitePlastic_tex_baseColor.png; sourceTree = "<group>"; };
 		82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = drone_four_rotor_one.scn; sourceTree = "<group>"; };
 		82F3A6F42D0E186500EAB48E /* drones.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = drones.txt; sourceTree = "<group>"; };
@@ -1031,7 +1071,7 @@
 		82560A632D06CE3400DE2210 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				82560A652D06CE6400DE2210 /* Manager */,
+				82560A652D06CE6400DE2210 /* Managers */,
 				82E572422D1424F4002F7C4B /* Models */,
 				82560A642D06CE3900DE2210 /* Nodes */,
 				82560A7D2D06D99E00DE2210 /* Protocols */,
@@ -1045,7 +1085,7 @@
 			isa = PBXGroup;
 			children = (
 				82560A742D06CEDC00DE2210 /* ARDroneNode.swift */,
-				82F3A6AE2D0DA58400EAB48E /* ARDroneNode+Box.swift */,
+				82F3A6AE2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift */,
 				82F3A6AA2D0DA49700EAB48E /* ARDroneNode+DroneType.swift */,
 				82E5723A2D14202E002F7C4B /* GeoARNode.swift */,
 				82E572592D142DBD002F7C4B /* GeoARNodeFactory.swift */,
@@ -1053,13 +1093,15 @@
 			path = Nodes;
 			sourceTree = "<group>";
 		};
-		82560A652D06CE6400DE2210 /* Manager */ = {
+		82560A652D06CE6400DE2210 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				82560A702D06CEC700DE2210 /* ARSceneManager.swift */,
-				82E5723E2D142061002F7C4B /* GeoARManager.swift */,
+				82E572C02D156E08002F7C4B /* BaseNodeManager.swift */,
+				82E572C42D156E2C002F7C4B /* DroneNodeManager.swift */,
+				82E572C82D156E51002F7C4B /* GeoObjectNodeManager.swift */,
 			);
-			path = Manager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		82560A662D06CE6C00DE2210 /* Views */ = {
@@ -1087,6 +1129,9 @@
 			isa = PBXGroup;
 			children = (
 				82560A7E2D06D9A900DE2210 /* ARSceneManagerDelegate.swift */,
+				82E572CC2D15704F002F7C4B /* NodeManagerDelegate.swift */,
+				82E572B82D156DC0002F7C4B /* NodeManageable.swift */,
+				82E572BC2D156DE0002F7C4B /* NodeManager.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1845,7 +1890,9 @@
 		82F3A6912D0D6E8B00EAB48E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				82E572E02D15B340002F7C4B /* sci_fi_crate.scn */,
 				82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */,
+				82E572B42D1567D1002F7C4B /* weapons_crate.scn */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1853,6 +1900,9 @@
 		82F3A6CE2D0DEE7900EAB48E /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */,
+				82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */,
+				82E572A82D156702002F7C4B /* vil_p_crate06_d.png */,
 				82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */,
 				82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */,
 			);
@@ -1990,10 +2040,15 @@
 				82F3A6ED2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
 				82F3A6F52D0E186D00EAB48E /* drones.txt in Resources */,
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
+				82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
 				82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */,
+				82E572DD2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */,
+				82E572AB2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
 				82F3A72F2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
+				82E572DA2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
+				82E572B52D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82F3A6F02D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
@@ -2006,14 +2061,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F3A6EE2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				82E572DE2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */,
 				82F3A6F12D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				82F3A6802D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F62D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82E572DB2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
+				82E572B62D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82F3A72E2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				82E572AA2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
+				82E572E22D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2022,14 +2082,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F3A6EC2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				82E572DF2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */,
 				82F3A6F22D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				82F3A67E2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F092D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F72D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82E572D92D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
+				82E572B72D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82F3A72D2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				82E572A92D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,
+				82E572E32D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2071,7 +2136,6 @@
 				826938302CFA019200E03DAA /* LocationManager.swift in Sources */,
 				829EE9442D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE9452D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
-				82E572412D142061002F7C4B /* GeoARManager.swift in Sources */,
 				829EE9462D097D9300EAF8A9 /* OnboardingSheetViewController+DetailView.swift in Sources */,
 				829EE9472D097D9300EAF8A9 /* OnboardingSheetViewController.swift in Sources */,
 				82560A8B2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
@@ -2079,6 +2143,7 @@
 				826938422CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				82E572722D146476002F7C4B /* HomeViewController+Drones.swift in Sources */,
 				82560A7F2D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
+				82E572C32D156E08002F7C4B /* BaseNodeManager.swift in Sources */,
 				82E572462D142512002F7C4B /* GeoObject.swift in Sources */,
 				82E5724D2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
 				826338682CEFB2DC009C2CED /* Web3Service.swift in Sources */,
@@ -2101,12 +2166,14 @@
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
-				82F3A6B12D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
+				82F3A6B12D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
+				82E572CF2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				82E572822D14B277002F7C4B /* RadarView.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
 				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
+				82E572CA2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
 				828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				8269383D2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
 				826938902CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
@@ -2138,6 +2205,7 @@
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				82E572572D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
+				82E572C62D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
 				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				82560A952D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				82E5723D2D14202E002F7C4B /* GeoARNode.swift in Sources */,
@@ -2162,6 +2230,7 @@
 				826FA9FA2D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938192CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				82E572BE2D156DE0002F7C4B /* NodeManager.swift in Sources */,
 				826938032CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				826938662CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				820611422CF48217003FB6BB /* AchievementType.swift in Sources */,
@@ -2202,6 +2271,7 @@
 				826938002CF9CA0300E03DAA /* OnboardingPageViewController.swift in Sources */,
 				8206115C2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				826938622CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
+				82E572BB2D156DC0002F7C4B /* NodeManageable.swift in Sources */,
 				826338CD2CF0A55F009C2CED /* URL+QueryParameters.swift in Sources */,
 				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				820611822CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
@@ -2268,7 +2338,7 @@
 				82560A6F2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826938452CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
-				82F3A6AF2D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
+				82F3A6AF2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
 				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
@@ -2300,6 +2370,7 @@
 				82560A8F2D06F53D00DE2210 /* UIImage+CreateCombinedPattern.swift in Sources */,
 				828545F82CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				826938792CFB366600E03DAA /* UIViewController+ShowAlert.swift in Sources */,
+				82E572C92D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
 				826938132CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826338732CEFB331009C2CED /* Web3Error.swift in Sources */,
 				820611772CF6A269003FB6BB /* LocationValidation.swift in Sources */,
@@ -2312,6 +2383,7 @@
 				828545C62CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8269380B2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
+				82E572B92D156DC0002F7C4B /* NodeManageable.swift in Sources */,
 				826938882CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				820611902CF6A35D003FB6BB /* HitValidationServiceTests.swift in Sources */,
 				82560A6A2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
@@ -2327,6 +2399,8 @@
 				828545EB2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				82560A7B2D06D45100DE2210 /* ARService.swift in Sources */,
 				826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
+				82E572C72D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
+				82E572BF2D156DE0002F7C4B /* NodeManager.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
 				829EE94C2D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE94D2D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
@@ -2354,6 +2428,7 @@
 				8269381B2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				82560A802D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
+				82E572C12D156E08002F7C4B /* BaseNodeManager.swift in Sources */,
 				820611102CF1F437003FB6BB /* OnboardingViewModelTests.swift in Sources */,
 				820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				828545C92CCD00D60074EBF9 /* HomeViewModelTests.swift in Sources */,
@@ -2367,13 +2442,13 @@
 				82E572532D14263B002F7C4B /* GeoObjectService.swift in Sources */,
 				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				826938102CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
+				82E572CE2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				820611872CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
 				82E5725A2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826FAA1E2D0094DA0029CF9C /* AlertHandlerProtocol.swift in Sources */,
-				82E572402D142061002F7C4B /* GeoARManager.swift in Sources */,
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
@@ -2406,7 +2481,7 @@
 				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */,
 				8269383C2CFA112F00E03DAA /* WalletRepository.swift in Sources */,
-				82F3A6B02D0DA58400EAB48E /* ARDroneNode+Box.swift in Sources */,
+				82F3A6B02D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
 				828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
 				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
@@ -2420,6 +2495,7 @@
 				82E572812D14B277002F7C4B /* RadarView.swift in Sources */,
 				826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
 				828545BE2CCCFF530074EBF9 /* AppCoordinator.swift in Sources */,
+				82E572BA2D156DC0002F7C4B /* NodeManageable.swift in Sources */,
 				826937F82CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
 				8285462A2CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				829EE9552D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
@@ -2448,6 +2524,7 @@
 				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
 				820611AE2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				826938A92CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
+				82E572CD2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				82E5725C2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
@@ -2457,6 +2534,7 @@
 				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				82381EAC2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
+				82E572CB2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
 				82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */,
 				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				829EE96F2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
@@ -2509,6 +2587,7 @@
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				829EE95E2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
+				82E572C22D156E08002F7C4B /* BaseNodeManager.swift in Sources */,
 				82560A6E2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				828545E12CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				826938112CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
@@ -2533,6 +2612,7 @@
 				826938592CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				82381EA82D05CD51008FBD86 /* HallOfFameCellViewModel.swift in Sources */,
 				826FA9DE2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
+				82E572C52D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				826FA9F02D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
@@ -2540,6 +2620,7 @@
 				820611842CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				820611A02CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				82E5727E2D14695F002F7C4B /* GeoObjectAnnotationView.swift in Sources */,
+				82E572BD2D156DE0002F7C4B /* NodeManager.swift in Sources */,
 				8206118C2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				8269385E2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				826938472CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
@@ -2554,7 +2635,6 @@
 				828546072CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
 				82E572712D146476002F7C4B /* HomeViewController+Drones.swift in Sources */,
 				826FAA022D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
-				82E5723F2D142061002F7C4B /* GeoARManager.swift in Sources */,
 				828545DD2CCD12A20074EBF9 /* GameMessage.swift in Sources */,
 				828545D12CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				820611882CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,

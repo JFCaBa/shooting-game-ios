@@ -378,7 +378,9 @@ final class MapViewController: UIViewController {
         
         print("Debug: Received \(objects.count) geo objects") // Add debug print
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
             self.showGeoObjects(objects)
         }
     }
