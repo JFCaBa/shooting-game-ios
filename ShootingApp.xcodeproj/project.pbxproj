@@ -523,6 +523,12 @@
 		82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
 		82E572E22D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
 		82E572E32D15B340002F7C4B /* sci_fi_crate.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E572E02D15B340002F7C4B /* sci_fi_crate.scn */; };
+		82E573192D170B92002F7C4B /* Base_Color_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E573182D170B92002F7C4B /* Base_Color_1.jpg */; };
+		82E5731A2D170B92002F7C4B /* Base_Color_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E573182D170B92002F7C4B /* Base_Color_1.jpg */; };
+		82E5731B2D170B92002F7C4B /* Base_Color_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82E573182D170B92002F7C4B /* Base_Color_1.jpg */; };
+		82E5731D2D170BC7002F7C4B /* weapon.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E5731C2D170BC7002F7C4B /* weapon.scn */; };
+		82E5731E2D170BC7002F7C4B /* weapon.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E5731C2D170BC7002F7C4B /* weapon.scn */; };
+		82E5731F2D170BC7002F7C4B /* weapon.scn in Resources */ = {isa = PBXBuildFile; fileRef = 82E5731C2D170BC7002F7C4B /* weapon.scn */; };
 		82F3A6762D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6772D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
 		82F3A6782D0C9D8500EAB48E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F3A6752D0C9D8500EAB48E /* SoundManager.swift */; };
@@ -763,6 +769,8 @@
 		82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sci-fi_Crate_albedo.jpg"; sourceTree = "<group>"; };
 		82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sci-fi_Crate_emissive.jpg"; sourceTree = "<group>"; };
 		82E572E02D15B340002F7C4B /* sci_fi_crate.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sci_fi_crate.scn; sourceTree = "<group>"; };
+		82E573182D170B92002F7C4B /* Base_Color_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Base_Color_1.jpg; sourceTree = "<group>"; };
+		82E5731C2D170BC7002F7C4B /* weapon.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = weapon.scn; sourceTree = "<group>"; };
 		82F3A6752D0C9D8500EAB48E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		82F3A67D2D0CB3A100EAB48E /* shoot_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = shoot_sound.m4a; sourceTree = "<group>"; };
 		82F3A6812D0CB52300EAB48E /* drone_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = drone_sound.m4a; sourceTree = "<group>"; };
@@ -1890,6 +1898,7 @@
 		82F3A6912D0D6E8B00EAB48E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				82E5731C2D170BC7002F7C4B /* weapon.scn */,
 				82E572E02D15B340002F7C4B /* sci_fi_crate.scn */,
 				82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */,
 				82E572B42D1567D1002F7C4B /* weapons_crate.scn */,
@@ -1902,6 +1911,7 @@
 			children = (
 				82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */,
 				82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */,
+				82E573182D170B92002F7C4B /* Base_Color_1.jpg */,
 				82E572A82D156702002F7C4B /* vil_p_crate06_d.png */,
 				82F3A72C2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg */,
 				82F3A6EB2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png */,
@@ -2043,6 +2053,7 @@
 				82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
 				82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */,
+				82E5731A2D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				82E572DD2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */,
 				82E572AB2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				8285458F2CCCFE550074EBF9 /* Assets.xcassets in Resources */,
@@ -2051,6 +2062,7 @@
 				82E572B52D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
+				82E5731D2D170BC7002F7C4B /* weapon.scn in Resources */,
 				82F3A6F02D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
@@ -2067,9 +2079,11 @@
 				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F62D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82E5731E2D170BC7002F7C4B /* weapon.scn in Resources */,
 				82E572DB2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
 				82E572B62D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82F3A72E2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
+				82E5731B2D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 				82E572AA2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
@@ -2088,9 +2102,11 @@
 				82223F092D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F72D0E186D00EAB48E /* drones.txt in Resources */,
 				82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				82E5731F2D170BC7002F7C4B /* weapon.scn in Resources */,
 				82E572D92D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
 				82E572B72D1567D1002F7C4B /* weapons_crate.scn in Resources */,
 				82F3A72D2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
+				82E573192D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 				82E572A92D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,

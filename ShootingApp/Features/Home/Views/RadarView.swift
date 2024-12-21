@@ -55,6 +55,10 @@ final class RadarView: UIView {
         targetLayers.removeAll()
     }
     
+    func numberOfTargets() -> Int {
+        return geoObjects.count
+    }
+    
     private func getColorForType(_ type: GeoObjectType) -> UIColor {
         switch type {
         case .weapon:
