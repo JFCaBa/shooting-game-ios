@@ -33,8 +33,6 @@ final class GeoARNode: SCNNode {
     // MARK: - Position Updates
     
     func updatePosition(relativeTo userLocation: CLLocation, heading: CLHeading?) {
-        guard !isPlaced else { return }
-        
         let objectLocation = CLLocation(
             coordinate: coordinate,
             altitude: altitude,
@@ -61,7 +59,6 @@ final class GeoARNode: SCNNode {
         
         // Set node position
         position = SCNVector3(xPosition, 0, zPosition)
-        isPlaced = true
     }
     
     func geoObjectWasHit() -> Bool {

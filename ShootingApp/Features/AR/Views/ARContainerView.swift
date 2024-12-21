@@ -52,13 +52,15 @@ final class ARContainerView: UIView {
         ])
     }
     
-    // MARK: - numberOfDrones()
+    // MARK: - Public Methods
     
-    func numberOfDrones() -> Int {
-        return manager.getDrones().count
+    func getDrones() -> [DroneData] {
+        return manager.getDrones()
     }
     
-    // MARK: - checkHit(at:)
+    func getGeoObjects() -> [GeoObject] {
+        return manager.getGeoObjects()
+    }
     
     func checkHit(at point: CGPoint) -> Bool {
         let hit = manager.checkHit(at: point)
@@ -66,15 +68,11 @@ final class ARContainerView: UIView {
         return hit
     }
     
-    // MARK: - stop()
-    
     func stop() {
         manager.stop()
     }
     
-    // MARK: - updateZoom(scale:)
-    
     func updateZoom(scale: CGFloat) {
          manager.updateZoom(scale: scale)
-     }
+    }
 }

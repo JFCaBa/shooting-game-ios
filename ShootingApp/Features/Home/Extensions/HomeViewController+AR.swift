@@ -38,20 +38,18 @@ extension HomeViewController: ARSceneManagerDelegate {
             // TODO: add a delegate to not use AR
             break
         case .limited(let reason):
-            var message = ""
             switch reason {
             case .excessiveMotion:
-                message = "Too much movement. Please slow down."
+                break;
             case .insufficientFeatures:
-                message = "Not enough detail in the environment."
+                break;
             case .initializing:
-                message = "AR is initializing."
+                break;
             case .relocalizing:
-                message = "AR relocalizing."
+                break;
             @unknown default:
-                message = "AR tracking limited."
+                break;
             }
-//            print(message)
         }
     }
     
@@ -59,7 +57,7 @@ extension HomeViewController: ARSceneManagerDelegate {
         updateDroneCount(count)
     }
     
-    func arSceneManager(_ manager: ARSceneManager, droneHitted drone: DroneData) {
+    func arSceneManager(_ manager: ARSceneManager, droneHit drone: DroneData) {
         viewModel.shoot(at: nil, drone: drone)
     }
     
@@ -68,6 +66,7 @@ extension HomeViewController: ARSceneManagerDelegate {
     }
     
     func arSceneManager(_ manager: ARSceneManager, geoObjectHit object: GeoObject) {
+        radarView.removeTarget(id: object.id)
         viewModel.shoot(at: nil, geoObject: object)
     }
 }

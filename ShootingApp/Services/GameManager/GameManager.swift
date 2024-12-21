@@ -5,10 +5,10 @@
 //  Created by Jose on 26/10/2024.
 //
 
-import Foundation
 import CoreLocation
 import CoreVideo
 import FirebaseMessaging
+import Foundation
 
 final class GameManager: GameManagerProtocol {
     
@@ -35,11 +35,6 @@ final class GameManager: GameManagerProtocol {
     private let maxShootingDistance: CLLocationDistance = 500
     private let maximumAngleError: Double = 30
     private let locationManager = LocationManager.shared
-    
-    // TODO: remove after test geo objects
-    
-    private var testGeoObjectSent: Bool = false
-
     
     // MARK: - convenience init()
     
@@ -129,51 +124,61 @@ final class GameManager: GameManagerProtocol {
         }
     }
     
-    // MARK: - shoot(location:, heading:)
+    // MARK: - shoot(ar:,drone:,geoObject:,location:,heading:))
     
     func shoot(at point: CGPoint?, drone: DroneData?, geoObject: GeoObject?, location: LocationData, heading: Double) {
         guard let playerId = playerId, currentLives > 0 else { return }
         
-        var message: GameMessage?
-        
+        // Create message based on input type
+        let message: GameMessage?
         if let drone {
-            message = GameMessage(
-                type: .shootDrone,
-                playerId: playerId,
-                data: .drone(drone),
-                senderId: nil,
-                pushToken: Messaging.messaging().fcmToken
-            )
-        }
-        else if let geoObject {
-            message = GameMessage(
-                type: .shootGeoObject,
-                playerId: playerId,
-                data: .geoObject(geoObject),
-                senderId: nil,
-                pushToken: Messaging.messaging().fcmToken
-            )
-        }
-        else {
-            var shootData = ShootData()
-            shootData.hitPlayerId = playerId
-            shootData.damage = 1
-            shootData.location = location
-            shootData.heading = heading
-            
-            message = GameMessage(
-                type: .shoot,
-                playerId: playerId,
-                data: .shoot(shootData),
-                senderId: nil,
-                pushToken: Messaging.messaging().fcmToken
-            )
+            message = createShootDroneMessage(playerId: playerId, drone: drone)
+        } else if let geoObject {
+            message = createShootGeoObjectMessage(playerId: playerId, geoObject: geoObject)
+        } else {
+            message = createShootMessage(playerId: playerId, location: location, heading: heading)
         }
         
-        
+        // Send the message if valid
         if let message {
             webSocketService.send(message: message)
         }
+    }
+
+    private func createShootDroneMessage(playerId: String, drone: DroneData) -> GameMessage {
+        return GameMessage(
+            type: .shootDrone,
+            playerId: playerId,
+            data: .drone(drone),
+            senderId: nil,
+            pushToken: Messaging.messaging().fcmToken
+        )
+    }
+
+    private func createShootGeoObjectMessage(playerId: String, geoObject: GeoObject) -> GameMessage {
+        return GameMessage(
+            type: .shootGeoObject,
+            playerId: playerId,
+            data: .newGeoObject(geoObject),
+            senderId: nil,
+            pushToken: Messaging.messaging().fcmToken
+        )
+    }
+
+    private func createShootMessage(playerId: String, location: LocationData, heading: Double) -> GameMessage {
+        var shootData = ShootData()
+        shootData.hitPlayerId = playerId
+        shootData.damage = 1 // Default damage, configurable
+        shootData.location = location
+        shootData.heading = heading
+        
+        return GameMessage(
+            type: .shoot,
+            playerId: playerId,
+            data: .shoot(shootData),
+            senderId: nil,
+            pushToken: Messaging.messaging().fcmToken
+        )
     }
     
     // MARK: - handleShot(_:)
@@ -432,7 +437,7 @@ extension GameManager: WebSocketServiceDelegate {
             senderId: nil,
             pushToken: Messaging.messaging().fcmToken
         )
-        
+        print("\(message)")
         self.webSocketService.send(message: message)
     }
     
@@ -495,26 +500,7 @@ extension GameManager: WebSocketServiceDelegate {
                 resetDroneTimer()
                 notifyNewDrone(droneData)
             }
-            
-            // TODO: - Remove after testing
-//            if !testGeoObjectSent {
-            let latOffset = Double.random(in: 0.0...0.002)
-            let lonOffset = Double.random(in: 0.0...0.002)
-                
-                let randomizedCoordinate = CLLocationCoordinate2D(
-                    latitude: (locationManager.location?.coordinate.latitude ?? 0) + latOffset,
-                    longitude: locationManager.location?.coordinate.longitude ?? 0 + lonOffset
-                )
-            let geoObject = GeoObject(id: UUID().uuidString, type: .target, coordinate: GeoCoordinate(latitude:  randomizedCoordinate.latitude, longitude: randomizedCoordinate.longitude, altitude: 0), metadata: GeoObjectMetadata(reward: 10, expiresAt: Date().addingTimeInterval(3600), spawnedAt: .now))
-            
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    self.notifyNewGeoObject([geoObject])
-                }
-                
-//                testGeoObjectSent = true
-//            }
-            
-        
+
         case .droneShootConfirmed:
             if case let .drone(droneData) = message.data, message.playerId == playerId {
                 droneTimer?.invalidate()
@@ -525,20 +511,23 @@ extension GameManager: WebSocketServiceDelegate {
             break
         
         case .newGeoObject:
-            if case let .geoObject(geoObject) = message.data {
+            if case let .newGeoObject(geoObject) = message.data {
                 notifyNewGeoObject([geoObject])
             }
             
         case .geoObjectHit:
-            if case let .geoObject(geoObject) = message.data {
+            if case let .newGeoObject(geoObject) = message.data {
                 handleGeoObjectHit(geoObject)
             }
             
         case .geoObjectShootConfirmed:
-            if case let .geoObject(geoObject) = message.data {
+            if case let .newGeoObject(geoObject) = message.data {
                 handleGeoObjectShootConfirmed(geoObject)
             }
-        
+            
+        case .geoObjectShootRejected:
+            break;
+            
         default:
             break
         }
@@ -553,7 +542,7 @@ extension GameManager: WebSocketServiceDelegate {
             let message = GameMessage(
                 type: .geoObjectShootConfirmed,
                 playerId: playerId ?? "",
-                data: .geoObject(geoObject),
+                data: .newGeoObject(geoObject),
                 senderId: nil,
                 pushToken: nil
             )
@@ -587,7 +576,7 @@ extension GameManager: WebSocketServiceDelegate {
             let message = GameMessage(
                 type: .geoObjectHit,
                 playerId: playerId,
-                data: .geoObject(geoObject),
+                data: .newGeoObject(geoObject),
                 senderId: nil,
                 pushToken: nil
             )

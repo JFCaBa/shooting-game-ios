@@ -53,11 +53,15 @@ extension HomeViewController {
               let geoObjects = userInfo["geoObject"] as? [GeoObject]
         else { return }
         
-        geoObjects.forEach { geoObject in
-            radarView.addTarget(geoObject)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            geoObjects.forEach { geoObject in
+                self.radarView.addTarget(geoObject)
+            }
+            
+            // Optional: Play sound for new geo object
+            SoundManager.shared.playSound(type: .spawn)
         }
-        
-        // Optional: Play sound for new geo object
-        SoundManager.shared.playSound(type: .spawn)
     }
 }
