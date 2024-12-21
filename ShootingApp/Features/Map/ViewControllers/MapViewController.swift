@@ -260,16 +260,6 @@ final class MapViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.mapView.addAnnotations(annotations)
-            
-            // Add this to ensure objects are visible
-            if let firstObject = annotations.first {
-                let region = MKCoordinateRegion(
-                    center: firstObject.coordinate,
-                    latitudinalMeters: 1000,
-                    longitudinalMeters: 1000
-                )
-                self.mapView.setRegion(region, animated: true)
-            }
         }
     }
     
@@ -307,7 +297,7 @@ final class MapViewController: UIViewController {
     private func updateMapAnnotations(with players: [Player]) {
         // Remove only player annotations
         let oldAnnotations = mapView.annotations.filter {
-            !($0 is MKUserLocation) && !($0 is DroneAnnotation)
+            !($0 is MKUserLocation) && !($0 is DroneAnnotation) && !($0 is GeoObjectAnnotation)
         }
         mapView.removeAnnotations(oldAnnotations)
         let annotations = viewModel.createAnnotations(from: players)

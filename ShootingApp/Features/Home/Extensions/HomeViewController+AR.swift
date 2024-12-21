@@ -67,6 +67,7 @@ extension HomeViewController: ARSceneManagerDelegate {
     
     func arSceneManager(_ manager: ARSceneManager, geoObjectHit object: GeoObject) {
         radarView.removeTarget(id: object.id)
+        radarView.isHidden = radarView.numberOfTargets() == 0
         viewModel.shoot(at: nil, geoObject: object)
     }
 }
