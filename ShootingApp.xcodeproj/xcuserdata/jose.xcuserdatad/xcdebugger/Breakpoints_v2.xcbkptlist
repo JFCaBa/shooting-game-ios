@@ -87,36 +87,6 @@
             endingLineNumber = "483"
             landmarkName = "webSocketDidReceiveMessage(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6633209A-E1B7-4922-AB53-145B051EF40A - 3d131d25cf1b2a27"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "483"
-                  endingLineNumber = "483">
-               </Location>
-               <Location
-                  uuid = "6633209A-E1B7-4922-AB53-145B051EF40A - 3d131d25cf1b2a27"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
-                  moduleName = "ShootingApp.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "483"
-                  endingLineNumber = "483">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
