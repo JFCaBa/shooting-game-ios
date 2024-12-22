@@ -15,19 +15,27 @@ final class GeoObjectAnnotationView: MKAnnotationView {
         setupUI()
     }
     
+    override var annotation: (any MKAnnotation)? {
+        didSet {
+            setupUI()
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
+        guard let annotation = annotation as? GeoObjectAnnotation else { return }
+        
         // Make the view more prominent
         frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        backgroundColor = .systemRed // Make background visible for debugging
+        backgroundColor = .label
         layer.cornerRadius = 20
         
         // Add image
-        let imageView = UIImageView(image: UIImage(systemName: "target"))
-        imageView.tintColor = .white
+        let imageView = UIImageView(image: annotation.geoObject.type.image)
+        imageView.tintColor = annotation.geoObject.type.colour
         imageView.frame = bounds.insetBy(dx: 8, dy: 8)
         imageView.contentMode = .scaleAspectFit
         addSubview(imageView)

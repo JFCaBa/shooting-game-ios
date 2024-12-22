@@ -36,7 +36,7 @@ final class PlayerManagerService {
     func updatePlayer(_ shoot: ShootData?) {
         guard let shoot, let id = shoot.hitPlayerId, let location = shoot.location else { return }
         
-        let player = Player(id: id, location: location, heading: 0)
+        let player = Player(playerId: id, location: location, heading: 0)
         coreDataManager.createOrUpdatePlayer(from: player)
         removeStaleUsers()
     }

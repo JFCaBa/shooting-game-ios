@@ -8,10 +8,10 @@
 import MapKit
 
 class GeoObjectAnnotation: MKPointAnnotation {
-    let geoObjectId: String
+    let geoObject: GeoObject
     
-    init(coordinate: CLLocationCoordinate2D, geoObjectId: String) {
-        self.geoObjectId = geoObjectId
+    init(coordinate: CLLocationCoordinate2D, geoObject: GeoObject) {
+        self.geoObject = geoObject
         super.init()
         self.coordinate = coordinate
     }

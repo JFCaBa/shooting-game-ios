@@ -63,12 +63,12 @@ final class MapViewModel {
     
     func createAnnotations(from players: [Player]) -> [MKPointAnnotation] {
         return players.map { player -> MKPointAnnotation in
-            let annotation = MKPointAnnotation()
+            let annotation = PlayerAnnotation(playerId: player.playerId, heading: player.heading, timestamp: .now)
             annotation.coordinate = CLLocationCoordinate2D(
                 latitude: player.location.latitude,
                 longitude: player.location.longitude
             )
-            annotation.title = player.id
+            annotation.title = String(player.playerId.suffix(4))
             return annotation
         }
     }

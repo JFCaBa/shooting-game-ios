@@ -346,7 +346,7 @@ final class GameManager: GameManagerProtocol {
     
     private func createPlayerData() -> Player {
         Player(
-            id: playerId ?? uuid(),
+            playerId: playerId ?? uuid(),
             location: LocationData(
                 latitude: locationManager.location?.coordinate.latitude ?? 0,
                 longitude: locationManager.location?.coordinate.longitude ?? 0,

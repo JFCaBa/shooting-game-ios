@@ -37,7 +37,7 @@ final class RadarView: UIView {
     func addTarget(_ geoObject: GeoObject) {
         geoObjects.append(geoObject)
         let targetLayer = CAShapeLayer()
-        targetLayer.fillColor = getColorForType(geoObject.type).cgColor
+        targetLayer.fillColor = geoObject.type.colour.cgColor
         targetLayers[geoObject.id] = targetLayer
         layer.addSublayer(targetLayer)
         updateTargetPosition(geoObject)
@@ -57,19 +57,6 @@ final class RadarView: UIView {
     
     func numberOfTargets() -> Int {
         return geoObjects.count
-    }
-    
-    private func getColorForType(_ type: GeoObjectType) -> UIColor {
-        switch type {
-        case .weapon:
-            return .systemBlue
-        case .target:
-            return .systemRed
-        case .powerup:
-            return .systemYellow
-        default:
-            return .systemOrange
-        }
     }
     
     private func startTargetUpdates() {
@@ -98,7 +85,7 @@ final class RadarView: UIView {
         
         // Calculate relative angle and distance
         let bearing = userLocation.bearing(to: objectLocation)
-        let relativeAngle = (bearing - userHeading + 360).truncatingRemainder(dividingBy: 360)
+        let relativeAngle = (userHeading - bearing + 360).truncatingRemainder(dividingBy: 360)
         let distance = userLocation.distance(from: objectLocation)
         
         // Convert to radar coordinates
@@ -108,14 +95,14 @@ final class RadarView: UIView {
         let distanceOnRadar = normalizedDistance * (radius - targetDotSize/2)
         
         let angleInRadians = relativeAngle * .pi / 180
-        let x = bounds.midX + cos(angleInRadians) * distanceOnRadar
-        let y = bounds.midY + sin(angleInRadians) * distanceOnRadar
+        let x = bounds.midX + sin(angleInRadians) * distanceOnRadar
+        let y = bounds.midY - cos(angleInRadians) * distanceOnRadar
         
         // Update dot position
         let dotPath = UIBezierPath(ovalIn: CGRect(x: x - targetDotSize/2,
-                                                 y: y - targetDotSize/2,
-                                                 width: targetDotSize,
-                                                 height: targetDotSize))
+                                                  y: y - targetDotSize/2,
+                                                  width: targetDotSize,
+                                                  height: targetDotSize))
         layer.path = dotPath.cgPath
     }
     

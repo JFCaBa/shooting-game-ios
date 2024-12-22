@@ -24,7 +24,7 @@ extension PlayerEntity {
     // Convenience method to convert to domain model
     func toDomainModel() -> Player {
         return Player(
-            id: id ?? "",
+            playerId: id ?? "",
             location: LocationData(
                 latitude: latitude,
                 longitude: longitude,

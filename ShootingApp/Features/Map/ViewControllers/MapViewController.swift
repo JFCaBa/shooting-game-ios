@@ -253,7 +253,7 @@ final class MapViewController: UIViewController {
     private func showGeoObjects(_ geoObjects: [GeoObject]) {
         var annotations: Array<GeoObjectAnnotation> = []
         geoObjects.forEach { geoObject in
-            let annotation = GeoObjectAnnotation(coordinate: geoObject.coordinate.toCLLocationCoordinate2D(), geoObjectId: geoObject.id)
+            let annotation = GeoObjectAnnotation(coordinate: geoObject.coordinate.toCLLocationCoordinate2D(), geoObject: geoObject)
             print("Debug: Adding geo object at: \(annotation.coordinate)") // Add debug print
             annotations.append(annotation)
         }
@@ -395,7 +395,7 @@ extension MapViewController: UITableViewDataSource {
         let player = viewModel.players[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
-        content.text = "Player: \(player.id.suffix(4))"
+        content.text = "Player: \(player.playerId.suffix(4))"
         
         if let userLocation = locationManager.location {
             let playerLocation = CLLocation(
@@ -460,12 +460,11 @@ extension MapViewController: MKMapViewDelegate {
             )
         }
         else if annotation is GeoObjectAnnotation {
-            print("Debug: Creating view for GeoObject") // Add debug print
             let view = mapView.dequeueReusableAnnotationView(
                 withIdentifier: GeoObjectAnnotationView.reuseIdentifier,
                 for: annotation
             )
-            print("Debug: Created view: \(String(describing: view))") // Add debug print
+            view.annotation = annotation
             return view
         }
         

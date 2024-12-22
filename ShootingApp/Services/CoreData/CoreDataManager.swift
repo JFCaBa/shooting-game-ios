@@ -25,7 +25,7 @@ final class CoreDataManager {
     
     func createOrUpdatePlayer(from player: Player) {
         let fetchRequest: NSFetchRequest<PlayerEntity> = PlayerEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", player.id)
+        fetchRequest.predicate = NSPredicate(format: "id == %@", player.playerId)
         
         do {
             let results = try context.fetch(fetchRequest)
@@ -35,7 +35,7 @@ final class CoreDataManager {
                 playerEntity = existingPlayer
             } else {
                 playerEntity = PlayerEntity(context: context)
-                playerEntity.id = player.id
+                playerEntity.id = player.playerId
             }
             
             // Update properties
@@ -59,7 +59,7 @@ final class CoreDataManager {
             let results = try context.fetch(fetchRequest)
             return results.map { entity in
                 Player(
-                    id: entity.id ?? "",
+                    playerId: entity.id ?? "",
                     location: LocationData(
                         latitude: entity.latitude,
                         longitude: entity.longitude,

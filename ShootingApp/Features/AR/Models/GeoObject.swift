@@ -5,7 +5,7 @@
 //  Created by Jose on 19/12/2024.
 //
 
-import Foundation
+import UIKit
 import CoreLocation
 
 struct GeoObject: Codable, Equatable {
@@ -60,6 +60,32 @@ enum GeoObjectType: String, Codable, Equatable {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
         self = GeoObjectType(rawValue: rawValue) ?? .unknown
+    }
+    
+    var colour: UIColor {
+        switch self {
+        case .weapon:
+            return .systemBlue
+        case .target:
+            return .systemRed
+        case .powerup:
+            return .systemYellow
+        default:
+            return .systemOrange
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .weapon:
+            return UIImage(named: "ak-47")!
+        case .target:
+            return UIImage(systemName: "target")!
+        case .powerup:
+            return UIImage(systemName: "shippingbox.fill")!
+        case .unknown:
+            return UIImage(systemName: "arrow.2.circlepath.circle")!
+        }
     }
 }
 

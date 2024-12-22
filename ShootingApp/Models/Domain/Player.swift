@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 struct Player: Codable {
-    let id: String
+    let playerId: String
     let location: LocationData
     let heading: Double
 }

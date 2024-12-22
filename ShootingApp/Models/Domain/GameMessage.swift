@@ -29,7 +29,7 @@ struct GameMessage: Codable {
         case geoObjectShootRejected
     }
     
-    let type: MessageType
+    var type: MessageType? = .announced
     let playerId: String
     let data: MessageData
     let senderId: String?
@@ -141,7 +141,7 @@ struct ShootData: Codable {
     
     init(from: Player) {
         shotId = UUID().uuidString
-        hitPlayerId = from.id
+        hitPlayerId = from.playerId
         location = nil
     }
 }

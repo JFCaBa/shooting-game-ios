@@ -90,7 +90,7 @@ final class NotificationManager: NSObject {
         else { return }
         
         let player = Player(
-            id: id,
+            playerId: id,
             location: LocationData(
                 latitude: latitude,
                 longitude: longitude,

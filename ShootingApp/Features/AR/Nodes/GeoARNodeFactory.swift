@@ -50,7 +50,7 @@ final class GeoARNodeFactory {
         guard let modelNode = scene.rootNode.childNodes.first else { return }
         
         // Scale the model appropriately
-        modelNode.scale = SCNVector3(0.1, 0.1, 0.1)
+//        modelNode.scale = SCNVector3(0.5, 0.5, 0.5)
         modelNode.position = location
         
         node.addChildNode(modelNode)
@@ -67,10 +67,26 @@ final class GeoARNodeFactory {
     }
     
     private static func configureTargetNode(_ node: GeoARNode, _ location: SCNVector3) {
-        let geometry = SCNSphere(radius: 3)
-        geometry.firstMaterial?.diffuse.contents = UIColor.red
-        node.geometry = geometry
-        node.position = location
+        guard let scene = SCNScene(named: "santa_sleight.scn") else {
+            // Fallback to basic geometry if the model fails to load
+            let geometry = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0.05)
+            geometry.firstMaterial?.diffuse.contents = UIColor.systemGreen
+            node.geometry = geometry
+            
+            // Add light to the node
+            addLight(to: node)
+            return
+        }
+                
+        // Extract the root node from the loaded scene
+        guard let modelNode = scene.rootNode.childNodes.first else { return }
+        
+        // Scale the model appropriately
+        modelNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        modelNode.position = location
+
+        // Add the model as a child of the GeoARNode
+        node.addChildNode(modelNode)
         
         // Add light to the node
         addLight(to: node)
@@ -99,7 +115,7 @@ final class GeoARNodeFactory {
         guard let modelNode = scene.rootNode.childNodes.first else { return }
         
         // Scale the model appropriately
-        modelNode.scale = SCNVector3(0.2, 0.2, 0.2)
+        modelNode.scale = SCNVector3(0.03, 0.03, 0.03)
         modelNode.position = location
 
         // Add the model as a child of the GeoARNode
@@ -120,15 +136,15 @@ final class GeoARNodeFactory {
     /// Adds a light to the given node
     private static func addLight(to node: SCNNode) {
         let light = SCNLight()
-        light.type = .spot
-        light.color = UIColor.red
-        light.intensity = 1000
+        light.type = .directional
+        light.color = UIColor.white
+        light.intensity = 500
         light.attenuationStartDistance = 1.0
         light.attenuationEndDistance = 10.0
         
         let lightNode = SCNNode()
         lightNode.light = light
-        lightNode.position = SCNVector3(0, 0.5, 0) // Position above the weapon
+        lightNode.position = SCNVector3(0.5, 0.5, 0.5)
         
         node.addChildNode(lightNode)
     }

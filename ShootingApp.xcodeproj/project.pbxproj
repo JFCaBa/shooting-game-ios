@@ -100,6 +100,12 @@
 		820611BF2CF87779003FB6BB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 820611BE2CF87779003FB6BB /* FirebaseCore */; };
 		820611C12CF87779003FB6BB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C02CF87779003FB6BB /* FirebaseCrashlytics */; };
 		820611C32CF87779003FB6BB /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 820611C22CF87779003FB6BB /* FirebaseMessaging */; };
+		820E9A082D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */; };
+		820E9A092D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */; };
+		820E9A0A2D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */; };
+		820E9A0C2D18979800DE8941 /* santa_sleight.scn in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A0B2D18979800DE8941 /* santa_sleight.scn */; };
+		820E9A0D2D18979800DE8941 /* santa_sleight.scn in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A0B2D18979800DE8941 /* santa_sleight.scn */; };
+		820E9A0E2D18979800DE8941 /* santa_sleight.scn in Resources */ = {isa = PBXBuildFile; fileRef = 820E9A0B2D18979800DE8941 /* santa_sleight.scn */; };
 		82223F092D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
 		82223F0A2D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
 		82223F0B2D0460610095E161 /* URLs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82223F082D0460610095E161 /* URLs.plist */; };
@@ -614,6 +620,8 @@
 		8206119D2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatSystemProtocol.swift; sourceTree = "<group>"; };
 		820611A22CF6A9C5003FB6BB /* CVPixelBuffer+Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Copy.swift"; sourceTree = "<group>"; };
 		820611AB2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Sendable.swift"; sourceTree = "<group>"; };
+		820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 51XTHlZdXQL._SX466_.jpg; sourceTree = "<group>"; };
+		820E9A0B2D18979800DE8941 /* santa_sleight.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = santa_sleight.scn; sourceTree = "<group>"; };
 		82223F082D0460610095E161 /* URLs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = URLs.plist; sourceTree = "<group>"; };
 		82223F0C2D0461100095E161 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		82381EA12D05C421008FBD86 /* HallOfFameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallOfFameCell.swift; sourceTree = "<group>"; };
@@ -1898,6 +1906,7 @@
 		82F3A6912D0D6E8B00EAB48E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				820E9A0B2D18979800DE8941 /* santa_sleight.scn */,
 				82E5731C2D170BC7002F7C4B /* weapon.scn */,
 				82E572E02D15B340002F7C4B /* sci_fi_crate.scn */,
 				82F3A6EF2D0E165E00EAB48E /* drone_four_rotor_one.scn */,
@@ -1909,6 +1918,7 @@
 		82F3A6CE2D0DEE7900EAB48E /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */,
 				82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */,
 				82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */,
 				82E573182D170B92002F7C4B /* Base_Color_1.jpg */,
@@ -2052,6 +2062,7 @@
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
 				82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
 				82F3A68A2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
+				820E9A082D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */,
 				82F3A6832D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				82E5731A2D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				82E572DD2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg in Resources */,
@@ -2063,6 +2074,7 @@
 				82223F0B2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A67F2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82E5731D2D170BC7002F7C4B /* weapon.scn in Resources */,
+				820E9A0C2D18979800DE8941 /* santa_sleight.scn in Resources */,
 				82F3A6F02D0E165E00EAB48E /* drone_four_rotor_one.scn in Resources */,
 				826938B12CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
 			);
@@ -2078,6 +2090,7 @@
 				82F3A6802D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F0A2D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F62D0E186D00EAB48E /* drones.txt in Resources */,
+				820E9A0D2D18979800DE8941 /* santa_sleight.scn in Resources */,
 				82F3A68C2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				82E5731E2D170BC7002F7C4B /* weapon.scn in Resources */,
 				82E572DB2D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
@@ -2088,6 +2101,7 @@
 				82E572AA2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				82E572E22D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
+				820E9A092D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2101,6 +2115,7 @@
 				82F3A67E2D0CB3A100EAB48E /* shoot_sound.m4a in Resources */,
 				82223F092D0460610095E161 /* URLs.plist in Resources */,
 				82F3A6F72D0E186D00EAB48E /* drones.txt in Resources */,
+				820E9A0E2D18979800DE8941 /* santa_sleight.scn in Resources */,
 				82F3A68B2D0CBDDE00EAB48E /* explosion_sound.m4a in Resources */,
 				82E5731F2D170BC7002F7C4B /* weapon.scn in Resources */,
 				82E572D92D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg in Resources */,
@@ -2111,6 +2126,7 @@
 				82E572A92D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				82E572E32D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
+				820E9A0A2D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
