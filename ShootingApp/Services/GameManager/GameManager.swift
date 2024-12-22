@@ -151,7 +151,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: .drone(drone),
             senderId: nil,
-            pushToken: Messaging.messaging().fcmToken
+            pushToken: nil
         )
     }
 
@@ -161,7 +161,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: .newGeoObject(geoObject),
             senderId: nil,
-            pushToken: Messaging.messaging().fcmToken
+            pushToken: nil
         )
     }
 
@@ -171,29 +171,30 @@ final class GameManager: GameManagerProtocol {
         shootData.damage = 1 // Default damage, configurable
         shootData.location = location
         shootData.heading = heading
-        
+
         return GameMessage(
             type: .shoot,
             playerId: playerId,
-            data: .shoot(shootData),
+            data: .shoot(shootData), // Pass the ShootData directly
             senderId: nil,
-            pushToken: Messaging.messaging().fcmToken
+            pushToken: nil
         )
     }
     
     // MARK: - handleShot(_:)
     
-    func handleShot(_ message: GameMessage) {
+    func handleShot(_ message: GameMessage, _ shootData: ShootData) {
         guard
-              let currentLocation = locationManager.location,
-              currentLives > 0,
-              isAlive,
-              case let .shootDataResponse(shooterDataResponse) = message.data,
-              let shooterPlayer = shooterDataResponse.shoot,
-              let shooterId = shooterPlayer.hitPlayerId,
-              shooterId != playerId,
-              let location = shooterPlayer.location
-        else { return }
+            let currentLocation = locationManager.location,
+            currentLives > 0,
+            isAlive,
+            let shooterId = shootData.hitPlayerId,
+            shooterId != playerId,
+            let location = shootData.location
+        else {
+            print("Invalid nested shoot data or conditions not met.")
+            return
+        }
         
         let shooterLat = location.latitude
         let shooterLon = location.longitude
@@ -222,7 +223,7 @@ final class GameManager: GameManagerProtocol {
         }
         
         // Calculate angle difference accounting for 360° wrap
-        let shooterHeading = shooterPlayer.heading
+        let shooterHeading = shootData.heading
         let degreeDiff: Double
         if shooterHeading < 90 && azimuth > 270 {
             degreeDiff = (360 - azimuth) + shooterHeading
@@ -301,7 +302,7 @@ final class GameManager: GameManagerProtocol {
             playerId: playerId,
             data: .shoot(shootData),
             senderId: shooterId,
-            pushToken: Messaging.messaging().fcmToken
+            pushToken: nil
         )
         
         webSocketService.send(message: message)
@@ -458,13 +459,21 @@ extension GameManager: WebSocketServiceDelegate {
             }
             
         case .shoot:
-            if case let .shootDataResponse(shootDataResponse) = message.data, message.playerId != playerId {
-                handleShot(message)
-                playerManager.updatePlayer(shootDataResponse.shoot)
+            guard let shootData = message.data.shootData else {
+                print("Shoot Data is nil")
+                return
+            }
+            if message.playerId != playerId {
+                handleShot(message, shootData)
+                playerManager.updatePlayer(shootData)
             }
             
         case .shootConfirmed:
-            notifyShootConfirmed(message.data)
+            guard let shootData = message.data.shootData else {
+                print("Shoot Data is nil")
+                return
+            }
+            notifyShootConfirmed(shootData)
             
         case .hitConfirmed:
             if message.senderId == playerId, case let .shootDataResponse(shootData) = message.data {
@@ -493,6 +502,8 @@ extension GameManager: WebSocketServiceDelegate {
         case .announced:
             if case let .player(player) = message.data, message.playerId != playerId {
                 CoreDataManager.shared.createOrUpdatePlayer(from: player)
+                let shoot = ShootData(from: player)
+                playerManager.updatePlayer(shoot)
             }
             
         case .newDrone:
@@ -602,7 +613,7 @@ extension GameManager: WebSocketServiceDelegate {
         )
     }
     
-    private func notifyShootConfirmed(_ data: MessageData) {
+    private func notifyShootConfirmed(_ data: ShootData) {
         NotificationCenter.default.post(
             name: .shootConfirmed,
             object: nil,

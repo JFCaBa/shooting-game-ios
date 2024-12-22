@@ -549,10 +549,8 @@ final class HomeViewController: UIViewController {
     
     @objc private func handleShootConfirmed(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
-              let shootInfo = userInfo["shootInfo"] as? MessageData else { return }
+              let shootInfo = userInfo["shootInfo"] as? ShootData else { return }
         
-        // Safely extract deviation and distance from MessageData
-        guard case let .shootDataResponse(shootData) = shootInfo else { return }
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
@@ -563,7 +561,7 @@ final class HomeViewController: UIViewController {
                 shootFeedbackView.topAnchor.constraint(equalTo: crosshairView.bottomAnchor, constant: 8)
             ])
             
-            shootFeedbackView.show(distance: shootData.shoot?.distance ?? 0, deviation: shootData.shoot?.deviation ?? 0)
+            shootFeedbackView.show(distance: shootInfo.distance, deviation: shootInfo.deviation)
         }
     }
     

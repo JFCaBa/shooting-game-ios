@@ -5,7 +5,6 @@
 //  Created by Jose on 19/12/2024.
 //
 
-
 import SceneKit
 import CoreLocation
 
@@ -41,6 +40,9 @@ final class GeoARNodeFactory {
             let geometry = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0.05)
             geometry.firstMaterial?.diffuse.contents = UIColor.yellow
             node.geometry = geometry
+            
+            // Add light to the node
+            addLight(to: node)
             return
         }
         
@@ -52,6 +54,9 @@ final class GeoARNodeFactory {
         modelNode.position = location
         
         node.addChildNode(modelNode)
+        
+        // Add light to the node
+        addLight(to: node)
         
         // Add pulsing animation
         let pulseAction = SCNAction.sequence([
@@ -67,6 +72,9 @@ final class GeoARNodeFactory {
         node.geometry = geometry
         node.position = location
         
+        // Add light to the node
+        addLight(to: node)
+        
         // Add pulsing animation
         let pulseAction = SCNAction.sequence([
             SCNAction.scale(to: 1.2, duration: 1.0),
@@ -79,8 +87,11 @@ final class GeoARNodeFactory {
         guard let scene = SCNScene(named: "weapons_crate.scn") else {
             // Fallback to basic geometry if the model fails to load
             let geometry = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0.05)
-            geometry.firstMaterial?.diffuse.contents = UIColor.yellow
+            geometry.firstMaterial?.diffuse.contents = UIColor.systemGreen
             node.geometry = geometry
+            
+            // Add light to the node
+            addLight(to: node)
             return
         }
                 
@@ -94,11 +105,31 @@ final class GeoARNodeFactory {
         // Add the model as a child of the GeoARNode
         node.addChildNode(modelNode)
         
+        // Add light to the node
+        addLight(to: node)
+        
         // Add pulsing animation
         let pulseAction = SCNAction.sequence([
             SCNAction.scale(to: 1.2, duration: 1.0),
             SCNAction.scale(to: 1.0, duration: 1.0)
         ])
         node.runAction(SCNAction.repeatForever(pulseAction))
+    }
+    
+    // MARK: - Helpers
+    /// Adds a light to the given node
+    private static func addLight(to node: SCNNode) {
+        let light = SCNLight()
+        light.type = .spot
+        light.color = UIColor.red
+        light.intensity = 1000
+        light.attenuationStartDistance = 1.0
+        light.attenuationEndDistance = 10.0
+        
+        let lightNode = SCNNode()
+        lightNode.light = light
+        lightNode.position = SCNVector3(0, 0.5, 0) // Position above the weapon
+        
+        node.addChildNode(lightNode)
     }
 }

@@ -73,5 +73,79 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5292CFD-1297-4AA8-9986-6E377D0FE8F9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShootingApp/Services/GameManager/GameManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "503"
+            endingLineNumber = "503"
+            landmarkName = "webSocketDidReceiveMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E5292CFD-1297-4AA8-9986-6E377D0FE8F9 - 3d131d25cf1b24b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503">
+               </Location>
+               <Location
+                  uuid = "E5292CFD-1297-4AA8-9986-6E377D0FE8F9 - 3d131d25cf1b24b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503">
+               </Location>
+               <Location
+                  uuid = "E5292CFD-1297-4AA8-9986-6E377D0FE8F9 - 3d131d25cf1b24b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503">
+               </Location>
+               <Location
+                  uuid = "E5292CFD-1297-4AA8-9986-6E377D0FE8F9 - 3d131d25cf1b24b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ShootingApp.GameManager.webSocketDidReceiveMessage(ShootingApp.GameMessage) -&gt; ()"
+                  moduleName = "ShootingApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jose/xcode/Armen/shooting-game-ios/ShootingApp/Services/GameManager/GameManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "503"
+                  endingLineNumber = "503">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

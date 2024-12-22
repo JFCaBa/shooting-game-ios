@@ -124,6 +124,7 @@ struct ShootDataResponse: Codable {
 }
 
 struct ShootData: Codable {
+    var shoot: InnerShootData? // Update to represent the nested structure
     var shotId: String?
     var hitPlayerId: String?
     var damage: Int = 1
@@ -145,8 +146,36 @@ struct ShootData: Codable {
     }
 }
 
+struct InnerShootData: Codable {
+    var shotId: String?
+    var hitPlayerId: String?
+    var damage: Int = 1
+    var distance: Double = 0
+    var deviation: Double = 0
+    var heading: Double = 0
+    var location: LocationData?
+}
+
 struct GameScore: Codable {
     var hits: Int
     var kills: Int
 }
 
+
+// MARK: - MessageData Extension
+
+extension MessageData {
+    var shootDataResponse: ShootDataResponse? {
+        if case let .shootDataResponse(data) = self {
+            return data
+        }
+        return nil
+    }
+    
+    var shootData: ShootData? {
+        if case let .shoot(data) = self {
+            return data
+        }
+        return nil
+    }
+}
