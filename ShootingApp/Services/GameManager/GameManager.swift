@@ -463,6 +463,7 @@ extension GameManager: WebSocketServiceDelegate {
                 print("Shoot Data is nil")
                 return
             }
+            
             if message.playerId != playerId {
                 handleShot(message, shootData)
                 playerManager.updatePlayer(shootData)
@@ -473,25 +474,41 @@ extension GameManager: WebSocketServiceDelegate {
                 print("Shoot Data is nil")
                 return
             }
+            
             notifyShootConfirmed(shootData)
             
         case .hitConfirmed:
-            if message.senderId == playerId, case let .shootDataResponse(shootData) = message.data {
+            guard let shootData = message.data.shootData else {
+                print("Shoot Data is nil")
+                return
+            }
+            
+            if message.senderId == playerId {
                 gameScore.hits += 1
-                notifyHitConfirmed(shootData.shoot?.damage ?? 1)
+                notifyHitConfirmed(shootData.damage)
             }
             
         case .kill:
-            if message.senderId == playerId, case let .shootDataResponse(shootData) = message.data {
+            guard let shootData = message.data.shootData else {
+                print("Shoot Data is nil")
+                return
+            }
+            
+            if message.senderId == playerId {
                 gameScore.kills += 1
-                notifyKill(shootData.shoot?.hitPlayerId ?? "")
+                notifyKill(shootData.hitPlayerId ?? "")
             }
             
         case .leave:
             CoreDataManager.shared.deletePlayer(id: message.playerId)
             
         case .hit:
-            if case let .shoot(shootData) = message.data, shootData.hitPlayerId == playerId {
+            guard let shootData = message.data.shootData else {
+                print("Shoot Data is nil")
+                return
+            }
+            
+            if shootData.hitPlayerId == playerId {
                 currentLives -= (shootData.damage)
                 if currentLives <= 0 {
                     NotificationCenter.default.post(name: .playerDied, object: nil)
