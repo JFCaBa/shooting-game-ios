@@ -178,4 +178,11 @@ extension MessageData {
         }
         return nil
     }
+    
+    var geoObject: GeoObject? {
+        if case let .newGeoObject(data) = self {
+            return data
+        }
+        return nil
+    }
 }

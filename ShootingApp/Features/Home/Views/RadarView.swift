@@ -10,6 +10,7 @@ import UIKit
 
 final class RadarView: UIView {
     // MARK: - Properties
+    
     private let numberOfCircles = 4
     private let scanLineLayer = CAShapeLayer()
     private let gridLayer = CAShapeLayer()
@@ -22,6 +23,7 @@ final class RadarView: UIView {
     private let targetDotSize: CGFloat = 6
     
     // MARK: - Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayers()
@@ -33,7 +35,8 @@ final class RadarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Target Management
+    // MARK: - addTarget(_:)
+    
     func addTarget(_ geoObject: GeoObject) {
         geoObjects.append(geoObject)
         let targetLayer = CAShapeLayer()
@@ -43,11 +46,15 @@ final class RadarView: UIView {
         updateTargetPosition(geoObject)
     }
     
+    // MARK: - removeTarget(id:)
+    
     func removeTarget(id: String) {
         geoObjects.removeAll { $0.id == id }
         targetLayers[id]?.removeFromSuperlayer()
         targetLayers.removeValue(forKey: id)
     }
+    
+    // MARK: - removeAllTargets()
     
     func removeAllTargets() {
         geoObjects.removeAll()
@@ -55,15 +62,21 @@ final class RadarView: UIView {
         targetLayers.removeAll()
     }
     
+    // MARK: - numOfTargets() -> Int
+    
     func numberOfTargets() -> Int {
         return geoObjects.count
     }
+    
+    // MARK: - startTargetUpdates()
     
     private func startTargetUpdates() {
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { [weak self] _ in
             self?.updateAllTargetPositions()
         }
     }
+    
+    // MARK: - updateAllTargetPosition()
     
     private func updateAllTargetPositions() {
         targetLayers.forEach { (id, layer) in
@@ -72,6 +85,8 @@ final class RadarView: UIView {
             }
         }
     }
+    
+    // MARK: - updateTargetPosition(_:)
     
     private func updateTargetPosition(_ geoObject: GeoObject) {
         guard let userLocation = locationManager.location,
@@ -107,6 +122,7 @@ final class RadarView: UIView {
     }
     
     // MARK: - Setup
+    
     private func setupLayers() {
         // Background
         backgroundLayer.fillColor = UIColor(red: 0, green: 0.2, blue: 0, alpha: 0.9).cgColor
@@ -121,10 +137,12 @@ final class RadarView: UIView {
         // Scan line
         scanLineLayer.strokeColor = UIColor(red: 0, green: 1, blue: 0, alpha: 0.8).cgColor
         scanLineLayer.lineWidth = 2
+        scanLineLayer.anchorPoint = CGPoint(x: 0, y: 0)
         layer.addSublayer(scanLineLayer)
     }
     
     // MARK: - Layout
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         let radius = min(bounds.width, bounds.height) / 2
@@ -151,16 +169,23 @@ final class RadarView: UIView {
         gridPath.addLine(to: CGPoint(x: bounds.midX, y: bounds.maxY))
         
         gridLayer.path = gridPath.cgPath
+        
+        // Update scan line animation for new size
+        startScanAnimation()
     }
     
     // MARK: - Animation
+    
     private func startScanAnimation() {
-        // Create scan line path
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = min(bounds.width, bounds.height) / 2
+        
+        // Position the scan line layer at the center
+        scanLineLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+        
+        // Create scan line path
         let path = UIBezierPath()
-        path.move(to: center)
-        path.addLine(to: CGPoint(x: center.x + radius, y: center.y))
+        path.move(to: .zero)  // Start at the anchor point
+        path.addLine(to: CGPoint(x: radius, y: 0))  // Draw line to the right
         scanLineLayer.path = path.cgPath
         
         // Create rotation animation
@@ -169,6 +194,8 @@ final class RadarView: UIView {
         animation.toValue = 2 * Double.pi
         animation.duration = 4.0
         animation.repeatCount = .infinity
+        animation.isRemovedOnCompletion = false  // Add this line
+        animation.timingFunction = CAMediaTimingFunction(name: .linear)  // Add this line
         
         scanLineLayer.add(animation, forKey: "rotation")
     }

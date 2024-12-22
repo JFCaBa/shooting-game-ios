@@ -32,18 +32,22 @@ extension HomeViewController {
               let geoObject = userInfo["geoObject"] as? GeoObject
         else { return }
         
-        // Update game score
-        let gameScore = GameManager.shared.gameScore
-        self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
-        
-        // Show reward feedback
-        showFeedback(.custom(
-            text: "GEO REWARD",
-            color: .systemPurple,
-            font: .systemFont(ofSize: 32, weight: .bold)
-        ), amount: geoObject.metadata.reward ?? 1)
-        
-        radarView.removeTarget(id: geoObject.id)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            // Update game score
+            let gameScore = GameManager.shared.gameScore
+            self.scoreView.updateScore(hits: gameScore.hits, kills: gameScore.kills)
+            
+            // Show reward feedback
+            showFeedback(.custom(
+                text: "GEO REWARD",
+                color: .systemPurple,
+                font: .systemFont(ofSize: 32, weight: .bold)
+            ), amount: geoObject.metadata.reward ?? 1)
+            
+            radarView.removeTarget(id: geoObject.id)
+        }
     }
     
     // MARK: - handleNewGeoObjectArrived(_:)

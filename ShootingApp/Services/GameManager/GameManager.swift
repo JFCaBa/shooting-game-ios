@@ -157,7 +157,7 @@ final class GameManager: GameManagerProtocol {
 
     private func createShootGeoObjectMessage(playerId: String, geoObject: GeoObject) -> GameMessage {
         return GameMessage(
-            type: .shootGeoObject,
+            type: .geoObjectHit,
             playerId: playerId,
             data: .newGeoObject(geoObject),
             senderId: nil,
@@ -549,9 +549,12 @@ extension GameManager: WebSocketServiceDelegate {
             }
             
         case .geoObjectShootConfirmed:
-            if case let .newGeoObject(geoObject) = message.data {
-                handleGeoObjectShootConfirmed(geoObject)
+            guard let geoObject = message.data.geoObject else {
+                print("Geo object Data is nil")
+                return
             }
+            
+            handleGeoObjectShootConfirmed(geoObject)
             
         case .geoObjectShootRejected:
             break;
