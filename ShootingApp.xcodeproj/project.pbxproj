@@ -2828,7 +2828,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShootingApp/ShootingAppDebug.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
@@ -2874,7 +2874,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShootingApp/ShootingApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 75SEZC5TGW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShootingApp/Info.plist;
