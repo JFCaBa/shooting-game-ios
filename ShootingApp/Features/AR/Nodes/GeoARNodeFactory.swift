@@ -70,7 +70,7 @@ final class GeoARNodeFactory {
         guard let scene = SCNScene(named: "santa_sleight.scn") else {
             // Fallback to basic geometry if the model fails to load
             let geometry = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0.05)
-            geometry.firstMaterial?.diffuse.contents = UIColor.systemGreen
+            geometry.firstMaterial?.diffuse.contents = UIColor.systemRed
             node.geometry = geometry
             
             // Add light to the node

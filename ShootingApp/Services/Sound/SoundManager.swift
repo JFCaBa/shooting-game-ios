@@ -87,12 +87,11 @@ class SoundManager {
     func playSound(type: SoundType, loop: Bool = false) {
         // Check if the sound is already playing
         if let isPlaying = isSoundPlaying[type.rawValue], isPlaying {
-            print("\(type.rawValue) is already playing, skipping playback.")
             return
         }
         
         guard let buffer = audioBuffers[type.rawValue], let playerNode = audioPlayerNodes[type.rawValue] else {
-            print("Sound \(type.rawValue) not preloaded")
+            print("ERROR: Sound \(type.rawValue) not preloaded")
             return
         }
         
