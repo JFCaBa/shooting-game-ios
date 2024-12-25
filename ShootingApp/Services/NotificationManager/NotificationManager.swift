@@ -83,6 +83,8 @@ final class NotificationManager: NSObject {
     
     private func handlePlayerJoined(_ userInfo: [AnyHashable: Any]) {
         guard let id = userInfo["playerId"] as? String,
+              let playerId = GameManager.shared.playerId,
+              id != playerId,
               let lat = userInfo["latitude"] as? String,
               let lon = userInfo["longitude"] as? String,
               let latitude = Double(lat),
@@ -98,7 +100,6 @@ final class NotificationManager: NSObject {
                 accuracy: 0
             ),
             heading: 0
-//            timestamp: Date()
         )
         
         let distance = LocationManager.shared.distanceFrom(latitude: latitude, longitude: longitude)

@@ -47,6 +47,15 @@ extension HomeViewController {
             ), amount: geoObject.metadata.reward ?? 1)
             
             radarView.removeTarget(id: geoObject.id)
+            
+            if geoObject.type == .weapon {
+                self.ammoBar.updateValue(Float(maxAmmo))
+                return
+            }
+            
+            if geoObject.type == .powerup {
+                self.lifeBar.updateValue(Float(maxLives))
+            }
         }
     }
     

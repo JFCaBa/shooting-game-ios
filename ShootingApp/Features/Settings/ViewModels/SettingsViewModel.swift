@@ -13,6 +13,8 @@ final class SettingsViewModel {
     @Published private(set) var notificationDistance: Double
     weak var coordinator: SettingsCoordinator?
     
+    private(set) var token: String? = nil
+    
     // MARK: - Initialization
     
     init() {
@@ -20,6 +22,16 @@ final class SettingsViewModel {
         if self.notificationDistance == 0 {
             self.notificationDistance = 100 // Default value
             UserDefaults.standard.set(self.notificationDistance, forKey: UserDefaults.Keys.notificationDistance)
+        }
+        
+        readToken()
+    }
+    
+    private func readToken() {
+        do {
+            self.token = try KeychainManager.shared.readToken()
+        } catch {
+            print(error)
         }
     }
     

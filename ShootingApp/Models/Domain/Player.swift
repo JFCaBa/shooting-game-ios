@@ -12,7 +12,9 @@ struct Player: Codable {
     let playerId: String
     let location: LocationData
     let heading: Double
+    var userData: UserData? = nil
     var wallet: String? = nil
+    var token: Token? = nil
 }
 
 struct LocationData: Codable {
@@ -21,3 +23,17 @@ struct LocationData: Codable {
     let altitude: Double
     let accuracy: Double
 }
+
+extension Player {
+    struct Token: Codable {
+        let token: String
+    }
+}
+
+extension Player {
+    struct UserData: Codable {
+        let nickName: String?
+        let email: String?
+    }
+}
+
