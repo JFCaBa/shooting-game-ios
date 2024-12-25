@@ -44,38 +44,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A5D06DD8-63DB-4167-8150-DE0D2C12B375"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShootingApp/Features/Wallet/ViewModels/WalletViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "checkConnection()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E641EDAB-8502-48D0-97A3-AB114FAF25B1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShootingApp/Features/Wallet/ViewModels/WalletViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "checkConnection()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "6633209A-E1B7-4922-AB53-145B051EF40A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -83,8 +51,8 @@
             filePath = "ShootingApp/Services/GameManager/GameManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "483"
-            endingLineNumber = "483"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "webSocketDidReceiveMessage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -92,15 +60,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "84910813-F819-4286-8BBE-5163921B542D"
+            uuid = "3A8400A2-7F01-4F03-9114-A345659015BD"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShootingApp/Services/GameManager/GameManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "webSocketDidReceiveMessage(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -108,15 +76,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "91D232B2-5261-44AA-AF9C-02C942F78653"
-            shouldBeEnabled = "Yes"
+            uuid = "AB5E6394-0743-4121-A8DB-10F85708B852"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShootingApp/Services/GameManager/GameManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
             landmarkName = "handleGeoObjectHit(_:)"
             landmarkType = "7">
          </BreakpointContent>

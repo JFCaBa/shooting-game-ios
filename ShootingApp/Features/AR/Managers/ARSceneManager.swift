@@ -130,9 +130,10 @@ final class ARSceneManager: NSObject {
     }
 }
 
-// MARK: - Notification Handlers
 
 private extension ARSceneManager {
+    // MARK: - handleNewDroneArrived(_:)
+
     @objc func handleNewDroneArrived(_ notification: Notification) {
         guard let userInfo = notification.userInfo,
               let drone = userInfo["drone"] as? DroneData else { return }
@@ -147,7 +148,7 @@ private extension ARSceneManager {
         delegate?.arSceneManager(self, didUpdateDroneCount: 0)
     }
     
-    // MARK: - Update notification handler
+    // MARK: - handleNewGeoObjectArrived(_:)
     
     @objc func handleNewGeoObjectArrived(_ notification: Notification) {
         guard let userInfo = notification.userInfo,

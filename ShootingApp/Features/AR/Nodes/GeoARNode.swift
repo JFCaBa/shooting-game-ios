@@ -12,14 +12,14 @@ final class GeoARNode: SCNNode {
     // MARK: - Properties
     
     let coordinate: CLLocationCoordinate2D
-    let altitude: CLLocationDistance
+    let altitude: Float
     private(set) var isPlaced = false
     private var isDestroyed = false
     var nodeId: String?
     
     // MARK: - Init
     
-    init(id: String, coordinate: CLLocationCoordinate2D, altitude: CLLocationDistance) {
+    init(id: String, coordinate: CLLocationCoordinate2D, altitude: Float) {
         self.nodeId = id
         self.coordinate = coordinate
         self.altitude = altitude
@@ -35,7 +35,7 @@ final class GeoARNode: SCNNode {
     func updatePosition(relativeTo userLocation: CLLocation, heading: CLHeading?) {
         let objectLocation = CLLocation(
             coordinate: coordinate,
-            altitude: altitude,
+            altitude: 0,
             horizontalAccuracy: 1,
             verticalAccuracy: 1,
             timestamp: Date()
@@ -58,7 +58,7 @@ final class GeoARNode: SCNNode {
         let zPosition = -sceneDistance * cos(angleFromUser)
         
         // Set node position
-        position = SCNVector3(xPosition, 0, zPosition)
+        position = SCNVector3(xPosition, altitude, zPosition)
     }
     
     func geoObjectWasHit() -> Bool {

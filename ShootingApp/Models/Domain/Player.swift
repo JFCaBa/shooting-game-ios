@@ -12,6 +12,7 @@ struct Player: Codable {
     let playerId: String
     let location: LocationData
     let heading: Double
+    var wallet: String? = nil
 }
 
 struct LocationData: Codable {
