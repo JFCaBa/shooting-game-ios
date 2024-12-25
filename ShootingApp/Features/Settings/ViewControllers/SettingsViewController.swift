@@ -74,7 +74,7 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,19 +82,35 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.accessoryType = .disclosureIndicator
-        
-        var content = cell.defaultContentConfiguration()
-        content.text = "Notification Distance"
-        content.secondaryText = "\(Int(viewModel.notificationDistance))m"
-        cell.contentConfiguration = content
-        
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.accessoryType = .disclosureIndicator
+            
+            var content = cell.defaultContentConfiguration()
+            content.text = "Notification Distance"
+            content.secondaryText = "\(Int(viewModel.notificationDistance))m"
+            cell.contentConfiguration = content
+            
+            return cell
+            
+        default: // Return the App version in the last section
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            var content = cell.defaultContentConfiguration()
+            content.text = "App version:"
+            content.secondaryText = viewModel.versionAndBuildNumber
+            cell.contentConfiguration = content
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "You'll receive notifications when players enter within this distance. A larger distance means more notifications but earlier warnings."
+        switch section {
+        case 0:
+            return "You'll receive notifications when players enter within this distance. A larger distance means more notifications but earlier warnings."
+        default: return nil
+        }
     }
 }
 
