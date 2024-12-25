@@ -84,15 +84,27 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.accessoryType = .disclosureIndicator
+            if viewModel.token == nil {
+                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+                cell.accessoryType = .disclosureIndicator
+                
+                var content = cell.defaultContentConfiguration()
+                content.text = "Create user"
+                content.secondaryText = "You will be able to create a user with a username and password"
+                cell.contentConfiguration = content
+                
+                return cell
+            } else {
+                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+                cell.accessoryType = .disclosureIndicator
+                
+                var content = cell.defaultContentConfiguration()
+                content.text = "User Profile"
+                cell.contentConfiguration = content
+                
+                return cell
+            }
             
-            var content = cell.defaultContentConfiguration()
-            content.text = "Create user"
-            content.secondaryText = "You will be able to create a user with a username and password"
-            cell.contentConfiguration = content
-            
-            return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.accessoryType = .disclosureIndicator
@@ -119,11 +131,16 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Create a user for extra add-ones and better experience in the game."
+            if viewModel.token == nil {
+                return "Create a user for extra add-ones and better experience in the game."
+            }
+            
         case 1:
             return "You'll receive notifications when players enter within this distance. A larger distance means more notifications but earlier warnings."
+            
         default: return nil
         }
+        return nil
     }
 }
 
@@ -132,7 +149,13 @@ extension SettingsViewController: UITableViewDataSource {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section) {
-        case 0: viewModel.coordinator?.showUserCreation()
+        case 0:
+            if viewModel.token == nil {
+                viewModel.coordinator?.showUserCreation()
+            }
+            else {
+                viewModel.coordinator?.showUserProfile()
+            }
         case 1: showDistanceSelector()
         default: break
         }

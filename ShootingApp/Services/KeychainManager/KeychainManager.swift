@@ -19,6 +19,8 @@ final class KeychainManager {
     
     private init() {}
     
+    // MARK: - UUID
+    
     func saveUUID(_ uuid: String) throws {
         try save(uuid.data(using: .utf8)!, service: "ShootingApp", account: "userUUID")
     }
@@ -30,6 +32,21 @@ final class KeychainManager {
     
     func deleteUUID() throws {
         try delete(service: "ShootingApp", account: "userUUID")
+    }
+    
+    // MARK: - Token
+    
+    func saveToken(_ token: String) throws {
+        try save(token.data(using: .utf8)!, service: "ShootingApp", account: "token")
+    }
+    
+    func readToken() throws -> String? {
+        let data = try read(service: "ShootingApp", account: "token")
+        return String(data: data, encoding: .utf8)
+    }
+    
+    func deleteToken() throws {
+        try delete(service: "ShootingApp", account: "token")
     }
     
     func save(_ data: Data, service: String, account: String) throws {

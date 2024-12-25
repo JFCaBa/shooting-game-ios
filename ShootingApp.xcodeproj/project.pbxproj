@@ -186,9 +186,30 @@
 		826706442D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
 		826706452D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
 		826706462D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
-		826706482D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
-		826706492D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
-		8267064A2D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
+		826706482D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserCreationViewModel+UserError.swift */; };
+		826706492D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserCreationViewModel+UserError.swift */; };
+		8267064A2D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserCreationViewModel+UserError.swift */; };
+		8267064C2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */; };
+		8267064D2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */; };
+		8267064E2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */; };
+		826706502D1C8948009B3BED /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064F2D1C8948009B3BED /* UserDataRequest.swift */; };
+		826706512D1C8948009B3BED /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064F2D1C8948009B3BED /* UserDataRequest.swift */; };
+		826706522D1C8948009B3BED /* UserDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267064F2D1C8948009B3BED /* UserDataRequest.swift */; };
+		826706542D1C8BF6009B3BED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706532D1C8BF6009B3BED /* UserService.swift */; };
+		826706552D1C8BF6009B3BED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706532D1C8BF6009B3BED /* UserService.swift */; };
+		826706562D1C8BF6009B3BED /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706532D1C8BF6009B3BED /* UserService.swift */; };
+		826706592D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706582D1C8CF9009B3BED /* UserService+UserDetails.swift */; };
+		8267065A2D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706582D1C8CF9009B3BED /* UserService+UserDetails.swift */; };
+		8267065B2D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706582D1C8CF9009B3BED /* UserService+UserDetails.swift */; };
+		8267065F2D1CA61C009B3BED /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */; };
+		826706602D1CA61C009B3BED /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */; };
+		826706612D1CA61C009B3BED /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */; };
+		826706652D1CA641009B3BED /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706642D1CA641009B3BED /* UserProfileViewModel.swift */; };
+		826706662D1CA641009B3BED /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706642D1CA641009B3BED /* UserProfileViewModel.swift */; };
+		826706672D1CA641009B3BED /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706642D1CA641009B3BED /* UserProfileViewModel.swift */; };
+		8267066A2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
+		8267066B2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
+		8267066C2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -666,7 +687,14 @@
 		826706322D1BE368009B3BED /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
 		8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreationViewController.swift; sourceTree = "<group>"; };
 		826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreationViewModel.swift; sourceTree = "<group>"; };
-		826706472D1C0F81009B3BED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		826706472D1C0F81009B3BED /* UserCreationViewModel+UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCreationViewModel+UserError.swift"; sourceTree = "<group>"; };
+		8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceProtocol.swift; sourceTree = "<group>"; };
+		8267064F2D1C8948009B3BED /* UserDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRequest.swift; sourceTree = "<group>"; };
+		826706532D1C8BF6009B3BED /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		826706582D1C8CF9009B3BED /* UserService+UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserService+UserDetails.swift"; sourceTree = "<group>"; };
+		8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		826706642D1CA641009B3BED /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		826706692D1CAB59009B3BED /* UserDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsRequest.swift; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1318,11 +1346,61 @@
 		8267063E2D1C0DBD009B3BED /* CreateUser */ = {
 			isa = PBXGroup;
 			children = (
-				8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */,
-				826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */,
-				826706472D1C0F81009B3BED /* UserError.swift */,
+				8267065D2D1C8F21009B3BED /* ViewControllers */,
+				8267065C2D1C8F18009B3BED /* ViewModels */,
 			);
 			path = CreateUser;
+			sourceTree = "<group>";
+		};
+		826706572D1C8CE7009B3BED /* UserService */ = {
+			isa = PBXGroup;
+			children = (
+				826706532D1C8BF6009B3BED /* UserService.swift */,
+				826706582D1C8CF9009B3BED /* UserService+UserDetails.swift */,
+			);
+			path = UserService;
+			sourceTree = "<group>";
+		};
+		8267065C2D1C8F18009B3BED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */,
+				826706472D1C0F81009B3BED /* UserCreationViewModel+UserError.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8267065D2D1C8F21009B3BED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		826706622D1CA622009B3BED /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				826706632D1CA630009B3BED /* ViewControllers */,
+				826706682D1CA645009B3BED /* ViewModels */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		826706632D1CA630009B3BED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		826706682D1CA645009B3BED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				826706642D1CA641009B3BED /* UserProfileViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8269382D2CF9CEC200E03DAA /* CVPixelBuffer */ = {
@@ -1411,6 +1489,8 @@
 				826FA9F72D007D7C0029CF9C /* HallOfFameRequest.swift */,
 				8269388F2CFB5FDA00E03DAA /* RewardRequest.swift */,
 				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
+				8267064F2D1C8948009B3BED /* UserDataRequest.swift */,
+				826706692D1CAB59009B3BED /* UserDetailsRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -1423,6 +1503,7 @@
 				826938612CFAF29400E03DAA /* NetworkClientProtocol.swift */,
 				826938832CFB5E0400E03DAA /* RewardServiceProtocol.swift */,
 				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
+				8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1478,6 +1559,7 @@
 				82E5724F2D142636002F7C4B /* GeoObjectService */,
 				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
+				826706572D1C8CE7009B3BED /* UserService */,
 				8269389F2CFB609B00E03DAA /* TokenService */,
 			);
 			path = Network;
@@ -1689,15 +1771,16 @@
 		828545CA2CCD00ED0074EBF9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				8267063E2D1C0DBD009B3BED /* CreateUser */,
 				820611582CF48630003FB6BB /* Achievements */,
 				82560A632D06CE3400DE2210 /* AR */,
+				826706622D1CA622009B3BED /* UserProfile */,
+				8267063E2D1C0DBD009B3BED /* CreateUser */,
+				826FAA082D0080010029CF9C /* HallOfFame */,
 				828545CB2CCD00F70074EBF9 /* Home */,
 				828545D22CCD0DA80074EBF9 /* Map */,
 				826338CE2CF0A6E1009C2CED /* Onboarding */,
 				826FA9DA2CFF1A5D0029CF9C /* Settings */,
 				8263386B2CEFB30F009C2CED /* Wallet */,
-				826FAA082D0080010029CF9C /* HallOfFame */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -2299,8 +2382,9 @@
 				8285462C2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
+				8267066A2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */,
 				82F3A6B12D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
-				826706482D1C0F81009B3BED /* UserError.swift in Sources */,
+				826706482D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */,
 				82E572CF2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				82E572822D14B277002F7C4B /* RadarView.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
@@ -2325,6 +2409,7 @@
 				8285461F2CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				826FA9E42CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
 				829EE96D2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
+				826706502D1C8948009B3BED /* UserDataRequest.swift in Sources */,
 				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
@@ -2342,6 +2427,7 @@
 				82E572572D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				82E572C62D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
 				826938722CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
+				8267065B2D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */,
 				82560A952D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				82E5723D2D14202E002F7C4B /* GeoARNode.swift in Sources */,
 				8285461A2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
@@ -2349,6 +2435,7 @@
 				826938802CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				826FAA032D007E5B0029CF9C /* HallOfFameServiceProtocol.swift in Sources */,
 				82560A762D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
+				826706652D1CA641009B3BED /* UserProfileViewModel.swift in Sources */,
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				82E572692D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
@@ -2382,6 +2469,7 @@
 				828545C12CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				826937FD2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
 				828545EE2CCD143A0074EBF9 /* PlayerEntity+CoreDataClass.swift in Sources */,
+				8267064E2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */,
 				826938092CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				8269389A2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				820611762CF6A269003FB6BB /* LocationValidation.swift in Sources */,
@@ -2400,6 +2488,8 @@
 				828545D52CCD12750074EBF9 /* Player.swift in Sources */,
 				8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
+				826706612D1CA61C009B3BED /* UserProfileViewController.swift in Sources */,
+				826706562D1C8BF6009B3BED /* UserService.swift in Sources */,
 				829EE9522D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
 				82E5727A2D14690F002F7C4B /* GeoObjectAnnotation.swift in Sources */,
 				826938232CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
@@ -2436,6 +2526,7 @@
 			files = (
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				829EE95F2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
+				826706552D1C8BF6009B3BED /* UserService.swift in Sources */,
 				826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
@@ -2477,6 +2568,8 @@
 				82F3A6AF2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
 				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
 				826706402D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */,
+				826706592D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */,
+				826706672D1CA641009B3BED /* UserProfileViewModel.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
@@ -2549,7 +2642,7 @@
 				829EE9622D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				82E572742D146484002F7C4B /* HomeViewController+GeoObject.swift in Sources */,
-				8267064A2D1C0F81009B3BED /* UserError.swift in Sources */,
+				8267064A2D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -2559,6 +2652,7 @@
 				829EE9562D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				82E5723B2D14202E002F7C4B /* GeoARNode.swift in Sources */,
 				826938212CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
+				8267065F2D1CA61C009B3BED /* UserProfileViewController.swift in Sources */,
 				82E572582D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				826938702CFAF43C00E03DAA /* TokenResponse.swift in Sources */,
 				8285460E2CCE35A00074EBF9 /* Double+DegreesToRadians.swift in Sources */,
@@ -2570,6 +2664,7 @@
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				82E572C12D156E08002F7C4B /* BaseNodeManager.swift in Sources */,
 				820611102CF1F437003FB6BB /* OnboardingViewModelTests.swift in Sources */,
+				826706522D1C8948009B3BED /* UserDataRequest.swift in Sources */,
 				820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				828545C92CCD00D60074EBF9 /* HomeViewModelTests.swift in Sources */,
 				828546062CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
@@ -2578,6 +2673,7 @@
 				82560A842D06DFC500DE2210 /* DroneCountView.swift in Sources */,
 				8206110D2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826938172CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
+				8267066C2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */,
 				82E572682D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
 				82E572532D14263B002F7C4B /* GeoObjectService.swift in Sources */,
 				828545DC2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
@@ -2598,6 +2694,7 @@
 				8269389B2CFB607D00E03DAA /* TokenService.swift in Sources */,
 				82E572702D146476002F7C4B /* HomeViewController+Drones.swift in Sources */,
 				826937FB2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
+				8267064C2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */,
 				82381EAB2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */,
 				826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */,
 				826938A52CFD995F00E03DAA /* NotificationManager.swift in Sources */,
@@ -2657,6 +2754,7 @@
 				826938812CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				829EE95A2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
+				8267066B2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */,
 				826706332D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */,
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
@@ -2667,6 +2765,7 @@
 				826938A92CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				82E572CD2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				82E5725C2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
+				826706512D1C8948009B3BED /* UserDataRequest.swift in Sources */,
 				828545A72CCCFE550074EBF9 /* ShootingAppUITests.swift in Sources */,
 				820611742CF6A260003FB6BB /* HitValidation.swift in Sources */,
 				826338702CEFB322009C2CED /* WalletViewModel.swift in Sources */,
@@ -2677,6 +2776,7 @@
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				82E572CB2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
 				82CE89B92D0399520014E35B /* ConnectionStatusView.swift in Sources */,
+				826706662D1CA641009B3BED /* UserProfileViewModel.swift in Sources */,
 				826FAA122D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				829EE96F2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				820611482CF4824D003FB6BB /* AchievementService.swift in Sources */,
@@ -2684,11 +2784,13 @@
 				826938402CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				82E572782D14690F002F7C4B /* GeoObjectAnnotation.swift in Sources */,
 				8206117C2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
+				8267064D2D1C8856009B3BED /* UserServiceProtocol.swift in Sources */,
 				828546142CCE376B0074EBF9 /* Notification+Names.swift in Sources */,
 				826938312CFA019200E03DAA /* LocationManager.swift in Sources */,
 				829EE96B2D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				8269380D2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				820611672CF4868F003FB6BB /* AchievementCell.swift in Sources */,
+				8267065A2D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */,
 				826938182CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				826938052CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
@@ -2711,7 +2813,9 @@
 				826938072CF9CA5D00E03DAA /* LocationPermissionViewModel.swift in Sources */,
 				826938682CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826FA9E32CFF1A9D0029CF9C /* SettingsViewModel.swift in Sources */,
+				826706602D1CA61C009B3BED /* UserProfileViewController.swift in Sources */,
 				820611782CF6A269003FB6BB /* LocationValidation.swift in Sources */,
+				826706542D1C8BF6009B3BED /* UserService.swift in Sources */,
 				826938A32CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				8269388A2CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				82F3A6AC2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
@@ -2736,7 +2840,7 @@
 				826938112CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
-				826706492D1C0F81009B3BED /* UserError.swift in Sources */,
+				826706492D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,

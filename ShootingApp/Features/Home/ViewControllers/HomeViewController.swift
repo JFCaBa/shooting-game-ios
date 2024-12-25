@@ -18,8 +18,8 @@ final class HomeViewController: UIViewController {
     // MARK: - Constants
     
     private let crosshairRecoilDistance: CGFloat = 20
-    private let maxAmmo = 30
-    private let maxLives = 10
+    let maxAmmo = 30
+    let maxLives = 10
     let amountHitReward = 1
     let amountHitDroneReward = 2
     let amountKillReward = 5
@@ -50,7 +50,7 @@ final class HomeViewController: UIViewController {
         return view
     }()
     
-    private lazy var ammoBar: StatusBarView = {
+    lazy var ammoBar: StatusBarView = {
         let bar = StatusBarView(
             icon: UIImage(named: "bullets"),
             tintColor: .systemGreen,
@@ -61,7 +61,7 @@ final class HomeViewController: UIViewController {
         return bar
     }()
     
-    private lazy var lifeBar: StatusBarView = {
+    lazy var lifeBar: StatusBarView = {
         let bar = StatusBarView(
             icon: UIImage(systemName: "heart.fill"),
             tintColor: .systemRed,

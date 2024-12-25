@@ -48,6 +48,7 @@ final class UserCreationViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         idLabel.font = .systemFont(ofSize: 17)
+        idLabel.lineBreakMode = .byTruncatingMiddle
         
         [nicknameField, emailField, passwordField, confirmPasswordField].forEach {
             $0.borderStyle = .roundedRect
@@ -101,6 +102,15 @@ final class UserCreationViewController: UIViewController {
                self?.showAlert(title: "Error", message: error.localizedDescription)
            }
            .store(in: &cancellables)
+        
+        viewModel.$token
+            .compactMap { $0 }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                viewModel.coordinator?.navigationController.popViewController(animated: true)
+            }
+            .store(in: &cancellables)
 
        // Combine all field validations
        Publishers.CombineLatest4(
@@ -121,11 +131,17 @@ final class UserCreationViewController: UIViewController {
     }
     
     @objc private func saveButtonTapped() {
+        guard let nickName = nicknameField.text,
+              let email = emailField.text,
+              let password = passwordField.text,
+              let confirmPassword = confirmPasswordField.text
+        else { return }
+        
         viewModel.createUser(
-            nickname: nicknameField.text ?? "",
-            email: emailField.text ?? "",
-            password: passwordField.text ?? "",
-            confirmPassword: confirmPasswordField.text ?? ""
+            nickname: nickName,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
         )
     }
 }
