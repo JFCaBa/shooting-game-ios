@@ -13,7 +13,8 @@ final class WalletViewModel: ObservableObject  {
     @Published private(set) var balance: TokenResponse?
     @Published private(set) var error: Error?
     @Published private(set) var isConnected = false
-    @Published private(set) var accountAddress: String?
+    @Published private(set) var isWalletConnected = false
+    @Published private(set) var connectedWallet: String?
     @Published private(set) var showMetaMaskNotInstalledError = false
     
     private let web3Service = Web3Service.shared
@@ -24,10 +25,12 @@ final class WalletViewModel: ObservableObject  {
         checkExistingConnection()
     }
     
-    func fetchBalance(for address: String) {
+    func fetchBalance() {
+        guard let playerId = GameManager.shared.playerId else { return }
+        
         Task {
             do {
-                balance = try await tokenService.getBalance(for: address)
+                balance = try await tokenService.getBalance(for: playerId)
             } catch {
                 self.error = error
             }
@@ -37,17 +40,17 @@ final class WalletViewModel: ObservableObject  {
     func checkConnection() async {
         if web3Service.isConnected {
             isConnected = true
-            accountAddress = web3Service.account
+            connectedWallet = web3Service.account
         }
         else {
             isConnected = false
-            accountAddress = GameManager.shared.playerId
+            connectedWallet = nil
         }
     }
     
     private func checkExistingConnection() {
         isConnected = web3Service.isConnected
-        accountAddress = web3Service.account ?? GameManager.shared.playerId
+        connectedWallet = web3Service.account ?? GameManager.shared.playerId
     }
     
     func connect() async {
@@ -57,20 +60,27 @@ final class WalletViewModel: ObservableObject  {
         }
         
         do {
-            let account = try await web3Service.connect()
-            isConnected = true
-            accountAddress = account
+            let walletAddress = try await web3Service.connect()
+            isWalletConnected = true
+            connectedWallet = walletAddress
+            
+            await updatePlayerWallet(walletAddress)
         } catch {
-            isConnected = false
-            accountAddress = GameManager.shared.playerId
+            isWalletConnected = false
+            connectedWallet = GameManager.shared.playerId
             self.error = error
         }
+    }
+
+    private func updatePlayerWallet(_ wallet: String) async {
+        // TODO: Update player wallet address in backend/storage
+        
     }
     
     func disconnect() {
         web3Service.disconnect()
         isConnected = false
-        accountAddress = GameManager.shared.playerId
+        connectedWallet = GameManager.shared.playerId
     }
     
     func openAppStore() {

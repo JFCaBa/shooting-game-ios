@@ -28,4 +28,10 @@ final class SettingsCoordinator: CoordinatorProtocol {
         let viewController = HallOfFameViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
+    func showUserCreation() {
+        let viewModel = UserCreationViewModel()
+        viewModel.coordinator = self
+        let viewController = UserCreationViewController(viewModel: viewModel)
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

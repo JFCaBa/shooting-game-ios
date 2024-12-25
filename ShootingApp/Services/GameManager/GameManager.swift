@@ -74,13 +74,6 @@ final class GameManager: GameManagerProtocol {
     private func setupObserver() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(updatePlayerId),
-            name: .metamaskDidConnect,
-            object: nil
-        )
-        
-        NotificationCenter.default.addObserver(
-            self,
             selector: #selector(playerJoined(_:)),
             name: .playerJoined,
             object: nil
@@ -113,15 +106,6 @@ final class GameManager: GameManagerProtocol {
         
         let shoot = ShootData(from: player)
         playerManager.updatePlayer(shoot)
-    }
-    
-    // MARK: - updatePlayerId()
-    
-    @objc private func updatePlayerId() {
-        if let walletAddress = Web3Service.shared.account {
-            playerId = walletAddress
-            reconnectWithNewId()
-        }
     }
     
     // MARK: - shoot(ar:,drone:,geoObject:,location:,heading:))
@@ -359,10 +343,10 @@ final class GameManager: GameManagerProtocol {
     
     // MARK: - reconnectWithNewId()
     
-    private func reconnectWithNewId() {
-        webSocketService.disconnect()
-        webSocketService.connect()
-    }
+//    private func reconnectWithNewId() {
+//        webSocketService.disconnect()
+//        webSocketService.connect()
+//    }
     
     // MARK: - startGame()
     
@@ -384,7 +368,7 @@ final class GameManager: GameManagerProtocol {
             return
         }
         
-        playerId = Web3Service.shared.account ?? uuid()
+        playerId = uuid()
         currentLives = 10
         isAlive = true
         gameScore = GameScore(hits: 0, kills: 0)

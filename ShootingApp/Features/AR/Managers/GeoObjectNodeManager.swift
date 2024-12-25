@@ -12,7 +12,7 @@ final class GeoObjectNodeManager: BaseNodeManager<GeoARNode, GeoObject> {
     
     override func spawnNode(for geoObject: GeoObject) {        
         data.append(geoObject)
-        var node = GeoARNodeFactory.createNode(for: geoObject, location: .init(x: 0, y: 0, z: 0))
+        var node = GeoARNodeFactory.createNode(for: geoObject, location: .init(x: 0, y: 10, z: 0))
         
         if let location = LocationManager.shared.location {
             node.updatePosition(

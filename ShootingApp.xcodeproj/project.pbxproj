@@ -180,6 +180,15 @@
 		826706332D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
 		826706342D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
 		826706352D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
+		826706402D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */; };
+		826706412D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */; };
+		826706422D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */; };
+		826706442D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
+		826706452D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
+		826706462D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */; };
+		826706482D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
+		826706492D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
+		8267064A2D1C0F81009B3BED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706472D1C0F81009B3BED /* UserError.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -655,6 +664,9 @@
 		826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
 		8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sniperRifle_metallic2.jpg; sourceTree = "<group>"; };
 		826706322D1BE368009B3BED /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
+		8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreationViewController.swift; sourceTree = "<group>"; };
+		826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreationViewModel.swift; sourceTree = "<group>"; };
+		826706472D1C0F81009B3BED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1239,6 +1251,80 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		826706362D1BE693009B3BED /* CLLocation */ = {
+			isa = PBXGroup;
+			children = (
+				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
+			);
+			path = CLLocation;
+			sourceTree = "<group>";
+		};
+		826706372D1BE69E009B3BED /* Double */ = {
+			isa = PBXGroup;
+			children = (
+				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
+			);
+			path = Double;
+			sourceTree = "<group>";
+		};
+		826706382D1BE6B0009B3BED /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		826706392D1BE6B8009B3BED /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		8267063A2D1BE6BE009B3BED /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
+		8267063B2D1BE6C7009B3BED /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		8267063C2D1BE6D1009B3BED /* NSAttributedString */ = {
+			isa = PBXGroup;
+			children = (
+				829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */,
+			);
+			path = NSAttributedString;
+			sourceTree = "<group>";
+		};
+		8267063D2D1BE6D9009B3BED /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				826706322D1BE368009B3BED /* Bundle+AppVersion.swift */,
+			);
+			path = Bundle;
+			sourceTree = "<group>";
+		};
+		8267063E2D1C0DBD009B3BED /* CreateUser */ = {
+			isa = PBXGroup;
+			children = (
+				8267063F2D1C0DCE009B3BED /* UserCreationViewController.swift */,
+				826706432D1C0DF6009B3BED /* UserCreationViewModel.swift */,
+				826706472D1C0F81009B3BED /* UserError.swift */,
+			);
+			path = CreateUser;
+			sourceTree = "<group>";
+		};
 		8269382D2CF9CEC200E03DAA /* CVPixelBuffer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1603,6 +1689,7 @@
 		828545CA2CCD00ED0074EBF9 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8267063E2D1C0DBD009B3BED /* CreateUser */,
 				820611582CF48630003FB6BB /* Achievements */,
 				82560A632D06CE3400DE2210 /* AR */,
 				828545CB2CCD00F70074EBF9 /* Home */,
@@ -1753,18 +1840,18 @@
 		828546102CCE35BB0074EBF9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				828546082CCE356F0074EBF9 /* CLLocation+Bearing.swift */,
+				8267063D2D1BE6D9009B3BED /* Bundle */,
+				826706362D1BE693009B3BED /* CLLocation */,
 				8269382D2CF9CEC200E03DAA /* CVPixelBuffer */,
-				8285460C2CCE35A00074EBF9 /* Double+DegreesToRadians.swift */,
-				828546112CCE376B0074EBF9 /* Notification+Names.swift */,
-				82381EAA2D05D4F7008FBD86 /* UIColor+Custom.swift */,
+				826706372D1BE69E009B3BED /* Double */,
+				826706382D1BE6B0009B3BED /* Notification */,
+				8267063C2D1BE6D1009B3BED /* NSAttributedString */,
+				826706392D1BE6B8009B3BED /* UIColor */,
+				829EE95C2D097F6900EAF8A9 /* UIFont */,
 				82560A922D06F54600DE2210 /* UIImage */,
 				8269387A2CFB36B100E03DAA /* UIViewController */,
-				826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */,
-				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
-				829EE95C2D097F6900EAF8A9 /* UIFont */,
-				829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */,
-				826706322D1BE368009B3BED /* Bundle+AppVersion.swift */,
+				8267063A2D1BE6BE009B3BED /* URL */,
+				8267063B2D1BE6C7009B3BED /* UserDefaults */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2213,6 +2300,7 @@
 				826938562CFAF20E00E03DAA /* NetworkError.swift in Sources */,
 				8206111A2CF1FDE3003FB6BB /* ScoreView.swift in Sources */,
 				82F3A6B12D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
+				826706482D1C0F81009B3BED /* UserError.swift in Sources */,
 				82E572CF2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				82E572822D14B277002F7C4B /* RadarView.swift in Sources */,
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
@@ -2249,6 +2337,7 @@
 				826FAA102D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826938462CFA119400E03DAA /* MockWalletRepository.swift in Sources */,
 				828546052CCD203A0074EBF9 /* HomeViewController+LocationDelegate.swift in Sources */,
+				826706452D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */,
 				820611AC2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
 				82E572572D1428E2002F7C4B /* GeoObjectsManager.swift in Sources */,
 				82E572C62D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
@@ -2326,6 +2415,7 @@
 				826FA9FE2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				8206119E2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
 				8206118A2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
+				826706412D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */,
 				826938892CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				82381EA92D05CD51008FBD86 /* HallOfFameCellViewModel.swift in Sources */,
 				826FA9ED2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
@@ -2386,6 +2476,7 @@
 				826938412CFA114500E03DAA /* WalletRepositoryProtocol.swift in Sources */,
 				82F3A6AF2D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
 				82223F0D2D0461100095E161 /* Environment.swift in Sources */,
+				826706402D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
@@ -2430,6 +2521,7 @@
 				820611322CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				8269380B2CF9CA8700E03DAA /* LocationPermissionViewController.swift in Sources */,
 				82E572B92D156DC0002F7C4B /* NodeManageable.swift in Sources */,
+				826706462D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */,
 				826938882CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
 				820611902CF6A35D003FB6BB /* HitValidationServiceTests.swift in Sources */,
 				82560A6A2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
@@ -2457,6 +2549,7 @@
 				829EE9622D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,
 				828545E02CCD12CF0074EBF9 /* WebSocketService.swift in Sources */,
 				82E572742D146484002F7C4B /* HomeViewController+GeoObject.swift in Sources */,
+				8267064A2D1C0F81009B3BED /* UserError.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -2604,12 +2697,14 @@
 				82560A6B2D06CE8B00DE2210 /* HomeViewController+AR.swift in Sources */,
 				8206112E2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				820611232CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
+				826706422D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */,
 				826FAA052D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
 				820611802CF6A27D003FB6BB /* HitValidationError.swift in Sources */,
 				826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826938642CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				826338792CEFB355009C2CED /* WalletViewController.swift in Sources */,
 				826937FC2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift in Sources */,
+				826706442D1C0DF6009B3BED /* UserCreationViewModel.swift in Sources */,
 				826338D72CF0A71E009C2CED /* OnboardingCoordinator.swift in Sources */,
 				826FA9EE2D0055A10029CF9C /* AchievementRequest.swift in Sources */,
 				82E572522D14263B002F7C4B /* GeoObjectService.swift in Sources */,
@@ -2641,6 +2736,7 @@
 				826938112CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
 				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
+				826706492D1C0F81009B3BED /* UserError.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,

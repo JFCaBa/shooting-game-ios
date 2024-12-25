@@ -58,24 +58,6 @@ final class ARDroneNode: SCNNode {
         
         node.load()
         node.scale = type.scale
-        
-        // Apply textures to all geometries in the model
-//        for childNode in node.childNodes {
-//            if let geometry = childNode.geometry {
-//                let bodyShape = SCNPhysicsShape(
-//                    shapes: [
-//                        SCNPhysicsShape(geometry: geometry, options: nil)
-//                    ],
-//                    transforms: nil
-//                )
-//                let physicsBody = SCNPhysicsBody(type: .static, shape: bodyShape)
-//                
-//                // Apply physics body to each child node
-//                childNode.physicsBody = physicsBody
-//                childNode.physicsBody?.mass = 0.5
-//                childNode.physicsBody?.isAffectedByGravity = false
-//            }
-//        }
                 
         addChildNode(node)
         

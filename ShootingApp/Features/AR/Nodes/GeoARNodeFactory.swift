@@ -13,7 +13,7 @@ final class GeoARNodeFactory {
         let node = GeoARNode(
             id: geoObject.id,
             coordinate: geoObject.coordinate.toCLLocationCoordinate2D(),
-            altitude: geoObject.coordinate.altitude
+            altitude: location.y
         )
         
         // Configure the node based on type
@@ -142,10 +142,30 @@ final class GeoARNodeFactory {
         light.attenuationStartDistance = 1.0
         light.attenuationEndDistance = 10.0
         
+        let altitude = node.position.y + 0.5
+        
         let lightNode = SCNNode()
         lightNode.light = light
-        lightNode.position = SCNVector3(0.5, 0.5, 0.5)
+        lightNode.position = SCNVector3(0.5, altitude, 0.5)
         
         node.addChildNode(lightNode)
+        
+        let lightNode2 = SCNNode()
+        lightNode2.light = light
+        lightNode2.position = SCNVector3(-0.5, altitude, -0.5)
+        
+        node.addChildNode(lightNode2)
+        
+        let lightNode3 = SCNNode()
+        lightNode3.light = light
+        lightNode3.position = SCNVector3(-0.5, altitude * -1, 0.5)
+        
+        node.addChildNode(lightNode3)
+        
+        let lightNode4 = SCNNode()
+        lightNode4.light = light
+        lightNode4.position = SCNVector3(0.5, altitude * -1, -0.5)
+        
+        node.addChildNode(lightNode4)
     }
 }

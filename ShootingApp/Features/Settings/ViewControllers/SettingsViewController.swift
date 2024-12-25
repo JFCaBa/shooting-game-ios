@@ -73,17 +73,27 @@ final class SettingsViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension SettingsViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.accessoryType = .disclosureIndicator
+            
+            var content = cell.defaultContentConfiguration()
+            content.text = "Create user"
+            content.secondaryText = "You will be able to create a user with a username and password"
+            cell.contentConfiguration = content
+            
+            return cell
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.accessoryType = .disclosureIndicator
             
@@ -96,6 +106,7 @@ extension SettingsViewController: UITableViewDataSource {
             
         default: // Return the App version in the last section
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            
             var content = cell.defaultContentConfiguration()
             content.text = "App version:"
             content.secondaryText = viewModel.versionAndBuildNumber
@@ -108,6 +119,8 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
+            return "Create a user for extra add-ones and better experience in the game."
+        case 1:
             return "You'll receive notifications when players enter within this distance. A larger distance means more notifications but earlier warnings."
         default: return nil
         }
@@ -118,8 +131,11 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        showDistanceSelector()
+        switch (indexPath.section) {
+        case 0: viewModel.coordinator?.showUserCreation()
+        case 1: showDistanceSelector()
+        default: break
+        }
     }
 }
 

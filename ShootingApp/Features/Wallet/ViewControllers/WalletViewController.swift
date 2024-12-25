@@ -70,15 +70,7 @@ final class WalletViewController: UIViewController {
         setupUI()
         setupBindings()
         setupNotifications()
-#if targetEnvironment(simulator)
-        if let playerId = GameManager.shared.playerId {
-            viewModel.fetchBalance(for: playerId)
-        }
-#else
-        if let accountAddress = viewModel.accountAddress {
-            viewModel.fetchBalance(for: accountAddress)
-        }
-#endif
+        viewModel.fetchBalance()
     }
     
     // MARK: - setupUI()
@@ -133,16 +125,6 @@ final class WalletViewController: UIViewController {
             }
             .store(in: &cancellables)
         
-        viewModel.$accountAddress
-            .compactMap({$0})
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] address in
-                guard let self else { return }
-                
-                updateAccountLabel(address: address)
-            }
-            .store(in: &cancellables)
-        
         viewModel.$showMetaMaskNotInstalledError
             .receive(on: DispatchQueue.main)
             .sink { [weak self] show in
@@ -172,18 +154,13 @@ final class WalletViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(handleMetaMaskConnection),
-            name: NSNotification.Name("MetaMaskDidConnect"),
+            name: .metamaskDidConnect,
             object: nil
         )
     }
     
     private func updateButtonState(isConnected: Bool) {
         connectButton.setTitle(isConnected ? "Disconnect MetaMask" : "Connect MetaMask", for: .normal)
-    }
-    
-    private func updateAccountLabel(address: String) {
-        let wording = viewModel.isConnected ? "Connected to:" : "Temporary address:"
-        accountLabel.text = "\(wording)\n\(address)"
     }
     
     private func showMetaMaskNotInstalledAlert() {
@@ -217,9 +194,7 @@ final class WalletViewController: UIViewController {
     @objc private func handleMetaMaskConnection() {
         Task {
             await viewModel.checkConnection()
-            if let address = viewModel.accountAddress {
-                viewModel.fetchBalance(for: address)
-            }
+            viewModel.fetchBalance()
         }
     }
 }
