@@ -23,6 +23,12 @@ final class SettingsViewModel {
         }
     }
     
+    // MARK: - API
+    
+    var versionAndBuildNumber: String {
+        "\(Bundle.main.appVersionLong) (\(Bundle.main.appBuildNumber))"
+    }
+    
     // MARK: - Public Methods
     
     func updateNotificationDistance(_ distance: Double) {

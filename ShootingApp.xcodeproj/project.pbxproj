@@ -174,6 +174,12 @@
 		826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
 		826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
 		826338DD2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */; };
+		8267062B2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */; };
+		8267062C2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */; };
+		8267062D2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */; };
+		826706332D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
+		826706342D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
+		826706352D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706322D1BE368009B3BED /* Bundle+AppVersion.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -647,6 +653,8 @@
 		826338CC2CF0A55F009C2CED /* URL+QueryParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+QueryParameters.swift"; sourceTree = "<group>"; };
 		826338D42CF0A71E009C2CED /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Keys.swift"; sourceTree = "<group>"; };
+		8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sniperRifle_metallic2.jpg; sourceTree = "<group>"; };
+		826706322D1BE368009B3BED /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1756,6 +1764,7 @@
 				826338DA2CF1D996009C2CED /* UserDefaults+Keys.swift */,
 				829EE95C2D097F6900EAF8A9 /* UIFont */,
 				829EE9612D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift */,
+				826706322D1BE368009B3BED /* Bundle+AppVersion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1918,6 +1927,7 @@
 		82F3A6CE2D0DEE7900EAB48E /* Textures */ = {
 			isa = PBXGroup;
 			children = (
+				8267062A2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg */,
 				820E9A072D18978200DE8941 /* 51XTHlZdXQL._SX466_.jpg */,
 				82E572DC2D15B300002F7C4B /* Sci-fi_Crate_emissive.jpg */,
 				82E572D82D15B2F8002F7C4B /* Sci-fi_Crate_albedo.jpg */,
@@ -2058,6 +2068,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F3A6ED2D0E164600EAB48E /* ai_whitePlastic_tex_baseColor.png in Resources */,
+				8267062C2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */,
 				82F3A6F52D0E186D00EAB48E /* drones.txt in Resources */,
 				828545922CCCFE550074EBF9 /* LaunchScreen.storyboard in Resources */,
 				82E572E12D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
@@ -2098,6 +2109,7 @@
 				82F3A72E2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				82E5731B2D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				826938AF2CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				8267062B2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */,
 				82E572AA2D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6842D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				82E572E22D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
@@ -2123,6 +2135,7 @@
 				82F3A72D2D0EC3D600EAB48E /* Fabric004_4K_Colorcopie.jpeg in Resources */,
 				82E573192D170B92002F7C4B /* Base_Color_1.jpg in Resources */,
 				826938B02CFDA03F00E03DAA /* GoogleService-Info.plist in Resources */,
+				8267062D2D1AD5E4009B3BED /* sniperRifle_metallic2.jpg in Resources */,
 				82E572A92D156702002F7C4B /* vil_p_crate06_d.png in Resources */,
 				82F3A6822D0CB52300EAB48E /* drone_sound.m4a in Resources */,
 				82E572E32D15B340002F7C4B /* sci_fi_crate.scn in Resources */,
@@ -2192,6 +2205,7 @@
 				82F3A6AB2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
 				826938152CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
 				826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */,
+				826706342D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */,
 				82381EAD2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */,
 				826338DB2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				826937F72CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
@@ -2433,6 +2447,7 @@
 				826FAA162D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				82E572C72D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
 				82E572BF2D156DE0002F7C4B /* NodeManager.swift in Sources */,
+				826706352D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */,
 				820611182CF1F493003FB6BB /* TestHelpers.swift in Sources */,
 				829EE94C2D097D9300EAF8A9 /* OnboardingSheetViewController+Configuration.swift in Sources */,
 				829EE94D2D097D9300EAF8A9 /* OnboardingSheetViewController+TitleLabel.swift in Sources */,
@@ -2549,6 +2564,7 @@
 				826938812CFB462000E03DAA /* FeedbackView.swift in Sources */,
 				829EE95A2D097F5E00EAF8A9 /* UIFont+ScaledSystemFont.swift in Sources */,
 				826338742CEFB332009C2CED /* Web3Error.swift in Sources */,
+				826706332D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */,
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
