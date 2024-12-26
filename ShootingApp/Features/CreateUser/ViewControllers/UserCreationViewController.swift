@@ -138,9 +138,18 @@ final class UserCreationViewController: UIViewController {
     
     private func showUserAlreadyExistsAlert() {
         let alert = UIAlertController(title: "User already exists", message: nil, preferredStyle: .actionSheet)
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        alert.addAction(UIAlertAction(title: "Login", style: .default))
+        
+        alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { [weak self] _ in
+            self?.presentLoginScreen()
+        }))
+        
         present(alert, animated: true)
+    }
+    
+    private func presentLoginScreen() {
+        viewModel.coordinator?.startLoginFlow()
     }
     
     @objc private func saveButtonTapped() {
@@ -156,15 +165,5 @@ final class UserCreationViewController: UIViewController {
             password: password,
             confirmPassword: confirmPassword
         )
-    }
-}
-
-// Extension for UITextField publisher
-extension UITextField {
-    var textPublisher: AnyPublisher<String, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .map { ($0.object as? UITextField)?.text ?? "" }
-            .eraseToAnyPublisher()
     }
 }
