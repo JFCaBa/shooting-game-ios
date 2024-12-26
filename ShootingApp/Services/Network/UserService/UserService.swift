@@ -34,8 +34,33 @@ class UserService: UserServiceProtocol {
     
     func getUserDetails(playerId: String) async throws -> Player.UserData {
         let request = UserDetailsRequest(playerId: playerId)
-        let response: Player.UserData = try await networkClient.perform(request)
-        return response
+        
+        do {
+            let response: Player.UserData = try await networkClient.perform(request)
+            return response
+        } catch let networkError as NetworkError {
+            switch networkError {
+            case .unauthorized:
+                // Handle 401 Unauthorized
+                print("Unauthorized access. Please check the token.")
+                throw networkError
+            case .notFound:
+                // Handle 404 Not Found
+                print("User details not found for playerId: \(playerId).")
+                throw networkError
+            case .serverError:
+                // Handle 500 Internal Server Error
+                print("Server error occurred.")
+                throw networkError
+            default:
+                // Handle other network errors (e.g., decoding, request issues)
+                print("An unexpected error occurred: \(networkError).")
+                throw networkError
+            }
+        } catch {
+            // Re-throw any other non-NetworkError errors
+            throw error
+        }
     }
     
     func updateUser(playerId: String, nickName: String, email: String, password: String) async throws {

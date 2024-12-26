@@ -78,7 +78,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -116,6 +116,15 @@ extension SettingsViewController: UITableViewDataSource {
             
             return cell
             
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.accessoryType = .disclosureIndicator
+            
+            var content = cell.defaultContentConfiguration()
+            content.text = "Sign out"
+            cell.contentConfiguration = content
+            
+            return cell
         default: // Return the App version in the last section
             let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
             
@@ -152,11 +161,14 @@ extension SettingsViewController: UITableViewDelegate {
         case 0:
             if viewModel.token == nil {
                 viewModel.coordinator?.showUserCreation()
-            }
-            else {
+            } else {
                 viewModel.coordinator?.showUserProfile()
             }
+        
         case 1: showDistanceSelector()
+        
+        case 2: viewModel.signOut()
+        
         default: break
         }
     }

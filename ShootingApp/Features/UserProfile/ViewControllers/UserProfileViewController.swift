@@ -135,8 +135,8 @@ final class UserProfileViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] userData in
                 self?.idLabel.text = "Player ID: \(GameManager.shared.playerId ?? "")"
-                self?.emailField.text = userData?.email
-                self?.nicknameField.text = userData?.nickName
+                self?.emailField.text = userData?.details?.email
+                self?.nicknameField.text = userData?.details?.nickName
             }
             .store(in: &cancellables)
             
