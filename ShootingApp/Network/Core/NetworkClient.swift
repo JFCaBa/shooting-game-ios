@@ -21,8 +21,6 @@ final class NetworkClient: NetworkClientProtocol {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method
-        // Debugging: Print headers to check their contents
-        print("Headers: \(request.headers)")
         request.headers.forEach { urlRequest.setValue($0.value, forHTTPHeaderField: $0.key) }
         
         // Add the request body if it exists
@@ -35,13 +33,12 @@ final class NetworkClient: NetworkClientProtocol {
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw NetworkError.unknown(statusCode: -1, message: "Invalid response")
             }
+            // Debug: Print the raw JSON
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Response JSON: \(jsonString)")
+            }
             switch httpResponse.statusCode {
             case 200...299:
-                // Debug: Print the raw JSON
-                if let jsonString = String(data: data, encoding: .utf8) {
-                    print("Response JSON: \(jsonString)")
-                }
-
                 let decoder = JSONDecoder()
                 return try decoder.decode(T.self, from: data)
                 
@@ -53,6 +50,9 @@ final class NetworkClient: NetworkClientProtocol {
                 
             case 404:
                 throw NetworkError.notFound
+                
+            case 409:
+                throw NetworkError.conflict(message: "The user already exists")
                 
             case 500...599:
                 throw NetworkError.serverError
