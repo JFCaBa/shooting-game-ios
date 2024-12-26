@@ -8,8 +8,13 @@
 import Foundation
 
 enum NetworkError: Error {
-    case invalidURL
-    case requestFailed(Error)
-    case invalidResponse
+    case unauthorized
+    case badRequest
+    case notFound
+    case serverError
     case decodingFailed(Error)
+    case requestFailed(Error)
+    case invalidURL
+    case invalidResponse
+    case unknown(statusCode: Int, message: String)
 }

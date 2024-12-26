@@ -61,7 +61,7 @@ final class UserProfileViewModel {
                 try await userService.updateUser(
                     playerId: playerId,
                     nickName: nickname,
-                    email: userData.email ?? "",
+                    email: userData.details?.email ?? "",
                     password: password ?? ""
                 )
                 await MainActor.run {

@@ -30,10 +30,16 @@ extension Player {
     }
 }
 
+
 extension Player {
     struct UserData: Codable {
+        let details: UserDetails?
+    }
+}
+
+extension Player {
+    struct UserDetails: Codable {
         let nickName: String?
         let email: String?
     }
 }
-

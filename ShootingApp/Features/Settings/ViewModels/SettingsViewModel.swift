@@ -48,4 +48,9 @@ final class SettingsViewModel {
         UserDefaults.standard.set(distance, forKey: UserDefaults.Keys.notificationDistance)
         NotificationCenter.default.post(name: .notificationDistanceChanged, object: nil)
     }
+    
+    func signOut() {
+        try? KeychainManager.shared.deleteToken()
+        coordinator?.navigationController.popToRootViewController(animated: true)
+    }
 }
