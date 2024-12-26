@@ -41,4 +41,9 @@ final class SettingsCoordinator: CoordinatorProtocol {
         let viewController = UserProfileViewController(viewModel: viewModel)
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func startLoginFlow() {
+        let coordinator = LoginCoordinator(navigationController: navigationController)
+        coordinator.startLoginFlow()
+    }
 }
