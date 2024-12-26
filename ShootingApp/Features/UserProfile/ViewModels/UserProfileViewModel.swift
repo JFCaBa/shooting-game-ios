@@ -64,15 +64,11 @@ final class UserProfileViewModel {
                     email: userData.details?.email ?? "",
                     password: password ?? ""
                 )
-                await MainActor.run {
-                    self.success = "Profile updated successfully"
-                    self.isLoading = false
-                }
+                self.success = "Profile updated successfully"
+                self.isLoading = false
             } catch {
-                await MainActor.run {
-                    self.error = error
-                    self.isLoading = false
-                }
+                self.error = error
+                self.isLoading = false
             }
         }
     }

@@ -210,6 +210,9 @@
 		8267066A2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
 		8267066B2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
 		8267066C2D1CAB59009B3BED /* UserDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706692D1CAB59009B3BED /* UserDetailsRequest.swift */; };
+		8267066F2D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */; };
+		826706702D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */; };
+		826706712D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -695,6 +698,7 @@
 		8267065E2D1CA61C009B3BED /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		826706642D1CA641009B3BED /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		826706692D1CAB59009B3BED /* UserDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsRequest.swift; sourceTree = "<group>"; };
+		8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1467,6 +1471,7 @@
 				8269384D2CFAF1D600E03DAA /* Core */,
 				826938602CFAF27D00E03DAA /* Protocols */,
 				8269384E2CFAF1DC00E03DAA /* Requests */,
+				826938A12CFB60B800E03DAA /* Services */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1474,6 +1479,7 @@
 		8269384D2CFAF1D600E03DAA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				82223F0C2D0461100095E161 /* Environment.swift */,
 				8269385C2CFAF21F00E03DAA /* NetworkClient.swift */,
 				826938542CFAF20E00E03DAA /* NetworkError.swift */,
 				826938582CFAF21800E03DAA /* NetworkRequest.swift */,
@@ -1490,6 +1496,7 @@
 				8269388F2CFB5FDA00E03DAA /* RewardRequest.swift */,
 				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
 				8267064F2D1C8948009B3BED /* UserDataRequest.swift */,
+				8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */,
 				826706692D1CAB59009B3BED /* UserDetailsRequest.swift */,
 			);
 			path = Requests;
@@ -1552,17 +1559,16 @@
 			path = RewardService;
 			sourceTree = "<group>";
 		};
-		826938A12CFB60B800E03DAA /* Network */ = {
+		826938A12CFB60B800E03DAA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				82223F0C2D0461100095E161 /* Environment.swift */,
 				82E5724F2D142636002F7C4B /* GeoObjectService */,
 				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
 				826706572D1C8CE7009B3BED /* UserService */,
 				8269389F2CFB609B00E03DAA /* TokenService */,
 			);
-			path = Network;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		826938A62CFD997800E03DAA /* NotificationManager */ = {
@@ -1865,7 +1871,6 @@
 				82E572542D1428AC002F7C4B /* GeoObjectsManager */,
 				826938332CFA106000E03DAA /* KeychainManager */,
 				8269382E2CFA018900E03DAA /* Location */,
-				826938A12CFB60B800E03DAA /* Network */,
 				826938A62CFD997800E03DAA /* NotificationManager */,
 				82F3A6742D0C9D6700EAB48E /* Sound */,
 				826338662CEFB2C9009C2CED /* Web3 */,
@@ -2451,6 +2456,7 @@
 				820611652CF4868F003FB6BB /* AchievementCell.swift in Sources */,
 				826FA9FA2D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
 				826938192CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
+				826706712D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */,
 				820611602CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
 				82E572BE2D156DE0002F7C4B /* NodeManager.swift in Sources */,
 				826938032CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
@@ -2681,6 +2687,7 @@
 				82E572CE2D15704F002F7C4B /* NodeManagerDelegate.swift in Sources */,
 				8206115D2CF48657003FB6BB /* AchievementsViewModel.swift in Sources */,
 				820611872CF6A298003FB6BB /* HitValidationSystem.swift in Sources */,
+				8267066F2D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */,
 				82E5725A2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
 				826938632CFAF29400E03DAA /* NetworkClientProtocol.swift in Sources */,
 				820611612CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
@@ -2793,6 +2800,7 @@
 				8267065A2D1C8CF9009B3BED /* UserService+UserDetails.swift in Sources */,
 				826938182CF9CBBA00E03DAA /* WalletConnectionViewModel.swift in Sources */,
 				820611622CF48673003FB6BB /* AchievementsViewController.swift in Sources */,
+				826706702D1DC5EA009B3BED /* UpdateUserRequest.swift in Sources */,
 				826938052CF9CA3D00E03DAA /* BaseOnboardingViewModel.swift in Sources */,
 				820611442CF48217003FB6BB /* AchievementType.swift in Sources */,
 				829EE9632D0981B800EAF8A9 /* NSAttributedString+BicolorText.swift in Sources */,

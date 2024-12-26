@@ -99,7 +99,13 @@ final class UserCreationViewController: UIViewController {
            .receive(on: DispatchQueue.main)
            .compactMap { $0 }
            .sink { [weak self] error in
-               self?.showAlert(title: "Error", message: error.localizedDescription)
+               guard let self else { return }
+               
+               if let error = error as? NetworkError, error == .alreadyRegistered || error == .emailInUse {
+                   showUserAlreadyExistsAlert()
+               } else {
+                   showAlert(title: "Error", message: error.localizedDescription)
+               }
            }
            .store(in: &cancellables)
         
@@ -128,6 +134,13 @@ final class UserCreationViewController: UIViewController {
        .receive(on: DispatchQueue.main)
        .assign(to: \.isEnabled, on: saveButton)
        .store(in: &cancellables)
+    }
+    
+    private func showUserAlreadyExistsAlert() {
+        let alert = UIAlertController(title: "User already exists", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "Login", style: .default))
+        present(alert, animated: true)
     }
     
     @objc private func saveButtonTapped() {
