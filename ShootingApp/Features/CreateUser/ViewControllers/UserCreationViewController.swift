@@ -18,6 +18,7 @@ final class UserCreationViewController: UIViewController {
     private lazy var passwordField = UITextField()
     private lazy var confirmPasswordField = UITextField()
     private lazy var saveButton = UIButton(configuration: .filled())
+    private lazy var loginButton = UIButton()
     
     init(viewModel: UserCreationViewModel) {
         self.viewModel = viewModel
@@ -36,6 +37,7 @@ final class UserCreationViewController: UIViewController {
         
         idLabel.text = "Player ID: \(GameManager.shared.playerId ?? "")"
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
     private func setupUI() {
@@ -53,6 +55,8 @@ final class UserCreationViewController: UIViewController {
         [nicknameField, emailField, passwordField, confirmPasswordField].forEach {
             $0.borderStyle = .roundedRect
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.autocapitalizationType = .none
+            $0.autocorrectionType = .no
             NSLayoutConstraint.activate([
                 $0.heightAnchor.constraint(equalToConstant: 50)
             ])
@@ -74,6 +78,10 @@ final class UserCreationViewController: UIViewController {
         saveButton.setTitle("Save", for: .normal)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         
+        loginButton.setTitle("Login instead", for: .normal)
+        loginButton.setTitleColor(.systemBlue, for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        
         let content = [idLabel, nicknameField, emailField, passwordField, confirmPasswordField]
         content.forEach {
             stackView.addArrangedSubview($0)
@@ -81,6 +89,7 @@ final class UserCreationViewController: UIViewController {
         
         view.addSubview(stackView)
         view.addSubview(saveButton)
+        view.addSubview(loginButton)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -90,24 +99,37 @@ final class UserCreationViewController: UIViewController {
             saveButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 32),
             saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             saveButton.widthAnchor.constraint(equalToConstant: 200),
-            saveButton.heightAnchor.constraint(equalToConstant: 44)
+            saveButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            loginButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 20),
+            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     private func setupBindings() {
-       viewModel.$error
-           .receive(on: DispatchQueue.main)
-           .compactMap { $0 }
-           .sink { [weak self] error in
-               guard let self else { return }
-               
-               if let error = error as? NetworkError, error == .alreadyRegistered || error == .emailInUse {
-                   showUserAlreadyExistsAlert()
-               } else {
-                   showAlert(title: "Error", message: error.localizedDescription)
-               }
-           }
-           .store(in: &cancellables)
+        viewModel.$error
+            .receive(on: DispatchQueue.main)
+            .compactMap { $0 }
+            .sink { [weak self] error in
+                guard let self else { return }
+                
+                if let networkError = error as? ShootingApp.NetworkError {
+                    switch networkError {
+                    case .requestFailed(let innerError):
+                        if let innerNetworkError = innerError as? ShootingApp.NetworkError,
+                           case .alreadyRegistered = innerNetworkError {
+                            showUserAlreadyExistsAlert()
+                        } else {
+                            showAlert(title: "Error", message: error.localizedDescription)
+                        }
+                    default:
+                        showAlert(title: "Error", message: error.localizedDescription)
+                    }
+                } else {
+                    showAlert(title: "Error", message: error.localizedDescription)
+                }
+            }
+            .store(in: &cancellables)
         
         viewModel.$token
             .compactMap { $0 }
@@ -128,7 +150,7 @@ final class UserCreationViewController: UIViewController {
        .map { [weak self] nickname, email, password, confirm in
            guard let self else { return false }
            return !nickname.isEmpty &&
-               self.viewModel.isValidEmail(email) &&
+               email.isValidEmail &&
                self.viewModel.passwordsMatch(password, confirm)
        }
        .receive(on: DispatchQueue.main)
@@ -138,12 +160,10 @@ final class UserCreationViewController: UIViewController {
     
     private func showUserAlreadyExistsAlert() {
         let alert = UIAlertController(title: "User already exists", message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        
         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { [weak self] _ in
             self?.presentLoginScreen()
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
         
         present(alert, animated: true)
     }
@@ -165,5 +185,9 @@ final class UserCreationViewController: UIViewController {
             password: password,
             confirmPassword: confirmPassword
         )
+    }
+    
+    @objc private func loginButtonTapped() {
+        viewModel.coordinator?.startLoginFlow()
     }
 }

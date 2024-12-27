@@ -52,7 +52,7 @@ final class NetworkClient: NetworkClientProtocol {
                 throw NetworkError.notFound
                 
             case 409:
-                throw NetworkError.conflict(message: "The user already exists")
+                throw NetworkError.alreadyRegistered
                 
             case 500...599:
                 throw NetworkError.serverError

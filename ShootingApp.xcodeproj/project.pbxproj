@@ -225,15 +225,24 @@
 		826706812D1DD409009B3BED /* LoginCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706802D1DD409009B3BED /* LoginCoordinatorProtocol.swift */; };
 		826706822D1DD409009B3BED /* LoginCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706802D1DD409009B3BED /* LoginCoordinatorProtocol.swift */; };
 		826706832D1DD409009B3BED /* LoginCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706802D1DD409009B3BED /* LoginCoordinatorProtocol.swift */; };
-		8267068A2D1DD442009B3BED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706892D1DD442009B3BED /* AuthService.swift */; };
-		8267068B2D1DD442009B3BED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706892D1DD442009B3BED /* AuthService.swift */; };
-		8267068C2D1DD442009B3BED /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706892D1DD442009B3BED /* AuthService.swift */; };
-		8267068E2D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267068D2D1DD46B009B3BED /* AuthServiceProtocol.swift */; };
-		8267068F2D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267068D2D1DD46B009B3BED /* AuthServiceProtocol.swift */; };
-		826706902D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267068D2D1DD46B009B3BED /* AuthServiceProtocol.swift */; };
 		826706942D1DD545009B3BED /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706932D1DD545009B3BED /* LoginCoordinator.swift */; };
 		826706952D1DD545009B3BED /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706932D1DD545009B3BED /* LoginCoordinator.swift */; };
 		826706962D1DD545009B3BED /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706932D1DD545009B3BED /* LoginCoordinator.swift */; };
+		8267069C2D1DEED8009B3BED /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069B2D1DEED8009B3BED /* LoginRequest.swift */; };
+		8267069D2D1DEED8009B3BED /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069B2D1DEED8009B3BED /* LoginRequest.swift */; };
+		8267069E2D1DEED8009B3BED /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069B2D1DEED8009B3BED /* LoginRequest.swift */; };
+		826706A02D1DEF3A009B3BED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069F2D1DEF3A009B3BED /* LoginService.swift */; };
+		826706A12D1DEF3A009B3BED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069F2D1DEF3A009B3BED /* LoginService.swift */; };
+		826706A22D1DEF3A009B3BED /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8267069F2D1DEF3A009B3BED /* LoginService.swift */; };
+		826706A42D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */; };
+		826706A52D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */; };
+		826706A62D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */; };
+		826706A92D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */; };
+		826706AA2D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */; };
+		826706AB2D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */; };
+		826706AE2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
+		826706AF2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
+		826706B02D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -724,9 +733,12 @@
 		826706772D1DD332009B3BED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8267067C2D1DD35E009B3BED /* UITextField+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Combine.swift"; sourceTree = "<group>"; };
 		826706802D1DD409009B3BED /* LoginCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		826706892D1DD442009B3BED /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		8267068D2D1DD46B009B3BED /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		826706932D1DD545009B3BED /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		8267069B2D1DEED8009B3BED /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		8267069F2D1DEF3A009B3BED /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
+		826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
+		826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1453,15 +1465,6 @@
 			path = UITextField;
 			sourceTree = "<group>";
 		};
-		826706882D1DD431009B3BED /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				826706892D1DD442009B3BED /* AuthService.swift */,
-				8267068D2D1DD46B009B3BED /* AuthServiceProtocol.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		826706912D1DD48B009B3BED /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1479,22 @@
 				826706772D1DD332009B3BED /* LoginViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		826706A72D1DF031009B3BED /* LoginService */ = {
+			isa = PBXGroup;
+			children = (
+				8267069F2D1DEF3A009B3BED /* LoginService.swift */,
+			);
+			path = LoginService;
+			sourceTree = "<group>";
+		};
+		826706AC2D1EB2EA009B3BED /* String */ = {
+			isa = PBXGroup;
+			children = (
+				826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */,
+			);
+			path = String;
 			sourceTree = "<group>";
 		};
 		8269382D2CF9CEC200E03DAA /* CVPixelBuffer */ = {
@@ -1568,6 +1587,8 @@
 				826938502CFAF1FF00E03DAA /* TokenBalanceRequest.swift */,
 				8267064F2D1C8948009B3BED /* UserDataRequest.swift */,
 				8267066E2D1DC5EA009B3BED /* UpdateUserRequest.swift */,
+				8267069B2D1DEED8009B3BED /* LoginRequest.swift */,
+				826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */,
 				826706692D1CAB59009B3BED /* UserDetailsRequest.swift */,
 			);
 			path = Requests;
@@ -1582,6 +1603,7 @@
 				826938832CFB5E0400E03DAA /* RewardServiceProtocol.swift */,
 				826938652CFAF39100E03DAA /* TokenServiceProtocol.swift */,
 				8267064B2D1C8856009B3BED /* UserServiceProtocol.swift */,
+				826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1635,6 +1657,7 @@
 			children = (
 				82E5724F2D142636002F7C4B /* GeoObjectService */,
 				826FA9FF2D007DEA0029CF9C /* HallOfFameService */,
+				826706A72D1DF031009B3BED /* LoginService */,
 				826938A02CFB60AB00E03DAA /* RewardService */,
 				826706572D1C8CE7009B3BED /* UserService */,
 				8269389F2CFB609B00E03DAA /* TokenService */,
@@ -1935,7 +1958,6 @@
 		828545E22CCD12DA0074EBF9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				826706882D1DD431009B3BED /* Auth */,
 				82E572652D1439C2002F7C4B /* AR */,
 				820611382CF48178003FB6BB /* Achievement */,
 				820611692CF6A214003FB6BB /* Anticheat */,
@@ -2008,6 +2030,7 @@
 				826706372D1BE69E009B3BED /* Double */,
 				826706382D1BE6B0009B3BED /* Notification */,
 				8267063C2D1BE6D1009B3BED /* NSAttributedString */,
+				826706AC2D1EB2EA009B3BED /* String */,
 				826706392D1BE6B8009B3BED /* UIColor */,
 				829EE95C2D097F6900EAF8A9 /* UIFont */,
 				82560A922D06F54600DE2210 /* UIImage */,
@@ -2452,6 +2475,7 @@
 				828545E52CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8269385F2CFAF21F00E03DAA /* NetworkClient.swift in Sources */,
 				8269384B2CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
+				826706A02D1DEF3A009B3BED /* LoginService.swift in Sources */,
 				82E572762D146484002F7C4B /* HomeViewController+GeoObject.swift in Sources */,
 				82F3A6AB2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
 				826938152CF9CAC900E03DAA /* NotificationsPermissionViewController.swift in Sources */,
@@ -2472,6 +2496,7 @@
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
+				826706AA2D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */,
 				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				82E572CA2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
 				828545C52CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
@@ -2485,7 +2510,6 @@
 				828545BA2CCCFF4F0074EBF9 /* CoordinatorProtocol.swift in Sources */,
 				828545F72CCD16920074EBF9 /* PlayerManager.swift in Sources */,
 				826938362CFA107600E03DAA /* KeychainManager.swift in Sources */,
-				826706902D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */,
 				829EE9572D097EBE00EAF8A9 /* UIFont+PreferedLabel.swift in Sources */,
 				820611552CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
 				826FAA062D007FF80029CF9C /* HallOfFameViewController.swift in Sources */,
@@ -2496,6 +2520,7 @@
 				826706502D1C8948009B3BED /* UserDataRequest.swift in Sources */,
 				82560A722D06CEC700DE2210 /* ARSceneManager.swift in Sources */,
 				82E5725B2D142DBD002F7C4B /* GeoARNodeFactory.swift in Sources */,
+				8267069D2D1DEED8009B3BED /* LoginRequest.swift in Sources */,
 				82560A6D2D06CEB400DE2210 /* ARContainerView.swift in Sources */,
 				826FA9DD2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				826FA9F52D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
@@ -2523,6 +2548,7 @@
 				828546092CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8269381D2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				82E572692D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,
+				826706A62D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */,
 				829EE9692D0B0C9C00EAF8A9 /* DroneAnnotationView.swift in Sources */,
 				828545852CCCFE520074EBF9 /* SceneDelegate.swift in Sources */,
 				820611462CF4824D003FB6BB /* AchievementService.swift in Sources */,
@@ -2566,8 +2592,8 @@
 				820611312CF37EEE003FB6BB /* ErrorHandlingService.swift in Sources */,
 				828545FB2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				82560A7C2D06D45100DE2210 /* ARService.swift in Sources */,
-				8267068C2D1DD442009B3BED /* AuthService.swift in Sources */,
 				8269380F2CF9CAA400E03DAA /* NotificationsPermissionViewModel.swift in Sources */,
+				826706B02D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */,
 				826938A42CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				828545DB2CCD12A10074EBF9 /* GameMessage.swift in Sources */,
 				826FAA142D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
@@ -2615,7 +2641,6 @@
 				828546202CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				829EE95F2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
 				826706552D1C8BF6009B3BED /* UserService.swift in Sources */,
-				8267068E2D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */,
 				826FA9D82CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
 				82560A752D06CEDC00DE2210 /* ARDroneNode.swift in Sources */,
 				820611662CF4868F003FB6BB /* AchievementCell.swift in Sources */,
@@ -2627,6 +2652,7 @@
 				820611962CF6A38A003FB6BB /* MockAntiCheatSystem.swift in Sources */,
 				8263387D2CEFB3A6009C2CED /* Web3ServiceTest.swift in Sources */,
 				8206117B2CF6A276003FB6BB /* AntiCheatError.swift in Sources */,
+				8267069C2D1DEED8009B3BED /* LoginRequest.swift in Sources */,
 				829EE96E2D0B0CEF00EAF8A9 /* DroneAnnotation.swift in Sources */,
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
@@ -2662,7 +2688,6 @@
 				826706672D1CA641009B3BED /* UserProfileViewModel.swift in Sources */,
 				828546292CCE46DB0074EBF9 /* PlayerAnnotationView.swift in Sources */,
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
-				8267068A2D1DD442009B3BED /* AuthService.swift in Sources */,
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
@@ -2674,6 +2699,7 @@
 				828545E62CCD13110074EBF9 /* GameManager.swift in Sources */,
 				8206111E2CF334A5003FB6BB /* GameManagerTests.swift in Sources */,
 				826937F92CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift in Sources */,
+				826706A42D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */,
 				828546172CCE3A640074EBF9 /* SceneDelegate.swift in Sources */,
 				829EE9512D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
 				82F3A6AD2D0DA49700EAB48E /* ARDroneNode+DroneType.swift in Sources */,
@@ -2738,6 +2764,7 @@
 				82E572742D146484002F7C4B /* HomeViewController+GeoObject.swift in Sources */,
 				8267064A2D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */,
 				8285462D2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
+				826706AB2D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */,
 				8206112D2CF37E97003FB6BB /* CoreDataManager+ErrorHandling.swift in Sources */,
 				828545F32CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				82560A8C2D06EE7D00DE2210 /* UIImage+CreateGridPattern.swift in Sources */,
@@ -2783,6 +2810,7 @@
 				8267067F2D1DD35E009B3BED /* UITextField+Combine.swift in Sources */,
 				820611432CF48217003FB6BB /* AchievementType.swift in Sources */,
 				820611222CF33685003FB6BB /* GameManagerProtocol.swift in Sources */,
+				826706AF2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */,
 				826938372CFA107600E03DAA /* KeychainManager.swift in Sources */,
 				826FA9F42D007D450029CF9C /* HallOfFameResponse.swift in Sources */,
 				82E5724C2D1425B5002F7C4B /* GeoObjectsRequest.swift in Sources */,
@@ -2795,6 +2823,7 @@
 				826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */,
 				826938A52CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				826938282CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
+				826706A12D1DEF3A009B3BED /* LoginService.swift in Sources */,
 				826938252CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				8269389C2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				820611AD2CF846CA003FB6BB /* CVPixelBuffer+Sendable.swift in Sources */,
@@ -2810,6 +2839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826706AE2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */,
 				826FAA0E2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
 				828546162CCE3A600074EBF9 /* AppDelegate.swift in Sources */,
@@ -2854,6 +2884,7 @@
 				826706332D1BE368009B3BED /* Bundle+AppVersion.swift in Sources */,
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
+				826706A92D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
@@ -2931,6 +2962,7 @@
 				8269381F2CF9CC3D00E03DAA /* CameraPermissionViewModel.swift in Sources */,
 				82E572752D146484002F7C4B /* HomeViewController+GeoObject.swift in Sources */,
 				82E5723C2D14202E002F7C4B /* GeoARNode.swift in Sources */,
+				826706A52D1DEF88009B3BED /* LoginServiceProtocol.swift in Sources */,
 				828545D72CCD12750074EBF9 /* Player.swift in Sources */,
 				828545EC2CCD14190074EBF9 /* CoreDataManager.swift in Sources */,
 				829EE95E2D09800F00EAF8A9 /* BackgroundStyleController.swift in Sources */,
@@ -2941,10 +2973,9 @@
 				8285462E2CCE4A440074EBF9 /* QueueManager.swift in Sources */,
 				82560A942D06F56800DE2210 /* UIImage+CreateHexagonPattern.swift in Sources */,
 				826706492D1C0F81009B3BED /* UserCreationViewModel+UserError.swift in Sources */,
+				8267069E2D1DEED8009B3BED /* LoginRequest.swift in Sources */,
 				8269389D2CFB607D00E03DAA /* RewardService.swift in Sources */,
 				8206114C2CF4826F003FB6BB /* AchievementServiceProtocol.swift in Sources */,
-				8267068F2D1DD46B009B3BED /* AuthServiceProtocol.swift in Sources */,
-				8267068B2D1DD442009B3BED /* AuthService.swift in Sources */,
 				826938862CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FAA152D0084FE0029CF9C /* SettingsCoordinator.swift in Sources */,
 				828545F42CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
@@ -2963,6 +2994,7 @@
 				82381EA82D05CD51008FBD86 /* HallOfFameCellViewModel.swift in Sources */,
 				826FA9DE2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
 				82E572C52D156E2C002F7C4B /* DroneNodeManager.swift in Sources */,
+				826706A22D1DEF3A009B3BED /* LoginService.swift in Sources */,
 				8285461C2CCE3E4E0074EBF9 /* StatusBarView.swift in Sources */,
 				826FA9F02D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				828545A92CCCFE550074EBF9 /* ShootingAppUITestsLaunchTests.swift in Sources */,
