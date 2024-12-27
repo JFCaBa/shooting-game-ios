@@ -53,12 +53,6 @@ class UserCreationViewModel {
     
     // MARK: - API
     
-    func isValidEmail(_ email: String) -> Bool {
-        let pattern = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", pattern)
-        return emailPredicate.evaluate(with: email)
-    }
-    
     func passwordsMatch(_ password: String, _ confirm: String) -> Bool {
         let hasMinLength = password.count >= 8
         let hasUppercase = password.contains(where: { $0.isUppercase })

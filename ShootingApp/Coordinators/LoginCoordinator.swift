@@ -15,8 +15,7 @@ final class LoginCoordinator: LoginCoordinatorProtocol {
     }
 
     func startLoginFlow() {
-        let authService = AuthService() 
-        let viewModel = LoginViewModel(authService: authService, coordinator: self)
+        let viewModel = LoginViewModel(coordinator: self)
         let loginViewController = LoginViewController(viewModel: viewModel)
         navigationController?.pushViewController(loginViewController, animated: true)
     }

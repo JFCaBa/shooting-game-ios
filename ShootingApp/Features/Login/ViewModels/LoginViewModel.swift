@@ -10,47 +10,75 @@ import Foundation
 
 final class LoginViewModel {
     // MARK: - Published Properties
+    
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var isLoginEnabled: Bool = false
     @Published var isLoading: Bool = false
     @Published var error: Error?
-    @Published var loginSuccess: Bool = false
+    @Published var loginSuccess: Bool?
+    @Published var temporaryPassword: String?
+    
+    // MARK: - Public properties
+    
+    let coordinator: LoginCoordinatorProtocol
+
     
     // MARK: - Private Properties
+    
     private var cancellables = Set<AnyCancellable>()
-    private let authService: AuthServiceProtocol
-    private let coordinator: LoginCoordinatorProtocol
+    private let networkService: LoginServiceProtocol
 
     // MARK: - Initialization
-    init(authService: AuthServiceProtocol, coordinator: LoginCoordinatorProtocol) {
-        self.authService = authService
+    
+    init(networkService: LoginServiceProtocol = LoginService(), coordinator: LoginCoordinatorProtocol) {
+        self.networkService = networkService
         self.coordinator = coordinator
         setupBindings()
     }
+    
+    // MARK: - store(token:)
+
+    private func store(token: String) {
+        do {
+            try KeychainManager.shared.saveToken(token)
+        } catch {
+            self.error = error
+        }
+    }
 
     // MARK: - Public Methods
+    
     func login(email: String, password: String) {
         isLoading = true
-        authService.login(email: email, password: password)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] completion in
-                guard let self = self else { return }
-                self.isLoading = false
-                if case .failure(let error) = completion {
-                    self.error = error
-                }
-            } receiveValue: { [weak self] success in
-                guard let self = self else { return }
-                self.loginSuccess = success
-                if success {
-                    self.coordinator.navigateToHome()
-                }
+        Task {
+            do {
+                let token = try await networkService.sendLogin(email: email, password: password)
+                self.store(token: token.token)
+                self.loginSuccess = true
+            } catch {
+                self.error = error
             }
-            .store(in: &cancellables)
+            isLoading = false
+        }
+    }
+    
+    func forgotPassword(email: String, playerId: String) {
+        isLoading = true
+        Task {
+            do {
+                let response = try await networkService.forgotPassword(email: email, playerId: playerId)
+                self.store(token: response.token)
+                self.temporaryPassword = response.temporaryPassword
+            } catch {
+                self.error = error
+            }
+            isLoading = false
+        }
     }
     
     // MARK: - Private Methods
+    
     private func setupBindings() {
         // Combine email and password validation to enable login button
         Publishers.CombineLatest($email, $password)

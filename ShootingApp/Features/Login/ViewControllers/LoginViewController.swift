@@ -12,8 +12,10 @@ final class LoginViewController: UIViewController {
     private let viewModel: LoginViewModel
     private var cancellables = Set<AnyCancellable>()
     
+    private lazy var titleLabel = UILabel()
     private lazy var emailField = UITextField()
     private lazy var passwordField = UITextField()
+    private lazy var forgotPasswordButton = UIButton()
     private lazy var loginButton = UIButton(configuration: .filled())
     private lazy var loadingIndicator = UIActivityIndicatorView(style: .medium)
     
@@ -32,6 +34,7 @@ final class LoginViewController: UIViewController {
         setupUI()
         setupBindings()
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonTapped), for: .touchUpInside)
     }
     
     private func setupUI() {
@@ -51,17 +54,35 @@ final class LoginViewController: UIViewController {
             ])
         }
         
+        titleLabel.textColor = .label
+        titleLabel.textAlignment = .center
+        let text = "ShootingDapp"
+        let attributtedText = NSAttributedString.attributedStringWithBicolor(string: text, targetSubstring: "D", bicolor: (.label, .systemRed), font: UIFont.systemFont(ofSize: 44))
+        titleLabel.attributedText = attributtedText
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         emailField.placeholder = "Email"
         emailField.keyboardType = .emailAddress
         emailField.textContentType = .emailAddress
+        emailField.autocorrectionType = .no
         
         passwordField.placeholder = "Password"
         passwordField.isSecureTextEntry = true
         passwordField.textContentType = .password
         
+        [emailField, passwordField].forEach {
+            $0.autocapitalizationType = .none
+            $0.autocorrectionType = .no
+        }
+        
         loginButton.setTitle("Login", for: .normal)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.isEnabled = false
+        
+        forgotPasswordButton.setTitle("Forgot password", for: .normal)
+        forgotPasswordButton.setTitleColor(.systemBlue, for: .normal)
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+
         
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.hidesWhenStopped = true
@@ -69,12 +90,19 @@ final class LoginViewController: UIViewController {
         stackView.addArrangedSubview(emailField)
         stackView.addArrangedSubview(passwordField)
         
+        view.addSubview(titleLabel)
         view.addSubview(stackView)
         view.addSubview(loginButton)
+        view.addSubview(forgotPasswordButton)
         view.addSubview(loadingIndicator)
         
         NSLayoutConstraint.activate([
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 150),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             
@@ -82,6 +110,9 @@ final class LoginViewController: UIViewController {
             loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.widthAnchor.constraint(equalToConstant: 200),
             loginButton.heightAnchor.constraint(equalToConstant: 44),
+            
+            forgotPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -93,7 +124,15 @@ final class LoginViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .compactMap { $0 }
             .sink { [weak self] error in
-                self?.showAlert(title: "Error", message: error.localizedDescription)
+                guard let self else { return }
+                if let message = (error as? ShootingApp.NetworkError)?.localizedDescription {
+                    if message.contains("4") {
+                        showAlert(title: "Error", message: "Invalid credentials")
+
+                    } else {
+                        showAlert(title: "Error", message: "Player not found")
+                    }
+                }
             }
             .store(in: &cancellables)
         
@@ -113,6 +152,27 @@ final class LoginViewController: UIViewController {
             .assign(to: \.isEnabled, on: loginButton)
             .store(in: &cancellables)
         
+        viewModel.$temporaryPassword
+            .receive(on: DispatchQueue.main)
+            .compactMap({$0})
+            .sink { [weak self] password in
+                guard let self else { return }
+                
+                showAlert(title: "New temporary password", message: "You have received a new temporary password, you can login with it now and change it later.")
+                passwordField.text = password
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$loginSuccess
+            .compactMap({$0})
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                
+                viewModel.coordinator.navigateToHome()
+            }
+            .store(in: &cancellables)
+        
         // Combine email and password fields to enable/disable the login button
         Publishers.CombineLatest(
             emailField.textPublisher,
@@ -128,6 +188,20 @@ final class LoginViewController: UIViewController {
     
     @objc private func loginButtonTapped() {
         guard let email = emailField.text, let password = passwordField.text else { return }
+        
         viewModel.login(email: email, password: password)
+    }
+    
+    @objc private func forgotPasswordButtonTapped() {
+        guard let email = emailField.text,
+              email.isValidEmail,
+              let playerId = GameManager.shared.playerId
+        else {
+            showAlert(title: "Error", message: "Enter a valid email")
+            return
+        }
+        
+        passwordField.text = ""
+        viewModel.forgotPassword(email: email, playerId: playerId)
     }
 }

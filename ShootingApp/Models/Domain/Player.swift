@@ -30,6 +30,13 @@ extension Player {
     }
 }
 
+extension Player {
+    struct ForgotPassword: Codable {
+        let token: String
+        let temporaryPassword: String
+    }
+}
+
 
 extension Player {
     struct UserData: Codable {
@@ -39,7 +46,8 @@ extension Player {
 
 extension Player {
     struct UserDetails: Codable {
-        let nickName: String?
+        var nickName: String? = nil
         let email: String?
+        var password: String? = nil
     }
 }
