@@ -20,7 +20,8 @@ struct HallOfFameCellViewModel {
     }
     
     var name: String {
-        return "\(element.playerID?.suffix(4) ?? "Unknown")"
+        let name = element.nickName != nil ? element.nickName : "\(element.playerID?.suffix(4) ?? "Unknown")"
+        return name ?? "Unknown"
     }
     
     var score: String {

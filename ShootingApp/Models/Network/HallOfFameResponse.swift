@@ -11,11 +11,13 @@ struct HallOfFameResponseElement: Codable {
     let stats: Stats
     let id: String
     let playerID: String?
+    let nickName: String?
 
     enum CodingKeys: String, CodingKey {
         case stats
         case id = "_id"
         case playerID = "playerId"
+        case nickName
     }
 }
 
