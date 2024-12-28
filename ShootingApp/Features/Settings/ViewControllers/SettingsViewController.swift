@@ -167,7 +167,7 @@ extension SettingsViewController: UITableViewDelegate {
         
         case 1: showDistanceSelector()
         
-        case 2: viewModel.signOut()
+        case 2: showSignOutConfirmation()
         
         default: break
         }
@@ -177,6 +177,33 @@ extension SettingsViewController: UITableViewDelegate {
 // MARK: - Actions
 
 private extension SettingsViewController {
+    func showSignOutConfirmation() {
+        let alert = UIAlertController(
+            title: "Sign out",
+            message: "Are you sure you want to sign out?",
+            preferredStyle: .actionSheet
+        )
+        
+        let action = UIAlertAction(title: "Sign out", style: .default) { [weak self] _ in
+            guard let self else { return }
+            
+            viewModel.signOut()
+        }
+        
+        let actionDelete = UIAlertAction(title: "Sign out and delete my account", style: .destructive) { [weak self] _ in
+            guard let self else { return }
+            
+            viewModel.signOut()
+        }
+        
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(action)
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated: true)
+    }
+    
     func showDistanceSelector() {
         let alert = UIAlertController(
             title: "Notification Distance",
