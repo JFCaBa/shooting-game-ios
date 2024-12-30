@@ -46,7 +46,7 @@ final class HomeViewController: UIViewController {
     private lazy var topContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        view.backgroundColor = .black.withAlphaComponent(0.8)
         return view
     }()
     
@@ -95,43 +95,17 @@ final class HomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
         button.tintColor = .white
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = .systemGray
         button.layer.cornerRadius = 25
         button.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    private lazy var achievementsButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "trophy"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(achievementsButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var mapButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "map"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var walletButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "creditcard"), for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(walletButtonTapped), for: .touchUpInside)
-        return button
+    private lazy var modeSelectorView: ModeSelectorView = {
+        let selector = ModeSelectorView(frame: .zero)
+        selector.setInitialCenteredIndex(2)
+        selector.translatesAutoresizingMaskIntoConstraints = false
+        return selector
     }()
     
     lazy var reloadTimerLabel: UILabel = {
@@ -220,6 +194,14 @@ final class HomeViewController: UIViewController {
         return radar
     }()
     
+    private lazy var contentContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.isHidden = true
+        return view
+    }()
+    
     // MARK: - Initialisers
     
     init(coordinator: AppCoordinator) {
@@ -250,10 +232,10 @@ final class HomeViewController: UIViewController {
         setupTopContainer()
         setupUI()
         setupObservers()
-        setupWalletObserver()
         setupDebugViews()
         shootButton.isExclusiveTouch = true
         setupBindings()
+        modeSelectorViewCallback()
     }
     
     override func viewDidLayoutSubviews() {
@@ -376,13 +358,12 @@ final class HomeViewController: UIViewController {
         view.addSubview(topContainerView)
         view.addSubview(crosshairView)
         view.addSubview(zoomSlider)
+        view.addSubview(modeSelectorView)
         view.addSubview(shootButton)
         view.addSubview(reloadTimerLabel)
-        view.addSubview(mapButton)
-        view.addSubview(achievementsButton)
-        view.addSubview(walletButton)
-        view.addSubview(settingsButton)
         view.addSubview(radarView)
+        view.addSubview(settingsButton)
+        view.addSubview(contentContainerView)
         
         topContainerView.addSubview(ammoBar)
         topContainerView.addSubview(lifeBar)
@@ -435,57 +416,108 @@ final class HomeViewController: UIViewController {
             
             // Zoom
             zoomSlider.centerXAnchor.constraint(equalTo: shootButton.centerXAnchor),
-            zoomSlider.bottomAnchor.constraint(equalTo: shootButton.topAnchor, constant: -10),
+            zoomSlider.bottomAnchor.constraint(equalTo: modeSelectorView.topAnchor, constant: -10),
             zoomSlider.heightAnchor.constraint(equalToConstant: 44),
             zoomSlider.widthAnchor.constraint(equalToConstant: 140),
             
-            // Shoot
+            // Shoot button
             shootButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             shootButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             shootButton.widthAnchor.constraint(equalToConstant: 70),
             shootButton.heightAnchor.constraint(equalToConstant: 70),
             
+            // Settings button
+            settingsButton.heightAnchor.constraint(equalToConstant: 50),
+            settingsButton.widthAnchor.constraint(equalToConstant: 50),
+            settingsButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
+            settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
             // Reload timer
             reloadTimerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadTimerLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            // Map
-            mapButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
-            mapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            mapButton.widthAnchor.constraint(equalToConstant: 50),
-            mapButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            // Achievements
-            achievementsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
-            achievementsButton.bottomAnchor.constraint(equalTo: mapButton.topAnchor, constant: -16),
-            achievementsButton.widthAnchor.constraint(equalToConstant: 50),
-            achievementsButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            // Wallet
-            walletButton.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
-            walletButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            walletButton.widthAnchor.constraint(equalToConstant: 50),
-            walletButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            // Settings
-            settingsButton.centerXAnchor.constraint(equalTo: mapButton.centerXAnchor),
-            settingsButton.bottomAnchor.constraint(equalTo: achievementsButton.topAnchor, constant: -16),
-            settingsButton.widthAnchor.constraint(equalToConstant: 50),
-            settingsButton.heightAnchor.constraint(equalToConstant: 50),
+            // Mode selector view
+            modeSelectorView.topAnchor.constraint(equalTo: shootButton.topAnchor, constant: -54),
+            modeSelectorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            modeSelectorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            modeSelectorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             // Radar View
             radarView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor, constant: 16),
             radarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             radarView.widthAnchor.constraint(equalToConstant: 120),
-            radarView.heightAnchor.constraint(equalToConstant: 120)
+            radarView.heightAnchor.constraint(equalToConstant: 120),
             
+            // Container view
+            contentContainerView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor),
+            contentContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentContainerView.bottomAnchor.constraint(equalTo: modeSelectorView.topAnchor)
         ])
         
         reloadTimerLabel.isHidden = true
     }
     
     
+    // MARK: - Mode selector callback
     
+    private func modeSelectorViewCallback() {
+        modeSelectorView.setOnModeSelect { [weak self] mode in
+            guard let self = self else { return }
+            
+            // Remove any existing child view controller
+            self.removeCurrentViewController()
+            
+            switch mode {
+            case .inventory:
+                self.showAlert(title: "Info", message: "Coming soon...")
+                self.contentContainerView.isHidden = true
+                
+            case .map:
+                let mapVC = MapViewController()
+                self.addViewController(mapVC)
+                
+            case .game:
+                self.contentContainerView.isHidden = true
+                self.removeCurrentViewController()
+                
+            case .achievements:
+                let achievementsVC = AchievementsViewController(viewModel: AchievementsViewModel())
+                self.addViewController(achievementsVC)
+                
+            case .hallOfFame:
+                let hallOfFameVC = HallOfFameViewController(viewModel: HallOfFameViewModel())
+                self.addViewController(hallOfFameVC)
+            }
+        }
+    }
+    
+    private func addViewController(_ viewController: UIViewController) {
+        removeCurrentViewController()
+        addChild(viewController)
+        contentContainerView.isHidden = false
+        
+        viewController.view.frame = contentContainerView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        contentContainerView.addSubview(viewController.view)
+        
+        viewController.didMove(toParent: self)
+        
+        // Add blur effect to the background
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = viewController.view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.view.insertSubview(blurView, at: 0)
+    }
+
+    private func removeCurrentViewController() {
+        for child in children {
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+    }
     
     
     // MARK: - shootButtonTapped()
@@ -578,30 +610,11 @@ final class HomeViewController: UIViewController {
             showFeedback(.hit, amount: amountHitReward)
         }
     }
-
-    
-    // MARK: - mapButtonTapped()
-    
-    @objc private func mapButtonTapped() {
-        viewModel.coordinator?.showMap()
-    }
-    
-    // MARK: - walletButtonTapped()
-    
-    @objc private func walletButtonTapped() {
-        viewModel.coordinator?.showWallet()
-    }
     
     // MARK: - settingsButtonTapped()
     
     @objc private func settingsButtonTapped() {
         viewModel.coordinator?.showSettings()
-    }
-    
-    // MARK: - achievementsButtonTapped()
-    
-    @objc private func achievementsButtonTapped() {
-        viewModel.coordinator?.showAchievements()
     }
     
     
@@ -821,28 +834,22 @@ final class HomeViewController: UIViewController {
             present(viewController, animated: true)
         }
     }
-}
-
-// MARK: - Wallet functions
-
-extension HomeViewController {
-    private func updateWalletButtonState() {
-        let web3Service = Web3Service.shared
-        walletButton.backgroundColor = web3Service.isConnected ? .systemGreen : .systemBlue
+    
+    // MARK: - refreshAmmoAndLives()
+    
+    private func refreshAmmoAndLives() {
+        if currentLives == 0 {
+            finishRecovering()
+        }
+        if currentAmmo < maxAmmo {
+            finishReloading()
+        }
     }
     
-    private func setupWalletObserver() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleWalletConnection),
-            name: .walletConnectionChanged,
-            object: nil
-        )
-        updateWalletButtonState()
-    }
+    // MARK: - adReward()
     
-    @objc private func handleWalletConnection() {
-        updateWalletButtonState()
+    private func adReward() {
+        viewModel.adReward()
     }
 }
 
@@ -867,21 +874,8 @@ extension HomeViewController: GADFullScreenContentDelegate {
             
         } catch {
             print("Rewarded ad failed to load with error: \(error.localizedDescription)")
-            finishRecovering()
+            refreshAmmoAndLives()
         }
-    }
-    
-    private func refreshAmmoAndLives() {
-        if currentLives == 0 {
-            finishRecovering()
-        }
-        if currentAmmo < maxAmmo {
-            finishReloading()
-        }
-    }
-    
-    private func adReward() {
-        viewModel.adReward()
     }
     
     /// Tells the delegate that the ad failed to present full screen content.

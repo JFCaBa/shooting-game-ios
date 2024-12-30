@@ -243,6 +243,15 @@
 		826706AE2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
 		826706AF2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
 		826706B02D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */; };
+		826706B22D214965009B3BED /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B12D214965009B3BED /* ModeSelectorView.swift */; };
+		826706B32D214965009B3BED /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B12D214965009B3BED /* ModeSelectorView.swift */; };
+		826706B42D214965009B3BED /* ModeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B12D214965009B3BED /* ModeSelectorView.swift */; };
+		826706B62D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */; };
+		826706B72D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */; };
+		826706B82D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */; };
+		826706BB2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
+		826706BC2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
+		826706BD2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -739,6 +748,9 @@
 		826706A32D1DEF88009B3BED /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
 		826706A82D1EB2CA009B3BED /* String+IsValidEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsValidEmail.swift"; sourceTree = "<group>"; };
 		826706AD2D1EB68F009B3BED /* ForgotPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRequest.swift; sourceTree = "<group>"; };
+		826706B12D214965009B3BED /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
+		826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeSelectorView+ModeCell.swift"; sourceTree = "<group>"; };
+		826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeSelectorView+Modes.swift"; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1497,6 +1509,88 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		826706B92D21E937009B3BED /* ModeSelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				826706B12D214965009B3BED /* ModeSelectorView.swift */,
+				826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */,
+				826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */,
+			);
+			path = ModeSelectorView;
+			sourceTree = "<group>";
+		};
+		826706BE2D21E96F009B3BED /* ZoomSliderControlView */ = {
+			isa = PBXGroup;
+			children = (
+				826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */,
+			);
+			path = ZoomSliderControlView;
+			sourceTree = "<group>";
+		};
+		826706BF2D21E97A009B3BED /* VisionDebugView */ = {
+			isa = PBXGroup;
+			children = (
+				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
+			);
+			path = VisionDebugView;
+			sourceTree = "<group>";
+		};
+		826706C02D21E987009B3BED /* StatusBarView */ = {
+			isa = PBXGroup;
+			children = (
+				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
+			);
+			path = StatusBarView;
+			sourceTree = "<group>";
+		};
+		826706C12D21E98F009B3BED /* ShootFeedbackView */ = {
+			isa = PBXGroup;
+			children = (
+				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
+			);
+			path = ShootFeedbackView;
+			sourceTree = "<group>";
+		};
+		826706C22D21E996009B3BED /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
+			);
+			path = ScoreView;
+			sourceTree = "<group>";
+		};
+		826706C32D21E99D009B3BED /* RadarView */ = {
+			isa = PBXGroup;
+			children = (
+				82E572802D14B277002F7C4B /* RadarView.swift */,
+			);
+			path = RadarView;
+			sourceTree = "<group>";
+		};
+		826706C42D21E9A4009B3BED /* FeedbackView */ = {
+			isa = PBXGroup;
+			children = (
+				8269387F2CFB462000E03DAA /* FeedbackView.swift */,
+			);
+			path = FeedbackView;
+			sourceTree = "<group>";
+		};
+		826706C52D21E9AD009B3BED /* DroneCountView */ = {
+			isa = PBXGroup;
+			children = (
+				82560A822D06DFC500DE2210 /* DroneCountView.swift */,
+			);
+			path = DroneCountView;
+			sourceTree = "<group>";
+		};
+		826706C62D21E9B6009B3BED /* ConnectionStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				82CE89B72D0399520014E35B /* ConnectionStatusView.swift */,
+			);
+			path = ConnectionStatusView;
+			sourceTree = "<group>";
+		};
 		8269382D2CF9CEC200E03DAA /* CVPixelBuffer */ = {
 			isa = PBXGroup;
 			children = (
@@ -2045,15 +2139,16 @@
 		8285461D2CCE3E820074EBF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				82CE89B72D0399520014E35B /* ConnectionStatusView.swift */,
-				82560A822D06DFC500DE2210 /* DroneCountView.swift */,
-				8269387F2CFB462000E03DAA /* FeedbackView.swift */,
-				82E572802D14B277002F7C4B /* RadarView.swift */,
-				820611192CF1FDE3003FB6BB /* ScoreView.swift */,
-				8269387B2CFB3F1600E03DAA /* ShootFeedbackView.swift */,
-				828546192CCE3E4E0074EBF9 /* StatusBarView.swift */,
-				826937F22CF8D76600E03DAA /* VisionDebugView.swift */,
-				826938482CFA5B4D00E03DAA /* ZoomSliderControlView.swift */,
+				826706C62D21E9B6009B3BED /* ConnectionStatusView */,
+				826706C52D21E9AD009B3BED /* DroneCountView */,
+				826706C42D21E9A4009B3BED /* FeedbackView */,
+				826706B92D21E937009B3BED /* ModeSelectorView */,
+				826706C32D21E99D009B3BED /* RadarView */,
+				826706C22D21E996009B3BED /* ScoreView */,
+				826706C12D21E98F009B3BED /* ShootFeedbackView */,
+				826706C02D21E987009B3BED /* StatusBarView */,
+				826706BF2D21E97A009B3BED /* VisionDebugView */,
+				826706BE2D21E96F009B3BED /* ZoomSliderControlView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2496,6 +2591,7 @@
 				826938842CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
 				826FA9F12D00564A0029CF9C /* AchievementsResponse.swift in Sources */,
 				8285458D2CCCFE520074EBF9 /* ShootingApp.xcdatamodeld in Sources */,
+				826706B72D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */,
 				826706AA2D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */,
 				828545F22CCD14F50074EBF9 /* PlayerEntity+CoreDataProperties.swift in Sources */,
 				82E572CA2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
@@ -2602,6 +2698,7 @@
 				8269385A2CFAF21800E03DAA /* NetworkRequest.swift in Sources */,
 				828545CF2CCD0DA20074EBF9 /* MapViewController.swift in Sources */,
 				826706612D1CA61C009B3BED /* UserProfileViewController.swift in Sources */,
+				826706B42D214965009B3BED /* ModeSelectorView.swift in Sources */,
 				826706562D1C8BF6009B3BED /* UserService.swift in Sources */,
 				829EE9522D097DA800EAF8A9 /* OnboardingSheetViewController+ScrollView.swift in Sources */,
 				82E5727A2D14690F002F7C4B /* GeoObjectAnnotation.swift in Sources */,
@@ -2615,6 +2712,7 @@
 				8263386E2CEFB322009C2CED /* WalletViewModel.swift in Sources */,
 				820611822CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				826FAA0C2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
+				826706BB2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */,
 				8206110C2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826FA9FE2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				8206119E2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
@@ -2690,6 +2788,7 @@
 				826FAA112D00809F0029CF9C /* AchievementsCoordinator.swift in Sources */,
 				826FAA242D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826938672CFAF39100E03DAA /* TokenServiceProtocol.swift in Sources */,
+				826706BC2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */,
 				826338DC2CF1D996009C2CED /* UserDefaults+Keys.swift in Sources */,
 				82E572442D142512002F7C4B /* GeoObject.swift in Sources */,
 				826FA9F92D007D7C0029CF9C /* HallOfFameRequest.swift in Sources */,
@@ -2784,6 +2883,7 @@
 				82560A802D06D9A900DE2210 /* ARSceneManagerDelegate.swift in Sources */,
 				828545C22CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				82E572C12D156E08002F7C4B /* BaseNodeManager.swift in Sources */,
+				826706B62D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */,
 				820611102CF1F437003FB6BB /* OnboardingViewModelTests.swift in Sources */,
 				826706522D1C8948009B3BED /* UserDataRequest.swift in Sources */,
 				820611562CF4841C003FB6BB /* Web3ServiceProtocol.swift in Sources */,
@@ -2823,6 +2923,7 @@
 				826938752CFAF49C00E03DAA /* TokenServiceTests.swift in Sources */,
 				826938A52CFD995F00E03DAA /* NotificationManager.swift in Sources */,
 				826938282CF9CCA000E03DAA /* OnboardingUITests.swift in Sources */,
+				826706B32D214965009B3BED /* ModeSelectorView.swift in Sources */,
 				826706A12D1DEF3A009B3BED /* LoginService.swift in Sources */,
 				826938252CF9CC6B00E03DAA /* CameraPermissionViewController.swift in Sources */,
 				8269389C2CFB607D00E03DAA /* RewardService.swift in Sources */,
@@ -2839,6 +2940,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826706B82D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift in Sources */,
 				826706AE2D1EB68F009B3BED /* ForgotPasswordRequest.swift in Sources */,
 				826FAA0E2D0080220029CF9C /* HallOfFameViewModel.swift in Sources */,
 				828546212CCE46A00074EBF9 /* PlayerAnnotation.swift in Sources */,
@@ -2885,6 +2987,7 @@
 				820611702CF6A259003FB6BB /* ShotValidation.swift in Sources */,
 				826938912CFB5FDA00E03DAA /* RewardRequest.swift in Sources */,
 				826706A92D1EB2CA009B3BED /* String+IsValidEmail.swift in Sources */,
+				826706BD2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */,
 				826338722CEFB32E009C2CED /* Web3Service.swift in Sources */,
 				828546022CCD1B3E0074EBF9 /* MapViewController+LocationDelegate.swift in Sources */,
 				826938492CFA5B4D00E03DAA /* ZoomSliderControlView.swift in Sources */,
@@ -2899,6 +3002,7 @@
 				8269381C2CF9CBD900E03DAA /* WalletConnectionViewController.swift in Sources */,
 				826FAA222D0095010029CF9C /* HomeViewController+AlertHandler.swift in Sources */,
 				826FA9D92CFE07BD0029CF9C /* AppDelegate+MessagingDelegate.swift in Sources */,
+				826706B22D214965009B3BED /* ModeSelectorView.swift in Sources */,
 				82381EAC2D05D4F7008FBD86 /* UIColor+Custom.swift in Sources */,
 				828545FD2CCD18680074EBF9 /* MapViewModel.swift in Sources */,
 				82E572CB2D156E51002F7C4B /* GeoObjectNodeManager.swift in Sources */,
