@@ -25,14 +25,6 @@ final class MapViewController: UIViewController {
         return map
     }()
     
-    private lazy var handleBar: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
-        view.layer.cornerRadius = 2.5
-        return view
-    }()
-    
     private lazy var playersButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -41,17 +33,6 @@ final class MapViewController: UIViewController {
         button.tintColor = .white
         button.layer.cornerRadius = 25
         button.addTarget(self, action: #selector(playersButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var dismissButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        button.backgroundColor = .systemBlue
-        button.tintColor = .white
-        button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -135,41 +116,29 @@ final class MapViewController: UIViewController {
         view.layer.cornerRadius = 20
         view.clipsToBounds = true
         
-        view.addSubview(handleBar)
         view.addSubview(mapView)
         view.addSubview(playersButton)
-        view.addSubview(dismissButton)
         view.addSubview(tableView)
         view.addSubview(closeListButton)
         view.addSubview(emptyStateView)
         
         NSLayoutConstraint.activate([
-            handleBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 17),
-            handleBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            handleBar.widthAnchor.constraint(equalToConstant: 40),
-            handleBar.heightAnchor.constraint(equalToConstant: 5),
-            
-            mapView.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 24),
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            playersButton.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 32),
+            playersButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             playersButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             playersButton.widthAnchor.constraint(equalToConstant: 50),
             playersButton.heightAnchor.constraint(equalToConstant: 50),
             
-            dismissButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            dismissButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
-            dismissButton.widthAnchor.constraint(equalToConstant: 50),
-            dismissButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            tableView.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 24),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            closeListButton.topAnchor.constraint(equalTo: handleBar.bottomAnchor, constant: 32),
+            closeListButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             closeListButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             closeListButton.widthAnchor.constraint(equalToConstant: 50),
             closeListButton.heightAnchor.constraint(equalToConstant: 50),
@@ -309,7 +278,6 @@ final class MapViewController: UIViewController {
     @objc private func playersButtonTapped() {
         mapView.isHidden = true
         playersButton.isHidden = true
-        dismissButton.isHidden = true
         tableView.isHidden = false
         closeListButton.isHidden = false
         tableView.reloadData()
@@ -321,14 +289,9 @@ final class MapViewController: UIViewController {
     @objc private func closeListButtonTapped() {
         mapView.isHidden = false
         playersButton.isHidden = false
-        dismissButton.isHidden = false
         tableView.isHidden = true
         closeListButton.isHidden = true
         emptyStateView.isHidden = true
-    }
-    
-    @objc private func dismissButtonTapped() {
-        dismiss(animated: true)
     }
     
     // MARK: - handleNewDrone(_:)
