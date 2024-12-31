@@ -18,7 +18,20 @@ struct TokenBalanceRequest: NetworkRequest {
     
     var method: String { "GET" }
     
+    private var token: String? {
+        do {
+            return try KeychainManager.shared.readToken()
+        } catch {
+            print("Error reading token: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     var headers: [String: String] {
-        ["Content-Type": "application/json"]
+        var headers = ["Content-Type": "application/json"]
+        if let token = token {
+            headers["Authorization"] = "Bearer \(token)"
+        }
+        return headers
     }
 }

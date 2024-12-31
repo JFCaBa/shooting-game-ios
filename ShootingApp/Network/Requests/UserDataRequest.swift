@@ -11,7 +11,7 @@ struct UserDataRequest: NetworkRequest {
     var body: Data?
     
     var path: String {
-        "api/v1/players/addPlayerDetails"
+        "api/v1/players/addPlayerDetails" // Sign up
     }
     
     var method: String { "PUT" }

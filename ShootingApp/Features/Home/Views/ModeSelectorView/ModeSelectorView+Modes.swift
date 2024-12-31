@@ -14,7 +14,8 @@ extension ModeSelectorView {
         case game = "GAME"
         case achievements = "ACHIEVEMENTS"
         case hallOfFame = "HALL OF FAME"
+        case wallet = "WALLET"
         
-        static let modes: [Mode] = [.inventory, .map, .game, .achievements, hallOfFame]
+        static let modes: [Mode] = [.inventory, .map, .game, .achievements, .hallOfFame, .wallet]
     }
 }

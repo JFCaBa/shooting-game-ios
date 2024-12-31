@@ -54,6 +54,8 @@ final class WalletViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.setTitle("Connect MetaMask", for: .normal)
         button.addTarget(self, action: #selector(connectTapped), for: .touchUpInside)
+        // TODO: Remove metamask and integrate APTOS wallet
+        button.isHidden = true
         return button
     }()
     
