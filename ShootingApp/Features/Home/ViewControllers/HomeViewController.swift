@@ -103,7 +103,6 @@ final class HomeViewController: UIViewController {
     
     private lazy var modeSelectorView: ModeSelectorView = {
         let selector = ModeSelectorView(frame: .zero)
-        selector.setInitialCenteredIndex(2)
         selector.translatesAutoresizingMaskIntoConstraints = false
         return selector
     }()
@@ -247,6 +246,7 @@ final class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         showOnboardingIfNeeded()
+        modeSelectorView.setInitialCenteredIndex(2) // 2 == GAME
     }
     
     // MARK: - setupBindings()
@@ -443,10 +443,10 @@ final class HomeViewController: UIViewController {
             modeSelectorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             // Radar View
-            radarView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor, constant: 16),
-            radarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            radarView.widthAnchor.constraint(equalToConstant: 120),
-            radarView.heightAnchor.constraint(equalToConstant: 120),
+            radarView.centerYAnchor.constraint(equalTo: shootButton.centerYAnchor),
+            radarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            radarView.widthAnchor.constraint(equalToConstant: 60),
+            radarView.heightAnchor.constraint(equalToConstant: 60),
             
             // Container view
             contentContainerView.topAnchor.constraint(equalTo: topContainerView.bottomAnchor),
@@ -470,8 +470,8 @@ final class HomeViewController: UIViewController {
             
             switch mode {
             case .inventory:
-                self.showAlert(title: "Info", message: "Coming soon...")
-                self.contentContainerView.isHidden = true
+                let inventoryVC = EmptyStateViewController(configuration: .noData(title: "Comming soon"))
+                self.addViewController(inventoryVC)
                 
             case .map:
                 let mapVC = MapViewController()
@@ -488,6 +488,10 @@ final class HomeViewController: UIViewController {
             case .hallOfFame:
                 let hallOfFameVC = HallOfFameViewController(viewModel: HallOfFameViewModel())
                 self.addViewController(hallOfFameVC)
+                
+            case .wallet:
+                let walletVC = WalletViewController()
+                self.addViewController(walletVC)
             }
         }
     }

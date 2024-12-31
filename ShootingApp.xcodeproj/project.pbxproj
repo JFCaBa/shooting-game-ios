@@ -252,6 +252,9 @@
 		826706BB2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
 		826706BC2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
 		826706BD2D21E948009B3BED /* ModeSelectorView+Modes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */; };
+		826706C82D23FD0B009B3BED /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706C72D23FD0B009B3BED /* InventoryViewController.swift */; };
+		826706C92D23FD0B009B3BED /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706C72D23FD0B009B3BED /* InventoryViewController.swift */; };
+		826706CA2D23FD0B009B3BED /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826706C72D23FD0B009B3BED /* InventoryViewController.swift */; };
 		826937F32CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F42CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
 		826937F52CF8D76600E03DAA /* VisionDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 826937F22CF8D76600E03DAA /* VisionDebugView.swift */; };
@@ -751,6 +754,7 @@
 		826706B12D214965009B3BED /* ModeSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorView.swift; sourceTree = "<group>"; };
 		826706B52D21D4FF009B3BED /* ModeSelectorView+ModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeSelectorView+ModeCell.swift"; sourceTree = "<group>"; };
 		826706BA2D21E948009B3BED /* ModeSelectorView+Modes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeSelectorView+Modes.swift"; sourceTree = "<group>"; };
+		826706C72D23FD0B009B3BED /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		826937F22CF8D76600E03DAA /* VisionDebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDebugView.swift; sourceTree = "<group>"; };
 		826937F62CF8D78A00E03DAA /* HomeViewController+VisionDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+VisionDebug.swift"; sourceTree = "<group>"; };
 		826937FA2CF8D99800E03DAA /* AntiCheatDebugDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiCheatDebugDelegate.swift; sourceTree = "<group>"; };
@@ -1591,6 +1595,30 @@
 			path = ConnectionStatusView;
 			sourceTree = "<group>";
 		};
+		826706CB2D23FD11009B3BED /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				826706CC2D23FD1A009B3BED /* ViewControllers */,
+				826706CD2D23FD22009B3BED /* ViewModels */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
+		826706CC2D23FD1A009B3BED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				826706C72D23FD0B009B3BED /* InventoryViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		826706CD2D23FD22009B3BED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		8269382D2CF9CEC200E03DAA /* CVPixelBuffer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1977,6 +2005,7 @@
 				826FA9DA2CFF1A5D0029CF9C /* Settings */,
 				826706622D1CA622009B3BED /* UserProfile */,
 				8263386B2CEFB30F009C2CED /* Wallet */,
+				826706CB2D23FD11009B3BED /* Inventory */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -2716,6 +2745,7 @@
 				8206110C2CF1DCF3003FB6BB /* OnboardingViewModel.swift in Sources */,
 				826FA9FE2D007DE60029CF9C /* HallOfFameService.swift in Sources */,
 				8206119E2CF6A648003FB6BB /* AntiCheatSystemProtocol.swift in Sources */,
+				826706C82D23FD0B009B3BED /* InventoryViewController.swift in Sources */,
 				8206118A2CF6A2A1003FB6BB /* LocationValidationSystem.swift in Sources */,
 				826706412D1C0DCE009B3BED /* UserCreationViewController.swift in Sources */,
 				826938892CFB5E3700E03DAA /* RewardResponse.swift in Sources */,
@@ -2755,6 +2785,7 @@
 				828545BD2CCCFF520074EBF9 /* AppCoordinator.swift in Sources */,
 				826938AA2CFD99A600E03DAA /* AppDelegate+Notifications.swift in Sources */,
 				826938852CFB5E0400E03DAA /* RewardServiceProtocol.swift in Sources */,
+				826706CA2D23FD0B009B3BED /* InventoryViewController.swift in Sources */,
 				820611832CF6A28D003FB6BB /* AntiCheatSystem.swift in Sources */,
 				826706942D1DD545009B3BED /* LoginCoordinator.swift in Sources */,
 				826FA9DF2CFF1A770029CF9C /* SettingsViewController.swift in Sources */,
@@ -2949,6 +2980,7 @@
 				82F3A6B02D0DA58400EAB48E /* ARDroneNode+BoxDrone.swift in Sources */,
 				828545C32CCD007B0074EBF9 /* HomeViewController.swift in Sources */,
 				828545C72CCD00A10074EBF9 /* HomeViewModel.swift in Sources */,
+				826706C92D23FD0B009B3BED /* InventoryViewController.swift in Sources */,
 				8285460B2CCE356F0074EBF9 /* CLLocation+Bearing.swift in Sources */,
 				8206119B2CF6A39A003FB6BB /* MockLocationValidationService.swift in Sources */,
 				82E572672D1439DB002F7C4B /* GeoObjectGroupManager.swift in Sources */,

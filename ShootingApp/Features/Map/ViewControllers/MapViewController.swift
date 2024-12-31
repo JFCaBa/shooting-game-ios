@@ -113,8 +113,6 @@ final class MapViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
         
         view.addSubview(mapView)
         view.addSubview(playersButton)

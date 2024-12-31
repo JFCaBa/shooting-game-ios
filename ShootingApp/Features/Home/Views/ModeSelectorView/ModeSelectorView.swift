@@ -18,8 +18,8 @@ final class ModeSelectorView: UIView {
     private lazy var collectionView: UICollectionView = {
         let layout = CenterAlignedCollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 15
-        layout.minimumInteritemSpacing = 15
+        layout.minimumLineSpacing = cellSpacing
+        layout.minimumInteritemSpacing = cellSpacing
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
@@ -41,7 +41,7 @@ final class ModeSelectorView: UIView {
     private var initialCenterIndex: Int = 0
     private var onModeSelect: ((ModeSelectorView.Mode) -> Void)?
     private var currentCenteredIndex: Int = -1
-    private let cellSpacing: CGFloat = 15
+    private let cellSpacing: CGFloat = 0
     
     // MARK: - init(frame:)
     
@@ -74,6 +74,7 @@ final class ModeSelectorView: UIView {
         if isLayoutComplete {
             centerItemAtIndex(initialCenterIndex, animated: false)
         }
+        updateCellStates()
     }
     
     func setOnModeSelect(_ callback: @escaping (ModeSelectorView.Mode) -> Void) {
@@ -263,7 +264,7 @@ extension ModeSelectorView: UICollectionViewDataSource, UICollectionViewDelegate
         }
         
         // Add the spacing between cells
-        let totalSpacing = CGFloat(modes.count - 1) * 15
+        let totalSpacing = CGFloat(modes.count - 1) * cellSpacing
         
         // Calculate the insets needed to center the content
         let horizontalInset = (collectionView.bounds.width - totalWidth - totalSpacing) / 2

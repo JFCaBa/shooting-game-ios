@@ -22,6 +22,6 @@ final class NotificationsPermissionViewModel: BaseOnboardingViewModel {
     }
     
     override func skip() {
-        coordinator?.showPermissionsPage(.wallet)
+        coordinator?.finishOnboarding()
     }
 }
